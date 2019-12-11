@@ -67,7 +67,7 @@ router.post('/verify', async(req, res)=>{
             const currentCount = sapId.counter;
             const newCount = sapId.counter + 1;
             let counter = await sapIdCounter.findOneAndUpdate({id: "sapIdCounter"},{counter: newCount});
-            let studAmb = await studentAmbassador.findOneAndUpdate({email: email},{sapId: currentCount});
+            let studAmb = await studentAmbassador.findOneAndUpdate({email: email},{sapId: currentCount, isVerified: true});
             return res.json({status: 200, sapId: newCount, message: "Successfully verified!"});
         }
         else{
