@@ -92,6 +92,8 @@ function execute() {
 	var q4 = $("#q4").val();
 	var q5 = $("#q5").val();
 
+	
+
 	if (name === "") {
 		$("#name").show();
 		return;
@@ -119,23 +121,20 @@ function execute() {
 	// 	return
 	// }
 
-	let url1 = "http://localhost:";
+	let url1 = "http://localhost:5000";
 	$.ajax({
-		url: url1 + "/",
+		url: url1 + "/sap/register",
 		method: "POST",
 		data: {
-
 			name: name,
 			email: email,
 			phone: phone,
 			college: college,
-			q1: q1,
-			q2: q2,
-			q3: q3,
-			q4: q4,
-			q5: q5
-
-
+			ans1: q1,
+			ans2: q2,
+			ans3: q3,
+			ans4: q4,
+			ans5: q5
 		},
 		crossDomain: true,
 		success: function (res) {
@@ -145,7 +144,5 @@ function execute() {
 			console.log(err);
 			alert(err);
 		}
-
-
 	});
 }
