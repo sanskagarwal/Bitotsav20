@@ -2,10 +2,16 @@ const express = require('express');
 const router = express.Router();
 const studentAmbassador = require('../models/studentAmbassador');
 const sapIdCounter = require('../models/sapIdCounter');
+const { validationResult } = require('express-validator/check');
+const { validate } = require('./../utils/validation');
+const sendEmail = require('./../utils/sendEmail');
 
-
-router.post('/register', async (req, res) => {
-
+router.post('/register', validate('sapUser'), async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(422).json({ errors: errors[0] });
+        return;
+    }
     console.log(req.body);
 
     let name = req.body.name;
@@ -19,12 +25,7 @@ router.post('/register', async (req, res) => {
     let ans5 = req.body.ans5;
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-
-
     //validation
-
-
-
 
     try {
         //create new student ambassador document
@@ -41,41 +42,47 @@ router.post('/register', async (req, res) => {
             ans5: ans5
         });
 
-        const newSAPDoc = await newStudentAmbassador.save();
+        await newStudentAmbassador.save();
+        res.json({ status: 200, message: "Registered successfully, OTP sent to email." });
 
-        return res.json({status: 200, message: "Registered successfully!" ,user: newSAPDoc});
-    }
-
-    catch(e){
-        return res.json({status: 500, message: "Server error!"});
+        sendEmail(`
+                    <h2 align="center">Bitotsav</h2>
+                    <p>
+                    Hi,<br><br>
+                    Your Email Otp is: ${otp}.<br>
+                    Regards,<br>
+                    Web Team,<br>
+                    Bitotsav '19</p>
+                `, 
+                email
+        );
+    } catch (e) {
+        return res.json({ status: 500, message: "Server error!" });
     }
 });
 
-
-
-
-router.post('/verify', async(req, res)=>{
+router.post('/verify', validate('verifySapUser'), async (req, res) => {
 
     const otp = req.body.otp;
     const email = req.body.email;
     //can use phone otp also alternatively
 
-    try{
-        let ambassador = await studentAmbassador.findOne({email: email});
-        if(ambassador.otp === otp){
-            const sapId = await sapIdCounter.findOne({id: "sapIdCounter"});
+    try {
+        let ambassador = await studentAmbassador.findOne({ email: email });
+        if (ambassador.otp === otp) {
+            const sapId = await sapIdCounter.findOne({ id: "sapIdCounter" });
             const currentCount = sapId.counter;
             const newCount = sapId.counter + 1;
-            let counter = await sapIdCounter.findOneAndUpdate({id: "sapIdCounter"},{counter: newCount});
-            let studAmb = await studentAmbassador.findOneAndUpdate({email: email},{sapId: currentCount, isVerified: true});
-            return res.json({status: 200, sapId: newCount, message: "Successfully verified!"});
+            await sapIdCounter.findOneAndUpdate({ id: "sapIdCounter" }, { counter: newCount });
+            await studentAmbassador.findOneAndUpdate({ email: email }, { sapId: currentCount, isVerified: true });
+            return res.json({ status: 200, sapId: newCount, message: "Successfully verified!" });
         }
-        else{
-            return res.json({status: 401, message: "Invalid OTP!!"});
+        else {
+            return res.json({ status: 401, message: "Invalid OTP!!" });
         }
     }
-    catch(e){
-        return res.json({status: 500, message: "Server error!!"});
+    catch (e) {
+        return res.json({ status: 500, message: "Server error!!" });
     }
 });
 

@@ -1,7 +1,7 @@
 const year = new Date().getFullYear();
 const start_date = new Date((year + 1), 1, 14).getTime();
 
-let timer = setInterval(function () {
+let timer = setTimeout(function () {
 
     const today = new Date().getTime();
     const diff = start_date - today;
@@ -13,14 +13,14 @@ let timer = setInterval(function () {
 
     // display
     document.getElementById("timer").innerHTML =
-        "<div class=\"days\"> \
+        "<div class=\"col-sm-3 days\"> \
   <div class=\"numbers\">" + days + "</div>days</div> \
-<div class=\"hours\"> \
+<div class=\"col-sm-3 hours\"> \
   <div class=\"numbers\">" + hours + "</div>hours</div> \
-<div class=\"minutes\"> \
+<div class=\"col-sm-3 minutes\"> \
   <div class=\"numbers\">" + minutes + "</div>minutes</div> \
-<div class=\"seconds\"> \
+<div class=\"col-sm-3 seconds\"> \
   <div class=\"numbers\">" + seconds + "</div>seconds</div> \
 </div>";
 
-}, 1000);
+}, 100);

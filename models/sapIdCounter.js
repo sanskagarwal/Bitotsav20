@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const sapIdCounterSchema = new mongoose.Schema({
-    counter:{
+    counter: {
         type: Number,
         default: 2000001
     },
-    id:{
+    id: {
         type: String,
         default: "sapIdCounter"
     }

@@ -1,52 +1,64 @@
 const mongoose = require('mongoose');
 
 const studentAmbassadorSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        required: true
-    },
-    email:{
+    name: {
         type: String,
         required: true,
-        unique: true
+        trim: true
     },
-    college:{
+    email: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        trim: true
     },
-    phone:{
+    college: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    phone: {
         type: Number,
         required: true
     },
-    sapId:{
-        type: Number
+    sapId: {
+        type: Number,
+        default: -1
     },
-    otp:{
-        type:String
+    otp: {
+        type: String
     },
-    isVerified:{
+    isVerified: {
         type: Boolean,
         default: false
     },
-    ans1:{
+    ans1: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    ans2:{
+    ans2: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    ans3:{
+    ans3: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    ans4:{
+    ans4: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    ans5:{
+    ans5: {
         type: String,
-        required: true
+        required: true,
+        trim: true
+    },
+    dummy1: {
+        type: String
     }
 });
 
