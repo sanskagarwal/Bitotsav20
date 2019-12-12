@@ -146,7 +146,7 @@ h6 {
 #header.header-pages {
   height: 60px;
   padding: 10px 0;
-  background: rgb(7, 97, 199);
+  background: #0b5099;
 }
 
 #header .logo h1 {
@@ -161,7 +161,7 @@ h6 {
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #00366f;
+  color: #094b92;
   text-decoration: none;
 }
 
@@ -860,6 +860,65 @@ h6 {
   color: #2341aa;
 }
 
+
+/*--------------------------------------------------------------
+# Regsiter
+--------------------------------------------------------------*/
+
+#register .form #sendmessage {
+  color: #007bff;
+  border: 1px solid #007bff;
+  display: none;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#register .form #errormessage {
+  color: red;
+  display: none;
+  border: 1px solid red;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#register .form #sendmessage.show,
+#register .form #errormessage.show,
+#register .form .show {
+  display: block;
+}
+
+#register .form .validation {
+  color: red;
+  display: none;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+#register .form input,
+#register .form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+#register .form button[type="submit"] {
+  background: #007bff;
+  border: 0;
+  border-radius: 20px;
+  padding: 8px 30px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+#register .form button[type="submit"]:hover {
+  background: #0067d5;
+  cursor: pointer;
+}
 
 /*--------------------------------------------------------------
 # Footer
