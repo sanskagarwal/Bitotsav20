@@ -2,17 +2,17 @@ const express = require('express');
 const router = express.Router();
 const studentAmbassador = require('../models/studentAmbassador');
 const sapIdCounter = require('../models/sapIdCounter');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 const { validate } = require('./../utils/validation');
 const sendEmail = require('./../utils/sendEmail');
 
 router.post('/register', validate('sapUser'), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        res.status(422).json({ errors: errors[0] });
+        console.log(errors.errors);
+        res.json({ status: 422, msg: errors.errors[0].msg });
         return;
     }
-    console.log(req.body);
 
     let name = req.body.name;
     let email = req.body.email;
@@ -42,20 +42,30 @@ router.post('/register', validate('sapUser'), async (req, res) => {
             ans5: ans5
         });
 
-        await newStudentAmbassador.save();
-        res.json({ status: 200, message: "Registered successfully, OTP sent to email." });
+        const sapUser = await studentAmbassador.findOne({ email: email });
+        if (sapUser) {
+            return res.json({ status: 400, message: "Email Already Regsitered." });
+        }
 
-        sendEmail(`
+        await newStudentAmbassador.save();
+        res.json({ status: 200, msg: "Registered successfully, OTP sent to email." });
+
+        try {
+            sendEmail(`
                     <h2 align="center">Bitotsav</h2>
                     <p>
                     Hi,<br><br>
-                    Your Email Otp is: ${otp}.<br>
+                    Your Otp for SAP email verification is: ${otp}.<br><br>
                     Regards,<br>
-                    Web Team,<br>
-                    Bitotsav '19</p>
-                `, 
+                    Web Team<br>
+                    Bitotsav'20</p>
+                `,
                 email
-        );
+            );
+        } catch (e) {
+            console.log("Mail error");
+            return console.log(e);
+        }
     } catch (e) {
         return res.json({ status: 500, message: "Server error!" });
     }
@@ -69,16 +79,21 @@ router.post('/verify', validate('verifySapUser'), async (req, res) => {
 
     try {
         let ambassador = await studentAmbassador.findOne({ email: email });
+
+        if(!ambassador) {
+            return res.json({ status: 400, msg: "Bad Request!!" });
+        }
+
         if (ambassador.otp === otp) {
             const sapId = await sapIdCounter.findOne({ id: "sapIdCounter" });
             const currentCount = sapId.counter;
             const newCount = sapId.counter + 1;
             await sapIdCounter.findOneAndUpdate({ id: "sapIdCounter" }, { counter: newCount });
             await studentAmbassador.findOneAndUpdate({ email: email }, { sapId: currentCount, isVerified: true });
-            return res.json({ status: 200, sapId: newCount, message: "Successfully verified!" });
+            return res.json({ status: 200, msg: `Successfully verified! Your SAP id is ${newCount}, Further Details will be sent to your Email.` });
         }
         else {
-            return res.json({ status: 401, message: "Invalid OTP!!" });
+            return res.json({ status: 401, msg: "Invalid OTP!!" });
         }
     }
     catch (e) {

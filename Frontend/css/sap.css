@@ -873,8 +873,8 @@ h6 {
 --------------------------------------------------------------*/
 
 #register .form #sendmessage {
-  color: #007bff;
-  border: 1px solid #007bff;
+  color: #23df2d;
+  /* border: 1px solid #23df2d; */
   display: none;
   text-align: center;
   padding: 15px;
@@ -882,10 +882,14 @@ h6 {
   margin-bottom: 15px;
 }
 
+#verifyMessage {
+    display: none;
+}
+
 #register .form #errormessage {
   color: red;
   display: none;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -914,11 +918,11 @@ h6 {
 }
 
 #register .form button[type="submit"] {
-  background: #007bff;
+  /* background: #007bff;
   border: 0;
   border-radius: 20px;
   padding: 8px 30px;
-  color: #fff;
+  color: #fff; */
   transition: 0.3s;
 }
 

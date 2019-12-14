@@ -20,8 +20,10 @@ const sendEmail = (htmlMessage, email) => {
     };
     transport.sendMail(message, function (err, info) {
         if (err) {
+            console.log(err);
             return;
         } else {
+            console.log("Email Sent");
         }
     });
 }

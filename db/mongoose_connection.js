@@ -4,8 +4,11 @@ const config = require('../config');
 //MongoDb Connections
 function connect() {
 
-    mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
-
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true);
+    mongoose.connect(config.mongoURL, { useUnifiedTopology: true });
+    
     mongoose.connection.once('open', function () {
         console.log("Database connection opened");
     });

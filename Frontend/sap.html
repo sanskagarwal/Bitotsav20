@@ -236,7 +236,7 @@
                                     regarding the College Ambassador program? <i class="fa fa-minus-circle"></i></a>
                                 <div id="faq6" class="collapse" data-parent="#faq-list">
                                     <p>
-                                        You can contact us at helpsap@bitotsav.in
+                                        You can contact us at info@bitotsav.in
                                     </p>
                                 </div>
                             </li>
@@ -258,19 +258,16 @@
                 </header>
 
                 <div class="form" id="register">
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
-                    <div id="errormessage"></div>
-
-                    <form action="" method="" role="form" class="registerForm" onsubmit=event.preventDefault()>
+                    <form id='sapRegister' action="" method="" role="form" class="registerForm">
                         <div class="form-row">
                             <div class="form-group col-lg-6">
-                                <label for="name">Full Name:</label>
+                                <label for="name">Full Name</label>
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
                                     autocomplete="off" required />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="college">College Name:</label>
+                                <label for="college">College Name</label>
                                 <input type="text" class="form-control" name="college" id="college"
                                     placeholder="Your College Name" autocomplete="off" required />
                                 <div class="validation"></div>
@@ -279,13 +276,13 @@
 
                         <div class="form-row">
                             <div class="form-group col-lg-6">
-                                <label for="email">Email address:</label>
+                                <label for="email">Email address</label>
                                 <input type="email" name="email" class="form-control" id="email"
                                     placeholder="Your Email" autocomplete="off" required />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="phone">Phone Number:</label>
+                                <label for="phone">Phone Number</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
                                     placeholder="Phone number" autocomplete="off" required />
                                 <div class="validation"></div>
@@ -295,15 +292,15 @@
                         <div class="form-group">
                             <label for="q1">Why do you wish to become the Student Ambassador of your college? (Max 500
                                 chars)</label>
-                            <textarea class="form-control" name="q1" rows="5" id="q1" placeholder=""
-                                autocomplete="off" required></textarea>
+                            <textarea class="form-control" name="q1" rows="5" id="q1" placeholder="" autocomplete="off"
+                                required></textarea>
                             <div class="validation"></div>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="q2">How long have you been enrolled in your college?</label>
-                            <textarea class="form-control" name="q2" rows="5" id="q2" placeholder=""
-                                autocomplete="off" required></textarea>
+                            <textarea class="form-control" name="q2" rows="5" id="q2" placeholder="" autocomplete="off"
+                                required></textarea>
                             <div class="validation"></div>
                         </div>
 
@@ -312,8 +309,8 @@
                             <label for="q3">Do you have any other commitments in the month of January-February 2020?
                                 (Max 500
                                 chars)</label>
-                            <textarea class="form-control" name="q3" rows="5" id="q3" placeholder=""
-                                autocomplete="off" required></textarea>
+                            <textarea class="form-control" name="q3" rows="5" id="q3" placeholder="" autocomplete="off"
+                                required></textarea>
                             <div class="validation"></div>
                         </div>
                         <br>
@@ -321,28 +318,67 @@
                         <div class="form-group">
                             <label for="q4">Do you have any club related experience in your college? (Max 500
                                 chars)</label>
-                            <textarea class="form-control" name="q4" rows="5" id="q4" placeholder=""
-                                autocomplete="off" required></textarea>
+                            <textarea class="form-control" name="q4" rows="5" id="q4" placeholder="" autocomplete="off"
+                                required></textarea>
                             <div class="validation"></div>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="q5">How many participants can we expect if you are made the Student
                                 Ambassador?</label>
-                            <textarea class="form-control" name="q5" rows="5" id="q5" placeholder=""
-                                autocomplete="off" required></textarea>
+                            <textarea class="form-control" name="q5" rows="5" id="q5" placeholder="" autocomplete="off"
+                                required></textarea>
                             <div class="validation"></div>
                         </div>
 
                         <br>
 
-                        <div class="text-center"><button type="submit" title="Register"
-                                onsubmit="execute()">Register</button></div>
+                        <div id="sendmessage"></div>
+                        <div id="errormessage"></div>
+
+                        <div class="text-center"><button class="btn btn-outline-primary" type="submit"
+                                title="Register">Register</button></div>
+
+
                     </form>
                 </div>
             </div>
             <br><br>
         </section>
+        <div class="modal" id="verifyModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Verify Email</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id='sapVerify'>
+                            <div class="form-group">
+                                <label for="verifyEmail">Email</label>
+                                <input type="text" name="email" class="form-control" id="verifyEmail" autocomplete="off"
+                                    disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="otp">OTP</label>
+                                <input type="text" name="otp" class="form-control" id="otp" autocomplete="off" required
+                                    placeholder="Email OTP" />
+                            </div>
+
+                            <div id='verifyMessage'></div>
+
+                            <div class="text-center"><button class="btn btn-outline-success" type="submit"
+                                    title="Verify">Verify</button></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <div class="video-section" id="contact">
             <div class="section-header text-center">
@@ -381,8 +417,10 @@
                         </div>
                         <br><br>
                         <div class="social-links text-center">
-                            <a target="_blank" href="https://www.facebook.com/bitotsav" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a target="_blank" href="https://www.instagram.com/bitotsav_20" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/bitotsav" class="facebook"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/bitotsav_20" class="instagram"><i
+                                    class="fa fa-instagram"></i></a>
                         </div>
 
                     </div>
@@ -424,9 +462,9 @@
 
 
     <!-- Template Main Javascript File -->
-    <script src="js/main.js"></script>
+    <script src="js/sap.js"></script>
     <!-- Ajax Javascript File -->
-    <script src="js/register.js"></script>
+    <script src="js/sapRegister.js"></script>
 
 </body>
 
