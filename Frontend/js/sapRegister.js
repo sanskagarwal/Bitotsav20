@@ -1,5 +1,6 @@
 let url1 = "http://localhost:5000";
-
+$("#loadshow1").hide();
+$("#loadshow2").hide();
 //form ajax
 $("#sapRegister").submit(function (e) {
     e.preventDefault();
@@ -44,7 +45,8 @@ $("#sapRegister").submit(function (e) {
     // 	$("#errormessage).text("enter 10 digit number");
     // 	return
     // }
-
+    $("#registerbtn").attr("disabled", true);
+    $("#loadshow1").show();
     $.ajax({
         url: url1 + "/sap/register",
         method: "POST",
@@ -85,7 +87,8 @@ $("#sapVerify").submit(function (e) {
 
     var email = $("#verifyEmail").val();
     var otp = $("#otp").val();
-
+    $("#verifybtn").attr("disabled", true);
+    $("#loadshow2").show();
     $.ajax({
         url: url1 + "/sap/verify",
         method: "POST",
@@ -98,11 +101,11 @@ $("#sapVerify").submit(function (e) {
             console.log(res);
             if (res.status !== 200) {
                 $("#verifyMessage").text("*" + res.msg);
-                $("#verifyMessage").css({"color": "red", "display": "block"});
+                $("#verifyMessage").css({ "color": "red", "display": "block" });
                 return;
             }
             $("#verifyMessage").text("*" + res.msg);
-            $("#verifyMessage").css({"color": "green", "display": "block"});
+            $("#verifyMessage").css({ "color": "green", "display": "block" });
         },
         error: function (err) {
             console.log(err);
