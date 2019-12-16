@@ -1,4 +1,4 @@
-let url1 = "http://localhost:5000";
+let url1 = "https://bitotsav.in/api";
 $("#loadshow1").hide();
 $("#loadshow2").hide();
 //form ajax
@@ -47,38 +47,48 @@ $("#sapRegister").submit(function (e) {
     // }
     $("#registerbtn").attr("disabled", true);
     $("#loadshow1").show();
-    $.ajax({
-        url: url1 + "/sap/register",
-        method: "POST",
-        data: {
-            name: name,
-            email: email,
-            phone: phone,
-            college: college,
-            ans1: q1,
-            ans2: q2,
-            ans3: q3,
-            ans4: q4,
-            ans5: q5
-        },
-        crossDomain: true,
-        success: function (res) {
-            console.log(res);
 
-            if (res.status !== 200) {
-                $("#errormessage").text("*" + res.msg);
-                $("#errormessage").css({ "display": "block" });
-                return;
-            }
-            $("#sendmessage").text("*" + res.msg);
-            $("#sendmessage").css({ "display": "block" });
-            $("#verifyEmail").val(email);
-            $('#verifyModal').modal('show');
-        },
-        error: function (err) {
-            console.log(err);
-            alert(err);
-        }
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ', { action: 'sapRegister' }).then(function (token) {
+            $.ajax({
+                url: url1 + "/sap/register",
+                method: "POST",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    college: college,
+                    ans1: q1,
+                    ans2: q2,
+                    ans3: q3,
+                    ans4: q4,
+                    ans5: q5,
+                    captchaToken: token
+                },
+                crossDomain: true,
+                success: function (res) {
+                    console.log(res);
+
+                    if (res.status !== 200) {
+                        $("#errormessage").text("*" + res.msg);
+                        $("#errormessage").css({ "display": "block" });
+                        $("#registerbtn").attr("disabled", false);
+                        $("#loadshow1").hide();
+                        return;
+                    }
+                    $("#sendmessage").text("*" + res.msg);
+                    $("#sendmessage").css({ "display": "block" });
+                    $("#loadshow1").hide();
+                    $("#verifyEmail").val(email);
+                    $('#verifyModal').modal('show');
+                },
+                error: function (err) {
+                    $("#registerbtn").attr("disabled", false);
+                    $("#loadshow1").hide();
+                    console.log(err);
+                }
+            });
+        });
     });
 });
 
@@ -89,27 +99,36 @@ $("#sapVerify").submit(function (e) {
     var otp = $("#otp").val();
     $("#verifybtn").attr("disabled", true);
     $("#loadshow2").show();
-    $.ajax({
-        url: url1 + "/sap/verify",
-        method: "POST",
-        data: {
-            email: email,
-            otp: otp
-        },
-        crossDomain: true,
-        success: function (res) {
-            console.log(res);
-            if (res.status !== 200) {
-                $("#verifyMessage").text("*" + res.msg);
-                $("#verifyMessage").css({ "color": "red", "display": "block" });
-                return;
-            }
-            $("#verifyMessage").text("*" + res.msg);
-            $("#verifyMessage").css({ "color": "green", "display": "block" });
-        },
-        error: function (err) {
-            console.log(err);
-            alert(err);
-        }
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ', { action: 'sapRegister' }).then(function (token) {
+            $.ajax({
+                url: url1 + "/sap/verify",
+                method: "POST",
+                data: {
+                    email: email,
+                    otp: otp,
+                    captchaToken: token
+                },
+                crossDomain: true,
+                success: function (res) {
+                    console.log(res);
+                    if (res.status !== 200) {
+                        $("#verifyMessage").text("*" + res.msg);
+                        $("#verifyMessage").css({ "color": "red", "display": "block" });
+                        $("#verifybtn").attr("disabled", false);
+                        $("#loadshow2").hide();
+                        return;
+                    }
+                    $("#loadshow2").hide();
+                    $("#verifyMessage").text("*" + res.msg);
+                    $("#verifyMessage").css({ "color": "green", "display": "block" });
+                },
+                error: function (err) {
+                    $("#verifybtn").attr("disabled", false);
+                    $("#loadshow2").hide();
+                    console.log(err);
+                }
+            });
+        });
     });
 });

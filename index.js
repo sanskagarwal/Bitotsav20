@@ -5,7 +5,7 @@ const cors = require('cors');
 const config = require('./config');
 const app = express();
 const connectDB = require('./db/mongoose_connection');
-const sap = require('./routes/sap');
+const controller = require('./routes/controller');
 
 
 //database connection
@@ -16,8 +16,7 @@ connectDB();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/sap', sap);
-
+app.use('/api', controller);
 
 //port setup
 const port = process.env.PORT || config.port;
