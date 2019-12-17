@@ -1,7 +1,7 @@
 const year = new Date().getFullYear();
 const start_date = new Date((year + 1), 1, 14).getTime();
 
-let timer = setTimeout(function () {
+let timer = setInterval(function () {
 
     const today = new Date().getTime();
     const diff = start_date - today;

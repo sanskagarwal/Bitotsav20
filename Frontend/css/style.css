@@ -7,7 +7,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: burlywood;
+    background: url("/images/bgPC.jpg");
     height: 100%;
     overflow-x: hidden;
 }
@@ -64,20 +64,20 @@ h1 {
 }
 
 .days {
-    background: #EF2F3C;
+    background: #f4004b;
 }
 
 .hours {
-    background: #F6F4F3;
+    background: #700022;
     color: #183059;
 }
 
 .minutes {
-    background: #276FBF;
+    background: #bf003a;
 }
 
 .seconds {
-    background: #F0A202;
+    background: #96002e;
 }
 
 .numbers {
@@ -88,7 +88,7 @@ h1 {
 
 .white {
     position: absolute;
-    background: #F6F4F3;
+    background: #700022;
     height: 85px;
     width: 75px;
     left: 30%;
@@ -96,17 +96,17 @@ h1 {
 }
 
 .white .triangle {
-    border-bottom: 14px solid #F6F4F3;
+    border-bottom: 14px solid #700022;
 }
 
 .white .string {
-    background: #F6F4F3;
-    border: 1px solid #F6F4F3;
+    background: #700022;
+    border: 1px solid #700022;
 }
 
 .red {
     position: absolute;
-    background: #EF2F3C;
+    background: #f4004b;
     left: 8%;
     /* top: 9%; */
     height: 65px;
@@ -114,17 +114,17 @@ h1 {
 }
 
 .red .triangle {
-    border-bottom: 14px solid #EF2F3C;
+    border-bottom: 14px solid #f4004b;
 }
 
 .red .string {
-    background: #EF2F3C;
-    border: 1px solid #EF2F3C;
+    background: #f4004b;
+    border: 1px solid #f4004b;
 }
 
 .blue {
     position: absolute;
-    background: #276FBF;
+    background: #bf003a;
     height: 80px;
     width: 80px;
     left: 60%;
@@ -132,12 +132,12 @@ h1 {
 }
 
 .blue .triangle {
-    border-bottom: 14px solid #276FBF;
+    border-bottom: 14px solid #bf003a;
 }
 
 .blue .string {
-    background: #276FBF;
-    border: 1px solid #276FBF;
+    background: #bf003a;
+    border: 1px solid #bf003a;
 }
 
 .balloon {
@@ -303,6 +303,9 @@ footer a:hover {
 }
 
 @media (max-width: 600px) {
+    body {
+        background: url("/images/bgMobile.jpg");
+    }
     .red {
         left: 9%;
     }
@@ -318,6 +321,9 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+    body {
+        background: url("/images/bgMobile.jpg");
+    }
     .red {
         left: 9%;
     }
@@ -333,6 +339,9 @@ footer a:hover {
 }
 
 @media (max-width: 430px) {
+    body {
+        background: url("/images/bgMobile.jpg");
+    }
     .red {
         left: 9%;
     }
@@ -351,6 +360,9 @@ footer a:hover {
 }
 
 @media (max-width: 410px) {
+    body {
+        background: url("/images/bgMobile.jpg");
+    }
     .days, .minutes, .hours, .seconds {
         font-size: 0.5em;
     }
