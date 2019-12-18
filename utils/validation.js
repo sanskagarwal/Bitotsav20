@@ -5,7 +5,7 @@ const validate = (method) => {
     switch (method) {
         case 'sapUser': {
             return [
-                body('name', 'Invalid Name field').exists().trim().isAlpha().isLength({ min: 1 }),
+                body('name', 'Invalid Name field').exists().trim().isLength({ min: 1 }),
                 body('email', 'Invalid email').exists().trim().isEmail(),
                 body('college', 'College Required').exists().isString().isLength({ min: 1 }),
                 body('phone', 'Invalid Phone(10 digit)').exists().isNumeric({ no_symbols: true }).isLength({ min: 10, max: 10 }),
