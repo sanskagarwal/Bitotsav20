@@ -7,7 +7,9 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: burlywood;
+    background-image: url('./../images/homebg.jpg');
+    background-repeat: no-repeat;
+    /* background-size: contain; */
     height: 100%;
     overflow-x: hidden;
 }
@@ -54,7 +56,7 @@ h1 {
     font-family: "Lato", sans-serif;
     font-size: 0.7em;
     letter-spacing: 5px;
-    margin-top: 14%;
+    margin-top: 20%;
 }
 
 .days, .hours, .minutes, .seconds {
@@ -271,20 +273,20 @@ footer a:hover {
 
 @media (max-width: 1200px) {
     #timer {
-        margin-top: 18%;
-    } 
+        margin-top: 25%;
+    }
 }
 
 @media (max-width: 1024px) {
     #timer {
-        margin-top: 20%;
-    } 
+        margin-top: 28%;
+    }
 }
 
 @media (max-width: 900px) {
     #timer {
-        margin-top: 25%;
-    } 
+        margin-top: 35%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -299,7 +301,7 @@ footer a:hover {
     }
     #timer {
         margin-top: 25%;
-    } 
+    }
 }
 
 @media (max-width: 600px) {
@@ -314,7 +316,7 @@ footer a:hover {
     }
     #timer {
         margin-top: 25%;
-    } 
+    }
 }
 
 @media (max-width: 480px) {
@@ -329,7 +331,7 @@ footer a:hover {
     }
     #timer {
         margin-top: 29%;
-    } 
+    }
 }
 
 @media (max-width: 430px) {
@@ -347,7 +349,7 @@ footer a:hover {
     }
     #timer {
         margin-top: 33%;
-    } 
+    }
 }
 
 @media (max-width: 410px) {
@@ -355,6 +357,6 @@ footer a:hover {
         font-size: 0.5em;
     }
     #timer {
-        margin-top: 35%;
-    } 
+        margin-top: 38%;
+    }
 }
