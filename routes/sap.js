@@ -10,8 +10,8 @@ const validateCaptcha = require('./../utils/validateCaptcha');
 router.post('/register', validateCaptcha, validate('sapUser'), async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        console.log(errors.errors);
-        res.json({ status: 422, msg: errors.errors[0].msg });
+        // console.log(errors.errors);
+        res.json({ status: 422, message: errors.errors[0].msg });
         return;
     }
 
@@ -49,7 +49,7 @@ router.post('/register', validateCaptcha, validate('sapUser'), async (req, res) 
         }
 
         await newStudentAmbassador.save();
-        res.json({ status: 200, msg: "Registered successfully, OTP sent to email." });
+        res.json({ status: 200, message: "Registered successfully, OTP sent to email." });
 
         try {
             sendEmail('Email Verification', `
@@ -68,7 +68,7 @@ router.post('/register', validateCaptcha, validate('sapUser'), async (req, res) 
             return console.log(e);
         }
     } catch (e) {
-        return res.json({ status: 500, msg: "Server error!" });
+        return res.json({ status: 500, message: "Server error!" });
     }
 });
 
@@ -82,7 +82,7 @@ router.post('/verify', validateCaptcha, validate('verifySapUser'), async (req, r
         let ambassador = await studentAmbassador.findOne({ email: email });
 
         if (!ambassador) {
-            return res.json({ status: 400, msg: "Bad Request!!" });
+            return res.json({ status: 400, message: "Bad Request!!" });
         }
 
         if (ambassador.otp === otp) {
@@ -91,7 +91,7 @@ router.post('/verify', validateCaptcha, validate('verifySapUser'), async (req, r
             const newCount = sapId.counter + 1;
             await sapIdCounter.findOneAndUpdate({ id: "sapIdCounter" }, { counter: newCount });
             await studentAmbassador.findOneAndUpdate({ email: email }, { sapId: currentCount, isVerified: true });
-            res.json({ status: 200, msg: `Successfully verified! Your SAP id is SP-${currentCount}, Further Details will be sent to your Email.` });
+            res.json({ status: 200, message: `Successfully verified! Your SAP id is SP-${currentCount}, Further Details will be sent to your Email.` });
 
             try {
                 sendEmail('SAP Instructions', `
@@ -144,11 +144,11 @@ router.post('/verify', validateCaptcha, validate('verifySapUser'), async (req, r
             }
         }
         else {
-            return res.json({ status: 401, msg: "Invalid OTP!!" });
+            return res.json({ status: 401, message: "Invalid OTP!!" });
         }
     }
     catch (e) {
-        return res.json({ status: 500, msg: "Server error!!" });
+        return res.json({ status: 500, message: "Server error!!" });
     }
 });
 

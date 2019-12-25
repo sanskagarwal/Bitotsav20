@@ -70,13 +70,13 @@ $("#sapRegister").submit(function (e) {
                     console.log(res);
 
                     if (res.status !== 200) {
-                        $("#errormessage").text("*" + res.msg);
+                        $("#errormessage").text("*" + res.message);
                         $("#errormessage").css({ "display": "block" });
                         $("#registerbtn").attr("disabled", false);
                         $("#loadshow1").hide();
                         return;
                     }
-                    $("#sendmessage").text("*" + res.msg);
+                    $("#sendmessage").text("*" + res.message);
                     $("#sendmessage").css({ "display": "block" });
                     $("#loadshow1").hide();
                     $("#verifyEmail").val(email);
@@ -113,14 +113,14 @@ $("#sapVerify").submit(function (e) {
                 success: function (res) {
                     console.log(res);
                     if (res.status !== 200) {
-                        $("#verifyMessage").text("*" + res.msg);
+                        $("#verifyMessage").text("*" + res.message);
                         $("#verifyMessage").css({ "color": "red", "display": "block" });
                         $("#verifybtn").attr("disabled", false);
                         $("#loadshow2").hide();
                         return;
                     }
                     $("#loadshow2").hide();
-                    $("#verifyMessage").text("*" + res.msg);
+                    $("#verifyMessage").text("*" + res.message);
                     $("#verifyMessage").css({ "color": "green", "display": "block" });
                 },
                 error: function (err) {
