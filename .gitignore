@@ -1,7 +1,10 @@
 # Node
-/node_modules
+node_modules/
 package-lock.json
 
 # Config
 config.js
 bitotsav@*
+
+# Scripts
+scripts/
