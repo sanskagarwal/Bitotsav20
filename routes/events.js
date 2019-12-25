@@ -86,9 +86,9 @@ router.post('/addEvent', function (req, res, next) {
 
     next();
 },
-    async function (req, res, next) {
+    function (req, res, next) {
         const eventId = req.body.eventId;
-        await eventModel.findOne({ eventId: eventId }, function (err, event) {
+        eventModel.findOne({ eventId: eventId }, function (err, event) {
             if (err) {
                 return res.json({ status: 500, message: "Internal server error" });
 
@@ -102,9 +102,9 @@ router.post('/addEvent', function (req, res, next) {
         })
 
     },
-    async function (req, res, next) {
+    function (req, res, next) {
         const eventName = req.body.eventName;
-        await eventModel.findOne({ eventName: eventName }, function (err, event) {
+        eventModel.findOne({ eventName: eventName }, function (err, event) {
             if (err) {
                 return res.json({ status: 500, message: "Internal server error" });
 
@@ -149,8 +149,8 @@ router.post('/addEvent', function (req, res, next) {
     });
 
 
-router.get('/allEvents', async function (req, res, next) {
-    await eventModel.find({}, function (err, event) {
+router.get('/allEvents', function (req, res, next) {
+    eventModel.find({}, function (err, event) {
         if (err) {
             return res.json({ status: 500, message: "Internal server error" });
 
@@ -165,9 +165,9 @@ router.get('/allEvents', async function (req, res, next) {
 });
 
 
-router.get('/eventById', async function (req, res, next) {
+router.get('/eventById', function (req, res, next) {
     const eventId = req.body.eventId;
-    await eventModel.findOne({ eventId: eventId }, function (err, event) {
+    eventModel.findOne({ eventId: eventId }, function (err, event) {
         if (err) {
             return res.json({ status: 500, message: "Internal server error" });
         }
@@ -182,9 +182,9 @@ router.get('/eventById', async function (req, res, next) {
 
 
 
-router.post('/updateEventById', async function (req, res, next) {
+router.post('/updateEventById', function (req, res, next) {
     const eventId = req.body.eventId;
-    await eventModel.findOne({ eventId: eventId }, function (err, event) {
+    eventModel.findOne({ eventId: eventId }, function (err, event) {
         if (err) {
             return res.json({ status: 500, message: "Internal server error" });
         }
@@ -196,7 +196,7 @@ router.post('/updateEventById', async function (req, res, next) {
         }
     })
 },
-    async function (req, res, next) {
+    function (req, res, next) {
         const eventId = req.body.eventId;
         const eventName = req.body.eventName;
         const club = req.body.club;
@@ -207,7 +207,7 @@ router.post('/updateEventById', async function (req, res, next) {
         const coordinators = req.body.coordinators;
         const points = req.body.points;
         const category = req.body.category;
-        await eventModel.findOne({ eventId: eventId }, function (err, event) {
+        eventModel.findOne({ eventId: eventId }, function (err, event) {
             if (err) {
                 return res.json({ status: 500, message: "Internal server error" });
             }
