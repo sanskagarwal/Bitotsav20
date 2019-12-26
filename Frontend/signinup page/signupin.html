@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Bitotsav Sign-in</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link rel="stylesheet" href="./styles//bootstrap.min.css"> 
+  <link rel="stylesheet" href="styles/signupstyle.css">
+
+  <script src="./scripts/jquery-3.4.1.min.js"></script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+<body>
+	<div class="container" id="container">
+		<!-- Sign up -->
+	<div class="form-container sign-up-container">
+		<form action="" method="" role="form">
+			<h1>Sign up</h1>
+			<br>
+			<div class="row">
+				<input type="email" id="suemail" placeholder="Email" required/>
+				<div class="animated-button"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+            </div>
+			<div class="row">
+				<input minlength="6" maxlength="15" type="password" id="supassword"placeholder="Password" required/>
+				<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
+			</div>
+			<div class="row">
+				<input minlength="6" maxlength="15" type="password" id="sucpassword" placeholder="Confirm Password" required/>
+				<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
+			
+			</div>
+			<p id="sPasswordMatch" style="color : red">Confirm Password did not match</p>
+
+			<div class="input-wrap1">
+				<div class="g-recaptcha" data-sitekey="6LgTprIUAAAAAEWATbkWhGxOolQEZ2jRPzAFXKdB"></div>
+				<p id="lsuCaptcha" style="color : red">Captcha is required</p>
+			</div>
+			<button onclick="signupForm()" >Sign Up</button>
+		</form>
+	</div>
+	<!-- End -->
+<!-- Sign in -->
+<div class="form-container sign-in-container">
+		<form action="#">
+			
+			<h1>Sign in</h1>
+			<br>
+			<div class="row">
+			<input type="email"  id="semail" placeholder="Email" required>
+			<div class="animated-button"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+		</div>
+			<div class="row">
+			<input minlength="6" maxlength="15" type="password"  id="spassword" placeholder="Password" required/>
+			<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
+
+			</div>
+			<div class="input-wrap">
+				<div class="g-recaptcha" data-sitekey="6LfTprIUAAAAAEWATbkWhGxOolQEZ2jRPzAFXKdB"></div>
+				<p id="lsCaptcha" style="color : red">Captcha is required</p>
+			</div>
+			<a href="forgotPassword.html">Forgot your password?</a>
+			<button onclick="loginForm()"  >Sign In</button>
+		</form>
+	</div>
+	<!-- End -->
+
+
+
+
+<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Alaaf! Narri-Narro!</h1>
+				<p>To keep connected with us please register with your info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Helau!</h1>
+				<p>Enter your  details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- partial -->
+  <script  src="scripts/signup.js"></script>
+  <script  src="scripts/login.js"></script>
+  <script  src="scripts/transform.js"></script>
+
+
+
+</body>
+</html>
