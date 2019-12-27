@@ -1,5 +1,5 @@
 # Node
-node_modules/
+/node_modules
 package-lock.json
 
 # Config
@@ -7,4 +7,8 @@ config.js
 bitotsav@*
 
 # Scripts
-scripts/
+/scripts
+
+# Firebase
+service-account.json
+adminSDK.js
