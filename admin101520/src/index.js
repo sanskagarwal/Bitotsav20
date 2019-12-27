@@ -24,7 +24,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router basename="/admin101520">
                 <Header updatePage={this.updatePage} loggedIn={this.state.loggedIn} />
                 <div className="container">
                     <Route exact path="/" render={(props) => <Login updatePage={this.updatePage} loggedIn={this.state.loggedIn} />} />

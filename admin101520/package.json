@@ -2,6 +2,7 @@
   "name": "admin101520",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/admin101520/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",

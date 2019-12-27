@@ -8,7 +8,7 @@ class Header extends React.Component {
     }
     render() {
         return (
-            <nav className="navbar navbar-expand-md bg-light" style={{ marginBottom: "50px" }}>
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark" style={{ marginBottom: "50px" }}>
                 <div className="container">
                     <div className="navbar-brand"><img alt="BIT Logo" width="30" height="30" src="./logo.png" /></div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
