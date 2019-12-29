@@ -2,23 +2,26 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { check, validationResult } = require("express-validator");
+// const { isMobilePhone } = require("validator");
 const config = require("../config");
 const userData = require("../models/user");
 const bitIdCounter = require("../models/bitIdCounter");
 const verifyToken = require("../utils/verifyToken");
 const validateCaptcha = require("../utils/validateCaptcha");
 const sendEmail = require('../utils/sendEmail');
-const { check, validationResult } = require("express-validator");
-const { isMobilePhone } = require("validator");
+const sendPM = require('./../utils/sendPM');
 
 //routes
 router.post("/register", // validateCaptcha,
-    [check("email").isEmail(), check("password").isLength({ min: 6, max: 15 })],
+    [check("email").isEmail(), check("password").isLength({ min: 6, max: 15 }), check("phoneNo").isMobilePhone()],
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            if (errors.errors[0].param == "email") {
+            if (errors.errors[0].param === "email") {
                 return res.json({ status: 422, message: "Invalid email address" });
+            } else if(errors.errors[0].param === "phoneNo") {
+                return res.json({ status: 422, message: "Invalid Phone No" });
             } else {
                 return res.json({
                     status: 422,
@@ -47,18 +50,22 @@ router.post("/register", // validateCaptcha,
     }, (req, res) => {
         //continue registration
         let email = req.body.email.toString().trim();
-        if (email && req.body.password && req.body.confPassword) {
+        let phoneNo = req.body.phoneNo.toString().trim();
+        if (email && req.body.password && req.body.confPassword && req.body.phoneNo) {
             bcrypt.hash(req.body.password, 8, (err, hashedPassword) => {
                 if (err) {
                     return res.json({ status: 500, message: "Internal server error" });
                 }
 
                 const emailOTP = Math.floor(100000 + Math.random() * 900000).toString();
+                const mobileOTP = Math.floor(100000 + Math.random() * 900000).toString();
                 userData.create(
                     {
                         email: email,
                         password: hashedPassword,
-                        emailOTP
+                        phoneNo: phoneNo,
+                        emailOTP: emailOTP,
+                        mobileOTP: mobileOTP
                     },
                     (err, user) => {
                         if (err) {
@@ -79,13 +86,15 @@ router.post("/register", // validateCaptcha,
                             <h2 align="center">Bitotsav</h2>
                             <p>
                             Hi,<br><br>
-                            Your email OTP is: ${emailOTP}.<br><br>
+                            Your Bitotsav'20 registration email OTP is: ${emailOTP}.<br><br>
                             Regards,<br>
                             Web Team<br>
                             Bitotsav'20</p>
                         `,
                             email
                         );
+
+                        sendPM(`Your Bitotsav'20 registration mobile OTP is: ${mobileOTP}`, phoneNo);
                     }
                 );
             });
@@ -120,8 +129,9 @@ router.post("/verify", verifyToken, (req, res) => {
         // Data Validation
         let {
             emailOTP,
+            mobileOTP,
             name,
-            phoneNo,
+            // phoneNo,
             gender,
             clgName,
             clgCity,
@@ -132,7 +142,8 @@ router.post("/verify", verifyToken, (req, res) => {
         if (
             !emailOTP ||
             !name ||
-            !phoneNo ||
+            !mobileOTP ||
+            // !phoneNo ||
             !gender ||
             !clgName ||
             !clgCity ||
@@ -143,8 +154,9 @@ router.post("/verify", verifyToken, (req, res) => {
         }
 
         emailOTP = emailOTP.toString().trim();
+        mobileOTP = mobileOTP.toString().trim();
         name = name.toString().trim();
-        phoneNo = phoneNo.toString().trim();
+        // phoneNo = phoneNo.toString().trim();
         clgName = clgName.toString().trim();
         clgCity = clgCity.toString().trim();
         clgState = clgState.toString().trim();
@@ -161,7 +173,7 @@ router.post("/verify", verifyToken, (req, res) => {
             return res.json({ status: 422, message: e });
         }
 
-        if (!emailOTP) {
+        if (!emailOTP || !mobileOTP) {
             return res.json({ status: 422, message: "Invalid OTP" });
         }
         if (name === "") {
@@ -170,17 +182,17 @@ router.post("/verify", verifyToken, (req, res) => {
         if (clgName === "" || clgCity === "" || clgState === "" || clgId === "") {
             return res.json({ status: 422, message: "Missing College Details" });
         }
-        if (!isMobilePhone(phoneNo)) {
-            return res.json({ status: 422, message: "Invalid Phone Number" });
-        }
-        if (phoneNo.length !== 10) {
-            return res.json({ status: 422, message: "Phone Number must be of 10 digits" });
-        }
-        for (let i = 0; i < 10; i++) {
-            if (phoneNo[i] < '0' || phoneNo[i] > '9') {
-                return res.json({ status: 422, message: "Phone Number must contain only digits" });
-            }
-        }
+        // if (!isMobilePhone(phoneNo)) {
+        //     return res.json({ status: 422, message: "Invalid Phone Number" });
+        // }
+        // if (phoneNo.length !== 10) {
+        //     return res.json({ status: 422, message: "Phone Number must be of 10 digits" });
+        // }
+        // for (let i = 0; i < 10; i++) {
+        //     if (phoneNo[i] < '0' || phoneNo[i] > '9') {
+        //         return res.json({ status: 422, message: "Phone Number must contain only digits" });
+        //     }
+        // }
 
         if (gender > 2 || gender <= 0) {
             return res.json({ status: 422, message: "Invalid Gender" });
@@ -194,6 +206,14 @@ router.post("/verify", verifyToken, (req, res) => {
         } catch (e) {
             return res.json({ status: 422, message: e });
         }
+        try {
+            mobileOTP = Number(mobileOTP);
+            if (!mobileOTP) {
+                throw "Invalid OTP";
+            }
+        } catch (e) {
+            return res.json({ status: 422, message: e });
+        }
         // Validate OTPs
         if (user.emailOTP !== emailOTP) {
             return res.json({
@@ -201,9 +221,15 @@ router.post("/verify", verifyToken, (req, res) => {
                 message: "Invalid OTP"
             });
         }
+        if (user.mobileOTP !== mobileOTP) {
+            return res.json({
+                status: 401,
+                message: "Invalid OTP"
+            });
+        }
         // Update user data & set isVerifired true and send token
         user.name = name;
-        user.phoneNo = phoneNo;
+        // user.phoneNo = phoneNo;
         user.gender = gender;
         user.clgName = clgName;
         user.clgCity = clgCity;
@@ -211,6 +237,7 @@ router.post("/verify", verifyToken, (req, res) => {
         user.clgId = clgId;
         user.isVerified = true;
         user.emailOTP = -1;
+        user.mobileOTP = -1;
         let bitotsavId = -1;
 
         bitIdCounter.findOne({ find: "bitotsavId" }, async (err, response) => {

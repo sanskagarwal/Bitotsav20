@@ -40,6 +40,9 @@ const userSchema = new Schema({
     emailOTP: {
         type: Number
     },
+    mobileOTP: {
+        type: Number
+    },
     isVerified: {
         type: Boolean,
         default: false
