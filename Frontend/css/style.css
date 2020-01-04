@@ -16,15 +16,9 @@ body {
     overflow-x: hidden;
 }
 
-.social-icons {}
-
 .social-icon {
     padding-left: 5px;
 }
-
-.sap-link {}
-
-.timer {}
 
 .container {
     margin: auto;
@@ -261,11 +255,11 @@ footer a:hover {
 
 /*# sourceMappingURL=style.css.map */
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     .social-icons {
         text-align: center;
     }
-}
+}*/
 
 @media (max-width: 576px) {
     .days, .hours, .minutes, .seconds {
