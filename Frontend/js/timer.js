@@ -1,5 +1,5 @@
 const year = new Date().getFullYear();
-const start_date = new Date((year + 1), 1, 14).getTime();
+const start_date = new Date((year), 1, 14).getTime();
 
 let timer = setInterval(function () {
 
