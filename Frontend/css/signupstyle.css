@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
+@font-face {
+	font-family: Montserrat-SemiBold;
+	src: url('../fonts/ElMessiri-SemiBold.ttf'); 
+  }
 * {
 	box-sizing: border-box;
 } 
@@ -36,6 +39,7 @@ p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
+	/* font-family: Montserrat-Regular; */
 }
 
 span {
@@ -93,7 +97,7 @@ input {
 	width: 80%;
 	color: #060607;
 	border-radius: 8px 0px 0px 8px;
-    
+    font-family: Montserrat-SemiBold !important;
 }
 .animated-button  {
     width: 20%;

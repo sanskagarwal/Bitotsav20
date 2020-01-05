@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="./images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="./css/lib/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/verify.css">
+</head>
+<body>
+
+	<div class="bg-contact100">
+		<div class="container-contact100">
+			<div class="wrap-contact100">
+				<div class="contact100-pic js-tilt" data-tilt>
+					<img src="./images/output-onlinepngtools.png" alt="IMG">
+					<br><br><br>
+					<p class="bitot">BITOTSAV  2020</p>
+				</div>
+
+				<form class="contact100-form validate-form" action="#" onsubmit=event.preventDefault()>
+					<span class="contact100-form-title">
+						Register
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Name is required">
+						<input class="input100" type="text" name="name" id="name" placeholder="Full Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Otp is required">
+						<input class="input100" type="text" name="otp" id="eotp" placeholder="Email OTP">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-key" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Number is required">
+						<input class="input100" type="text" name="mobile" id="mobile" placeholder="Mobile">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Gender is required">
+						<input class="input100" type="text" name="gender" id="gender" placeholder="Gender">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-venus-mars" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "College name is required">
+						<input class="input100" type="text" name="clgname"  id="clgname" placeholder="Institute Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "College City is required">
+						<input class="input100" type="text" name="clgcity"  id="clgcity" placeholder="Institute City">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Roll number is required">
+						<input class="input100" type="text" name="clgroll" id="clgroll" placeholder="Institute Roll No">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-id-card" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+
+					<div class="container-contact100-form-btn">
+						<button class="contact100-form-btn" onclick="verifyForm()">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="./js/lib/jquery-3.2.1.min.js"></script>
+	<script src="./js/lib/popper.min.js"></script>
+	<script src="./js/lib/bootstrap.min.js"></script>
+	<script src="./js/lib/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="./js/verify.js"></script>
+
+
+
+</body>
+</html>
