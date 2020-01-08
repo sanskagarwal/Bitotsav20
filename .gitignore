@@ -12,3 +12,10 @@ bitotsav@*
 # Firebase
 service-account.json
 adminSDK.js
+
+# VS Code
+.vscode
+
+# C++
+eventsJson/main
+eventsJson/clean
