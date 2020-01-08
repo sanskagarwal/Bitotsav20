@@ -53,7 +53,7 @@ function forgotPassword() {
                         localStorage.setItem("token", res.token);
         
                         setTimeout(() => {
-                            window.location = "signupin.html";
+                            window.location = "changepassword.html";
                         }, 1500);
                     }
                 },

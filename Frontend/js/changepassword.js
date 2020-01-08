@@ -90,7 +90,7 @@ function changePassword() {
                         localStorage.setItem("token", res.token);
         
                         setTimeout(() => {
-                            window.location = "changePassword.html";
+                            window.location = "signupin.html";
                         }, 1500);
                     }
                 },
