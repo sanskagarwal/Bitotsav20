@@ -45,7 +45,7 @@ router.post('/register', validateCaptcha, validate('sapUser'), async (req, res) 
 
         const sapUser = await studentAmbassador.findOne({ email: email });
         if (sapUser) {
-            return res.json({ status: 400, message: "Email Already Regsitered." });
+            return res.json({ status: 400, message: "Email Already Registered." });
         }
 
         await newStudentAmbassador.save();
