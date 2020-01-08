@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="./css/lib/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/verify.css">
+	<script src="https://www.google.com/recaptcha/api.js?render=6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ"></script>
+
 </head>
 <body>
 
@@ -34,7 +36,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required">
-						<input class="input100" type="text" name="email" id="email" placeholder="Email">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email" disabled>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -48,10 +50,17 @@
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Valid Number is required">
-						<input class="input100" type="text" name="mobile" id="mobile" placeholder="Mobile">
+						<input class="input100" type="text" name="mobile" id="mobile" placeholder="Mobile" disabled>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid Otp is required">
+						<input class="input100" type="text" name="motp" id="motp" placeholder="Mobile OTP">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-key" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Gender is required">
@@ -75,6 +84,13 @@
 							<i class="fa fa-flag" aria-hidden="true"></i>
 						</span>
 					</div>
+					<div class="wrap-input100 validate-input" data-validate = "College State is required">
+						<input class="input100" type="text" name="clgstate"  id="clgstate" placeholder="Institute State">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</span>
+					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Roll number is required">
 						<input class="input100" type="text" name="clgroll" id="clgroll" placeholder="Institute Roll No">
 						<span class="focus-input100"></span>
@@ -83,9 +99,10 @@
 						</span>
 					</div>
 					
+					<p id="errMsg" style="color: red;"></p>
 
 					<div class="container-contact100-form-btn">
-						<button class="contact100-form-btn" onclick="verifyForm()">
+						<button class="contact100-form-btn" onclick="verifyForm()" id="btnSubmit">
 							Submit
 						</button>
 					</div>
@@ -107,6 +124,7 @@
 		})
 	</script>
 	<script src="./js/verify.js"></script>
+
 
 
 

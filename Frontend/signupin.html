@@ -8,64 +8,82 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <link rel="stylesheet" href="./css/lib/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/signupstyle.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ"></script>
 
   <script src="./js/lib/jquery-3.2.1.min.js"></script>
 
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
 	<div class="container" id="container">
 		<!-- Sign up -->
 	<div class="form-container sign-up-container">
-		<form action="" method="" role="form">
+		<form action="#" onsubmit=event.preventDefault() method="" role="form">
 			<h1>Sign up</h1>
 			<br>
-			<div class="row">
-				<input type="email" id="suemail" placeholder="Email" required/>
-				<div class="animated-button"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-            </div>
-			<div class="row">
-				<input minlength="6" maxlength="15" type="password" id="supassword"placeholder="Password" required/>
-				<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
+			<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
+				<input class="input100" type="text" name="email" id="suemail" placeholder="Email">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</span>
 			</div>
-			<div class="row">
-				<input minlength="6" maxlength="15" type="password" id="sucpassword" placeholder="Confirm Password" required/>
-				<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
+			<div class="wrap-input100 validate-input" data-validate = "Valid Number is required" >
+				<input class="input100" type="text" name="mobile" id="sumobile" placeholder="Mobile Number">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-phone" aria-hidden="true"></i>
+				</span>
+			</div>
+			<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
+				<input class="input100" type="password" name="password" id="supassword" placeholder="Password">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-lock" aria-hidden="true"></i>
+				</span>
+			</div>
+			<div class="wrap-input100 validate-input" data-validate = "Password not matched">
+				<input class="input100" type="password" name="cpassword" id="sucpassword" placeholder="Confirm password">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-lock" aria-hidden="true"></i>
+				</span>
+			</div>
 			
-			</div>
-			<p id="sPasswordMatch" style="color : red">Confirm Password did not match</p>
 
-			<div class="input-wrap1">
-				<div class="g-recaptcha" data-sitekey="6LgTprIUAAAAAEWATbkWhGxOolQEZ2jRPzAFXKdB"></div>
-				<p id="lsuCaptcha" style="color : red">Captcha is required</p>
-			</div>
-			<button onclick="signupForm()" >Sign Up</button>
+
+			<p id="errMsg" style="color: red;"></p>
+
+			<button onclick="signupForm()" id="btnSignUp" >Sign Up</button>
 		</form>
 	</div>
 	<!-- End -->
 <!-- Sign in -->
 <div class="form-container sign-in-container">
-		<form action="#">
+		<form action="#" onsubmit=event.preventDefault()>
 			
 			<h1>Sign in</h1>
 			<br>
-			<div class="row">
-			<input type="email"  id="semail" placeholder="Email" required>
-			<div class="animated-button"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-		</div>
-			<div class="row">
-			<input minlength="6" maxlength="15" type="password"  id="spassword" placeholder="Password" required/>
-			<div class="animated-button"><i class="fa fa-lock" aria-hidden="true"></i></div>
-
+			<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
+				<input class="input100" type="text" name="email" id="semail" placeholder="Email">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</span>
 			</div>
-			<div class="input-wrap">
-				<div class="g-recaptcha" data-sitekey="6LfTprIUAAAAAEWATbkWhGxOolQEZ2jRPzAFXKdB"></div>
-				<p id="lsCaptcha" style="color : red">Captcha is required</p>
+			<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
+				<input class="input100" type="password" name="password" id="spassword" placeholder="Password">
+				<span class="focus-input100"></span>
+				<span class="symbol-input100">
+					<i class="fa fa-lock" aria-hidden="true"></i>
+				</span>
 			</div>
 			<a href="forgotPassword.html">Forgot your password?</a>
-			<button onclick="loginForm()"  >Sign In</button>
+			<p id="errrMsg" style="color: red;"></p>
+
+			<button  onclick="loginForm()" id="btnSignIn"  >Sign In</button>
 		</form>
 	</div>
 	<!-- End -->
