@@ -1,6 +1,7 @@
 [
 {
-"Name": `SAPTAK`
+"id": 0
+,"name": `SAPTAK`
 ,"category": `Flagship`
 ,"venue": `Shorbagh-2`
 ,"duration": `2 days, 5 hours`
@@ -39,10 +40,51 @@ Vocal mics (8 pcs including 3 wireless)
 5. 10 pens and A4 sheets with fles and rule list.
 6. Refreshment for judges
 RHAPSODY
-`
-},
+`},
 {
-"Name": `ACOUSTIC ALCHEMY`
+"id": 1
+,"name": `RHAPSODY`
+,"category": `Flagship`
+,"venue": `Shorbagh-2`
+,"duration": `2 days, 5 hours`
+,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
+,"club": `Dhwani- Music Club`
+,"points": `None`
+,"description": `In this contest bands present musical performances from western genre and compete for the ttle.
+`
+,"rules and regulations": `1. Partcipants should bring their own instruments. However, a basic drum kit will be provided.
+2. The Band needs to consist of college students. Semi-professional bands are also allowed.
+3. The team size is 3-8 members.
+4. Multple teams from the same college are permited.
+5. Lyrical content of the performances should be strictly in English and any obscenity in lyrical content will lead to immediate disqualifcaton.
+6. Bands are required to send a video entry of not more than 5 minutes from their performance along with band details (names of the members, college name). Bands presentng original compositons are required to mail in the lyrics and informaton about their compositon along with the video entry.
+E-Mail ID: events@bitotsav.in
+Last Date: 5th February 2020 (11:59 pm)
+7. The Video size should not be more than 50 MB.
+8. Judging will be based on tghtness, presentatons, tonal quality and overall output of the performance.
+9. Decision of the judges will remain fnal and binding.
+10. Eliminations: Time limit is 10 minutes (stage in to stage out). Points will be deducted for exceeding the tme limit.
+11. Finals: Time limit is 20 minutes (stage in to stage out). Points will be deducted for exceeding the tme limit.
+12. No restricton on the number of songs. However, medleys are not allowed.
+`
+,"contact information": `1. Yash Goyal: 8757411836
+2. Saket Anand: 9709222435
+`
+,"resources required": `1. Stage Requirements
+P.A system (including mixers and jacks) 1 pearl drum kit (5 piece)
+1 Marshall Amplifer 1 Fender Amplifer 1 Roland Amplifer 1 Hartke Amplifer 6 feedback monitors 1 pair sidefll
+Drum mics SM58 SM57 (10pcs)
+Vocal mics (8 pcs including 3 wireless)
+2. Flex for backdrop
+3. 5 tables
+4. 10 chairs
+5. 10 pens and A4 sheets with fles and rule list.
+6. Refreshment for judges
+ACOUSTIC ALCHEMY
+`},
+{
+"id": 2
+,"name": `ACOUSTIC ALCHEMY`
 ,"category": `Formal`
 ,"venue": `Shorbagh-2`
 ,"duration": `5 hours`
@@ -73,10 +115,50 @@ COMPETITIONS FOR DANCE
 BITOTSAV   20
 CARNIVAL OF CONUNDRUMS
 DANCE SAGA
-`
-},
+`},
 {
-"Name": `STOMP THE YARD`
+"id": 3
+,"name": `DANCE SAGA`
+,"category": `Flagship`
+,"points": `None`
+,"venue": `GP Birla Auditorium`
+,"duration": `2.5 hours`
+,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
+,"club": `Dance Club`
+,"description": `"If you stumble, make it a part of the dance."
+Wavy steps, lacy moves and graceful expressions- if all these occur in unison, the result is angelic! Dance is the art that comes straight from the heart. So, get ready to enthrall the audience as Bitotsav'20 brings to you its flagship event- Dance Saga! Get set to let yourself loose as your energy ratles the stage. Bring your group and stand a chance to win excitng cash prizes.
+`
+,"rules and regulations": `This a group dance competton that will be held in the main campus of BIT Mesra.
+1. Team Size: 6-20.
+2. Time limit: 4-8 minutes.
+3. A minimum of 6 dancers are required to be present on the stage always.
+4. Dance groups are required to send a video entry of no more than 5 minutes from their performance along with details (names of members, college name, props being used). The video size should not be more than 50 MB.
+5. Multple teams from the same college are permited.
+6. Props involving fre, water and powered substances (like talcum powder/Holi colour/rangoli colour etc.) are strictly prohibited.
+7. Song tracks should not contain any explicit and ooensive words. Failure to comply with this will lead to immediate disqualifcaton.
+8. The auditorium screen shall not be used for any purpose (photos, videos, etc.).
+9. Teams are not allowed to use any external lightng or live music for their performance.
+10. Any mess created on stage or in green room must be cleaned by the team members itself, therefore it is advised to be very careful with things such as aalta/body paint etc.
+11. There will only be one round and the result will be declared at the end of all the performances.
+12. Decision of the judges will be fnal and binding.
+JUDGEMENT CRITERIA
+1. Choreography, expressions, energy level, presentaton, costumes and props, innovaton and overall impact.
+2. In case of conflicts, decision of the judges would be considered fnal.
+`
+,"contact information": `1. Aditya: 7481840750
+2. Samridhi: 6206365768
+`
+,"resources required": `1. Tables-2
+2. Chairs-2
+3. Water Botles-10
+4. Snacks (for 2 judges)
+5. Mementos (for 2 judges)
+6. Sheets-20, Pens-5
+STOMP THE YARD
+`},
+{
+"id": 4
+,"name": `STOMP THE YARD`
 ,"category": `Flagship Points: None`
 ,"venue": `Badminton Court, Sports Complex (if not near LH-1/2)`
 ,"duration": `3-4 hours`
@@ -122,11 +204,52 @@ JUDGEMENT CRITERIA
 10.Carpets-4
 11.Tapes
 FOOTLOOSE
-`
-,"category": `Formal`
-},
+`},
 {
-"Name": `DANZA DUO`
+"id": 5
+,"name": `FOOTLOOSE`
+,"category": `Formal`
+,"venue": `CAT Hall, Main Building`
+,"duration": `3 hours`
+,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
+,"club": `Dance Club`
+,"points": `None`
+,"description": `"Dancing is the closest thing to magic."
+Think your moves are beter than the rest? Do you have the talent to light up the dance floor all by yourself? Then get ready to set the crowd grooving to your beats as the solo dance event FOOTLOOSE brings to you the opportunity to showcase what you've got. Eyes will be awestruck and the gaze of the people, transfxed. What's more? You stand a chance to win excitng cash prizes.
+`
+,"rules and regulations": `The rules and regulatons are given below:-
+1. This is a solo dance event.
+2. Partcipants are required to send a video entry of not more than 2 minutes. from their performance along with details (name, college name) at events@bitotsav.in before 5th February 2020 (11:59 pm )
+3. Props involving fre, water and powered substances (like talcum powder/Holi colour/rangoli colour etc) are strictly prohibited.
+4. Any mess created on stage or in green room must be cleaned by the team members itself, therefore it is advised to be very careful with things such as aalta/body paint etc.
+5. The partcipants selected from the online round are required to report to BIT Mesra, main campus for the further rounds.
+6. Multple partcipants from the same college are permited.
+7. The partcipants are required to get their own soundtracks in a pen drive. The songs should not contain any explicit and ooensive words. Failure to comply with this will lead to immediate disqualifcaton.
+There will be 2 rounds for this event.
+Round 1: Solo Performance
+1. Time limit- 3 minutes.
+2. The partcipants are required to get their own sound tracks.
+3. Based on the performance, 4 partcipants will be shortlisted for the second round.
+4. The decision of the judges will be fnal.
+Round 2: Face-of
+1. The shortlisted partcipants will have to compete against each other on a random song selected by the judge on-spot.
+2. Each partcipant will get their turn to perform.
+3. The decision of the judge will be fnal and binding.
+`
+,"contact information": `1. Aditya: 7481840750
+2. Samridhi: 6206365768
+`
+,"resources required": `1. Tables-2
+2. Chairs-2
+3. Water Botles-10
+4. Snacks (for 2 judges)
+5. Mementos (for 2 judges)
+6. Sheets-20, Pens-5
+DANZA DUO
+`},
+{
+"id": 6
+,"name": `DANZA DUO`
 ,"category": `Formal`
 ,"venue": `Shorbagh-1`
 ,"duration": `2 hours`
@@ -152,10 +275,53 @@ COMPETITIONS FOR DRAMATICS
 BITOTSAV   20
 CARNIVAL OF CONUNDRUMS
 PUKAAR
-`
-},
+`},
 {
-"Name": `ABHINAY`
+"id": 7
+,"name": `PUKAAR`
+,"category": `Flagship`
+,"venue": `Shorbagh-1`
+,"duration": `2 days, 5 hours`
+,"NaN": `ulty Advisor: Dr. Sandeep Kumar Singh`
+,"club": `Ehsaas Dramatcs Society`
+,"points": `None`
+,"description": `This is a street play competton. What beter way than Nukkad to express our views. The voice of our conscience echoes through the words of Nukkad. The evils of the society are brought into light through the plot of Nukkad. Let us rewind the days when some scintllatng performances ignited the fre for change in us.
+`
+,"rules and regulations": `This competton will be conducted in two rounds, eliminatons and fnals. Both rounds will be held on two dioerent days of the fest.
+General Rules:
+1. The team shall consist of maximum of 20 people excluding 2 instrumentalists (optonal).
+2. The tme limit should be strictly adhered to. In case of violaton, partcipants will be penalized by judges. The given tme duraton is from empty stage to empty stage.
+3. Teams are expected to perform at an open-air venue, on a circular stage with audience on all sides.
+4. Multple teams from the same college are permited.
+5. No hazardous substances are allowed. (fluids and fre)
+6. Partcipatng teams are required to send in a sot copy of their scripts along with details (names of members, college name, props being used, instruments) at events@bitotsav.in before 5th February 2020 (11:59 pm).
+7. Obscenity of any kind is prohibited.
+8. For live music teams will have to bring their own instruments but no electronic device or recorded music.
+9. The languages permited are Hindi and English.
+10.Judging Criterion:
+i) 30 % - Content
+ii) 25 % - Actng/ Expression
+iii) 20 % - Audience Response
+iv) 15 % - Directon
+v) 10 % - Miscellaneous Eoects
+11.The decision of the judging panel shall remain fnal and binding.
+Eliminatons:
+The tme limit shall be 12+2 minutes.
+Finals:
+The tme limit shall be 20+2 minutes.
+`
+,"contact information": `1. Shivam: 9523126405
+2. Shambhavi: 8840358232
+`
+,"resources required": `1. Table and chairs
+2. Judges score sheet
+3. Judges refreshment
+4. Water
+ABHINAY
+`},
+{
+"id": 8
+,"name": `ABHINAY`
 ,"category": `Flagship`
 ,"venue": `G.P. Birla Auditorium`
 ,"duration": `2 days, 6 hours`
@@ -186,10 +352,53 @@ The tme duraton is 50 minutes which includes performance tme and stage setng tme
 3. Judges refreshment
 4. Water
 NATSAMRAAT
-`
-},
+`},
 {
-"Name": `BIT-MUN`
+"id": 9
+,"name": `NATSAMRAAT`
+,"category": `Formal`
+,"venue": `G.P. Birla Auditorium`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Sandeep Kumar Singh`
+,"club": `Ehsaas Dramatcs Society`
+,"points": `None`
+,"description": `Do you like to fly solo? Do you like that feeling when the spotlight hits you and the whole scene revolves around you? So, here is your chance to prove your talent at mono-actng. Prepare yourself to single-handedly dazzle the audience.
+`
+,"rules and regulations": `This event will be held in two rounds consistng of an online round followed by further rounds at BIT Mesra main campus.
+General Rules:
+1. This is a solo partcipaton event.
+2. The partcipant can prepare a monologue or solo act of their choice.
+3. The act must be Hindi or English or both. Incorporaton of short passages from other languages is allowed.
+4. Multple partcipants from the same college are permited.
+5. Obscenity of any kind in the content or actons in the act will lead to immediate disqualifcaton of the partcipant.
+6. Decision of the judges shall remain fnal and binding.
+Online Round:
+1. The partcipant is required to send in a video clip of not more than 2 minutes showcasing their talent along with details (name, college name) at events@bitotsav.in. The video size should not be more than 50 MB.
+2. The last date for sending the entries will be 2nd February 2020 (11:59 pm).
+3. The Results will be announced on or before 5th February 2020. The partcipants selected from the online round are required to report at BIT Mesra main campus.
+Further Rounds:
+1. Further rounds will be held in a closed air auditorium.
+2. A maximum of 2 people can support the partcipant for sound and light operaton. They must strictly remain oo-stage.
+3. The partcipant can use a maximum of one prop in the performance.
+4. The performance must consist of a single act with no blackouts.
+5. The tme limit of each performance is 6 minutes (max). Points will be deducted for exceeding the tme limit.
+`
+,"contact information": `1. Shivam: 9523126405
+2. Shambhavi: 8840358232
+`
+,"resources required": `1. Table and chairs
+2. Judges score sheet
+3. Judges refreshment
+4. Water
+RHETORIC
+COMPETITIONS FOR SPEAKING ARTS
+BITOTSAV   20
+CARNIVAL OF CONUNDRUMS
+BIT-MUN
+`},
+{
+"id": 10
+,"name": `BIT-MUN`
 ,"category": `Flagship`
 ,"venue": `LH-1`
 ,"duration": `2 full days`
@@ -211,10 +420,39 @@ NATSAMRAAT
 3. Water botles (small)-1 Carton
 4. Pens (2 boxes)
 KALAM-E-TAHIR
-`
-},
+`},
 {
-"Name": `EXTEMPORE`
+"id": 11
+,"name": `KALAM-E-TAHIR`
+,"category": `Formal`
+,"points": `None`
+,"venue": `LH-1`
+,"duration": `2 days, 3 hours each day`
+,"NaN": `ulty Advisor: Dr. Sanjay Kumar`
+,"club": `The Literary Society, BIT Mesra`
+,"description": `A slam poetry is a competton at which poets read or recite original work. This event has 2 rounds. Partcipants are requested refer to YouTube (channels like spill poetry, habitat, tuning fork and the likes of it) to get an idea.
+`
+,"rules and regulations": `Partcipants are required to send in an excerpt from their work along with details (name, college name) at events@bitotsav.in before 5th February, 2020 (11:59 pm).
+This event will be held in two rounds. Each round will be held on a dioerent day at BIT Mesra, Main Campus.
+Round no. 1:
+1. Partcipants must present their pre-writen poems.
+2. Timing for Recitaton: 4 minutes.
+Round no. 2:
+1. Selected Finalists must write and present their own poem on a theme that will be provided and present it on the next day.
+2. Timing for Recitaton: 4 minutes.
+`
+,"contact information": `1. Sharique-8002803897
+2. Faraz-9110024154
+`
+,"resources required": `1. Pens
+2. Printed scoring sheets
+3. Public Addressing System
+4. Water botle-2 Cartons.
+EXTEMPORE
+`},
+{
+"id": 12
+,"name": `EXTEMPORE`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `2-3 hours`
@@ -237,10 +475,34 @@ COMPETITIONS FOR LITERARY ARTS
 BITOTSAV   20
 CARNIVAL OF CONUNDRUMS
 Q-RIOSITY
-`
-},
+`},
 {
-"Name": `BALLAD   OR`
+"id": 13
+,"name": `Q-RIOSITY`
+,"category": `Flagship`
+,"venue": `LH-1`
+,"duration": `3-4 hours`
+,"NaN": `ulty Advisor: Dr. S. K. Mishra`
+,"club": `UNESQUO`
+,"points": `None`
+,"description": `A General Quiz that will test the metle of partcipants in general knowledge and current aoairs. The frst round will be a writen round comprising 20-25 questons. The top 6-8 teams will then make it to the fnals.
+`
+,"rules and regulations": `1. Team size 2-3.
+2. Use of mobile phones during partcipaton will lead to cancellaton of said partcipaton.
+3. All disputes/discrepancies shall be setled by the Quizmaster and his/her word is fnal.
+4. Partcipatng teams are required to send in their team details (names of members, college name) at events@bitotsav.in before 5th February 2020 (11:59 pm).
+`
+,"contact information": `1. Ishan: 9955486421
+2. Adnan: 7070241542
+`
+,"resources required": `1. Paper x100
+2. Chocolates-1 box
+3. Pens-2 boxes
+BALLAD   OR
+`},
+{
+"id": 14
+,"name": `BALLAD   OR`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -262,10 +524,35 @@ Round 2: Versatility Check:
 2. Printed scoring sheets
 3. Relevant furniture setup for ease in conductng team-wise discussion.
 CRYPTIC CROSSWORD
-`
-},
+`},
 {
-"Name": `ALFAAZ`
+"id": 15
+,"name": `CRYPTIC CROSSWORD`
+,"category": `Formal`
+,"venue": `Classroom`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Sanjay Kumar`
+,"club": `The Literary Society, BIT Mesra`
+,"points": `50-30-20`
+,"description": `Are you the one of those people who can see through hidden messages and clues? Then this is just the place for you! Partcipants will have to solve a crossword. Clues will be twisted. There will be two rounds, back to back.
+`
+,"rules and regulations": `1. Prelims will have a crossword for the partcipants.
+2. Finalists will go through several mini-rounds of crossword of literary nature.
+3. Winner selected through points scored.
+4. Team size: 2.
+`
+,"contact information": `1. Nishant: 9065842628
+2. Deepansh: 9631973067
+`
+,"resources required": `1. Pen-2 boxes
+2. 40-50 black
+3. A4 sheets
+4. 40-50 printed crosswords (sotcopy will be provided)
+ALFAAZ
+`},
+{
+"id": 16
+,"name": `ALFAAZ`
 ,"category": `Online`
 ,"points": `None`
 ,"NaN": `ulty Advisor: Dr. Sanjay Kumar`
@@ -290,7 +577,8 @@ YOU   RE HIRED!
 ,"duration": `3 hours`
 },
 {
-"Name": `AUTO-QUIZ`
+"id": 17
+,"name": `AUTO-QUIZ`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -315,10 +603,53 @@ COMPETITIONS FOR FASHION
 BITOTSAV   20
 CARNIVAL OF CONUNDRUMS
 MR. & MISS BITOTSAV
-`
-},
+`},
 {
-"Name": `PANACHE`
+"id": 18
+,"name": `MR. & MISS BITOTSAV`
+,"category": `Flagship`
+,"venue": `Shorbagh-1`
+,"duration": `3-4 hours`
+,"NaN": `ulty Advisor: Mr. Prem Prakash`
+,"club": `Rotaract`
+,"points": `None`
+,"description": `Mr and Miss Bitotsav, the most glamorous, sensatonal and magical pageant of BITOTSAV aims at providing an amazing opportunity to the freshers to dazzle the audience with their colourful personality, their inner glow and ability to shine amidst the crowd. With the peppy spirit and cool quirks, the partcipants will be awarded this wealthy ttle.
+`
+,"rules and regulations": `The Event will be held in three rounds. The rules and regulatons for these rounds are as follows:
+Round one:
+1. Partcipants are required to send an entry consistng of a photograph of themselves.
+2. The photography should be accompanied by a tagline that complies with the themes and campaigns of Bitotsav'20 as mentoned below:
+- Carnival of Conundrums
+- Plague of Plastc
+- Growing Starvaton.
+- Welfare of Wildlife.
+2. The entries must be sent to events@bitotsav.in latest by 5th of February 2020 (11:59 PM)
+3. Obscenity of any kind in the photographs or the tagline will lead to immediate disqualifcaton of the partcipants.
+4. The photograph needs to be of good quality and should be of full length. No selfes are permited.
+5. Entries that ft the above-mentoned criteria will be uploaded from the Facebook page of Bitotsav'20.
+6. Partcipants are required to share their photograph from the Bitotsav'20 page and promote it on social media platorms to garner likes and reach.
+7. Each entry will be judged according to its Social media outreach And Content (Photograph and tagline) by a panel of judges.
+8. The decision of the judges shall remain fnal and binding.
+Round two:
+1. 15 girls and 15 boys will be selected from Round one.
+2. These partcipants must be present at BIT Mesra, main campus for rehearsals, few days prior to the fnal event.
+3. This will be an eliminaton Round based on Walk and Auditons held by judges at BIT Mesra main campus.
+Round three:
+1. 10 girls and 10 boys will be selected from Round 2.
+2. On the day of the fnal event, three sub rounds will be organised for to check the following criteria- Ramp Walk, Posture, fnal pose, Costume, make-up, accessories and hair-do.
+3. The partcipants should be ready to answer a questonnaire given by the judges.
+`
+,"contact information": `1. Chaitanya: 7974401456
+2. Shivangi: 9910366760
+`
+,"resources required": `1. Sash for both the winners
+2. Crown for Miss Bitotsav
+3. Stage (with carpets and flex)
+PANACHE
+`},
+{
+"id": 19
+,"name": `PANACHE`
 ,"category": `Flagship`
 ,"venue": `Shorbagh-1`
 ,"duration": `2 hours`
@@ -347,10 +678,36 @@ newspapers and other required logistcs that will be provided on the spot.
 4. Stapler-10
 5. Stapler pins box-5
 BEAUTY AND THE GEEK
-`
-},
+`},
 {
-"Name": `TALKIES`
+"id": 20
+,"name": `BEAUTY AND THE GEEK`
+,"category": `Formal`
+,"venue": `Shorbagh`
+,"duration": `2 hours`
+,"NaN": `ulty Advisor: Dr. Rajeev Kumar`
+,"club": `Leo Club`
+,"points": `50-30-20`
+,"description": `This event comprises of 3 rounds. First Round being a Compatbility Test followed by Escape Room Using the QR Codes in the next round. The last round has 2 Sub Rounds, frst being a fun event and second being a Talent Show/Ramp Walk which will decide the winner.
+`
+,"rules and regulations": `1. Team Size: 2
+2. All the rounds are eliminaton rounds; only the top few teams qualify for the next round.
+3. The rules and decision by the judging panel will be fnal in all rounds and in every case.
+`
+,"contact information": `1. Kritka: 9471544492
+2. Devanshu: 8210111569
+`
+,"resources required": `1. 18 Water Pots
+2. 2 MountBoard
+DIGITALES
+COMPETITIONS FOR DIGITAL ARTS
+BITOTSAV   20
+CARNIVAL OF CONUNDRUMS
+TALKIES
+`},
+{
+"id": 21
+,"name": `TALKIES`
 ,"category": `Flagship`
 ,"venue": `CAT Hall`
 ,"duration": `3-4 hours`
@@ -390,10 +747,35 @@ Judgement Criteria
 6. HDMI cable
 7. Audio cable
 DIGIEXPRESS
-`
-},
+`},
 {
-"Name": `E-PIC`
+"id": 22
+,"name": `DIGIEXPRESS`
+,"category": `Formal`
+,"venue": `Classroom`
+,"duration": `2 hours`
+,"NaN": `ulty Advisor: Dr. Sanjay Kumar`
+,"club": `Photographic Society`
+,"points": `75-50-25`
+,"description": `Fabricate your own story and portray it through a series of photographs. In this event, partcipants can choose up to 5 photos from a collecton of photographs and weave a story with the same in the given duraton.
+`
+,"rules and regulations": `1. Team size- 2 to 4.
+2. Maximum no. of photos for each round will be 5.
+3. The teams will be asked to present their stories on the spot.
+4. Judging will be based on the creatvity behind the story.
+`
+,"contact information": `1. Ankitanshu Swaroop: 8368167864
+2. Sanjeevan Singha Roy: 9123289443
+`
+,"resources required": `1. Paper
+2. Pens
+3. Markers
+4. Projector
+E-PIC
+`},
+{
+"id": 23
+,"name": `E-PIC`
 ,"category": `Online`
 ,"points": `None`
 ,"venue": `From Facebook page of Bitotsav`
@@ -428,7 +810,8 @@ THE JOURNALIST   S HOUR
 ,"category": `Formal`
 },
 {
-"Name": `CSI FILES`
+"id": 24
+,"name": `CSI FILES`
 ,"category": `Formal`
 ,"venue": `Lecture Hall`
 ,"duration": `3 hours`
@@ -454,10 +837,40 @@ THE JOURNALIST   S HOUR
 4. Paper clips
 5. Pens
 MEDIA CRE
-`
-},
+`},
 {
-"Name": `MASQUERADE`
+"id": 25
+,"name": `MEDIA CRE`
+,"category": `Formal`
+,"venue": `Classroom`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Vijay Nath`
+,"club": `News and Publicaton Society`
+,"points": `75-50-25`
+,"description": `Media Cre will put the partcipant's wit and vocabulary to test through three intriguing stages. The frst round will be a writen round. The second will be a Pictonary round in which the partcipants take part in the classic family game mixed with certain twists. In the fnal round, the partcipants play the game of Taboo.
+`
+,"rules and regulations": `1. The event will be held in three rounds with partcipaton allowed in teams of 2-3 members. Ater each round, teams will be eliminated
+based on their scores.
+3. Round 1: Partcipants will have to solve the provided queston paper in a given tme limit. The queston paper will aim to test the partcipant   s wit and vocabulary.
+4. Round 2: One of the teammates will be given a picture to draw and the other partcipant will have to guess it.
+5. Round 3: In this round, one must make their teammates guess the given word by words alone without saying the given taboo words. It consists of 3 sub-rounds based on the difculty level. The cumulatve score of the three sub-rounds will be considered to determine the overall winners.
+6. The decision of the judges and organizing commitee will be fnal and binding.
+`
+,"contact information": `1. Aishwarya: 9939505896
+2. Shreyansha: 8240043870
+`
+,"resources required": `1. Queston papers to be printed
+2. Pens
+3. Chalk Box
+MERAKI
+COMPETITIONS FOR FINE ARTS
+BITOTSAV   20
+CARNIVAL OF CONUNDRUMS
+MASQUERADE
+`},
+{
+"id": 26
+,"name": `MASQUERADE`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -485,10 +898,36 @@ Get ready for the enthralling event    Masquerade    where you get to put all yo
 9. Stapler-6
 10.Stapler pins box-3
 LET   S SCRIBBLE
-`
-},
+`},
 {
-"Name": `STREAK`
+"id": 27
+,"name": `LET   S SCRIBBLE`
+,"category": `Formal`
+,"points": `30-20-10
+`
+,"venue": `Classroom`
+,"duration": `2 hours`
+,"NaN": `ulty Advisor: Shri Mrinal Kumar Pathak`
+,"club": `Fine Arts Society`
+,"description": `Are you the one who scribbles to get over boring lectures? Does the intricacies in the doodles astound you? Then get ready to make some tght curls, some jagged zigzags, loops, coils and points untl your heart says it   s done in this event that will let your creatvity juggle your grey mater.
+`
+,"rules and regulations": `1. Individual Partcipaton.
+2. No theme restrictons but in case of te, preference will be given to the artwork related to the theme given on the spot.
+3. Resources will be provided.
+4. Spill out all your original ideas on the sheet (plagiarism is forbidden).
+`
+,"contact information": `1. Shubhangi Narayan: 8051860490
+2. Ayushee Diwan: 7389744489
+`
+,"resources required": `1. A4 sheets        40
+2. Black Pen (likho-pheko) set of 20pc        2
+3. Coloured Sketch pen set -10
+4. 3 Pencil set, 1 eraser set, 1 sharpener set
+STREAK
+`},
+{
+"id": 28
+,"name": `STREAK`
 ,"category": `Formal`
 ,"points": `None
 `
@@ -540,7 +979,8 @@ TECH RELAY
 ,"category": `Formal`
 },
 {
-"Name": `PSYCH`
+"id": 29
+,"name": `PSYCH`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -563,10 +1003,31 @@ So here we are, invitng you all to showcase your oratory skills in 'Just A Minut
 3. Buzzers-10
 4. Projector
 HORATIO
-`
-},
+`},
 {
-"Name": `PokerAZIA`
+"id": 30
+,"name": `HORATIO`
+,"category": `Formal`
+,"venue": `Classroom`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Sukalyan Chakraborty`
+,"club": `SMAC`
+,"points": `75-50-25`
+,"description": `This event comprises of 3 rounds. Round 1 is Pictonary and only the top scorers will be qualifying for Round 2. In Round 2 partcipants have to cycle up and down the campus to collect flags. In Round 3, two players have to decode a puzzle and get to one place to collect the flag.
+`
+,"rules and regulations": `1. Team of 4-5 partcipants.
+2. The partcipants in Round 2 and 3 shouldn   t be the same.
+`
+,"contact information": `1. Shivam: 9304163852
+2. Kavita: 9546472049
+`
+,"resources required": `1. Paper-30 Sheets
+2. Pen-10 pieces
+PokerAZIA
+`},
+{
+"id": 31
+,"name": `PokerAZIA`
 ,"category": `Formal`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -584,10 +1045,30 @@ HORATIO
 2. 10 sheets
 3. 10 pens
 PIT STOP
-`
-},
+`},
 {
-"Name": `BIT ROADIES`
+"id": 32
+,"name": `PIT STOP`
+,"category": `Formal`
+,"venue": `IC Arena`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Club Faculty`
+,"club": `SAE BIT Mesra`
+,"points": `50-30-20`
+,"description": `Candidate has to frst open the wheel of the wheel assembly of an All-Terrain Vehicle and then again assemble it in the given tme using given tools only.
+`
+,"rules and regulations": `1. Use only one tool at a tme.
+2. Nuts should be tght enough.
+3. In case of any discreton, co-ordinators decision would be fnal.
+`
+,"contact information": `1. Trishant Agarwal: 9950069368
+2. Shivansh Goyal: 8505088160
+`
+,"resources required": `BIT ROADIES
+`},
+{
+"id": 33
+,"name": `BIT ROADIES`
 ,"category": `Formal`
 ,"points": `30-20-10`
 ,"venue": `Apni Rasoi`
@@ -630,10 +1111,43 @@ PIT STOP
 24.Earthen Pot- 5
 25.Net- 2
 FOODOMANIA
-`
-},
+`},
 {
-"Name": `DA VINCI CODE`
+"id": 34
+,"name": `FOODOMANIA`
+,"category": `Formal`
+,"points": `50-30-20`
+,"venue": `Apni Rasoi`
+,"duration": `2.5 hours`
+,"NaN": `ulty Advisor: Mr. Prem Prakash`
+,"club": `Rotaract`
+,"description": `Food eatng competton.
+`
+,"rules and regulations": `1. There will be 3-4 rounds for this event.
+2. There will be a task in each round related to eatng food and the difculty level will increase with each round.
+3. 80 teams will register and there will be 2 members in each team.
+4. Eliminaton of 20 teams ater each round.
+5. The team which survives tll the last round with the best performance will win.
+`
+,"contact information": `1. Sinjini: 8582961928
+2. Debarun: 8617273106
+`
+,"resources required": `1. Food Items-
+Red Chilli Paste Garlic Paste
+Lays
+Biscuits Bread
+Peanut Buter Chocolates
+Salt Sugar
+Green Chilli
+2. Fruits-
+Guava Banana Coconut Orange
+3. Others-
+Disposable Glasses Disposable Plates
+DA VINCI CODE
+`},
+{
+"id": 35
+,"name": `DA VINCI CODE`
 ,"category": `Formal`
 ,"venue": `Mehek`
 ,"duration": `3 hours`
@@ -651,10 +1165,32 @@ FOODOMANIA
 ,"resources required": `1. Printed sheets
 2. Pens
 ROBO AIR HOCKEY
-`
-},
+`},
 {
-"Name": `LA LA LAND`
+"id": 36
+,"name": `ROBO AIR HOCKEY`
+,"category": `Formal`
+,"points": `50-20-10`
+,"venue": `Room No. 217`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Arun Dayal Udai`
+,"club": `Roboluton`
+,"description": `Air Hockey- An AI based hockey game in which the hands of the players are detected and the stck moves according to the movement of their hand.
+`
+,"rules and regulations": `1. 2 players can play at a tme.
+2. The player who scores 5 points frst wins.
+3. Players will get trial rounds to get used to the game.
+`
+,"contact information": `1. Sarthak M. Das: 8789365337
+2. Saurabh Khemka: 8674810511
+`
+,"resources required": `1. 5 markers
+2. 100 A4 sheets.
+LA LA LAND
+`},
+{
+"id": 37
+,"name": `LA LA LAND`
 ,"category": `Formal`
 ,"venue": `LH-1`
 ,"duration": `3 hours (10 AM        1 PM)`
@@ -678,10 +1214,35 @@ ROBO AIR HOCKEY
 6. 10 Wooden Stcks (LL40cm)
 7. 5 Mountboards for making placard
 BEAT THE CLOCK
-`
-},
+`},
 {
-"Name": `BILLIONAIRE   S CHOICE`
+"id": 38
+,"name": `BEAT THE CLOCK`
+,"category": `Formal`
+,"venue": `IC Arena`
+,"duration": `3 hours`
+,"NaN": `ulty Advisor: Dr. Rajeev Kumar`
+,"club": `Leo Club`
+,"points": `50-30-20`
+,"description": `This Event Comprises of 4 Rounds. First Round will be Three Leg Race followed by a fun event by burstng the balloons. Third Round will be lemon Crossover game and last round will be a kind of Treasure Hunt.
+`
+,"rules and regulations": `1. Team Size: 2
+2. All the rounds are eliminaton rounds only the top few teams qualify for the next round.
+3. The rules and decision by the judging panel will be fnal in all rounds and in every case.
+`
+,"contact information": `1. Abhishek: 9304864561
+2. Sneha: 7484864586
+`
+,"resources required": `1. 40 Lemons
+2. 8 Spoons
+3. 5 Ropes
+4. Balloons-300
+5. Carton
+BILLIONAIRE   S CHOICE
+`},
+{
+"id": 39
+,"name": `BILLIONAIRE   S CHOICE`
 ,"category": `Formal`
 ,"venue": `Lecture Hall`
 ,"duration": `3 hours`
@@ -695,6 +1256,5 @@ BEAT THE CLOCK
 ,"contact information": `1. Utkarsh Mishra: 8674960047
 2. Kshitj Yash: 9082499159
 `
-
 },
 ]

@@ -83,6 +83,7 @@ int main()
     */
 
     int i;
+	int id=0;
 	cout << "[\n";
 	string s,prev;
 	while (getline(cin, s)) {
@@ -91,17 +92,38 @@ int main()
 		if(s.size()==0) // Empty Line
 		continue;
 
+		newEvent: 
+		if(s.size()==0) {
+			break;
+		}
 		string key = findWord(s);
 		if(key != "category") {
 			prev=s;
 			continue;
 		}
 		cout << "{\n";
-		cout << "\"Name\": `" << prev << "`\n";
+		cout << "\"id\": " << id << "\n";
+		id++; 
+		cout << ",\"name\": `" << prev << "`\n";
 
 		for(i=0;i<n;i++) {
 			string key = findWord(s);
 			int st=key.size();
+			if(key == "resources required") {
+				string val="";
+				while (getline(cin, s)) {
+					trim(s);
+					if(findWord(s) == "NaN") {
+						val.append(s+"\n");
+					}
+					else {
+						cout << ",\"" << key << "\"" << ": `" << val << "`";
+						break;
+					}
+					prev=s; // Store Previous Read String
+				}
+				break;
+			}
 			if(s.size() == st || s.size() == (st+1)) { // Content starts from next line
 				string val="";
 				while (getline(cin, s)) {
@@ -133,7 +155,8 @@ int main()
 			cout << "\n";
 		}
 		cout << "},\n";
-		prev=s; // Store Previous Read String (It contains name of the Event)
+		// prev=s; // Store Previous Read String (It contains name of the Event)
+		goto newEvent;
 	}
 	cout << "]";
 
