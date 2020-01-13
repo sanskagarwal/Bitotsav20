@@ -2,6 +2,9 @@
 {
 "id": 0
 ,"name": `﻿SAPTAK`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `Shorbagh-2`
 ,"duration": `2 days, 5 hours`
@@ -49,6 +52,9 @@ RHAPSODY
 {
 "id": 1
 ,"name": `RHAPSODY`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `Shorbagh-2`
 ,"duration": `2 days, 5 hours`
@@ -95,6 +101,9 @@ ACOUSTIC ALCHEMY
 {
 "id": 2
 ,"name": `ACOUSTIC ALCHEMY`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Shorbagh-2`
 ,"duration": `5 hours`
@@ -128,6 +137,9 @@ DANCE SAGA
 {
 "id": 3
 ,"name": `DANCE SAGA`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `GP Birla Auditorium`
 ,"duration": `2.5 hours`
@@ -169,6 +181,9 @@ STOMP THE YARD
 {
 "id": 4
 ,"name": `STOMP THE YARD`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `Badminton Court, Sports Complex (if not near LH-1/2)`
 ,"duration": `3-4 hours`
@@ -218,6 +233,9 @@ FOOTLOOSE
 {
 "id": 5
 ,"name": `FOOTLOOSE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: None`
 ,"venue": `CAT Hall, Main Building`
 ,"duration": `3 hours`
@@ -259,6 +277,9 @@ DANZA DUO
 {
 "id": 6
 ,"name": `DANZA DUO`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Shorbagh-1`
 ,"duration": `2 hours`
@@ -287,6 +308,9 @@ PUKAAR
 {
 "id": 7
 ,"name": `PUKAAR`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `Shorbagh-1`
 ,"duration": `2 days, 5 hours`
@@ -329,6 +353,9 @@ ABHINAY
 {
 "id": 8
 ,"name": `ABHINAY`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `G.P. Birla Auditorium`
 ,"duration": `2 days, 6 hours`
@@ -362,6 +389,9 @@ NATSAMRAAT
 {
 "id": 9
 ,"name": `NATSAMRAAT`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: None`
 ,"venue": `G.P. Birla Auditorium`
 ,"duration": `3 hours`
@@ -404,6 +434,9 @@ BIT-MUN
 {
 "id": 10
 ,"name": `BIT-MUN`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `LH-1`
 ,"duration": `2 full days`
@@ -428,6 +461,9 @@ KALAM-E-TAHIR
 {
 "id": 11
 ,"name": `KALAM-E-TAHIR`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: None`
 ,"venue": `LH-1`
 ,"duration": `2 days, 3 hours each day`
@@ -456,6 +492,9 @@ EXTEMPORE
 {
 "id": 12
 ,"name": `EXTEMPORE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 30-20-10`
 ,"venue": `Classroom`
 ,"duration": `2-3 hours`
@@ -481,6 +520,9 @@ Q-RIOSITY
 {
 "id": 13
 ,"name": `Q-RIOSITY`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `LH-1`
 ,"duration": `3-4 hours`
@@ -504,6 +546,9 @@ BALLAD   OR
 {
 "id": 14
 ,"name": `BALLAD   OR`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -528,6 +573,9 @@ CRYPTIC CROSSWORD
 {
 "id": 15
 ,"name": `CRYPTIC CROSSWORD`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -552,6 +600,9 @@ ALFAAZ
 {
 "id": 16
 ,"name": `ALFAAZ`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Online       Points: None`
 ,"NaN": `ulty Advisor: Dr. Sanjay Kumar`
 ,"club": `Literary Society, BIT Mesra`
@@ -578,6 +629,9 @@ YOU   RE HIRED!
 {
 "id": 17
 ,"name": `AUTO-QUIZ`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -605,6 +659,9 @@ MR. & MISS BITOTSAV
 {
 "id": 18
 ,"name": `MR. & MISS BITOTSAV`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship       Points: None`
 ,"venue": `Shorbagh-1`
 ,"duration": `3-4 hours`
@@ -647,6 +704,9 @@ PANACHE
 {
 "id": 19
 ,"name": `PANACHE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Shorbagh-1`
 ,"duration": `2 hours`
@@ -678,6 +738,9 @@ BEAUTY AND THE GEEK
 {
 "id": 20
 ,"name": `BEAUTY AND THE GEEK`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: None`
 ,"venue": `Shorbagh`
 ,"duration": `2 hours`
@@ -703,6 +766,9 @@ TALKIES
 {
 "id": 21
 ,"name": `TALKIES`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Flagship        Points: None`
 ,"venue": `CAT Hall`
 ,"duration": `3-4 hours`
@@ -745,6 +811,9 @@ DIGIEXPRESS
 {
 "id": 22
 ,"name": `DIGIEXPRESS`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -769,6 +838,9 @@ E-PIC
 {
 "id": 23
 ,"name": `E-PIC`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Online       Points: None`
 ,"venue": `Facebook page of Bitotsav`
 ,"duration": `4 weeks (4 Themes)`
@@ -805,6 +877,9 @@ THE JOURNALIST   S HOUR
 {
 "id": 24
 ,"name": `CSI FILES`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Lecture Hall`
 ,"duration": `3 hours`
@@ -834,6 +909,9 @@ MEDIA CRE
 {
 "id": 25
 ,"name": `MEDIA CRE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -862,6 +940,9 @@ MASQUERADE
 {
 "id": 26
 ,"name": `MASQUERADE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -892,6 +973,9 @@ LET   S SCRIBBLE
 {
 "id": 27
 ,"name": `LET   S SCRIBBLE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 30-20-10`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -916,6 +1000,9 @@ STREAK
 {
 "id": 28
 ,"name": `STREAK`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Online     Points: None`
 ,"venue": `Facebook Page of Bitotsav`
 ,"NaN": `ulty Advisor: Shri Mrinal Kumar Pathak`
@@ -968,6 +1055,9 @@ TECH RELAY
 {
 "id": 29
 ,"name": `PSYCH`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Classroom`
 ,"duration": `2 hours`
@@ -995,6 +1085,9 @@ HORATIO
 {
 "id": 30
 ,"name": `HORATIO`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -1015,6 +1108,9 @@ PokerAZIA
 {
 "id": 31
 ,"name": `PokerAZIA`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Classroom`
 ,"duration": `3 hours`
@@ -1035,6 +1131,9 @@ PIT STOP
 {
 "id": 32
 ,"name": `PIT STOP`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `IC Arena`
 ,"duration": `3 hours`
@@ -1056,6 +1155,9 @@ BIT ROADIES
 {
 "id": 33
 ,"name": `FOODOMANIA`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Mehek`
 ,"duration": `2.5 hours`
@@ -1096,6 +1198,9 @@ DA VINCI CODE
 {
 "id": 34
 ,"name": `DA VINCI CODE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `Mehek`
 ,"duration": `3 hours`
@@ -1116,6 +1221,9 @@ ROBO AIR HOCKEY
 {
 "id": 35
 ,"name": `ROBO AIR HOCKEY`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-20-10`
 ,"venue": `Room No. 217`
 ,"duration": `3 hours`
@@ -1137,6 +1245,9 @@ LA LA LAND
 {
 "id": 36
 ,"name": `LA LA LAND`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 75-50-25`
 ,"venue": `LH-1`
 ,"duration": `3 hours (10 AM        1 PM)`
@@ -1163,6 +1274,9 @@ BEAT THE CLOCK
 {
 "id": 37
 ,"name": `BEAT THE CLOCK`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `IC Arena`
 ,"duration": `3 hours`
@@ -1187,6 +1301,9 @@ BILLIONAIRE   S CHOICE
 {
 "id": 38
 ,"name": `BILLIONAIRE   S CHOICE`
+,"eventCategory": ``
+,"imageName": ``
+,"individual": `0`
 ,"category": `Formal       Points: 50-30-20`
 ,"venue": `Lecture Hall`
 ,"duration": `3 hours`

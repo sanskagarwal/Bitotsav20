@@ -105,6 +105,9 @@ int main()
 		cout << "\"id\": " << id << "\n";
 		id++; 
 		cout << ",\"name\": `" << prev << "`\n";
+		cout << ",\"eventCategory\": ``\n";
+		cout << ",\"imageName\": ``\n";
+		cout << ",\"individual\": `0`\n";
 
 		for(i=0;i<n;i++) {
 			string key = findWord(s);
