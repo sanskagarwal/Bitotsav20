@@ -1,10 +1,21 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const registeredEventSchema = new schema({
+    eventId: {
+        type: Number,
+        required: true
+    },
+    eventLeaderBitotsavId: {
+        type: Number,
+        required: true 
+    }
+});
+
+const userSchema = new schema({
     name: {
         type: String,
-        // required: true
+        required: true
     },
     email: {
         type: String,
@@ -59,6 +70,8 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
+    soloEventsRegistered: [registeredEventSchema],
+    teamEventsRegistered: [registeredEventSchema],
     dummy1: {
         type: String,
         defaut: null
@@ -66,8 +79,12 @@ const userSchema = new Schema({
     dummy2: {
         type: String,
         default: null
+    },
+    dummy3: {
+        type: String,
+        default: null
     }
 });
 
-const User = mongoose.model('users', userSchema);
-module.exports = User;
+const userModel = mongoose.model('users', userSchema);
+module.exports = userModel;

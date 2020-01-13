@@ -1,19 +1,58 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema
+const schema = mongoose.Schema;
 
-const eventSchema = new schema({
-
-    eventId: {
+const eventWinnerSchema = new schema({
+    position: {
+        type: Number,
+        required: true
+    },
+    eventLeaderBitotsavId: {
+        type: Number,
+        required: true
+    },
+    eventLeaderName: {
         type: String,
         required: true
+    },
+    teamId: {
+        type: Number,
+        default: null
+    },
+    dummy4: {
+        type: String,
+        default: null
+    }
+});
+
+const eventSchema = new schema({
+    eventId: {
+        type: Number,
+        required: true,
+        unique: true
     },
     eventName: {
         type: String,
         required: true
     },
-    club: {
+    category: {
         type: String,
         required: true
+    },
+    eventCategory: {
+        type: String,
+        required: true
+    },
+    imageName: {
+        type: String,
+        default: null
+    },
+    individual: {
+        type: Number,
+        required: true
+    },
+    points: {
+        type: Number,
+        default: 0
     },
     venue: {
         type: String,
@@ -23,7 +62,11 @@ const eventSchema = new schema({
         type: String,
         required: true
     },
-    teamSize: {
+    "faculty advisors": {
+        type: String,
+        required: true
+    },
+    club: {
         type: String,
         required: true
     },
@@ -31,20 +74,32 @@ const eventSchema = new schema({
         type: String,
         required: true
     },
-    coordinators: {
+    "resources required": {
         type: String,
         required: true
     },
-    points: {
+    "rules and regulations": {
         type: String,
-        require:true
+        required: true
     },
-    category: {
+    "contact information": {
         type: String,
-        required:true
+        required: true
+    },
+    eventWinners: [eventWinnerSchema],
+    dummy1: {
+        type: String,
+        default: null
+    },
+    dummy2: {
+        type: String,
+        default: null
+    },
+    dummy3: {
+        type: String,
+        default: null
     }
-
-
 });
 
-module.exports = mongoose.model("events", eventSchema);
+const eventModel = mongoose.model("events", eventSchema);
+module.exports = eventModel;
