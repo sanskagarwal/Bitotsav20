@@ -9,10 +9,10 @@ $.ajax({
     crossDomain: true,
     success: function (res) {
         if (res.status !== 200 && !res.email) {
-            window.location = "login.html";
+            window.location = "signupin.html";
         }
         else if (res.status === 200) {
-            window.location = "profile.html";
+            window.location = "userDashboard.html";
         }
         else {
             $("#email").val(res.email);
