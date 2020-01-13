@@ -25,12 +25,12 @@ const eventWinnerSchema = new schema({
 });
 
 const eventSchema = new schema({
-    eventId: {
+    id: {
         type: Number,
         required: true,
         unique: true
     },
-    eventName: {
+    name: {
         type: String,
         required: true
     },
@@ -41,18 +41,6 @@ const eventSchema = new schema({
     eventCategory: {
         type: String,
         required: true
-    },
-    imageName: {
-        type: String,
-        default: null
-    },
-    individual: {
-        type: Number,
-        required: true
-    },
-    points: {
-        type: Number,
-        default: 0
     },
     venue: {
         type: String,
@@ -70,11 +58,11 @@ const eventSchema = new schema({
         type: String,
         required: true
     },
-    description: {
+    points: {
         type: String,
-        required: true
+        default: null
     },
-    "resources required": {
+    description: {
         type: String,
         required: true
     },
@@ -86,7 +74,22 @@ const eventSchema = new schema({
         type: String,
         required: true
     },
-    eventWinners: [eventWinnerSchema],
+    "resources required": {
+        type: String,
+        required: true
+    },
+    imageName: {
+        type: String,
+        default: null
+    },
+    individual: {
+        type: String,
+        required: true
+    },
+    eventWinners: {
+        type: [eventWinnerSchema],
+        default: []
+    },
     dummy1: {
         type: String,
         default: null

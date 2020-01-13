@@ -2,6 +2,23 @@ const express = require('express');
 const eventModel = require('../models/events');
 const router = express.Router();
 
+const dhwani = require('../eventsJson/cleaned/dhwani');
+
+
+//to insert to database....already inserted dhwani events
+router.get('/addMultipleEvents', (req, res)=>{
+    console.log(dhwani);
+    const dhwaniEvents = dhwani;
+    eventModel.insertMany(dhwaniEvents)
+        .then(()=>{
+            return res.json({status: 200, message: "Inserted successfully!!"});
+        })
+        .catch((error)=>{
+            return res.json({status: 500, message: "Internal server error!! Try again!"});
+        })
+});
+
+
 router.post('/addEvent', function (req, res, next) {
 
     const eventId = req.body.eventId;
