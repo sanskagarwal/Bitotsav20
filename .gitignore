@@ -19,3 +19,4 @@ adminSDK.js
 # C++
 eventsJson/main
 eventsJson/clean
+*.exe
