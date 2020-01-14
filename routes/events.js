@@ -3,13 +3,13 @@ const eventModel = require('../models/events');
 const router = express.Router();
 
 const dhwani = require('../eventsJson/cleaned/dhwani');
+const dansation = require('../eventsJson/cleaned/dansation');
 
 
-//to insert to database....already inserted dhwani events
+//to insert to database
 router.get('/addMultipleEvents', (req, res)=>{
-    console.log(dhwani);
-    const dhwaniEvents = dhwani;
-    eventModel.insertMany(dhwaniEvents)
+    const events = [...dhwani, ...dansation];
+    eventModel.insertMany(events)
         .then(()=>{
             return res.json({status: 200, message: "Inserted successfully!!"});
         })
