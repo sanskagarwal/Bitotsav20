@@ -14,3 +14,4 @@ $(function () {
 	$('.panel-group').on('hidden.bs.collapse', toggleClose);
 	$('.panel-group').on('shown.bs.collapse', toggleOpen);
 });
+
