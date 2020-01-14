@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
+const subTeamMemberSchema = new schema({
+    bitotsavId: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    }
+});
+
 const registeredEventSchema = new schema({
     eventId: {
         type: Number,
@@ -9,6 +20,10 @@ const registeredEventSchema = new schema({
     eventLeaderBitotsavId: {
         type: Number,
         required: true 
+    },
+    members: {
+        type: [subTeamMemberSchema],
+        default: []
     }
 });
 
@@ -70,8 +85,14 @@ const userSchema = new schema({
         type: Boolean,
         default: false
     },
-    soloEventsRegistered: [registeredEventSchema],
-    teamEventsRegistered: [registeredEventSchema],
+    soloEventsRegistered: {
+        type: [registeredEventSchema],
+        default: []
+    },
+    teamEventsRegistered: {
+        type: [registeredEventSchema],
+        default: []
+    },
     dummy1: {
         type: String,
         defaut: null

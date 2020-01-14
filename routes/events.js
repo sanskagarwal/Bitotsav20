@@ -19,6 +19,39 @@ router.get('/addMultipleEvents', (req, res)=>{
 });
 
 
+
+//1.getEventByCategory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//for admin
 router.post('/addEvent', function (req, res, next) {
 
     const eventId = req.body.eventId;
