@@ -5,6 +5,7 @@ const { isEmail } = require('validator');
 const verifyToken = require('../utils/verifyToken');
 const userModel = require('../models/user');
 const teamModel = require('../models/team');
+const eventModel = require('../models/events');
 const TeamIdCounter = require('../models/teamIdCounter');
 
 
@@ -62,6 +63,7 @@ router.get('/getProfile', verifyToken, async (req, res) => {
     }
 });
 
+
 //2.register events
 /*
  for all checks
@@ -88,8 +90,10 @@ router.post('/register', verifyToken, async (req, res) => {
         if (!eventId || (eventId < 0) || (eventId > 40)) {
             return res.json({ status: 400, message: "Invalid Event Id" });
         }
+
         //Event Name will not be in body
-        // const eventName = req.body.eventName;
+        const eventName = await eventModel.findOne({id: eventId},'name');
+
         const participantsObjectArray = [...(req.body.participants)];
         //participants' bitotsavId and email is provided as an array of objects
         const participantsSize = participantsObjectArray.length;
@@ -193,13 +197,6 @@ router.post('/register', verifyToken, async (req, res) => {
 });
 
 
-
-
-
-
-
-
-
 //3.deregister events 
 /* if team MongoId = null, then check if solo event regsitered
                         if registered eventLeaderBitId = user.bitotsavId (Leader cHECk)
@@ -211,7 +208,75 @@ router.post('/register', verifyToken, async (req, res) => {
                             remove this event from all team members teamEvent array
                         else Invalid
 */
+router.post('/deregister', verifyToken, async(req, res)=>{
+    try{
+        const userMongoId = req.userId;
+        const rawUser = await userModel.findById(userMongoId);
+        if (!rawUser) {
+            return res.json({ status: 400, message: "User not found!!" });
+        }
 
+        const eventId = req.body.eventId;
+        if (!eventId || (eventId < 0) || (eventId > 40)) {
+            return res.json({ status: 400, message: "Invalid Event Id!!" });
+        }
+
+        //Event Name will not be in body
+        const eventName = await eventModel.findOne({id: eventId},'name');
+
+        const teamMongoId = rawUser.teamMongoId;
+        const userBitotsavId = rawUser.bitotsavId;
+        if(teamMongoId) {
+            const teamEventsReg = rawUser.teamEventsRegistered;
+            
+            //check1....user must be registered in the team event specified by eventId
+            const event = teamEventsReg.find((eventObj) => eventObj.eventId === eventId);
+            if(!event) {
+                return res.json({status: 403, message: "Can't deregister if you are not registered in the first place!!"});
+            }
+
+            //check2....user must be the event leader for that event
+            const leaderBitotsavId = event.eventLeaderBitotsavId;
+            if(userBitotsavId !== leaderBitotsavId) {
+                return res.json({status: 403, message: "Only event leader is allowed to deregister the team from any event!!"});
+            }
+
+            //now deregister from the event
+            await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: {teamEventsRegistered: {  eventId: eventId }} });
+            await teamModel.updateOne({ _id: teamMongoId }, { $pull: { eventsRegistered: { eventId: eventId } } });
+            return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
+        }
+        else{
+            const soloEventsReg = rawUser.soloEventsRegistered;
+
+            //check1....user must be registered in the solo event specified by eventId
+            const event = soloEventsReg.find((eventObj) => eventObj.eventId === eventId);
+            if(!event) {
+                return res.json({status: 403, message: "Can't deregister if you are not registered in the first place!!"});
+            }
+
+            //check2....user must be the event leader for that event
+            const leaderBitotsavId = event.eventLeaderBitotsavId;
+            if(userBitotsavId !== leaderBitotsavId) {
+                return res.json({status: 403, message: "Only event leader is allowed to deregister the team from any event!!"});
+            }
+
+            //now deregister from the event
+            let soloParticipantsEmail = [];
+            let soloParticipants = event.members;
+            soloParticipants.forEach((participant)=>{
+                soloParticipantsEmail.push(participant.email);
+            });
+
+
+            await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { $pull: { soloEventsRegistered: { eventId: eventId } } });
+            return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
+        }
+    }
+    catch(e){
+        return res.json({ status: 500, message: "Internal server error!!" });
+    }
+});
 
 
 
