@@ -20,7 +20,7 @@ router.post("/register", // validateCaptcha,
         if (!errors.isEmpty()) {
             if (errors.errors[0].param === "email") {
                 return res.json({ status: 422, message: "Invalid email address" });
-            } else if(errors.errors[0].param === "phoneNo") {
+            } else if (errors.errors[0].param === "phoneNo") {
                 return res.json({ status: 422, message: "Invalid Phone No" });
             } else {
                 return res.json({

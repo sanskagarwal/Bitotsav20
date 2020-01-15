@@ -20,3 +20,6 @@ adminSDK.js
 eventsJson/main
 eventsJson/clean
 *.exe
+
+# Experiment
+/experiment

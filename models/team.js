@@ -62,6 +62,9 @@ const teamSchema = new Schema({
     leaderName: {
         type: String
     },
+    leaderPhoneNo: {
+        type: String
+    },
     teamVerified: {
         type: Boolean,
         default: false
