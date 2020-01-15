@@ -17,6 +17,10 @@ const registeredEventSchema = new schema({
         type: Number,
         required: true
     },
+    eventName: {
+        type: String,
+        required: true
+    },
     eventLeaderBitotsavId: {
         type: Number,
         required: true 
