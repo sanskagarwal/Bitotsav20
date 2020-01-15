@@ -60,7 +60,7 @@ router.get('/getEventById', async(req, res)=>{
 router.get('/allEvents', async (req, res) => {
     try {
         const events = await eventModel.find({}, {"faculty advisors": 0, _id: 0, club: 0, "resources required": 0});
-        return res.json({ status: 200, events: event });
+        return res.json({ status: 200, events: events });
     } catch(e) {
         return res.json({status: 500, message: "Server Error."});
     }
