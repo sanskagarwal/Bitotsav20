@@ -12,10 +12,10 @@ for(i=l+1;i<t;i++)
 }
 console.log(s);
 
-var url1= "http://localhost:5000/api/events";
+var url1= "https://bitotsav.in";
             $.ajax({
                 
-                url: url1+"/getEventByCategory?category="+s,
+                url: url1+"/api/events/getEventByCategory?category="+s,
                 method:"GET",
                 crossDomain:true,
                 success: function(res) {
@@ -34,7 +34,7 @@ var url1= "http://localhost:5000/api/events";
             return (`  
             
                             <div class="card text-center col-lg-4 col-md-4 col-xs-12">
-                                <img class="card-img-top" src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png" onerror=this.src="images/Events/${events.name}.jpeg" alt="Card image">
+                                <img class="card-img-top" src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png; return false;" alt="Card image">
                                 <br>
                                 <h1 style="color:white; font-size:1.3em">${events.name}</h1>
                                 <div class="card-body">
