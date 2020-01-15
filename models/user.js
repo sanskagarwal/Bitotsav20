@@ -78,7 +78,7 @@ const userSchema = new schema({
     },
     bitotsavId: {
         type: Number,
-        default: -1
+        default: null
     },
     teamMongoId: {
         type: String,

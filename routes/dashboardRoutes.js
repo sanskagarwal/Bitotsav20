@@ -14,28 +14,11 @@ router.get('/getProfile', verifyToken, async(req, res)=>{
     try{
         const mongoId = req.userId;
         const rawUser = await userModel.findById(mongoId);
-
-        if(rawUser.teamMongoId){
-            const teamMongoId = rawUser.teamMongoId;
-            const team = await teamModel.findById(teamMongoId);
-
-            let user = {...rawUser};
-            delete user.password;
-            delete user.emailOTP;
-            delete user.mobileOTP;
-            delete user.teamMongoId;
-            delete user.soloEventsRegistered;
-            delete user.dummy1;
-            delete user.dummy2;
-            delete user.dummy3;
-            
-            delete team.dummy1;
-            delete team.dummy2;
-
-            return res.json({status: 200, user: user, team: team});
+        if(!rawUser) {
+            return res.json({status: 400, message: "User not found"});
         }
-        
-        if(rawUser.teamMongoId === null){
+
+        if(!rawUser.teamMongoId) {
             let user = {...rawUser};
             delete user.password;
             delete user.emailOTP;
@@ -46,19 +29,36 @@ router.get('/getProfile', verifyToken, async(req, res)=>{
             delete user.dummy2;
             delete user.dummy3;
 
-            return res.json({status: 200, user: user});
+            return res.json({status: 200, user: user, isInTeam: false});
         }
+
+        // User is in a team
+        const teamMongoId = rawUser.teamMongoId;
+        const team = await teamModel.findById(teamMongoId);
+
+        if(!team) { // Not possible, but still adds a bit of protection
+            return res.json({status: 400, message: "Malacious user"});
+        }
+
+        let user = {...rawUser};
+        delete user.password;
+        delete user.emailOTP;
+        delete user.mobileOTP;
+        delete user.teamMongoId;
+        delete user.soloEventsRegistered;
+        delete user.dummy1;
+        delete user.dummy2;
+        delete user.dummy3;
+        
+        delete team.dummy1;
+        delete team.dummy2;
+
+        return res.json({status: 200, user: user, team: team, isInTeam: true});
     }
     catch(e){
-        return res.json({status: 500, message: "Internal server error!!"});
+        return res.json({status: 500, message: "Internal server error."});
     }
 });
-
-
-
-
-
-
 
 //2.register events
 /*
@@ -78,8 +78,16 @@ router.post('/register', verifyToken, async(req, res)=>{
     try{
         const mongoId = req.userId;
         const rawUser = await userModel.findById(mongoId);
+        if(!rawUser) {
+            return res.json({status: 400, message: "User not found"});
+        }
+
         const eventId = req.body.eventId;
-        const eventName = req.body.eventName;
+        if(!eventId || (eventId<0) || (eventId>40)) {
+            return res.json({status: 400, message: "Invalid Event Id"});
+        }
+        //Event Name will not be in body
+        // const eventName = req.body.eventName;
         const participantsObjectArray = [...(req.body.participants)];
         //participants' bitotsavId and email is provided as an array of objects
         const participantsSize = participantsObjectArray.length;
@@ -91,14 +99,14 @@ router.post('/register', verifyToken, async(req, res)=>{
             //check1....the team must not be registered in this event already
             const eventsReg = team.eventsRegistered;
             const eventFind = eventsReg.find((event)=>event.eventId===eventId);
-            if(eventFind !== undefined){
-                return res.json({status: 403, message: "You team is already registered in this event!!"});
+            if(eventFind !== undefined){ // An Object is found
+                return res.json({status: 403, message: "You team is already registered in this event!"});
             }
             
             //check2....the participants array must be unique objects
             const participantsSet = new Set(participantsObjectArray);
             if(participantsSet.size < participantsObjectArray.length){
-                return res.json({status: 403, message: "Duplicate participants not allowed!!"});
+                return res.json({status: 403, message: "Duplicate participants not allowed!"});
             }
 
             //check3....all the event participants must be part of the team
@@ -110,8 +118,8 @@ router.post('/register', verifyToken, async(req, res)=>{
                         break;
                     }
                 }
-                if(j===teamSize){
-                    return res.json({status: 403, message: `The participant with email: ${participantsObjectArray[i].email} does not seem to be a part of this team with the credentials provided!!`});
+                if(j===teamSize){ // No member found
+                    return res.json({status: 403, message: `The participant with email: ${participantsObjectArray[i].email} is not a part of current team.`});
                     break;
                 }
             }
@@ -130,8 +138,10 @@ router.post('/register', verifyToken, async(req, res)=>{
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: participants
             };
+            // Nice DB Query :)
             await userModel.updateMany({teamMongoId: teamMongoId}, {$push: {teamEventsRegistered: event}});
-            return res.json({status: 200, message: `Congrats ${rawUser.name}!!As the event leader you have successfully registered your team for ${eventName}`});
+            await teamModel.updateOne({_id: teamMongoId}, {$push: {eventsRegistered: {eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId}}});
+            return res.json({status: 200, message: `Successfully Registered, ${rawUser.name} is the event leader for the event ${eventName}`});
         }
 
         else{
@@ -151,7 +161,7 @@ router.post('/register', verifyToken, async(req, res)=>{
                     }
                     continue;
                 }
-                return res.json({status: 403, message: `Please check the credentials of the participant with email: ${participantsObjectArray[i].email}.`});
+                return res.json({status: 403, message: `Invalid credentials of the participant with email: ${participantsObjectArray[i].email}, Ensure the participant is not already in a team.`});
             }
             
 
