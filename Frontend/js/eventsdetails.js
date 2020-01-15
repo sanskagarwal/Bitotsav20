@@ -34,7 +34,7 @@ var url1= "https://bitotsav.in";
             return (`  
             
                             <div class="card text-center col-lg-4 col-md-4 col-xs-12">
-                                <img class="card-img-top" src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png" onerror=this.src="images/Events/${events.name}.jpeg" alt="Card image">
+                                <img class="card-img-top" src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png; return false;" alt="Card image">
                                 <br>
                                 <h1 style="color:white; font-size:1.3em">${events.name}</h1>
                                 <div class="card-body">
