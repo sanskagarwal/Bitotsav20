@@ -15,7 +15,7 @@ console.log(s);
 var url1= "https://bitotsav.in";
             $.ajax({
                 
-                url: url1+"/getEventByCategory?category="+s,
+                url: url1+"/api/events/getEventByCategory?category="+s,
                 method:"GET",
                 crossDomain:true,
                 success: function(res) {
