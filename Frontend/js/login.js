@@ -61,6 +61,7 @@ function loginForm() {
         return;
     }
     $("#btnSignIn").attr("disabled", true);
+    $('.rotator').addClass('spinner');
 
     grecaptcha.ready(function () {
         grecaptcha.execute('6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ', { action: 'login' }).then(function (tokenn) {
@@ -75,6 +76,8 @@ function loginForm() {
                 },
                 crossDomain: true,
                 success: function (res) {
+                    $('.rotator').removeClass('spinner');
+
                     if (res.status !== 200) {
                         $("#errrMsg").text(res.message);
                         $("#btnSignIn").attr("disabled", false);
@@ -92,6 +95,8 @@ function loginForm() {
                 },
                 error: function (err) {
                     $("#errrMsg").text(err);
+                    $('.rotator').removeClass('spinner');
+
                     $("#btnSignIn").attr("disabled", false);
                     
                 }
