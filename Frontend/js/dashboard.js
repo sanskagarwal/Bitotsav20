@@ -1,4 +1,4 @@
-
+$("#loadshow1").hide();
 $("#teamSize").change(function () {
     var x = $(this).children("option:selected").val();
     if (x == 7) {
@@ -102,6 +102,8 @@ function changePassword() {
         $("#password-message").text("Password and Confirm password dint match");
         return;
     }
+    $("#loadshow1").show();
+    $("#changePasswordBtn").attr("disabled", true);
     $.ajax({
         url: url + "/updatePassword",
         method: "POST",
@@ -116,9 +118,13 @@ function changePassword() {
         success: function (res) {
             if (res.status == 200) {
                 $("#password-message").text(res.message);
+                $("#registerbtn").attr("disabled", false);
+                $("#loadshow1").hide();
             }
             else {
                 $("#password-message").text(res.message);
+                $("#changePasswordBtn").attr("disabled", false);
+                $("#loadshow1").hide();
                 // setTimeout(function () {
                 //     window.location.reload(true);
                 // }, 1600);
@@ -126,6 +132,8 @@ function changePassword() {
         },
         error: function (err) {
             console.log(err);
+            $("#changePasswordBtn").attr("disabled", false);
+            $("#loadshow1").hide();
         }
     });
 
