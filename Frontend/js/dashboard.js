@@ -26,7 +26,16 @@ $("#logoutBtn").click(function () {
     window.location.href = "./index.html";
 
 })
-const url = "http://localhost:3600"
+
+$(window).on("load resize ", function () {
+    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    $('.tbl-header').css({
+        'padding-right': scrollWidth
+    });
+}).resize();
+
+
+const url = "https://bitotsav.in/api";
 $.ajax({
     url: url + "/userProfile",
     method: "GET",
@@ -34,8 +43,8 @@ $.ajax({
         "x-access-token": localStorage.getItem("token")
     },
     cors: true,
-    success: function (res) {
-        if (res.status == 200) {
+    success: (res) => {
+        if (res.status === 200) {
             $("#userName").val(res.user.name);
             $("#userEmail").val(res.user.email);
             $("#userPhone").val(res.user.phoneNo);
@@ -50,6 +59,30 @@ $.ajax({
         console.log(err);
     }
 });
+
+$.ajax({
+    url: url + "/events/allEvents",
+    method: "GET",
+    headers: {
+        "x-access-token": localStorage.getItem("token")
+    },
+    cors: true,
+    success: (res) => {
+        if (res.status === 200){
+        }
+    },
+    error: (err) => {
+        console.log(err);
+    }
+});
+
+function eventlist() {
+    var eid = "sample id";
+    var ename = "sample name";
+    var tlid = "sample team leader id";
+    var newevent = "<tr> <td>" + eid + "</td><td >" + ename + "</td><td >" + tlid + "</td></tr>";
+    $("#events-table").append(newevent);
+}
 
 function changePassword() {
     $("#password-message").text("");
