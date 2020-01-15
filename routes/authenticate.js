@@ -480,7 +480,7 @@ router.get("/getUserState", verifyToken, (req, res) => {
                 return res.json({ status: 200, auth: true, message: 'Token authenticated!', verified: true });
             }
             else {
-                return res.json({ status: 400, auth: true, message: 'Token authenticated!', verified: false, email: user.email });
+                return res.json({ status: 400, auth: true, message: 'Token authenticated!', verified: false, email: user.email, phoneNo: user.phoneNo });
             }
         }
         catch (err) {
