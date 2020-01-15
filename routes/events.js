@@ -47,11 +47,18 @@ router.get('/getEventById', async(req, res)=>{
         return res.json({status: 200, data: event});
     }
     catch(e){
-        return res.json({status: 500, message: "Internal server error!! Try again!"});
+        return res.json({status: 500, message: "Internal server error! Try again."});
     }
 });
 
-
+router.get('/allEvents', async (req, res) => {
+    try {
+        const events = await eventModel.find({});
+        return res.json({ status: 200, events: event });
+    } catch(e) {
+        return res.json({status: 500, message: "Server Error."});
+    }
+});
 
 
 
@@ -226,22 +233,6 @@ router.get('/getEventById', async(req, res)=>{
 //         res.json({ status: 200, message: "Event added successfully!" });
 
 //     });
-
-
-// router.get('/allEvents', function (req, res, next) {
-//     eventModel.find({}, function (err, event) {
-//         if (err) {
-//             return res.json({ status: 500, message: "Internal server error" });
-
-//         }
-//         else if (!event) {
-//             return res.json({ status: 422, message: "No event found" });
-//         }
-//         else if (event) {
-//             return res.json({ status: 200, events: event });
-//         }
-//     })
-// });
 
 
 // router.get('/eventById', function (req, res, next) {
