@@ -60,6 +60,9 @@ $.ajax({
     }
 });
 
+var allevents;
+var userEvents;
+
 $.ajax({
     url: url + "/events/allEvents",
     method: "GET",
@@ -69,6 +72,7 @@ $.ajax({
     cors: true,
     success: (res) => {
         if (res.status === 200){
+            allevents=res.events;
         }
     },
     error: (err) => {
@@ -76,11 +80,33 @@ $.ajax({
     }
 });
 
-function eventlist() {
-    var eid = "sample id";
-    var ename = "sample name";
-    var tlid = "sample team leader id";
-    var newevent = "<tr> <td>" + eid + "</td><td >" + ename + "</td><td >" + tlid + "</td></tr>";
+$.ajax({
+    url: url + "/dash/getProfile",
+    method: "GET",
+    headers: {
+        "x-access-token": localStorage.getItem("token")
+    },
+    cors:true,
+    success: (res) => {
+        if(res.isInTeam === true){
+            userEvents = res.user.teamEventsRegistered;
+        }
+        else{
+            userEvents = res.user.soloEventsRegistered;
+        }
+        for(i=0; i<userEvents.length; i++){
+            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId);
+        }
+    }
+})
+
+
+
+function eventlist(i,n,t) {
+    var eventId = i;
+    var eventName = n;
+    var teamLeaderId = t;
+    var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
     $("#events-table").append(newevent);
 }
 
