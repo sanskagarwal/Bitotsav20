@@ -262,7 +262,7 @@ router.post(
             if (!rawUser) {
                 return res.json({ status: 400, message: "User not found" });
             }
-            bcrypt.hash(req.body.password, 8, (err, hashedPassword) => {
+            bcrypt.hash(req.body.password, 8, async (err, hashedPassword) => {
                 if (err) {
                     return res.json({ status: 500, message: "Internal Server Error" });
                 }

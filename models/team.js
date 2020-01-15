@@ -27,7 +27,7 @@ const registeredEventSchema = new schema({
 });
 
 
-const teamSchema = new Schema({
+const teamSchema = new schema({
     teamName: {
         type: String,
         trim: true,
