@@ -12,7 +12,7 @@ for(i=l+1;i<t;i++)
 }
 console.log(s);
 
-var url1= "http://localhost:5000/api/events";
+var url1= "https://bitotsav.in";
             $.ajax({
                 
                 url: url1+"/getEventByCategory?category="+s,
