@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>User Dashboard</title>
+  <link rel="icon" href="images/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" class="">
+      <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+      </div>
+      <div class="p-4">
+        <h1 style="color: whitesmoke;">Bitotsav</h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="#profile"><span class="fa fa-user mr-3"></span> Profile</a>
+          </li>
+          <li>
+            <a href="#team"><span class="fa fa-users mr-3"></span>Team Registration</a>
+          </li>
+          <li>
+            <a href="#event"><span class="fa fa-briefcase mr-3"></span>Event Registration</a>
+          </li>
+          <li>
+            <a href="#changePassword"><span class="fa fa-unlock-alt mr-3"></span>Change Password</a>
+          </li>
+          <li>
+            <a href="#instruction"><span class="fa fa-info mr-3"></span>Instruction</a>
+          </li>
+          <li>
+            <a href="#payment"><span class="fab fa-cc-visa mr-3"></span>Payment</a>
+          </li>
+          <br>
+          <li>
+            <a id="logoutBtn" class="btn btn-danger" style="padding-left: 10px;color:whitesmoke;;"><i
+                class="fas fa-sign-out-alt">&nbsp</i>Logout</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div class="content" style="min-height: 100vh; ">
+      <section id="profile" class="p-4 p-md-5 pt-5 toggle">
+        <h2 class="mb-6 pb-4">User Profile</h2>
+        <form action="" class="contact-form row ">
+          <div class="title">Personal Information</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"> <i class="fas fa-user-tie">&nbsp</i>Name</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userName" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-envelope">&nbsp</i>Email</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userEmail" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-phone">&nbsp</i>Phone</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userPhone" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="title">Institute Details</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-university">&nbsp</i>Name</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userClgName" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="far fa-registered">&nbsp</i>Roll</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userCLgId" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-building">&nbsp</i>City</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userClgCity" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-globe">&nbsp</i>State</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="userClgState" aria-describedby="basic-addon3" disabled>
+          </div>
+          <div class="title">Bitotsav Credentials</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text nobdr" id="userBitId"><i class="fas fa-id-card-alt">&nbsp</i>Bitotsav
+                ID</span>
+            </div>
+            <input type="text" class="form-control nobdr" id="basic-url" aria-describedby="basic-addon3" disabled>
+          </div>
+        </form>
+      </section>
+
+
+      <section id="team" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+        <h2 class="mb-6 pb-4 ">Team Registration</h2>
+
+        <form action="" class="contact-form row" onsubmit=event.preventDefault()>
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">Team Name:</label><br>
+              <input type="text" class="form-control" id="teamName" aria-describedby="basic-addon3"
+                placeholder="Enter team name" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">Team Size:</label><br>
+              <select class="form-control" id="teamSize">
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">Team Leader Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId1" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" disabled>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">Team Leader Email:</label><br>
+              <input type="email" class="form-control" id="email1" aria-describedby="basic-addon3"
+                placeholder="Enter member email" disabled>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">2nd Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId2" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">2nd Member Email:</label><br>
+              <input type="email" class="form-control" id="email2" aria-describedby="basic-addon3"
+                placeholder="Enter member email" required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">3rd Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId3" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">3rd Member Email:</label><br>
+              <input type="email" class="form-control" id="email3" aria-describedby="basic-addon3"
+                placeholder="Enter member email" required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">4th Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId4" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">4th Member Email:</label><br>
+              <input type="email" class="form-control" id="email4" aria-describedby="basic-addon3"
+                placeholder="Enter member email" required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">5th Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId5" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">5th Member Email:</label><br>
+              <input type="email" class="form-control" id="email5" aria-describedby="basic-addon3"
+                placeholder="Enter member email" required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">6th Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId6" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="email">6th Member Email:</label><br>
+              <input type="email" class="form-control" id="email6" aria-describedby="basic-addon3"
+                placeholder="Enter member email" required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">7th Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId7" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" disabled required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="email">7th Member Email:</label><br>
+              <input type="email" class="form-control" id="email7" aria-describedby="basic-addon3"
+                placeholder="Enter member email" disabled required>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="name">8th Member Bitotsav Id:</label><br>
+              <input type="text" class="form-control" id="bitId8" aria-describedby="basic-addon3"
+                placeholder="Enter member Id" disabled required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="email">8th Member Email:</label><br>
+              <input type="email" class="form-control" id="email8" aria-describedby="basic-addon3"
+                placeholder="Enter member email" disabled required>
+            </div>
+          </div>
+
+          <br />
+          <div style="align-items: center;">
+            <button class="btn btn-primary mb-3" id="teamRegister" type="submit"
+              style="color: rgb(243, 240, 240) !important;">Register</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="event" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+        <h2 class="mb-4">Sidebar #03</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.</p>
+      </section>
+
+
+      <section id="changePassword" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+        <h2 class="mb-6 pb-4">Change Password</h2>
+        <form action="" class="contact-form row " onsubmit=event.preventDefault()>
+          <div class="title">New Password:</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" id="newPassword" placeholder="Enter New Password" required>
+          </div>
+          <div class="title">Confirm Password:</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+          </div>
+          <div style="align-items: center;">
+            <button class="btn btn-primary" id="changePasswordBtn" type="submit" onclick="changePassword()"
+              style="color: rgb(246, 246, 246) !important;align-items: center;">Change Password</button>
+          </div>
+        </form>
+
+      </section>
+
+
+      <section id="instruction" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+        <h2 class="mb-4">Instructions</h2>
+        </li><br>
+        <li>For registering for an event, the team leader must follow the following steps:
+          <ol>
+            <li style="margin-top: 5px;">Select the event to register for.</li>
+            <li>Select the number of team members (including team leader).</li>
+            <li>Enter the email and bitotsav Id of each team member.</li>
+            <li>Each team member must be registered individually on the website, i.e each member
+              must have their own bitotsav Id.</li>
+            <li>None of the team member must be registered for that event.</li>
+            <li>After successful registration for the event, the team leader must mail documents,
+              photos etc. to <a href="mailto:events@bitotsav.in">events@bitotsav.in as mentioned
+                in the rules and regulations of the corresponding event.</a></li>
+          </ol>
+        </li><br>
+        <li>Bitotsav Championship
+          <ol>
+            <li style="margin-top: 5px;">Bitotsav championship is awarded to the team whose members
+              win most number of events.</li>
+            <li>There is separate registration for Bitotsav championship.</li>
+            <li>Each team can contain 6-8 members.</li>
+            <li>Each member can belong to exactly one team.</li>
+            <li>Once formed, the team members can not be added or removed.</li>
+            <li>Teams can be formed till 11th February, 2020.</li>
+            <li>The team for Bitotsav championship is different from the team registering for the
+              event.</li>
+            <li>Lets say a team X registers for an event. If X secures a position in an event and
+              all the members of team X are also registered under the same team Y for Bitotsav
+              championship, then team Y would automatically get points for that event as soon as
+              the result is declared.</li>
+          </ol>
+
+      </section>
+
+
+      <section id="payment" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+        <h2 class="mb-4">Sidebar #06</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.</p>
+      </section>
+    </div>
+  </div>
+
+
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/popper.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script>
+    $("#sidebar a").click(function (e) {
+      e.preventDefault();
+      $(".toggle").hide();
+      var toShow = $(this).attr('href');
+      $(toShow).show();
+    });
+
+    var fullHeight = function () {
+
+      $('.js-fullheight').css('height', $(window).height());
+      $(window).resize(function () {
+        $('.js-fullheight').css('height', $(window).height());
+      });
+
+    };
+    fullHeight();
+
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+
+    $('nav ul li a').click(function (e) {
+      var $this = $(this);
+      $this.parent().siblings().removeClass('active').end().addClass('active');
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
