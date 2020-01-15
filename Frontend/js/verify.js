@@ -117,6 +117,8 @@ function verifyForm() {
 
     }
     $("#btnSubmit").attr("disabled", true);
+    $('.rotator').addClass('spinner');
+
     grecaptcha.ready(function () {
         grecaptcha.execute('6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ', { action: 'verify' }).then(function (tokenn) {
     $.ajax({
@@ -142,6 +144,8 @@ function verifyForm() {
         },
         crossDomain: true,
         success: function (res) {
+            $('.rotator').removeClass('spinner');
+
             if (res.status !== 200) {
                 $("#btnSubmit").attr("disabled", false);
                 $("#errMsg").text(res.message);
@@ -155,6 +159,8 @@ function verifyForm() {
             }
         },
         error: function (err) {
+            $('.rotator').removeClass('spinner');
+
             $("#btnSubmit").attr("disabled", false);
             $("#errMsg").text(err);
         }

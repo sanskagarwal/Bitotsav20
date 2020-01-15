@@ -33,8 +33,7 @@ const registeredEventSchema = new schema({
 
 const userSchema = new schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
         type: String,

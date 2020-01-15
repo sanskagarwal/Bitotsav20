@@ -27,7 +27,10 @@ router.get('/getEventByCategory', async(req, res)=>{
             return res.json({status: 422, message: "Missing query parameter!!"});
         }
         const category = req.query.category;
-        const events = await eventModel.find({eventCategory: category});
+        const events = await eventModel.find({eventCategory: category}, {"faculty advisors": 0, _id: 0, club: 0, "resources required": 0});
+        if(!events) {
+            return res.json({status: 404, message: "No Event Found"});
+        }
         return res.json({status: 200, data: events});
     }
     catch(e){
@@ -43,15 +46,25 @@ router.get('/getEventById', async(req, res)=>{
             return res.json({status: 422, message: "Missing query parameter!!"});
         }
         const eventId = req.query.id;
-        const event = await eventModel.find({id: eventId});
+        const event = await eventModel.find({id: eventId}, {"faculty advisors": 0, _id: 0, club: 0, "resources required": 0});
+        if(!event) {
+            return res.json({status: 404, message: "No Event Found"});
+        }
         return res.json({status: 200, data: event});
     }
     catch(e){
-        return res.json({status: 500, message: "Internal server error!! Try again!"});
+        return res.json({status: 500, message: "Internal server error! Try again."});
     }
 });
 
-
+router.get('/allEvents', {_id: 0, }, async (req, res) => {
+    try {
+        const events = await eventModel.find({}, {"faculty advisors": 0, _id: 0, club: 0, "resources required": 0});
+        return res.json({ status: 200, events: event });
+    } catch(e) {
+        return res.json({status: 500, message: "Server Error."});
+    }
+});
 
 
 
@@ -226,22 +239,6 @@ router.get('/getEventById', async(req, res)=>{
 //         res.json({ status: 200, message: "Event added successfully!" });
 
 //     });
-
-
-// router.get('/allEvents', function (req, res, next) {
-//     eventModel.find({}, function (err, event) {
-//         if (err) {
-//             return res.json({ status: 500, message: "Internal server error" });
-
-//         }
-//         else if (!event) {
-//             return res.json({ status: 422, message: "No event found" });
-//         }
-//         else if (event) {
-//             return res.json({ status: 200, events: event });
-//         }
-//     })
-// });
 
 
 // router.get('/eventById', function (req, res, next) {
