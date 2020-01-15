@@ -21,6 +21,11 @@ $("#teamSize").change(function () {
     }
 });
 
+$("#logoutBtn").click(function () {
+    localStorage.setItem("token", "");
+    window.location.href = "./index.html";
+
+})
 const url = "http://localhost:3600"
 $.ajax({
     url: url + "/userProfile",

@@ -15,6 +15,7 @@
 <body>
 
   <div class="wrapper d-flex align-items-stretch">
+    <div id="particles-js"></div>
     <nav id="sidebar" class="">
       <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -26,7 +27,7 @@
         <h1 style="color: whitesmoke;">Bitotsav</h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="#profile"><span class="fa fa-user mr-3"></span> Profile</a>
+            <a href="#profile"><span class="fa fa-user mr-3"></span>Profile</a>
           </li>
           <li>
             <a href="#team"><span class="fa fa-users mr-3"></span>Team Registration</a>
@@ -55,58 +56,73 @@
 
     <!-- Page Content  -->
     <div class="content" style="min-height: 100vh; ">
+
       <section id="profile" class="p-4 p-md-5 pt-5 toggle">
         <h2 class="mb-6 pb-4">User Profile</h2>
+
+        <h5 class="title">Personal Information</h5>
         <form action="" class="contact-form row ">
-          <div class="title">Personal Information</div>
+          <div class="title">Name:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"> <i class="fas fa-user-tie">&nbsp</i>Name</span>
+              <span class="input-group-text nobdr" id="basic-addon3"> <i class="fas fa-user-tie">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userName" aria-describedby="basic-addon3" disabled>
           </div>
+          <div class="title">Email:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-envelope">&nbsp</i>Email</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-envelope">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userEmail" aria-describedby="basic-addon3" disabled>
           </div>
+          <div class="title">Phone:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-phone">&nbsp</i>Phone</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-phone">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userPhone" aria-describedby="basic-addon3" disabled>
           </div>
-          <div class="title">Institute Details</div>
+        </form>
+        <h5 class="title">Institute Details</h5>
+        <form action="" class="contact-form row ">
+          <div class="title"> Institute Name:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-university">&nbsp</i>Name</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-university">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgName" aria-describedby="basic-addon3" disabled>
           </div>
+          <div class="title">Institute Roll:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="far fa-registered">&nbsp</i>Roll</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="far fa-registered">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userCLgId" aria-describedby="basic-addon3" disabled>
           </div>
+          <div class="title">Institute City:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-building">&nbsp</i>City</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-building">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgCity" aria-describedby="basic-addon3" disabled>
           </div>
+
+          <div class="title">Institute state:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-globe">&nbsp</i>State</span>
+              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-globe">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgState" aria-describedby="basic-addon3" disabled>
           </div>
-          <div class="title">Bitotsav Credentials</div>
+        </form>
+
+        <h5 class="title">Bitotsav Credentials</h5>
+        <form action="" class="contact-form row ">
+          <div class="title">Bitotsav Id:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="userBitId"><i class="fas fa-id-card-alt">&nbsp</i>Bitotsav
-                ID</span>
+              <span class="input-group-text nobdr" id="userBitId"><i class="fas fa-id-card-alt">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="basic-url" aria-describedby="basic-addon3" disabled>
           </div>
@@ -266,15 +282,15 @@
           </div>
 
           <br />
-          <div style="align-items: center;">
-            <button class="btn btn-primary mb-3" id="teamRegister" type="submit"
+          <div style="align-items: center;" class=" mx-auto">
+            <button class="btn btn-primary mb-3 " id="teamRegister" type="submit"
               style="color: rgb(243, 240, 240) !important;">Register</button>
           </div>
         </form>
       </section>
 
       <section id="event" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <h2 class="mb-4">Sidebar #03</h2>
+        <h2 class="mb-4">Event Registration</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
           dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
           ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -305,8 +321,8 @@
             </div>
             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
           </div>
-          <div style="align-items: center;">
-            <button class="btn btn-primary" id="changePasswordBtn" type="submit" onclick="changePassword()"
+          <div style="align-items: center;" class="mx-auto">
+            <button class="btn btn-primary " id="changePasswordBtn" type="submit" onclick="changePassword()"
               style="color: rgb(246, 246, 246) !important;align-items: center;">Change Password</button>
           </div>
         </form>
@@ -329,7 +345,7 @@
               photos etc. to <a href="mailto:events@bitotsav.in">events@bitotsav.in as mentioned
                 in the rules and regulations of the corresponding event.</a></li>
           </ol>
-        </li><br>
+        </li>
         <li>Bitotsav Championship
           <ol>
             <li style="margin-top: 5px;">Bitotsav championship is awarded to the team whose members
@@ -351,7 +367,7 @@
 
 
       <section id="payment" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <h2 class="mb-4">Sidebar #06</h2>
+        <h2 class="mb-4">Payment</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
           dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
           ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -371,6 +387,8 @@
   <script src="js/lib/popper.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="./js/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./js/particle.js"></script>
   <script>
     $("#sidebar a").click(function (e) {
       e.preventDefault();
