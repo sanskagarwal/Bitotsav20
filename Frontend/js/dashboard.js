@@ -35,7 +35,7 @@ $(window).on("load resize ", function () {
 }).resize();
 
 
-const url = "https://bitotsav.in/api";
+const url = "https://bitotsav.in/api/dash";
 $.ajax({
     url: url + "/userProfile",
     method: "GET",
@@ -68,7 +68,7 @@ $.ajax({
     },
     cors: true,
     success: (res) => {
-        if (res.status === 200){
+        if (res.status === 200) {
         }
     },
     error: (err) => {
@@ -119,9 +119,9 @@ function changePassword() {
             }
             else {
                 $("#password-message").text(res.message);
-                setTimeout(function () {
-                    window.location.reload(true);
-                }, 1600);
+                // setTimeout(function () {
+                //     window.location.reload(true);
+                // }, 1600);
             }
         },
         error: function (err) {
@@ -268,9 +268,9 @@ $("#teamRegister").click(function () {
             }
             else {
                 $("#reg-message").text(res.message);
-                setTimeout(function () {
-                    window.location.reload(true);
-                }, 1600);
+                // setTimeout(function () {
+                //     window.location.reload(true);
+                // }, 1600);
             }
         },
         error: function (err) {

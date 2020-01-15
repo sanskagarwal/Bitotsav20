@@ -15,7 +15,7 @@
 <body>
 
   <div class="wrapper d-flex align-items-stretch">
-    <div id="particles-js"></div>
+    <!-- <div id="particles-js"></div> -->
     <nav id="sidebar" class="">
       <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -287,6 +287,7 @@
               style="color: rgb(243, 240, 240) !important;">Register</button>
           </div>
         </form>
+        <h5 id="reg-message" class="text-center"></h5>
       </section>
 
       <section id="event" class="p-4 p-md-5 pt-5 toggle" style="display:none">
@@ -326,7 +327,8 @@
               style="color: rgb(246, 246, 246) !important;align-items: center;">Change Password</button>
           </div>
         </form>
-
+        <br />
+        <h5 id="password-message" class="text-center"></h5>
       </section>
 
 
@@ -387,8 +389,8 @@
   <script src="js/lib/popper.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="./js/dashboard.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./js/particle.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./js/particle.js"></script> -->
   <script>
     $("#sidebar a").click(function (e) {
       e.preventDefault();
