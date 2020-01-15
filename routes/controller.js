@@ -5,10 +5,12 @@ const sap = require('./sap');
 const authenticate = require('./authenticate');
 const admin = require('./admin');
 const events = require('./events');
+const dashboard = require('./dashboardRoutes');
 
 router.use('/sap', sap);
 router.use('/auth', authenticate);
 router.use('/admin', admin);
 router.use('/events', events);
+router.use('/dash', dashboard);
 
 module.exports = router;
