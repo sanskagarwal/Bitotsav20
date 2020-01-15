@@ -1,6 +1,21 @@
 let url1= "https://bitotsav.in/api/auth";
 
 
+$.ajax({
+    url: url + "/getUserState",
+    method: "GET",
+    headers: {
+        'x-access-token': localStorage.getItem("token")
+    },
+    crossDomain: true,
+    success: function (res) {
+        if (res.status === 200) {
+            window.location = "profile.html";
+        }
+    },
+    error: function (err) {
+    }
+});
 
 function loginForm() {
 

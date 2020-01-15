@@ -12,7 +12,7 @@ $.ajax({
             window.location = "signupin.html";
         }
         else if (res.status === 200) {
-            window.location = "userDashboard.html";
+            window.location = "profile.html";
         }
         else {
             $("#email").val(res.email);
