@@ -1,0 +1,80 @@
+ body{
+        font-family: 'Roboto', sans-serif;
+        background: #fff;
+        background-image: url(../images/events-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+       
+    }
+    
+
+  
+    
+     
+      .card{
+          box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.699), 0 15px 20px 0 rgba(0, 0, 0, 0.644);
+          background-color: black;
+          
+
+      }
+      
+     
+      .modal-body{
+          background-color:lightgreen;
+      }
+      .modal-title{
+            margin: auto;     
+        font-weight: 700;
+        width: 100%;
+      }
+
+      
+           .modal-header{
+         background-color:black;
+         color: whitesmoke;
+      }
+      
+      .border{
+          width: 3px;
+      }
+      
+      
+      .modal-footer{
+          display: inline !important;
+      }
+      
+      .card{
+          box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.699), 0 10px 20px 0 rgba(0, 0, 0, 0.644);
+          color: black;
+          background-color: black;
+          
+      }
+      .card-img-top{
+        width:100%; 
+        height:18em;
+      }    
+
+      @media only screen and (max-width: 768px){
+      .card-img-top{
+        width:100%; 
+        height:12em;
+        margin: auto;
+      }    
+    }
+      .modal-header{
+         background-color:lightcoral;
+         color: whitesmoke;
+        
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          
