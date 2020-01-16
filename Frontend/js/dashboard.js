@@ -3,22 +3,22 @@ $("#loadshow2").hide();
 $("#teamSize").change(function () {
     var x = $(this).children("option:selected").val();
     if (x == 7) {
-        $("#bitId7").attr("disabled", false);
-        $("#email7").attr("disabled", false);
-        $("#bitId8").attr("disabled", true);
-        $("#email8").attr("disabled", true);
-    }
-    if (x == 8) {
-        $("bitId7").attr("disabled", false);
-        $("#email7").attr("disabled", false);
-        $("#bitId8").attr("disabled", false);
-        $("#email8").attr("disabled", false);
-    }
-    if (x == 6) {
+        $("#bitId6").attr("disabled", false);
+        $("#email6").attr("disabled", false);
         $("#bitId7").attr("disabled", true);
         $("#email7").attr("disabled", true);
-        $("#bitId8").attr("disabled", true);
-        $("#email8").attr("disabled", true);
+    }
+    if (x == 8) {
+        $("bitId6").attr("disabled", false);
+        $("#email6").attr("disabled", false);
+        $("#bitId7").attr("disabled", false);
+        $("#email7").attr("disabled", false);
+    }
+    if (x == 6) {
+        $("#bitId6").attr("disabled", true);
+        $("#email6").attr("disabled", true);
+        $("#bitId7").attr("disabled", true);
+        $("#email7").attr("disabled", true);
     }
 });
 
@@ -71,12 +71,12 @@ $.ajax({
         "x-access-token": localStorage.getItem("token")
     },
     cors: true,
-    success: function (res){
-        if (res.status === 200){
+    success: function (res) {
+        if (res.status === 200) {
             allevents = res.events;
         }
     },
-    error: function (err){
+    error: function (err) {
         console.log(err);
     }
 });
@@ -87,53 +87,117 @@ $.ajax({
     headers: {
         "x-access-token": localStorage.getItem("token")
     },
-    cors:true,
-    success: function (res){
-        if(res.status === 200){
-        if(res.isInTeam === true){
-            userEvents = res.user.teamEventsRegistered;
+    cors: true,
+    success: function (res) {
+        if (res.status === 200) {
+            console.log(res);
+            $("#userName").val(res.user._doc.name);
+            $("#userEmail").val(res.user._doc.email);
+            $("#userPhone").val(res.user._doc.phoneNo);
+            $("#userBitId").val(res.user._doc.bitotsavId);
+            $("#userClgId").val(res.user._doc.clgId);
+            $("#userClgName").val(res.user._doc.clgName);
+            $("#userClgCity").val(res.user._doc.clgCity);
+            $("#userClgState").val(res.user._doc.clgState);
+            $("#bitId0").val(res.user._doc.bitotsavId);
+            $("#email0").val(res.user._doc.email);
+            if (res.isInTeam == true) {
+                $("#tableAndForm").remove();
+                $("#team").append(`<div >
+                <h2>Team Details</h2>
+                <br/>
+                <ol>
+                <li style="margin-top: 5px;">Team Name: </li>
+                <li style="margin-top: 5px;">Team Size: </li>
+                <li style="margin-top: 5px;">Team Id: </li>
+               </ol>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Member Name</th>
+                      <th>Bitotsav Id</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Default</td>
+                      <td>Defaultson</td>
+                      <td>def@somemail.com</td>
+                    </tr>
+                    <tr>
+                      <td>Success</td>
+                      <td>Doe</td>
+                      <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>Danger</td>
+                      <td>Moe</td>
+                      <td>mary@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>Info</td>
+                      <td>Dooley</td>
+                      <td>july@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>Warning</td>
+                      <td>Refs</td>
+                      <td>bo@example.com</td>
+                    </tr>
+                    <tr>
+                      <td>Active</td>
+                      <td>Activeson</td>
+                      <td>act@example.com</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>`)
+            }
+            if (res.isInTeam === true) {
+                userEvents = res.user.teamEventsRegistered;
+            }
+            else {
+                userEvents = res.user.soloEventsRegistered;
+            }
+            for (i = 0; i < userEvents.length; i++) {
+                var isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;
+                eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId, isEventLead);
+            }
         }
-        else {
-            userEvents = res.user.soloEventsRegistered;
-        }
-        for(i=0; i<userEvents.length; i++){
-            var isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
-            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId,isEventLead);
-        }
-    }
     }
 });
 
 
-function deregisterEvent(eid){
-$.ajax({
-    url: url + "/dash/deregister",
-    method: "POST",
-    data: {eventId:eid},
-    headers: {
-        "x-access-token": localStorage.getItem("token")
-    },
-    crossDomain: true,
-    success: function (res){
+function deregisterEvent(eid) {
+    $.ajax({
+        url: url + "/dash/deregister",
+        method: "POST",
+        data: { eventId: eid },
+        headers: {
+            "x-access-token": localStorage.getItem("token")
+        },
+        crossDomain: true,
+        success: function (res) {
             alert(res.message);
             $('#event' + eid).remove();
         },
-      error: function (err){
+        error: function (err) {
             console.log(err);
         }
-}); 
+    });
 }
 
-function eventlist(i,n,t,l) {
+function eventlist(i, n, t, l) {
     var eventId = i;
     var eventName = n;
     var teamLeaderId = t;
-    var deregister_button = "<button onclick = 'deregisterEvent("+eventId+")'> Deregister Event </button>";
-    if(l === false){
-        var newevent = "<tr id='event"+eventId+"'> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
+    var deregister_button = "<button onclick = 'deregisterEvent(" + eventId + ")'> Deregister Event </button>";
+    if (l === false) {
+        var newevent = "<tr id='event" + eventId + "'> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
     }
-    else{
-        var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td><td>" + deregister_button +  "</td></tr>";
+    else {
+        var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td><td>" + deregister_button + "</td></tr>";
     }
     $("#events-table").append(newevent);
 }

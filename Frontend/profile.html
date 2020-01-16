@@ -6,6 +6,7 @@
   <link rel="icon" href="images/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <link rel="stylesheet" href="css/lib/bootstrap.min.css">
@@ -15,7 +16,7 @@
 <body>
 
   <div class="wrapper d-flex align-items-stretch">
-    <!-- <div id="particles-js"></div> -->
+
     <nav id="sidebar" class="">
       <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -24,7 +25,9 @@
         </button>
       </div>
       <div class="p-4">
-        <h1 style="color: whitesmoke;">Bitotsav</h1>
+        <!-- <h1 style="color: whitesmoke;">Bitotsav</h1> -->
+        <span> <img src="./images/favicon.png" class="img-fluid"></span>
+
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="#profile"><span class="fa fa-user mr-3"></span>Profile</a>
@@ -53,7 +56,7 @@
 
       </div>
     </nav>
-
+    <div id="particles-js"></div>
     <!-- Page Content  -->
     <div class="content" style="min-height: 100vh; ">
 
@@ -98,7 +101,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text nobdr" id="basic-addon3"><i class="far fa-registered">&nbsp</i></span>
             </div>
-            <input type="text" class="form-control nobdr" id="userCLgId" aria-describedby="basic-addon3" disabled>
+            <input type="text" class="form-control nobdr" id="userClgId" aria-describedby="basic-addon3" disabled>
           </div>
           <div class="title">Institute City:</div>
           <div class="input-group mb-3">
@@ -122,196 +125,200 @@
           <div class="title">Bitotsav Id:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="userBitId"><i class="fas fa-id-card-alt">&nbsp</i></span>
+              <span class="input-group-text nobdr"><i class="fas fa-id-card-alt">&nbsp</i></span>
             </div>
-            <input type="text" class="form-control nobdr" id="basic-url" aria-describedby="basic-addon3" disabled>
+            <input type="text" class="form-control nobdr" id="userBitId" aria-describedby="basic-addon3" disabled>
           </div>
         </form>
       </section>
 
 
       <section id="team" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <h2 class="mb-6 pb-4 ">Team Registration</h2>
+        <div id="tableAndForm">
+          <h2 class="mb-6 pb-4 ">Team Registration</h2>
 
-        <form action="" class="contact-form row" onsubmit=event.preventDefault()>
+          <form action="" class="contact-form row" onsubmit=event.preventDefault()>
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">Team Name:</label><br>
-              <input type="text" class="form-control" id="teamName" aria-describedby="basic-addon3"
-                placeholder="Enter team name" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">Team Name:</label><br>
+                <input type="text" class="form-control" id="teamName" aria-describedby="basic-addon3"
+                  placeholder="Enter team name" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">Team Size:</label><br>
-              <select class="form-control" id="teamSize">
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-              </select>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">Team Size:</label><br>
+                <select class="form-control" id="teamSize">
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                </select>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">Team Leader Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId0" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" disabled>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">Team Leader Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId0" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" disabled>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">Team Leader Email:</label><br>
-              <input type="email" class="form-control" id="email0" aria-describedby="basic-addon3"
-                placeholder="Enter member email" disabled>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">Team Leader Email:</label><br>
+                <input type="email" class="form-control" id="email0" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" disabled>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">2nd Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId1" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">2nd Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId1" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">2nd Member Email:</label><br>
-              <input type="email" class="form-control" id="email1" aria-describedby="basic-addon3"
-                placeholder="Enter member email" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">2nd Member Email:</label><br>
+                <input type="email" class="form-control" id="email1" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">3rd Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId2" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">3rd Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId2" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">3rd Member Email:</label><br>
-              <input type="email" class="form-control" id="email2" aria-describedby="basic-addon3"
-                placeholder="Enter member email" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">3rd Member Email:</label><br>
+                <input type="email" class="form-control" id="email2" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">4th Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId3" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">4th Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId3" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">4th Member Email:</label><br>
-              <input type="email" class="form-control" id="email3" aria-describedby="basic-addon3"
-                placeholder="Enter member email" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">4th Member Email:</label><br>
+                <input type="email" class="form-control" id="email3" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">5th Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId4" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">5th Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId4" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">5th Member Email:</label><br>
-              <input type="email" class="form-control" id="email4" aria-describedby="basic-addon3"
-                placeholder="Enter member email" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">5th Member Email:</label><br>
+                <input type="email" class="form-control" id="email4" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">6th Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId5" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">6th Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId5" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="email">6th Member Email:</label><br>
-              <input type="email" class="form-control" id="email5" aria-describedby="basic-addon3"
-                placeholder="Enter member email" required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="email">6th Member Email:</label><br>
+                <input type="email" class="form-control" id="email5" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">7th Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId6" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" disabled required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">7th Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId6" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" disabled required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="email">7th Member Email:</label><br>
-              <input type="email" class="form-control" id="email6" aria-describedby="basic-addon3"
-                placeholder="Enter member email" disabled required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="email">7th Member Email:</label><br>
+                <input type="email" class="form-control" id="email6" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" disabled required>
+              </div>
             </div>
-          </div>
 
 
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="name">8th Member Bitotsav Id:</label><br>
-              <input type="text" class="form-control" id="bitId7" aria-describedby="basic-addon3"
-                placeholder="Enter member Id" disabled required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="name">8th Member Bitotsav Id:</label><br>
+                <input type="text" class="form-control" id="bitId7" aria-describedby="basic-addon3"
+                  placeholder="Enter member Id" disabled required>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group mb-3">
-              <label for="email">8th Member Email:</label><br>
-              <input type="email" class="form-control" id="email7" aria-describedby="basic-addon3"
-                placeholder="Enter member email" disabled required>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <label for="email">8th Member Email:</label><br>
+                <input type="email" class="form-control" id="email7" aria-describedby="basic-addon3"
+                  placeholder="Enter member email" disabled required>
+              </div>
             </div>
-          </div>
 
-          <br />
-          <div style="align-items: center;" class=" mx-auto">
-            <button class="btn btn-primary mb-3 " id="teamRegister" type="submit" onclick="registerTeam()"
-              style="color: rgb(243, 240, 240) !important;"><i class="fa fa-spinner fa-spin" id="loadshow2"></i>
-              Register</button>
-          </div>
-        </form>
-        <h5 id="reg-message" class="text-center"></h5>
+            <br />
+            <div style="align-items: center;" class=" mx-auto">
+              <button class="btn btn-primary mb-3 " id="teamRegister" type="submit" onclick="registerTeam()"
+                style="color: rgb(243, 240, 240) !important;"><i class="fa fa-spinner fa-spin" id="loadshow2"></i>
+                Register</button>
+            </div>
+          </form>
+          <h5 id="reg-message" class="text-center"></h5>
+        </div>
       </section>
+
+
 
       <section id="event" class="toggle" style="display:none">
         <section id="table-section">
-            <h2 class="mb-6 pb-4">Your Events:</h2>
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead id="event-table-head">
-                        <tr>
-                            <th>Event ID</th>
-                            <th>Event name</th>
-                            <th>Team Leader ID</th>
-                            <th id="deregister-column" style="display:none">Deregister</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody id="events-table">
-                        
-                    </tbody>
-                </table>
+          <h2 class="mb-6 pb-4">Your Events:</h2>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead id="event-table-head">
+                <tr>
+                  <th>Event ID</th>
+                  <th>Event name</th>
+                  <th>Team Leader ID</th>
+                  <th id="deregister-column" style="display:none">Deregister</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody id="events-table">
+
+              </tbody>
+            </table>
 
           </div>
         </section>
@@ -358,8 +365,8 @@
               must have their own bitotsav Id.</li>
             <li>None of the team member must be registered for that event.</li>
             <li>After successful registration for the event, the team leader must mail documents,
-              photos etc. to <a href="mailto:events@bitotsav.in">events@bitotsav.in as mentioned
-                in the rules and regulations of the corresponding event.</a></li>
+              photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned
+              in the rules and regulations of the corresponding event.</li>
           </ol>
         </li>
         <li>Bitotsav Championship
@@ -384,16 +391,7 @@
 
       <section id="payment" class="p-4 p-md-5 pt-5 toggle" style="display:none">
         <h2 class="mb-4">Payment</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.</p>
+        <h5 class="text-center">Comming Soon</h5>
       </section>
     </div>
   </div>
@@ -403,8 +401,8 @@
   <script src="js/lib/popper.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="./js/dashboard.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./js/particle.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="./js/particle.js"></script>
   <script>
     $("#sidebar a").click(function (e) {
       e.preventDefault();
