@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { isEmail } = require('validator');
 const verifyToken = require('../utils/verifyToken');
@@ -321,10 +322,10 @@ router.post(
             return res.json({ status: 400, message: "Password does not match" });
         }
         next();
-    },
+    }, verifyToken, 
     async (req, res, next) => {
         try {
-            const rawUser = await userData.findById(req.userId);
+            const rawUser = await userModel.findById(req.userId);
             if (!rawUser) {
                 return res.json({ status: 400, message: "User not found" });
             }
@@ -332,8 +333,8 @@ router.post(
                 if (err) {
                     return res.json({ status: 500, message: "Internal Server Error" });
                 }
-                user.password = hashedPassword;
-                await user.save();
+                rawUser.password = hashedPassword;
+                await rawUser.save();
                 return res.json({ status: 200, message: "Password succesfully changed" });
             });
         } catch (e) {
