@@ -35,8 +35,8 @@ $(window).on("load resize ", function () {
 }).resize();
 
 
-const url = "https://bitotsav.in/api/dash";
-$.ajax({
+const url = "https://bitotsav.in/api";
+/*$.ajax({
     url: url + "/userProfile",
     method: "GET",
     headers: {
@@ -58,7 +58,7 @@ $.ajax({
     error: function (err) {
         console.log(err);
     }
-});
+});*/
 
 var allevents;
 var userEvents;
@@ -70,12 +70,12 @@ $.ajax({
         "x-access-token": localStorage.getItem("token")
     },
     cors: true,
-    success: (res) => {
+    success: function (res){
         if (res.status === 200){
             allevents=res.events;
         }
     },
-    error: (err) => {
+    error: function (err){
         console.log(err);
     }
 });
@@ -87,7 +87,8 @@ $.ajax({
         "x-access-token": localStorage.getItem("token")
     },
     cors:true,
-    success: (res) => {
+    success: function (res){
+        if(res.status === 200){
         if(res.isInTeam === true){
             userEvents = res.user.teamEventsRegistered;
         }
@@ -95,18 +96,44 @@ $.ajax({
             userEvents = res.user.soloEventsRegistered;
         }
         for(i=0; i<userEvents.length; i++){
-            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId);
+            var isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
+            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId,isEventLead);
         }
     }
-})
+    }
+});
 
 
+function deregisterEvent(eid){
+$.ajax({
+    url: url + "/dash/deregister",
+    method: "POST",
+    data: {eventId:eid},
+    headers: {
+        "x-access-token": localStorage.getItem("token")
+    },
+    crossDomain: true,
+    success: function (res){
+            alert(res.message);
+            $('#event' + eid).remove();
+        },
+      error: function (err){
+            console.log(err);
+        }
+}); 
+}
 
-function eventlist(i,n,t) {
+function eventlist(i,n,t,l) {
     var eventId = i;
     var eventName = n;
     var teamLeaderId = t;
-    var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
+    var deregister_button = "<button onclick = 'deregisterEvent("+eventId+")'> Deregister Event </button>";
+    if(l === false){
+        var newevent = "<tr id='event"+eventId+"'> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
+    }
+    else{
+        var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td><td>" + deregister_button +  "</td></tr>";
+    }
     $("#events-table").append(newevent);
 }
 
