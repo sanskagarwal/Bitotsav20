@@ -321,7 +321,7 @@ router.post(
             return res.json({ status: 400, message: "Password does not match" });
         }
         next();
-    },
+    }, verifyToken, 
     async (req, res, next) => {
         try {
             const rawUser = await userData.findById(req.userId);
