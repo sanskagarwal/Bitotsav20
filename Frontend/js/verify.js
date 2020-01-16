@@ -53,7 +53,7 @@ function verifyForm() {
     let clgId = $('#clgroll').val().trim();
     let clgCity= $('#clgcity').val().trim();
     let clgState = $('#clgstate').val().trim();
-
+    let g=1;
 
     if (name === "") {
         var thisAlert = $('#name').parent();
@@ -112,9 +112,14 @@ function verifyForm() {
         var thisAlert = $('#clgroll').parent();
         $(thisAlert).addClass('alert-validate');
         return;
+    }
 
+    if (gender==="Male"){
+        g=1;
+    }
 
-
+    if(gender==="Female"){
+        g=2;
     }
     $("#btnSubmit").attr("disabled", true);
     $('.rotator').addClass('spinner');
@@ -130,7 +135,7 @@ function verifyForm() {
             mobileOTP:mobileOTP,
             name: name,
             phoneNo: mobile,
-            gender: gender,
+            gender: g,
             clgName: clgName,
             clgCity: clgCity,
             clgState: clgState,

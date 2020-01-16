@@ -7,6 +7,7 @@
 	font-family: Montserrat-Bold;
 	src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
   }
+  
 * {
 	box-sizing: border-box;
 } 
@@ -83,7 +84,7 @@ form {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
+	padding: 0 45px;
 	height: 100%;
 	text-align: center;
 }
@@ -547,3 +548,61 @@ input.input100 {
     border-right: 2px solid transparent;
     animation: spinner .6s linear infinite;
 }
+@media (max-width: 1200px) {
+	.contact100-pic {
+	  width: 33.5%;
+	}
+  
+	.contact100-form {
+	  width: 44%;
+	}
+  }
+  
+  @media (max-width: 992px) {
+	.wrap-contact100 {
+	  padding: 50px 80px 157px 90px;
+	}
+  
+	.contact100-pic {
+	  width: 35%;
+	}
+  
+	.contact100-form {
+	  width: 55%;
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.wrap-contact100 {
+	  padding: 50px 80px 57px 80px;
+	}
+  
+	.container {
+	  display: none;
+	}
+	.contact100-pic {
+		display: none;
+	  }
+  
+	.contact100-form {
+	  width: 100%;
+	}
+  }
+  
+  @media (max-width: 576px) {
+	.wrap-contact100 {
+	  padding: 0px 15px 32px 15px;
+	}
+  }
+  @media (min-width: 768px) {
+	.container-contact100 {
+		display: none;
+	  }
+  }
+
+
+
+
+
+
+  
