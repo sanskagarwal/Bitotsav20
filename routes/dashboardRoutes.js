@@ -93,7 +93,7 @@ router.post('/register', verifyToken, async (req, res) => {
         }
 
         //Event Name will not be in body
-        const eventName = await eventModel.findOne({id: eventId},'name');
+        const eventName = await eventModel.findOne({ id: eventId }, 'name');
 
         const participantsObjectArray = [...(req.body.participants)];
         //participants' bitotsavId and email is provided as an array of objects
@@ -209,8 +209,8 @@ router.post('/register', verifyToken, async (req, res) => {
                             remove this event from all team members teamEvent array
                         else Invalid
 */
-router.post('/deregister', verifyToken, async(req, res)=>{
-    try{
+router.post('/deregister', verifyToken, async (req, res) => {
+    try {
         const userMongoId = req.userId;
         const rawUser = await userModel.findById(userMongoId);
         if (!rawUser) {
@@ -223,49 +223,49 @@ router.post('/deregister', verifyToken, async(req, res)=>{
         }
 
         //Event Name will not be in body
-        const eventName = await eventModel.findOne({id: eventId},'name');
+        const eventName = await eventModel.findOne({ id: eventId }, 'name');
 
         const teamMongoId = rawUser.teamMongoId;
         const userBitotsavId = rawUser.bitotsavId;
-        if(teamMongoId) {
+        if (teamMongoId) {
             const teamEventsReg = rawUser.teamEventsRegistered;
-            
+
             //check1....user must be registered in the team event specified by eventId
             const event = teamEventsReg.find((eventObj) => eventObj.eventId === eventId);
-            if(!event) {
-                return res.json({status: 403, message: "Can't deregister if you are not registered in the first place!!"});
+            if (!event) {
+                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place!!" });
             }
 
             //check2....user must be the event leader for that event
             const leaderBitotsavId = event.eventLeaderBitotsavId;
-            if(userBitotsavId !== leaderBitotsavId) {
-                return res.json({status: 403, message: "Only event leader is allowed to deregister the team from any event!!"});
+            if (userBitotsavId !== leaderBitotsavId) {
+                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event!!" });
             }
 
             //now deregister from the event
-            await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: {teamEventsRegistered: {  eventId: eventId }} });
+            await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: { teamEventsRegistered: { eventId: eventId } } });
             await teamModel.updateOne({ _id: teamMongoId }, { $pull: { eventsRegistered: { eventId: eventId } } });
             return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
         }
-        else{
+        else {
             const soloEventsReg = rawUser.soloEventsRegistered;
 
             //check1....user must be registered in the solo event specified by eventId
             const event = soloEventsReg.find((eventObj) => eventObj.eventId === eventId);
-            if(!event) {
-                return res.json({status: 403, message: "Can't deregister if you are not registered in the first place!!"});
+            if (!event) {
+                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place!!" });
             }
 
             //check2....user must be the event leader for that event
             const leaderBitotsavId = event.eventLeaderBitotsavId;
-            if(userBitotsavId !== leaderBitotsavId) {
-                return res.json({status: 403, message: "Only event leader is allowed to deregister the team from any event!!"});
+            if (userBitotsavId !== leaderBitotsavId) {
+                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event!!" });
             }
 
             //now deregister from the event
             let soloParticipantsEmail = [];
             let soloParticipants = event.members;
-            soloParticipants.forEach((participant)=>{
+            soloParticipants.forEach((participant) => {
                 soloParticipantsEmail.push(participant.email);
             });
 
@@ -274,7 +274,7 @@ router.post('/deregister', verifyToken, async(req, res)=>{
             return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
         }
     }
-    catch(e){
+    catch (e) {
         return res.json({ status: 500, message: "Internal server error!!" });
     }
 });
@@ -322,20 +322,24 @@ router.post(
             return res.json({ status: 400, message: "Password does not match" });
         }
         next();
-    }, verifyToken, 
-    async (req, res, next) => {
+    }, verifyToken,
+    async (req, res) => {
         try {
             const rawUser = await userModel.findById(req.userId);
             if (!rawUser) {
                 return res.json({ status: 400, message: "User not found" });
             }
-            bcrypt.hash(req.body.password, 8, async (err, hashedPassword) => {
+            bcrypt.hash(req.body.password, 8, (err, hashedPassword) => {
                 if (err) {
                     return res.json({ status: 500, message: "Internal Server Error" });
                 }
                 rawUser.password = hashedPassword;
-                await rawUser.save();
-                return res.json({ status: 200, message: "Password succesfully changed" });
+                rawUser.save((err) => {
+                    if (err) {
+                        return res.json({ status: 500, message: "Server Error" });
+                    }
+                    return res.json({ status: 200, message: "Password succesfully changed" });
+                });
             });
         } catch (e) {
             return res.json({ status: 500, message: "Server Error" });
@@ -489,8 +493,9 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         message: `Member ${i +
                             1} is already registered in some another team!`
                     });
-                } else if(Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
-                    return res.json({status: 415,message: `Member ${i + 1} is registered in some events, de-regsiter his/her existing events and try again.`
+                } else if (Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
+                    return res.json({
+                        status: 415, message: `Member ${i + 1} is registered in some events, de-regsiter his/her existing events and try again.`
                     });
                 }
             }

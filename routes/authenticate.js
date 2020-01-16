@@ -307,10 +307,10 @@ router.post(
                             if (user.isVerified) {
                                 return res.json({ status: 200, isVerified: true, token: token });
                             }
-                            const emailOTP = Math.floor(
-                                100000 + Math.random() * 900000
-                            ).toString();
+                            const emailOTP = Math.floor(100000 + Math.random() * 900000).toString();
+                            const mobileOTP = Math.floor(100000 + Math.random() * 900000).toString();
                             user.emailOTP = emailOTP;
+                            user.mobileOTP = mobileOTP;
                             user.save(err => {
                                 if (err) {
                                     return res.json({
@@ -335,6 +335,7 @@ router.post(
                                 `,
                                     email
                                 );
+                                sendPM(`Your Bitotsav'20 registration mobile OTP is: ${mobileOTP}`, user.phoneNo);
                             })
                         } else {
                             return res.json({
