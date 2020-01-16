@@ -325,7 +325,7 @@ router.post(
     }, verifyToken, 
     async (req, res, next) => {
         try {
-            const rawUser = await userData.findById(req.userId);
+            const rawUser = await userModel.findById(req.userId);
             if (!rawUser) {
                 return res.json({ status: 400, message: "User not found" });
             }
