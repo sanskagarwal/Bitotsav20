@@ -332,8 +332,8 @@ router.post(
                 if (err) {
                     return res.json({ status: 500, message: "Internal Server Error" });
                 }
-                user.password = hashedPassword;
-                await user.save();
+                rawUser.password = hashedPassword;
+                await rawUser.save();
                 return res.json({ status: 200, message: "Password succesfully changed" });
             });
         } catch (e) {
