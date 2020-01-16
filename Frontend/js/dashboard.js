@@ -1,4 +1,5 @@
 $("#loadshow1").hide();
+$("#loadshow2").hide();
 $("#teamSize").change(function () {
     var x = $(this).children("option:selected").val();
     if (x == 7) {
@@ -71,8 +72,8 @@ $.ajax({
     },
     cors: true,
     success: (res) => {
-        if (res.status === 200){
-            allevents=res.events;
+        if (res.status === 200) {
+            allevents = res.events;
         }
     },
     error: (err) => {
@@ -81,28 +82,28 @@ $.ajax({
 });
 
 $.ajax({
-    url: url + "/dash/getProfile",
+    url: url + "/getProfile",
     method: "GET",
     headers: {
         "x-access-token": localStorage.getItem("token")
     },
-    cors:true,
+    cors: true,
     success: (res) => {
-        if(res.isInTeam === true){
+        if (res.isInTeam === true) {
             userEvents = res.user.teamEventsRegistered;
         }
-        else{
+        else {
             userEvents = res.user.soloEventsRegistered;
         }
-        for(i=0; i<userEvents.length; i++){
-            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId);
+        for (i = 0; i < userEvents.length; i++) {
+            eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId);
         }
     }
 })
 
 
 
-function eventlist(i,n,t) {
+function eventlist(i, n, t) {
     var eventId = i;
     var eventName = n;
     var teamLeaderId = t;
@@ -138,8 +139,8 @@ function changePassword() {
         },
         cors: true,
         data: {
-            newPassword: newPassword,
-            confirmPassword: confirmPassword
+            password: newPassword,
+            confPassword: confirmPassword
         },
         success: function (res) {
             if (res.status == 200) {
@@ -165,109 +166,38 @@ function changePassword() {
 
 }
 
-$("#teamRegister").click(function () {
+
+function registerTeam() {
 
     var teamName = $("#teamName").val();
     var teamSize = $("#teamSize").val();
 
-    var bitId1 = $("#bitId1").val();
-    var email1 = $("#email1").val();
-
-    var bitId2 = $("#bitId2").val();
-    var email2 = $("#email2").val();
-
-    var bitId3 = $("#bitId3").val();
-    var email3 = $("#email3").val();
-
-    var bitId4 = $("#bitId4").val();
-    var email4 = $("#email4").val();
-
-    var bitId5 = $("#bitId5").val();
-    var email5 = $("#email5").val();
-
-    var bitId6 = $("#bitId6").val();
-    var email6 = $("#email6").val();
-
-    var bitId7 = $("#bitId7").val();
-    var email7 = $("#email7").val();
-
-    var bitId8 = $("#bitId").val();
-    var email8 = $("#email8").val();
-
-    if (teamName == "") {
-        $("#teamName").show();
-        return;
+    var teamSize1 = Number($("#teamSize").val());
+    for (i = 1; i < teamSize1; i++) {
+        if ($(`#bitId${i}`).val() == "") {
+            $(`#bitId${i}`).show();
+            return;
+        }
+        else if ($(`#email${i}`).val() == "") {
+            $(`#email${i}`).show();
+            return;
+        }
+    }
+    $("#loadshow2").show();
+    $("#teamRegister").attr("disabled", true);
+    const membersData = [];
+    for (i = 0; i < teamSize1; i++) {
+        obj = {
+            bitotsavId: $(`#bitId${i}`).val(),
+            email: $(`#email${i}`).val()
+        }
+        membersData.push(obj);
     }
 
-    if (bitId2 == "") {
-        $("#bitId2").show();
-        return;
-    }
+    console.log(membersData);
+    console.log(teamName);
+    console.log(teamSize);
 
-    if (email2 == "") {
-        $("#email2").show();
-        return;
-    }
-
-    if (bitId3 == "") {
-        $("#bitId3").show();
-        return;
-    }
-
-    if (email3 == "") {
-        $("#email3").show();
-        return;
-    }
-
-    if (bitId4 == "") {
-        $("#bitId4").show();
-        return;
-    }
-
-    if (email4 == "") {
-        $("#email4").show();
-        return;
-    }
-
-    if (bitId5 == "") {
-        $("#bitId5").show();
-        return;
-    }
-
-    if (email5 == "") {
-        $("#email5").show();
-        return;
-    }
-
-    if (bitId6 == "") {
-        $("#bitId6").show();
-        return;
-    }
-
-    if (email6 == "") {
-        $("#email6").show();
-        return;
-    }
-
-    if (bitId7 == "") {
-        $("#bitId7").show();
-        return;
-    }
-
-    if (email7 == "") {
-        $("#email7").show();
-        return;
-    }
-
-    if (bitId8 == "") {
-        $("#bitId8").show();
-        return;
-    }
-
-    if (email8 == "") {
-        $("#email8").show();
-        return;
-    }
 
     $.ajax({
         url: url + "/teamRegister",
@@ -279,29 +209,18 @@ $("#teamRegister").click(function () {
         data: {
             teamName: teamName,
             teamSize: teamSize,
-            bitId1: bitId1,
-            email1: email1,
-            bitId2: bitId2,
-            email2: email2,
-            bitId3: bitId3,
-            email3: email3,
-            bitId4: bitId4,
-            email4: email4,
-            bitId5: bitId5,
-            email5: email5,
-            bitId6: bitId6,
-            email6: email6,
-            bitId7: bitId7,
-            email7: email7,
-            bitId8: bitId8,
-            email8: email8
+            membersData: membersData
         },
         success: function (res) {
             if (res.status == 200) {
                 $("#reg-message").text(res.message);
+                $("#loadshow2").hide();
+                $("#teamRegister").attr("disabled", false);
             }
             else {
                 $("#reg-message").text(res.message);
+                $("#loadshow2").hide();
+                $("#teamRegister").attr("disabled", false);
                 // setTimeout(function () {
                 //     window.location.reload(true);
                 // }, 1600);
@@ -311,5 +230,4 @@ $("#teamRegister").click(function () {
             console.log(err);
         }
     });
-
-})
+}
