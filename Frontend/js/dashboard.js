@@ -82,7 +82,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: url + "/getProfile",
+    url: url + "/dash/getProfile",
     method: "GET",
     headers: {
         "x-access-token": localStorage.getItem("token")
@@ -159,7 +159,7 @@ function changePassword() {
     $("#loadshow1").show();
     $("#changePasswordBtn").attr("disabled", true);
     $.ajax({
-        url: url + "/updatePassword",
+        url: url + "/dash/updatePassword",
         method: "POST",
         headers: {
             "x-access-token": localStorage.getItem("token")
@@ -227,7 +227,7 @@ function registerTeam() {
 
 
     $.ajax({
-        url: url + "/teamRegister",
+        url: url + "/dash/teamRegister",
         method: "POST",
         headers: {
             "x-access-token": localStorage.getItem("token")
