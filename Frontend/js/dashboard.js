@@ -61,8 +61,8 @@ const url = "https://bitotsav.in/api";
     }
 });*/
 
-var allevents;
-var userEvents;
+const allevents;
+const userEvents;
 
 $.ajax({
     url: url + "/events/allEvents",
@@ -97,7 +97,7 @@ $.ajax({
             userEvents = res.user.soloEventsRegistered;
         }
         for(i=0; i<userEvents.length; i++){
-            var isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
+            let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
             eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId,isEventLead);
         }
     }
