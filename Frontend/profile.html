@@ -295,280 +295,303 @@
           </form>
           <h5 id="reg-message" class="text-center"></h5>
         </div>
+
+        <div id="teamMembersDetail">
+          <h2>Team Details</h2>
+          <br />
+          <ol>
+            <li style="margin-top: 5px;" id="header-name"></li>
+            <li style="margin-top: 5px;" id="header-size"></li>
+            <li style="margin-top: 5px;" id="header-id"></li>
+          </ol>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Member Name</th>
+                <th>Bitotsav Id</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="teamMembersRow">
+           
+            </tbody>
+          </table>
+        </div>
       </section>
 
 
 
       <section id="event" class="toggle" style="display:none">
         <section id="table-section">
-            <h2 id="table-head-name" class="mb-6 pb-4">Your Events:</h2>
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead id="event-table-head">
-                        <tr>
-                            <th>Event ID</th>
-                            <th>Event name</th>
-                            <th>Team Leader ID</th>
-                            <th id="deregister-column" style="display:none">Deregister</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody id="events-table">
-                        
-                    </tbody>
-                </table>
+          <h2 id="table-head-name" class="mb-6 pb-4">Your Events:</h2>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead id="event-table-head">
+                <tr>
+                  <th>Event ID</th>
+                  <th>Event name</th>
+                  <th>Team Leader ID</th>
+                  <th id="deregister-column" style="display:none">Deregister</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody id="events-table">
+
+              </tbody>
+            </table>
 
           </div>
         </section>
-        <section id="table-section" >
-            <h2 id="table-head-name" class="mb-6 pb-4">More Events:</h2>
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead id="more-events-table-head">
-                        <tr>
-                            <th>Category</th>
-                            <th>Event name</th>
-                            <th>Register</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content" id="scrollbar-style">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody id="more-events-table">
-                        <tr>
-                            <td>DHWANI</td>
-                            <td>
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                        data-toggle="dropdown"><span style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select event</span>
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
-                                    </ul>
-                            </td>
-                            <td>Register here</td>
-                        </tr>
-                         <tr>
-                             <td>DANSATION</td>
-                             <td>
-                                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                     data-toggle="dropdown"><span
-                                         style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                         event</span>
-                                     <span class="caret"></span></button>
-                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
-                                     <li role="presentation" class="divider"></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
-                                     <li role="presentation" class="divider"></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
-                                     <li role="presentation" class="divider"></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
-                                 </ul>
-                             </td>
-                             <td>Register here</td>
-                         </tr>
-                          <tr>
-                              <td>SWAANG</td>
-                              <td>
-                                  <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                      data-toggle="dropdown"><span
-                                          style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                          event</span>
-                                      <span class="caret"></span></button>
-                                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
-                                      <li role="presentation" class="divider"></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
-                                      <li role="presentation" class="divider"></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
-                                      <li role="presentation" class="divider"></li>
-                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
-                                  </ul>
-                              </td>
-                              <td>Register here</td>
-                          </tr>
-                           <tr>
-                               <td>RHETORIC</td>
-                               <td>
-                                   <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                       data-toggle="dropdown"><span
-                                           style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                           event</span>
-                                       <span class="caret"></span></button>
-                                   <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
-                                       </li>
-                                       <li role="presentation" class="divider"></li>
-                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
-                                       </li>
-                                       <li role="presentation" class="divider"></li>
-                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
-                                       </li>
-                                       <li role="presentation" class="divider"></li>
-                                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
-                                       </li>
-                                   </ul>
-                               </td>
-                               <td>Register here</td>
-                           </tr>
-                            <tr>
-                                <td>TAABIR</td>
-                                <td>
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                        data-toggle="dropdown"><span
-                                            style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                            event</span>
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
-                                        </li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
-                                        </li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
-                                        </li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>Register here</td>
-                            </tr>
-                             <tr>
-                                 <td>ADAA</td>
-                                 <td>
-                                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                         data-toggle="dropdown"><span
-                                             style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                             event</span>
-                                         <span class="caret"></span></button>
-                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
-                                         </li>
-                                         <li role="presentation" class="divider"></li>
-                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
-                                         </li>
-                                         <li role="presentation" class="divider"></li>
-                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
-                                         </li>
-                                         <li role="presentation" class="divider"></li>
-                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
-                                         </li>
-                                     </ul>
-                                 </td>
-                                 <td>Register here</td>
-                             </tr>
-                              <tr>
-                                  <td>DIGITALES</td>
-                                  <td>
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                          data-toggle="dropdown"><span
-                                              style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                              event</span>
-                                          <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
-                                          </li>
-                                          <li role="presentation" class="divider"></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
-                                          </li>
-                                          <li role="presentation" class="divider"></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
-                                          </li>
-                                          <li role="presentation" class="divider"></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
-                                          </li>
-                                      </ul>
-                                  </td>
-                                  <td>Register here</td>
-                              </tr>
-                               <tr>
-                                   <td>HERALD</td>
-                                   <td>
-                                       <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                           data-toggle="dropdown"><span
-                                               style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                               event</span>
-                                           <span class="caret"></span></button>
-                                       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
-                                           </li>
-                                           <li role="presentation" class="divider"></li>
-                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
-                                           </li>
-                                           <li role="presentation" class="divider"></li>
-                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
-                                           </li>
-                                           <li role="presentation" class="divider"></li>
-                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
-                                           </li>
-                                       </ul>
-                                   </td>
-                                   <td>Register here</td>
-                               </tr>
-                                <tr>
-                                    <td>MERAKI</td>
-                                    <td>
-                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                            data-toggle="dropdown"><span
-                                                style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                                event</span>
-                                            <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                    1</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                    2</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                    3</a></li>
-                                            <li role="presentation" class="divider"></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                    4</a></li>
-                                        </ul>
-                                    </td>
-                                    <td>Register here</td>
-                                </tr>
-                                 <tr>
-                                     <td>EUPHORIA</td>
-                                     <td>
-                                         <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
-                                             data-toggle="dropdown"><span
-                                                 style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
-                                                 event</span>
-                                             <span class="caret"></span></button>
-                                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                     1</a></li>
-                                             <li role="presentation" class="divider"></li>
-                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                     2</a></li>
-                                             <li role="presentation" class="divider"></li>
-                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                     3</a></li>
-                                             <li role="presentation" class="divider"></li>
-                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
-                                                     4</a></li>
-                                         </ul>
-                                     </td>
-                                     <td>Register here</td>
-                                 </tr>
-                    </tbody>
-                </table>
+        <section id="table-section">
+          <h2 id="table-head-name" class="mb-6 pb-4">More Events:</h2>
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead id="more-events-table-head">
+                <tr>
+                  <th>Category</th>
+                  <th>Event name</th>
+                  <th>Register</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content" id="scrollbar-style">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody id="more-events-table">
+                <tr>
+                  <td>DHWANI</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>DANSATION</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>SWAANG</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a></li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>RHETORIC</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>TAABIR</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>ADAA</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>DIGITALES</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>HERALD</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 1</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 2</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 3</a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event 4</a>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>MERAKI</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          1</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          2</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          3</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          4</a></li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+                <tr>
+                  <td>EUPHORIA</td>
+                  <td>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                      data-toggle="dropdown"><span
+                        style="text-align: left;font-weight: 300;font-size: 12px;color: #fff;">Select
+                        event</span>
+                      <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          1</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          2</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          3</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Event
+                          4</a></li>
+                    </ul>
+                  </td>
+                  <td>Register here</td>
+                </tr>
+              </tbody>
+            </table>
 
-            </div>
+          </div>
         </section>
       </section>
 

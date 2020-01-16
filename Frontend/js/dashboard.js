@@ -1,5 +1,6 @@
 $("#loadshow1").hide();
 $("#loadshow2").hide();
+$("#teamMembersDetail").hide();
 $("#teamSize").change(function () {
     var x = $(this).children("option:selected").val();
     if (x == 7) {
@@ -103,56 +104,17 @@ $.ajax({
             $("#email0").val(res.user._doc.email);
             if (res.isInTeam == true) {
                 $("#tableAndForm").remove();
-                $("#team").append(`<div >
-                <h2>Team Details</h2>
-                <br/>
-                <ol>
-                <li style="margin-top: 5px;">Team Name: </li>
-                <li style="margin-top: 5px;">Team Size: </li>
-                <li style="margin-top: 5px;">Team Id: </li>
-               </ol>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Member Name</th>
-                      <th>Bitotsav Id</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Default</td>
-                      <td>Defaultson</td>
-                      <td>def@somemail.com</td>
-                    </tr>
-                    <tr>
-                      <td>Success</td>
-                      <td>Doe</td>
-                      <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Danger</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Info</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Warning</td>
-                      <td>Refs</td>
-                      <td>bo@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Active</td>
-                      <td>Activeson</td>
-                      <td>act@example.com</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>`)
+                $("#header-name").text(`Team Name : ${res.team.teamName}`);
+                $("#header-size").text(`Team Size : ${res.team.teamSize}`);
+                $("#header-id").text(`Team Id : ${res.team.teamId}`);
+                for (i = 0; i < res.team.teamMembers.length; i++) {
+                    $("#teamMembersRow").append(`<tr>
+                        <td>${res.team.teamMembers[i].name}</td>
+                        <td>${res.team.teamMembers[i].bitotsavId}</td>
+                        <td>${res.team.teamMembers[i].email}</td>
+                        </tr>`)
+                }
+                $("#teamMembersDetail").show();
             }
             if (res.isInTeam === true) {
                 userEvents = res.user.teamEventsRegistered;
