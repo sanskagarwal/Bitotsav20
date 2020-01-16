@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { isEmail } = require('validator');
 const verifyToken = require('../utils/verifyToken');
