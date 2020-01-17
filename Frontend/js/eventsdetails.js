@@ -38,16 +38,16 @@ var url1= "https://bitotsav.in";
        
             <h1>${events.name}</h1>
             <br>
+            <img src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png" onerror=this.src="images/Events/${events.name}.jpeg" alt="Card image" class="img-responsive" width="200" height="200">
+            <br>
              <h2> (Events conducted by ${events.eventCategory})</h2>
            
-             <br><br>
+             <br>
 
              <a class="button" href="#events${i}Modal" style="color:black; font-size:0.8em; font-weight:800;">More Details</a>
              <div class="popup" id="events${i}Modal">
                <div class="popup-inner">
-                 <div class="popup__photo">
-                   <img src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png" onerror=this.src="images/Events/${events.name}.jpeg" alt="Card image" class="img-responsive">
-                 </div>
+            
                  <div class="popup__text">
                    <strong style="font-size:2.3em; color:black;">${events.name}</strong>
                    <br><br> 
