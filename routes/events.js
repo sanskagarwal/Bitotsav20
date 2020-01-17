@@ -26,7 +26,7 @@ router.get('/getEventByCategory', async(req, res)=>{
         if(!req.query.category) {
             return res.json({status: 422, message: "Missing query parameter!!"});
         }
-        const category = req.query.category;
+        const category = req.query.category.toLowerCase();
         const events = await eventModel.find({eventCategory: category}, {"faculty advisors": 0, _id: 0, club: 0, "resources required": 0});
         if(!events) {
             return res.json({status: 404, message: "No Event Found"});
