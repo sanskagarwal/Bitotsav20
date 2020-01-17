@@ -75,6 +75,51 @@ $.ajax({
     success: function (res) {
         if (res.status === 200) {
             allevents = res.events;
+            let notRegisteredEvents = res.events;
+            for (let i = 0; i < allevents.length; i++) {
+                let eventRegistered = false;
+                for (let j = 0; j < userEvents.length; j++) {
+                    if (userEvents[j].eventId === allevents[i].id) {
+                        eventRegistered = true;
+                    }
+                }
+                if (eventRegistered === true) {
+                    notRegisteredEvents.splice(i);
+                }
+            }
+            for(i=0; i<notRegisteredEvents.length; i++){
+                let category = notRegisteredEvents[i].eventCategory;
+                if (category === "DHWANI") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "DANSATION") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "SWAANG") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "RHETORIC") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "TAABIR") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "ADAA") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "DIGITALES") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "HERALD") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "MERAKI") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+                if (category === "EUPHORIA") {
+                    dropdownEvents(category, notRegisteredEvents[i].name);
+                }
+            }
         }
     },
     error: function (err) {
@@ -88,49 +133,28 @@ $.ajax({
     headers: {
         "x-access-token": localStorage.getItem("token")
     },
-    cors: true,
-    success: function (res) {
-        if (res.status === 200) {
-            console.log(res);
-            $("#userName").val(res.user._doc.name);
-            $("#userEmail").val(res.user._doc.email);
-            $("#userPhone").val(res.user._doc.phoneNo);
-            $("#userBitId").val(res.user._doc.bitotsavId);
-            $("#userClgId").val(res.user._doc.clgId);
-            $("#userClgName").val(res.user._doc.clgName);
-            $("#userClgCity").val(res.user._doc.clgCity);
-            $("#userClgState").val(res.user._doc.clgState);
-            $("#bitId0").val(res.user._doc.bitotsavId);
-            $("#email0").val(res.user._doc.email);
-            if (res.isInTeam == true) {
-                $("#tableAndForm").remove();
-                $("#header-name").text(`Team Name : ${res.team.teamName}`);
-                $("#header-size").text(`Team Size : ${res.team.teamSize}`);
-                $("#header-id").text(`Team Id : ${res.team.teamId}`);
-                for (i = 0; i < res.team.teamMembers.length; i++) {
-                    $("#teamMembersRow").append(`<tr>
-                        <td>${res.team.teamMembers[i].name}</td>
-                        <td>${res.team.teamMembers[i].bitotsavId}</td>
-                        <td>${res.team.teamMembers[i].email}</td>
-                        </tr>`)
-                }
-                $("#teamMembersDetail").show();
-            }
-            if (res.isInTeam === true) {
-                userEvents = res.user.teamEventsRegistered;
-            }
-            else {
-                userEvents = res.user.soloEventsRegistered;
-            }
-            for (i = 0; i < userEvents.length; i++) {
-                let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;
-                eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId, isEventLead);
-            }
+    cors:true,
+    success: function (res){
+        if(res.status === 200){
+        if(res.isInTeam === true){
+            userEvents = res.user.teamEventsRegistered;
         }
-
+        else {
+            userEvents = res.user.soloEventsRegistered;
+        }
+        for(let i=0; i<userEvents.length; i++){
+            let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
+            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId,isEventLead);
+        }
+        
+    }
     }
 });
 
+function dropdownEvents(ctg,newEvent){
+    let appendEvent = '<a class="dropdown - item " href="#">' + newEvent + '</a>';
+    $("#" + ctg).append(appendEvent);
+}
 
 function deregisterEvent(eid) {
     $.ajax({
