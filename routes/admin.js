@@ -21,7 +21,7 @@ router.get('/addMultipleEvents', (req, res)=>{
 });
 
 router.get('/addCoreTeam', (req, res) => {
-    const liss = require('./../teamJson/team.json');
+    let liss = require('./../teamJson/team.json');
     liss = [...liss];
     coreTeamModel.insertMany(liss)
         .then(()=>{
