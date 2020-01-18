@@ -3,6 +3,35 @@ const router = express.Router();
 const adminAuth = require('./../utils/adminAuth');
 const Sap = require('./../models/studentAmbassador');
 
+
+const eventModel = require('../models/events');
+const coreTeamModel = require('../models/coreTeam');
+const dhwani = require('../eventsJson/cleaned/dhwani');
+const dansation = require('../eventsJson/cleaned/dansation');
+//to insert to database
+router.get('/addMultipleEvents', (req, res)=>{
+    const events = [...dhwani, ...dansation];
+    eventModel.insertMany(events)
+        .then(()=>{
+            return res.json({status: 200, message: "Inserted successfully!!"});
+        })
+        .catch((error)=>{
+            return res.json({status: 500, message: "Internal server error!! Try again!"});
+        })
+});
+
+router.get('/addCoreTeam', (req, res) => {
+    const liss = require('./../teamJson/team.json');
+    liss = [...liss];
+    coreTeamModel.insertMany(liss)
+        .then(()=>{
+            return res.json({status: 200, message: "Inserted successfully!!"});
+        })
+        .catch((error)=>{
+            return res.json({status: 500, message: "Internal server error!! Try again!"});
+        })
+});
+
 router.post('/getAllSaps', (req, res, next) => {
     console.log(req.body);
     const valid = adminAuth('publicity', req.body.password);

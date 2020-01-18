@@ -97,7 +97,7 @@ table {
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji";
-    padding-left: 50px;
+    text-align: center;
 }
 
 .tbl-header {

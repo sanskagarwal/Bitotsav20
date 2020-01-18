@@ -2,24 +2,6 @@ const express = require('express');
 const eventModel = require('../models/events');
 const router = express.Router();
 
-const dhwani = require('../eventsJson/cleaned/dhwani');
-const dansation = require('../eventsJson/cleaned/dansation');
-
-
-//to insert to database
-router.get('/addMultipleEvents', (req, res)=>{
-    const events = [...dhwani, ...dansation];
-    eventModel.insertMany(events)
-        .then(()=>{
-            return res.json({status: 200, message: "Inserted successfully!!"});
-        })
-        .catch((error)=>{
-            return res.json({status: 500, message: "Internal server error!! Try again!"});
-        })
-});
-
-
-
 //1.getEventByCategory .......Here category can be like "Dhwani", "Dansation", etc
 router.get('/getEventByCategory', async(req, res)=>{
     try{
