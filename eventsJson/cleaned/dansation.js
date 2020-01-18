@@ -42,7 +42,10 @@ const dansation = [
     6. Sheets-20, Pens-5
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+    ,"individual": `0`,
+    "minParticipants": null,
+    "maxParticipants": null,
+    "cashPrize": ""
 },
     {
     "id": 4
