@@ -6,12 +6,21 @@
   <link rel="icon" href="images/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/preloader.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <link rel="stylesheet" href="css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+ <div id="content">
 
   <div class="wrapper d-flex align-items-stretch">
 
@@ -584,7 +593,7 @@
       </section>
     </div>
   </div>
-
+ </div>
 
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/popper.min.js"></script>
@@ -592,6 +601,7 @@
   <script src="./js/dashboard.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="./js/particle.js"></script>
+  <script src="./js/preloader.js"></script>
   <script>
     $("#sidebar a").click(function (e) {
       e.preventDefault();
