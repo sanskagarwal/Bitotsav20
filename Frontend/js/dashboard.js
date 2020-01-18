@@ -61,71 +61,86 @@ const url = "https://bitotsav.in/api";
         console.log(err);
     }
 });*/
+let dhwaniCounter = 0, dansationCounter = 0, swaangCounter = 0, rhetoricCounter = 0, taabirCounter = 0, adaaCounter = 0, digitalesCounter = 0, heraldCounter = 0, merakiCounter = 0, euphoriaCounter = 0;
+var userEvents = [];
+function getAllEvents() {
+    $.ajax({
+        url: url + "/events/allEvents",
+        method: "GET",
+        headers: {
+            "x-access-token": localStorage.getItem("token")
+        },
+        cors: true,
+        success: function (res) {
+            if (res.status === 200) {
 
-// const allevents;
-// const userEvents;
-
-$.ajax({
-    url: url + "/events/allEvents",
-    method: "GET",
-    headers: {
-        "x-access-token": localStorage.getItem("token")
-    },
-    cors: true,
-    success: function (res) {
-        if (res.status === 200) {
-            allevents = res.events;
-            let notRegisteredEvents = res.events;
-            for (let i = 0; i < allevents.length; i++) {
-                let eventRegistered = false;
-                for (let j = 0; j < userEvents.length; j++) {
-                    if (userEvents[j].eventId === allevents[i].id) {
-                        eventRegistered = true;
+                var allevents = res.events;
+                console.log(allevents);
+                console.log(typeof (allevents instanceof Array));
+                let notRegisteredEvents = res.events;
+                for (let i = 0; i < allevents.length; i++) {
+                    let eventRegistered = false;
+                    for (let j = 0; j < userEvents.length; j++) {
+                        if (userEvents[j].eventId === allevents[i].id) {
+                            eventRegistered = true;
+                        }
+                    }
+                    if (eventRegistered === true) {
+                        notRegisteredEvents.splice(i);
                     }
                 }
-                if (eventRegistered === true) {
-                    notRegisteredEvents.splice(i);
+                console.log(notRegisteredEvents)
+                for (let i = 0; i < notRegisteredEvents.length; i++) {
+                    let category = notRegisteredEvents[i].eventCategory;
+                    category = category.toUpperCase();
+                    if (category === "DHWANI") {
+                        dhwaniCounter = dhwaniCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, dhwaniCounter);
+                    }
+                    if (category === "DANSATION") {
+                        dansationCounter = dansationCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, dansationCounter);
+                    }
+                    if (category === "SWAANG") {
+                        swaangCounter = swaangCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, swaangCounter);
+                    }
+                    if (category === "RHETORIC") {
+                        rhetoricCounter = rhetoricCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, rhetoricCounter);
+                    }
+                    if (category === "TAABIR") {
+                        taabirCounter = taabirCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, taabirCounter);
+                    }
+                    if (category === "ADAA") {
+                        adaaCounter = adaaCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, adaaCounter);
+                    }
+                    if (category === "DIGITALES") {
+                        digitalesCounter = digitalesCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, digitalesCounter);
+                    }
+                    if (category === "HERALD") {
+                        heraldCounter = heraldCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, heraldCounter);
+                    }
+                    if (category === "MERAKI") {
+                        merakiCounter = merakiCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, merakiCounter);
+                    }
+                    if (category === "EUPHORIA") {
+                        euphoriaCounter = euphoriaCounter + 1;
+                        dropdownEvents(category, notRegisteredEvents[i].name, euphoriaCounter);
+                    }
                 }
             }
-            for(i=0; i<notRegisteredEvents.length; i++){
-                let category = notRegisteredEvents[i].eventCategory;
-                if (category === "DHWANI") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "DANSATION") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "SWAANG") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "RHETORIC") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "TAABIR") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "ADAA") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "DIGITALES") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "HERALD") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "MERAKI") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-                if (category === "EUPHORIA") {
-                    dropdownEvents(category, notRegisteredEvents[i].name);
-                }
-            }
+        },
+        error: function (err) {
+            console.log(err);
         }
-    },
-    error: function (err) {
-        console.log(err);
-    }
-});
+    });
+}
 
 $.ajax({
     url: url + "/dash/getProfile",
@@ -133,26 +148,57 @@ $.ajax({
     headers: {
         "x-access-token": localStorage.getItem("token")
     },
-    cors:true,
-    success: function (res){
-        if(res.status === 200){
-        if(res.isInTeam === true){
-            userEvents = res.user.teamEventsRegistered;
+    cors: true,
+    success: function (res) {
+        if (res.status === 200) {
+            console.log(res);
+            $("#userName").val(res.user._doc.name);
+            $("#userEmail").val(res.user._doc.email);
+            $("#userPhone").val(res.user._doc.phoneNo);
+            $("#userBitId").val(res.user._doc.bitotsavId);
+            $("#userClgId").val(res.user._doc.clgId);
+            $("#userClgName").val(res.user._doc.clgName);
+            $("#userClgCity").val(res.user._doc.clgCity);
+            $("#userClgState").val(res.user._doc.clgState);
+            $("#bitId0").val(res.user._doc.bitotsavId);
+            $("#email0").val(res.user._doc.email);
+            if (res.isInTeam === true) {
+                $("#tableAndForm").remove();
+                userEvents = res.user.teamEventsRegistered;
+                $("#header-name").text(`Team Name : ${res.team.teamName}`);
+                $("#header-size").text(`Team Size : ${res.team.teamSize}`);
+                $("#header-id").text(`Team Id : ${res.team.teamId}`);
+                for (i = 0; i < res.team.teamMembers.length; i++) {
+                    $("#teamMembersRow").append(`<tr>
+                        <td>${res.team.teamMembers[i].name}</td>
+                        <td>${res.team.teamMembers[i].bitotsavId}</td>
+                        <td>${res.team.teamMembers[i].email}</td>
+                        </tr>`)
+                }
+                $("#teamMembersDetail").show();
+            }
+            else {
+                userEvents = res.user.soloEventsRegistered;
+            }
+            if (!userEvents) {
+                userEvents = [];
+            }
+            console.log(userEvents);
+            getAllEvents();
+            for (let i = 0; i < userEvents.length; i++) {
+                let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;
+                eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId, isEventLead);
+            }
+
         }
-        else {
-            userEvents = res.user.soloEventsRegistered;
-        }
-        for(let i=0; i<userEvents.length; i++){
-            let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId ;
-            eventlist(userEvents[i].eventId,userEvents[i].eventName,userEvents[i].eventLeaderBitotsavId,isEventLead);
-        }
-        
-    }
     }
 });
 
-function dropdownEvents(ctg,newEvent){
-    let appendEvent = '<a class="dropdown - item " href="#">' + newEvent + '</a>';
+function dropdownEvents(ctg, newEvent, counter) {
+    ctg = ctg.toLowerCase();
+    let appendEvent = '<a class="dropdown-item " href="eventsdetails.html?q=' + ctg + '#events' + counter + 'Modal">' + newEvent + '</a>';
+    console.log(appendEvent);
+    ctg = ctg.toUpperCase();
     $("#" + ctg).append(appendEvent);
 }
 
