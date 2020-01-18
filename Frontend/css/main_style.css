@@ -9933,4 +9933,6 @@ mapouter{position:relative;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
