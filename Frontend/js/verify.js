@@ -34,6 +34,8 @@ function verifyForm() {
         $(thisAlert).removeClass('alert-validate');
         var thisAlert = $('#gender').parent();
         $(thisAlert).removeClass('alert-validate');
+        var thisAlert = $('#clg').parent();
+        $(thisAlert).removeClass('alert-validate');
         var thisAlert = $('#clgname').parent();
         $(thisAlert).removeClass('alert-validate');
         var thisAlert = $('#clgroll').parent();
@@ -48,12 +50,15 @@ function verifyForm() {
     let mobileOTP=$('#motp').val().trim();
     let name = $('#name').val().trim();
     let mobile = $('#mobile').val().trim();
-    let gender = $('#gender').val().trim();
+    // let gender = $('#gender').val().trim();
+    let gender = $("input:radio[ name=gen]:checked").val();
+    let clg = $("input:radio[ name=clgg]:checked").val();
+
     let clgName = $('#clgname').val().trim();
     let clgId = $('#clgroll').val().trim();
     let clgCity= $('#clgcity').val().trim();
     let clgState = $('#clgstate').val().trim();
-    let g=1;
+    
 
     if (name === "") {
         var thisAlert = $('#name').parent();
@@ -71,7 +76,11 @@ function verifyForm() {
         $(thisAlert).addClass('alert-validate');
         return;
     }
-
+    if (gender === undefined) {
+        var thisAlert = $('#gender').parent();
+        $(thisAlert).addClass('alert-validate');
+        return;
+    }
     
     if (mobileOTP === "") {
         var thisAlert = $('#motp').parent();
@@ -85,8 +94,9 @@ function verifyForm() {
     }
 
 
-    if (gender === "") {
-        var thisAlert = $('#gender').parent();
+    
+    if (clg === undefined) {
+        var thisAlert = $('#clg').parent();
         $(thisAlert).addClass('alert-validate');
         return;
     }
@@ -114,13 +124,6 @@ function verifyForm() {
         return;
     }
 
-    if (gender==="Male"){
-        g=1;
-    }
-
-    if(gender==="Female"){
-        g=2;
-    }
     $("#btnSubmit").attr("disabled", true);
     $('.rotator').addClass('spinner');
 
@@ -135,7 +138,7 @@ function verifyForm() {
             mobileOTP:mobileOTP,
             name: name,
             phoneNo: mobile,
-            gender: g,
+            gender: gender,
             clgName: clgName,
             clgCity: clgCity,
             clgState: clgState,
@@ -173,4 +176,23 @@ function verifyForm() {
 });
     });
 
+}
+function fillform() {
+    $('#clgname').val("Birla Institute of Technology, Mesra");
+    $('#clgcity').val("Ranchi");
+    $('#clgstate').val("Jharkhand");
+
+    $("#clgname").prop("disabled", true);
+    $("#clgcity").prop("disabled", true);
+    $("#clgstate").prop("disabled", true);
+}
+
+function eraseform() {
+    $("#clgname").prop("disabled", false);
+    $("#clgcity").prop("disabled", false);
+    $("#clgstate").prop("disabled", false);
+
+    $('#clgname').val("");
+    $('#clgcity').val("");
+    $('#clgstate').val("");
 }
