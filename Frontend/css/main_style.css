@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9859,3 +9861,76 @@ mapouter{position:relative;
   hr.new2 {
     border-top: 1.5px dashed white;
   }
+
+#about {
+  background-image: url('../images/index/aboutus_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+}
+
+.carousel-inner .img1 {
+    background-image: url('../images/index/img1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.carousel-inner .img2 {
+    background-image: url('../images/index/img2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.carousel-inner .img3 {
+    background-image: url('../images/index/img3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.carousel-inner .img4 {
+    background-image: url('../images/index/img4.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.carousel-inner .img5 {
+    background-image: url('../images/index/img5.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.carousel-inner .img6 {
+    background-image: url('../images/index/img6.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.carousel-inner .img7 {
+    background-image: url('../images/index/img7.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main-text {
+  color:#fff;
+  position:absolute;
+  z-index:12;
+  top:50%;
+  left:0;
+  width:100%;
+  text-align:center;
+}
+
+#facts {
+  background-image: url('../images/index/crowdDemographics.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -36,6 +36,13 @@
 	box-sizing: border-box;
 }
 
+body {
+  background-image: url('../images/index/verify_bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 body, html {
 	height: 100%;
 	font-family: Montserrat-Regular, sans-serif;
@@ -61,6 +68,10 @@ a:focus {
 a:hover {
 	text-decoration: none;
 	color: #57b846;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
 }
 
 /*---------------------------------------------*/
@@ -157,7 +168,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: linear-gradient(to right, #3c0668, #530394);
+  /*background: linear-gradient(to right, #3c0668, #530394);*/
 }
 
 .wrap-contact100 {
@@ -180,7 +191,8 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .contact100-pic {
-  width: 310px;
+  width: 40%;
+  margin-right: 5%;
   padding-top: 55px;
 }
 
@@ -192,7 +204,7 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .contact100-form {
-  width: 390px;
+  width: 55%;
 }
 
 .contact100-form-title {
@@ -356,6 +368,7 @@ textarea.input100 {
 @media (max-width: 1200px) {
   .contact100-pic {
     width: 33.5%;
+    margin-right: 0;
   }
 
   .contact100-form {

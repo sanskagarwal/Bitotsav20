@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 @font-face {
 	font-family: Montserrat-SemiBold;
 	src: url('../fonts/ElMessiri-SemiBold.ttf'); 
@@ -13,6 +14,10 @@
 } 
 body {
 	background: #f6f5f7;
+	background-image: url('../images/index/signup_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -24,6 +29,7 @@ body {
 
 
 h1 {
+	font-family: 'Playfair Display', serif;
 	font-weight: bold;
 	margin: 0;
 }
