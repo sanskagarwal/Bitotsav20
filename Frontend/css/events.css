@@ -1,5 +1,16 @@
+@font-face {
+	font-family: "ral";
+	src: url("../fonts/raleway/Raleway-SemiBold.ttf") format("opentype");
+  }
+  
+  @font-face {
+	font-family: "monre";
+	src: url("../fonts/Montserrat-Regular.ttf") format("opentype");
+  }
+
+
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'ral';
 	background: #fff;
 	background-image: url(../images/events-bg.jpg);
 	background-repeat: no-repeat;
@@ -49,14 +60,14 @@ body {
 }
 .heading{
 	font-size: 10em;
-	font-family:'Courier New', Courier, monospace;
+	font-family:'ral';
 	color:aliceblue;
 	font-weight: bold;
 }
 @media only screen and (max-width: 1000px){
 	.heading{
 		font-size: 3em;
-		font-family:'Courier New', Courier, monospace;
+		font-family:'ral';
 		color:aliceblue;
 		font-weight: bold;
 	}
@@ -72,7 +83,7 @@ body {
 	background: rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.6);
 			box-shadow: 0 0 8px rgba(0,0,0,0.2);
-			font-family:cursive;
+			font-family:'ral';
 }
 
 .box h2 {
@@ -85,7 +96,7 @@ body {
 	background: rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.6);
 			box-shadow: 0 0 8px rgba(0,0,0,0.2);
-			font-family:cursive;
+			font-family:'ral';
 }
 
 .date h4 {
@@ -112,63 +123,63 @@ body {
 }
 
 .two {
-	background: url(../images/Events/Dhwani.jpg);
+	background: url(../images/Events/categories/DHWANI.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .three {
-	background: url(../images/Events/Dansation.jpg);
+	background: url(../images/Events/categories/Dansation.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 
 .four {
-	background: url(../images/Events/swaang.jpg);
+	background: url(../images/Events/categories/swaang.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 
 .five {
-	background: url(../images/Events/Rhetoric.jpg);
+	background: url(../images/Events/categories/Rhetoric.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .six {
-	background: url(../images/Events/Taabiir.jpg);
+	background: url(../images/Events/categories/Taabiir.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .seven {
-	background: url(../images/Events/Adaa.jpg);
+	background: url(../images/Events/categories/Adaa.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .eight {
-	background: url(../images/Events/Digitales.jpg);
+	background: url(../images/Events/categories/Digitales.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .nine {
-	background: url(../images/Events/Herald.png);
+	background: url(../images/Events/categories/Herald.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .ten {
-	background: url(../images/Events/Meraki.jpg);
+	background: url(../images/Events/categories/Meraki.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
 .eleven {
-	background: url(../images/Events/euphoria.jpg);
+	background: url(../images/Events/categories/euphoria.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -391,7 +402,7 @@ Primary style
   
   body {
 	font-size: 1.6rem;
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: "ral";
 	color: #34383c;
 	background-color: #ffffff;
   }
@@ -559,7 +570,7 @@ Primary style
 	-webkit-transition: color 0.2s 0.3s, width 0.3s 0s;
 	-moz-transition: color 0.2s 0.3s, width 0.3s 0s;
 	transition: color 0.2s 0.3s, width 0.3s 0s;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-family: 'ral';
 	letter-spacing:0.5mm;
   }
   .cd-modal-action .btn.to-circle {

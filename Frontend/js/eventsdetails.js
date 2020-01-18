@@ -7,9 +7,11 @@ function getParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
 var windowUrl = window.location.href;
 var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
+
 // var url=window.location.href;
 // console.log(url);
 // console.log(p.indexOf("?"));
@@ -24,25 +26,28 @@ console.log(queryParam);
 // }
 // console.log(s);
 
+
 function eventdetails(events, i , s) {
-  return (`
-    <div class="box two">
-    <h1>${events.name}</h1>
+  return (`                                                                                    
+    <div class="box two" style="background: url(../images/Events/${events.imageName})">
+    
     <br>
-    <img src="images/Events/${events.name}.jpg" onerror=this.src="images/Events/${events.name}.png" onerror=this.src="images/Events/${events.name}.jpeg" alt="Card image" class="img-responsive" width="200" height="200">
+    
     <br>
-    <h2> (Events conducted by ${events.eventCategory})</h2>
-
-    <br>
-
-    <a class="button" href="#events${i}Modal" style="color:black; font-size:0.8em; font-weight:800;">More Details</a>
+   
+    <br><br>  
+         
     <div class="popup" id="events${i}Modal">
     <div class="popup-inner">
 
-    <div class="popup__text">
-    <strong style="font-size:2.3em; color:black;">${events.name}</strong>
+   
+    
+    <div class="popup__text scrollbar">
+    <strong style="font-size:3.5em; color:black;  font-family:ral; text-decoration: underline; ">${events.name}</strong>
+    <div class="container">
+   
     <br><br> 
-    <p> <strong><span class="text">EVENT CATEGORY:</span><span class="text-inner">${events.category}</span></strong>
+    <p> <strong><span class="text">EVENT CATEGORY:</span><span class="text-inner">${capitalizeFirstLetter(events.category)}</span></strong>
     <br><br>
     <strong><span class="text">VENUE:</span><span class="text-inner">${events.venue}</span></strong>
     <br><br>
@@ -56,13 +61,22 @@ function eventdetails(events, i , s) {
     <br><br>
     </p>
     </div>
+    </div>
     <a class="popup__close" href="#">X</a>
     </div>
+  
     </div>
 
+    <br><br><br><br><br><br>
+   
+    <a class="button" href="#events${i}Modal" style="color:black; font-size:0.8em; font-weight:800;">More Details</a>
+    <br><br><br><br><br>
+    <h3>${events.name}</h3>
 
     </div>
-
+    
+    
+          
     `);
 }
 
@@ -89,9 +103,14 @@ if(queryParam) {
 }
 
 $(document).ready(function(){
-  $(".button").click(function(){
-    $(`#events${i}Modal`).css({"visibilty": "visible", "opacity": "1"});
+  $(".button").on("click",function(){
+    $(`#events${i}Modal`).css({"visibilty": "visible", "opacity": "1","background":""});4
+   
   });
+
+ 
+
+
 
   // Open Event Modal
   var ind = windowUrl.lastIndexOf("#");
@@ -99,7 +118,7 @@ $(document).ready(function(){
     var hashParam = windowUrl.substr(ind+1);
     console.log(hashParam);
     if(hashParam.includes("events")) {
-      $(`#${hashParam}`).css({"visibilty": "visible", "opacity": "1"});
+      $(`#${hashParam}`).css({"visibility": "visible", "opacity": "1"});
     }
   }
 });
@@ -107,3 +126,6 @@ $(document).ready(function(){
 
 $('.two').css({'background': 'url(../images/Events/Dhwani.jpg)', 'background-repeat': 'no repeat'});
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
