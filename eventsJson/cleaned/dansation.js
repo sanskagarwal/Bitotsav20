@@ -3,7 +3,7 @@ const dansation = [
     "id": 3
     ,"name": `DANCE SAGA`
     ,"category": `Flagship`
-    ,"eventCategory": `Dansation`
+    ,"eventCategory": `DANSATION`
     ,"venue": `GP Birla Auditorium`
     ,"duration": `2.5 hours`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
@@ -42,13 +42,16 @@ const dansation = [
     6. Sheets-20, Pens-5
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+    ,"individual": `0`,
+    "minParticipants": null,
+    "maxParticipants": null,
+    "cashPrize": ""
 },
     {
     "id": 4
     ,"name": `STOMP THE YARD`
     ,"category": `Flagship`
-    ,"eventCategory": `Dansation`
+    ,"eventCategory": `DANSATION`
     ,"venue": `Badminton Court, Sports Complex (if not near LH-1/2)`
     ,"duration": `3-4 hours`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
@@ -95,13 +98,16 @@ const dansation = [
     11. Tapes
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `1`,
+	"minParticipants": null,
+	"maxParticipants": null,
+	"cashPrize": ""
 },
     {
     "id": 5
     ,"name": `FOOTLOOSE`
     ,"category": `Formal`
-    ,"eventCategory": `Dansation`
+    ,"eventCategory": `DANSATION`
     ,"venue": `CAT Hall, Main Building`
     ,"duration": `3 hours`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
@@ -140,13 +146,16 @@ const dansation = [
     6. Sheets-20, Pens-5
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `1`,
+	"minParticipants": 1,
+	"maxParticipants": 1,
+	"cashPrize": ""
 },
     {
     "id": 6
     ,"name": `DANZA DUO`
     ,"category": `Formal`
-    ,"eventCategory": `Dansation`
+    ,"eventCategory": `DANSATION`
     ,"venue": `Shorbagh-1`
     ,"duration": `2 hours`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
@@ -168,7 +177,10 @@ const dansation = [
     3. PA System
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `0`,
+	"minParticipants": 2,
+	"maxParticipants": 2,
+	"cashPrize": ""
     }
     
     ]

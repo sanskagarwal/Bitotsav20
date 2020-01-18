@@ -95,6 +95,18 @@ const eventSchema = new schema({
         type: [eventWinnerSchema],
         default: []
     },
+    minParticipants: {
+        type: Number,
+        required: true
+    },
+    maxParticipants: {
+        type: Number,
+        required: true
+    },
+    cashPrize: {
+        type: String,
+        default: null
+    },
     dummy1: {
         type: String,
         default: null
