@@ -36,10 +36,12 @@ const eventSchema = new schema({
     },
     category: {
         type: String,
+        lowercase: true,
         required: true
     },
     eventCategory: {
         type: String,
+        lowercase: true,
         required: true
     },
     venue: {
@@ -64,14 +66,17 @@ const eventSchema = new schema({
     },
     description: {
         type: String,
+        trim: true,
         required: true
     },
     "rules and regulations": {
         type: String,
+        trim: true,
         required: true
     },
     "contact information": {
         type: String,
+        trim: true,
         required: true
     },
     "resources required": {
