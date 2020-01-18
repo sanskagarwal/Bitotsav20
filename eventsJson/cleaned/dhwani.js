@@ -48,7 +48,10 @@ const dhwani = [
     6. Refreshment for judges
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `1`,
+	"minParticipants": null,
+	"maxParticipants": null,
+	"cashPrize": ""
 },
     {
     "id": 1
@@ -98,7 +101,10 @@ const dhwani = [
     6. Refreshment for judges
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `1`,
+	"minParticipants": null,
+	"maxParticipants": null,
+	"cashPrize": ""
 },
     {
     "id": 2
@@ -131,7 +137,10 @@ const dhwani = [
     6. Refreshment for judges
     `
     ,"imageName": `none.jpg`
-    ,"individual": `0`
+	,"individual": `0`,
+	"minParticipants": null,
+	"maxParticipants": null,
+	"cashPrize": ""
     }
     
     ]
