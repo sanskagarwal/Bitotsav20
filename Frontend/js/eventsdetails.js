@@ -7,8 +7,8 @@ function getParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-
-var queryParam = getParameterByName("q", window.location.href);
+var windowUrl = window.location.href;
+var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
 // var url=window.location.href;
 // console.log(url);
@@ -75,9 +75,10 @@ if(queryParam) {
     method:"GET",
     crossDomain:true,
     success: function(res) {
+      console.log(res);
       if(res.status === 200) {
         for (i = 0; i < res.data.length; i++) {
-          $(".wrap").append(eventdetails(res.data[i], i, s));
+          $(".wrap").append(eventdetails(res.data[i], i, queryParam));
         }
       }
     },
@@ -89,8 +90,18 @@ if(queryParam) {
 
 $(document).ready(function(){
   $(".button").click(function(){
-    $(`#events${i}Modal`).css({"visibilty": " visible", "opacity":"1"});
+    $(`#events${i}Modal`).css({"visibilty": "visible", "opacity": "1"});
   });
+
+  // Open Event Modal
+  var ind = windowUrl.lastIndexOf("#");
+  if(ind !== -1) {
+    var hashParam = windowUrl.substr(ind+1);
+    console.log(hashParam);
+    if(hashParam.includes("events")) {
+      $(`#${hashParam}`).css({"visibilty": "visible", "opacity": "1"});
+    }
+  }
 });
 
 
