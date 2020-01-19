@@ -20,7 +20,7 @@ body {
   
   p {
     padding: 0;
-    margin: 0 0 30px 0;
+    margin: 0 0 0px 0;
   }
   
   h1,
@@ -667,15 +667,14 @@ body {
   
   #speakers .speaker .details h2 {
     color: #fff;
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 2px;
   }
   
   #speakers .speaker .details p {
     color: #fff;
     font-size: 15px;
-    margin-bottom: 10px;
     font-style: italic;
   }
   

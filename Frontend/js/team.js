@@ -34,7 +34,8 @@ $.ajax({
                     <img src="images/team/${res.details[i].image}" alt="TeamMember${i}" class="img-fluid">
                 </div>
                 <div class="details">
-                    <h2>${res.details[i].name}</h2>
+                <h2>${res.details[i].name}</h2>
+                <p style="text-align:"right">${res.details[i].phone}</p>   
                     <div class="social">
                         <a href="${res.details[i].fbProfile}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="mailto:${res.details[i].email}" target="_blank"><i class="fas fa-envelope"></i></a>
