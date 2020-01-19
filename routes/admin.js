@@ -8,9 +8,17 @@ const eventModel = require('../models/events');
 const coreTeamModel = require('../models/coreTeam');
 const dhwani = require('../eventsJson/cleaned/dhwani');
 const dansation = require('../eventsJson/cleaned/dansation');
+const adaa = require('../eventsJson/cleaned/adaa');
+const digitales = require('../eventsJson/cleaned/digitales');
+const euphoria = require('../eventsJson/cleaned/euphoria');
+const herald = require('../eventsJson/cleaned/herald');
+const meraki = require('../eventsJson/cleaned/meraki');
+const rhetoric = require('../eventsJson/cleaned/rhetoric');
+const swaang = require('../eventsJson/cleaned/swaang');
+
 //to insert to database
 router.get('/addMultipleEvents', (req, res)=>{
-    const events = [...dhwani, ...dansation];
+    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang];
     eventModel.insertMany(events)
         .then(()=>{
             return res.json({status: 200, message: "Inserted successfully!!"});
