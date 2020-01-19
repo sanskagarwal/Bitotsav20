@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 
 :root {
   --blue: #007bff;
@@ -9775,8 +9776,9 @@ mapouter{position:relative;
   visibility: hidden;
   -webkit-transition: opacity .2s ease-out, visibility 0s linear .2s;
   -o-transition: opacity .2s ease-out, visibility 0s linear .2s;
-  transition: opacity .2s ease-out, visibility 0s linear .2s;
-  z-index: 1000; }
+  transition: opacity 1s ease-out, visibility 0s linear .2s;
+  z-index: 1000; 
+}
 
 #ftco-loader.fullscreen {
   padding: 0;
@@ -9960,6 +9962,7 @@ mapouter{position:relative;
     text-align: justify;
     margin-right: 0;
     margin-left: 0; 
+    font-weight: 400;
 }
 
 #socialTheme .row {
@@ -9967,6 +9970,16 @@ mapouter{position:relative;
   margin-right: 0; 
 }
 
+#socialTheme img {
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 #socialTheme h3 {
-  color: black;
+  font-family: 'Montserrat', serif;
+}
+
+#facts {
+  font-family: 'Montserrat' !important;
+  font-weight: 400;
 }

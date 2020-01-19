@@ -18,6 +18,15 @@
         "image": "AshishAryan.jpg"
     },
     {
+        "Timestamp": "1/16/2020 13:11:30",
+        "name": "Gaurav Deep",
+        "team": "Creative Graphics",
+        "email": "gauravdeepbitm@gmail.com",
+        "phone": "8340521393",
+        "fbProfile": "https://www.facebook.com/crazy.gauravdeep",
+        "image": "gauravDeep@bitotsav.jpg"
+    },
+    {
         "Timestamp": "1/15/2020 11:59:22",
         "name": "Rahul",
         "team": "Creative Graphics",
@@ -47,7 +56,7 @@
     {
         "Timestamp": "1/15/2020 13:44:24",
         "name": "Pawan Kumar",
-        "team": "Finance",
+        "team": "Finance and Sponsorship",
         "email": "pawankumardps@gmail.com",
         "phone": "8789385542",
         "fbProfile": "https://www.facebook.com/speedking.pawan",
@@ -56,7 +65,7 @@
     {
         "Timestamp": "1/15/2020 13:52:17",
         "name": "Mansi Kanodia",
-        "team": "Finance",
+        "team": "Finance and Sponsorship",
         "email": "mansikanodia8@gmail.com",
         "phone": "9199167687",
         "fbProfile": "https://www.facebook.com/mansi.kanodia.3",
@@ -110,7 +119,7 @@
     {
         "Timestamp": "1/15/2020 15:01:44",
         "name": "Navin kumar",
-        "team": "Finance and sponsorship",
+        "team": "Finance and Sponsorship",
         "email": "be10694.16@bitmesra.ac.in",
         "phone": "7008096066",
         "fbProfile": "https://www.facebook.com/pawan.singh.1800721",
@@ -236,7 +245,7 @@
     {
         "Timestamp": "1/15/2020 23:08:24",
         "name": "Shreyas Agarwal",
-        "team": "Finance",
+        "team": "Finance and Sponsorship",
         "email": "shreyas.agarwal6@gmail.com",
         "phone": "9471516677",
         "fbProfile": "https://www.facebook.com/shreyas.agarwal.75",
@@ -295,15 +304,6 @@
         "phone": "8420010449",
         "fbProfile": "https://www.facebook.com/dilip.ginodia.7",
         "image": "DilipGinodia@bitotsav.jpg"
-    },
-    {
-        "Timestamp": "1/16/2020 13:11:30",
-        "name": "Gaurav Deep",
-        "team": "Creative Graphics",
-        "email": "gauravdeepbitm@gmail.com",
-        "phone": "8340521393",
-        "fbProfile": "https://www.facebook.com/crazy.gauravdeep",
-        "image": "gauravDeep@bitotsav.jpg"
     },
     {
         "Timestamp": "1/16/2020 13:18:59",

@@ -1,27 +1,27 @@
 let url = "https://bitotsav.in/api/auth";
 
-// $.ajax({
-//     url: url + "/getUserState",
-//     method: "GET",
-//     headers: {
-//         'x-access-token': localStorage.getItem("token")
-//     },
-//     crossDomain: true,
-//     success: function (res) {
-//         if (res.status !== 200 && !res.email) {
-//             window.location = "signupin.html";
-//         }
-//         else if (res.status === 200) {
-//             window.location = "profile.html";
-//         }
-//         else {
-//             $("#email").val(res.email);
-//             $("#mobile").val(res.phoneNo);
-//         }
-//     },
-//     error: function (err) {
-//     }
-// });
+$.ajax({
+    url: url + "/getUserState",
+    method: "GET",
+    headers: {
+        'x-access-token': localStorage.getItem("token")
+    },
+    crossDomain: true,
+    success: function (res) {
+        if (res.status !== 200 && !res.email) {
+            window.location = "signupin.html";
+        }
+        else if (res.status === 200) {
+            window.location = "profile.html";
+        }
+        else {
+            $("#email").val(res.email);
+            $("#mobile").val(res.phoneNo);
+        }
+    },
+    error: function (err) {
+    }
+});
 
 
 function verifyForm() {
