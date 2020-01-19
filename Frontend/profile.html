@@ -1,40 +1,32 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <title>User Dashboard</title>
-  <link rel="icon" href="images/favicon.ico">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/preloader.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-  <link rel="stylesheet" href="css/profile.css">
-</head>
-
-<body>
+  <head>
+    <title>Profile | Birla Institute of Technology, Mesra</title>
+    <link rel="icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/profile.css">
+  </head>
+  <body>
     <div id="loader-wrapper">
-        <div id="loader"></div>
-
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
     </div>
- <div id="content">
-
-  <div class="wrapper d-flex align-items-stretch">
-
+    <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar" class="">
       <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
-          <i class="fa fa-bars"></i>
-          <span class="sr-only">Toggle Menu</span>
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
         </button>
       </div>
       <div class="p-4">
         <!-- <h1 style="color: whitesmoke;">Bitotsav</h1> -->
         <span> <img src="./images/favicon.png" class="img-fluid"></span>
-
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="#profile"><span class="fa fa-user mr-3"></span>Profile</a>
@@ -56,40 +48,38 @@
           </li>
           <br>
           <li>
-            <a id="logoutBtn" class="btn btn-danger" style="padding-left: 10px;color:whitesmoke;;"><i
-                class="fas fa-sign-out-alt">&nbsp</i>Logout</a>
+            <a id="logoutBtn" class="btn btn-danger" style="padding-left: 10px;color:whitesmoke;">
+            <i class="fas fa-sign-out-alt">&nbsp;</i>Logout
+            </a>
           </li>
         </ul>
-
       </div>
     </nav>
     <div id="particles-js"></div>
     <!-- Page Content  -->
     <div class="content" style="min-height: 100vh; ">
-
       <section id="profile" class="p-4 p-md-5 pt-5 toggle">
         <h2 class="mb-6 pb-4">User Profile</h2>
-
         <h5 class="title">Personal Information</h5>
         <form action="" class="contact-form row ">
           <div class="title">Name:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"> <i class="fas fa-user-tie">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"> <i class="fas fa-user-tie">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userName" aria-describedby="basic-addon3" disabled>
           </div>
           <div class="title">Email:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-envelope">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-envelope">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userEmail" aria-describedby="basic-addon3" disabled>
           </div>
           <div class="title">Phone:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-phone">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-phone">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userPhone" aria-describedby="basic-addon3" disabled>
           </div>
@@ -99,53 +89,47 @@
           <div class="title"> Institute Name:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-university">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-university">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgName" aria-describedby="basic-addon3" disabled>
           </div>
           <div class="title">Institute Roll:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="far fa-registered">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="far fa-registered">&nbsp</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgId" aria-describedby="basic-addon3" disabled>
           </div>
           <div class="title">Institute City:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-building">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-building">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgCity" aria-describedby="basic-addon3" disabled>
           </div>
-
           <div class="title">Institute state:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr" id="basic-addon3"><i class="fas fa-globe">&nbsp</i></span>
+              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-globe">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userClgState" aria-describedby="basic-addon3" disabled>
           </div>
         </form>
-
         <h5 class="title">Bitotsav Credentials</h5>
         <form action="" class="contact-form row ">
           <div class="title">Bitotsav Id:</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text nobdr"><i class="fas fa-id-card-alt">&nbsp</i></span>
+              <span class="input-group-text nobdr"><i class="fas fa-id-card-alt">&nbsp;</i></span>
             </div>
             <input type="text" class="form-control nobdr" id="userBitId" aria-describedby="basic-addon3" disabled>
           </div>
         </form>
       </section>
-
-
       <section id="team" class="p-4 p-md-5 pt-5 toggle" style="display:none">
         <div id="tableAndForm">
           <h2 class="mb-6 pb-4 ">Team Registration</h2>
-
           <form action="" class="contact-form row" onsubmit=event.preventDefault()>
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">Team Name:</label><br>
@@ -163,8 +147,6 @@
                 </select>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">Team Leader Bitotsav Id:</label><br>
@@ -179,8 +161,6 @@
                   placeholder="Enter member email" disabled>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">2nd Member Bitotsav Id:</label><br>
@@ -195,8 +175,6 @@
                   placeholder="Enter member email" required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">3rd Member Bitotsav Id:</label><br>
@@ -211,8 +189,6 @@
                   placeholder="Enter member email" required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">4th Member Bitotsav Id:</label><br>
@@ -227,8 +203,6 @@
                   placeholder="Enter member email" required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">5th Member Bitotsav Id:</label><br>
@@ -243,8 +217,6 @@
                   placeholder="Enter member email" required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">6th Member Bitotsav Id:</label><br>
@@ -259,8 +231,6 @@
                   placeholder="Enter member email" required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">7th Member Bitotsav Id:</label><br>
@@ -275,8 +245,6 @@
                   placeholder="Enter member email" disabled required>
               </div>
             </div>
-
-
             <div class="col-md-6">
               <div class="form-group mb-3">
                 <label for="name">8th Member Bitotsav Id:</label><br>
@@ -291,17 +259,15 @@
                   placeholder="Enter member email" disabled required>
               </div>
             </div>
-
             <br />
             <div style="align-items: center;" class=" mx-auto">
               <button class="btn btn-primary mb-3 " id="teamRegister" type="submit" onclick="registerTeam()"
                 style="color: rgb(243, 240, 240) !important;"><i class="fa fa-spinner fa-spin" id="loadshow2"></i>
-                Register</button>
+              Register</button>
             </div>
           </form>
           <h5 id="reg-message" class="text-center"></h5>
         </div>
-
         <div id="teamMembersDetail">
           <h2>Team Details</h2>
           <br />
@@ -319,7 +285,6 @@
               </tr>
             </thead>
             <tbody id="teamMembersRow">
-           
             </tbody>
           </table>
         </div>
@@ -327,202 +292,185 @@
       <section id="event" class="toggle" style="display:none">
         <h3 id="table-head-name">Your Events</h3>
         <section id="table-section">
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead class="table-head-text" id="event-table-head">
-                        <tr>
-                            <th>Event ID</th>
-                            <th>Event name</th>
-                            <th>Team Leader ID</th>
-                            <th id="deregister-column" style="display:none">Deregister</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content" id="scrollbar-style">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody id="events-table">
-                        
-                    </tbody>
-                </table>
-
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead class="table-head-text" id="event-table-head">
+                <tr>
+                  <th>Event ID</th>
+                  <th>Event name</th>
+                  <th>Team Leader ID</th>
+                  <th id="deregister-column" style="display:none">Deregister</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content" id="scrollbar-style">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody id="events-table">
+              </tbody>
+            </table>
           </div>
         </section>
-         <h3 id="table-head-name" >More Events</h3>
+        <h3 id="table-head-name" >More Events</h3>
         <section id="table-section" >
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <thead class="table-head-text" id="more-events-table-head">
-                        <tr>
-                            <th>Category</th>
-                            <th>Event name</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            <div class="tbl-content" id="scrollbar-style">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody id="more-events-table">
-                        <tr>
-                            <td>DHWANI</td>
-                            <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Select Event
-                                        </button>
-                                        <div id="DHWANI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            
-                                        </div>
-                                    </div>
-                            </td>
-                        </tr>
-                         <tr>
-                             <td>DANSATION</td>
-                             <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                          aria-expanded="false">
-                                          Select Event
-                                      </button>
-                                      <div id="DANSATION" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          
-                                      </div>
-                                  </div>
-                             </td>
-                         </tr>
-                          <tr>
-                              <td>SWAANG</td>
-                              <td>
-                                   <div class="dropdown">
-                                       <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                           id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                           aria-expanded="false">
-                                           Select Event
-                                       </button>
-                                       <div id="SWAANG" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                           
-                                       </div>
-                                   </div>
-                              </td>
-                          </tr>
-                           <tr>
-                               <td>RHETORIC</td>
-                               <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Select Event
-                                        </button>
-                                        <div id="RHETORIC" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            
-                                        </div>
-                                    </div>
-                               </td>
-                           </tr>
-                            <tr>
-                                <td>TAABIR</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Select Event
-                                        </button>
-                                        <div id="TAABIR" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                             <tr>
-                                 <td>ADAA</td>
-                                 <td>
-                                     <div class="dropdown">
-                                         <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                             aria-expanded="false">
-                                             Select Event
-                                         </button>
-                                         <div id="ADAA" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            
-                                         </div>
-                                     </div>
-                                 </td>
-                             </tr>
-                              <tr>
-                                  <td>DIGITALES</td>
-                                  <td>
-                                      <div class="dropdown">
-                                          <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                                              type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                              aria-haspopup="true" aria-expanded="false">
-                                              Select Event
-                                          </button>
-                                          <div id="DIGITALES" class="dropdown-menu"
-                                              aria-labelledby="dropdownMenuButton">
-                                             
-                                          </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                               <tr>
-                                   <td>HERALD</td>
-                                   <td>
-                                       <div class="dropdown">
-                                           <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                                               type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
-                                               Select Event
-                                           </button>
-                                           <div id="HERALD" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                               
-                                           </div>
-                                       </div>
-                                   </td>
-                               </tr>
-                                <tr>
-                                    <td>MERAKI</td>
-                                    <td>
-                                       <div class="dropdown">
-                                           <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                                               type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
-                                               Select Event
-                                           </button>
-                                           <div id="MERAKI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                               
-                                           </div>
-                                       </div>
-                                    </td>
-                                </tr>
-                                 <tr>
-                                     <td>EUPHORIA</td>
-                                     <td>
-                                         <div class="dropdown">
-                                             <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                                                 type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                 aria-haspopup="true" aria-expanded="false">
-                                                 Select Event
-                                             </button>
-                                             <div id="EUPHORIA" class="dropdown-menu"
-                                                 aria-labelledby="dropdownMenuButton">
-                                                
-                                             </div>
-                                         </div>
-                                     </td>
-                                 </tr>
-                    </tbody>
-                </table>
-
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead class="table-head-text" id="more-events-table-head">
+                <tr>
+                  <th>Category</th>
+                  <th>Event name</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content" id="scrollbar-style">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody id="more-events-table">
+                <tr>
+                  <td>DHWANI</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="DHWANI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DANSATION</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Select Event</button>
+                      <div id="DANSATION" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>SWAANG</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="SWAANG" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RHETORIC</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="RHETORIC" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>TAABIR</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="TAABIR" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>ADAA</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="ADAA" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DIGITALES</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="DIGITALES" class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>HERALD</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="HERALD" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MERAKI</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="MERAKI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>EUPHORIA</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                      Select Event
+                      </button>
+                      <div id="EUPHORIA" class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
       </section>
-
-
       <section id="changePassword" class="p-4 p-md-5 pt-5 toggle" style="display:none">
         <h2 class="mb-6 pb-4">Change Password</h2>
         <form action="" class="contact-form row " onsubmit=event.preventDefault()>
@@ -543,93 +491,89 @@
           <div style="align-items: center;" class="mx-auto">
             <button class="btn btn-primary " id="changePasswordBtn" type="submit" onclick="changePassword()"
               style="color: rgb(246, 246, 246) !important;align-items: center;"> <i class="fa fa-spinner fa-spin"
-                id="loadshow1"></i> Change Password</button>
+              id="loadshow1"></i> Change Password</button>
           </div>
         </form>
         <br />
         <h5 id="password-message" class="text-center"></h5>
       </section>
-
-
       <section id="instruction" class="p-4 p-md-5 pt-5 toggle" style="display:none">
         <h2 class="mb-4">Instructions</h2>
-        </li><br>
-        <li>For registering for an event, the team leader must follow the following steps:
-          <ol>
-            <li style="margin-top: 5px;">Select the event to register for.</li>
-            <li>Select the number of team members (including team leader).</li>
-            <li>Enter the email and bitotsav Id of each team member.</li>
-            <li>Each team member must be registered individually on the website, i.e each member
-              must have their own bitotsav Id.</li>
-            <li>None of the team member must be registered for that event.</li>
-            <li>After successful registration for the event, the team leader must mail documents,
-              photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned
-              in the rules and regulations of the corresponding event.</li>
-          </ol>
-        </li>
-        <li>Bitotsav Championship
-          <ol>
-            <li style="margin-top: 5px;">Bitotsav championship is awarded to the team whose members
-              win most number of events.</li>
-            <li>There is separate registration for Bitotsav championship.</li>
-            <li>Each team can contain 6-8 members.</li>
-            <li>Each member can belong to exactly one team.</li>
-            <li>Once formed, the team members can not be added or removed.</li>
-            <li>Teams can be formed till 11th February, 2020.</li>
-            <li>The team for Bitotsav championship is different from the team registering for the
-              event.</li>
-            <li>Lets say a team X registers for an event. If X secures a position in an event and
-              all the members of team X are also registered under the same team Y for Bitotsav
-              championship, then team Y would automatically get points for that event as soon as
-              the result is declared.</li>
-          </ol>
-
+        <p>For registering for an event, the team leader must follow the following steps:</p>
+        <ol>
+          <li style="margin-top: 5px;">Select the event to register for.</li>
+          <li>Select the number of team members (including team leader).</li>
+          <li>Enter the email and bitotsav Id of each team member.</li>
+          <li>Each team member must be registered individually on the website, i.e each member
+            must have their own bitotsav Id.
+          </li>
+          <li>None of the team member must be registered for that event.</li>
+          <li>After successful registration for the event, the team leader must mail documents,
+            photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned
+            in the rules and regulations of the corresponding event.
+          </li>
+        </ol>
+        <p>Bitotsav Championship</p>
+        <ol>
+          <li style="margin-top: 5px;">Bitotsav championship is awarded to the team whose members
+            win most number of events.
+          </li>
+          <li>There is separate registration for Bitotsav championship.</li>
+          <li>Each team can contain 6-8 members.</li>
+          <li>Each member can belong to exactly one team.</li>
+          <li>Once formed, the team members can not be added or removed.</li>
+          <li>Teams can be formed till 11th February, 2020.</li>
+          <li>The team for Bitotsav championship is different from the team registering for the
+            event.
+          </li>
+          <li>Lets say a team X registers for an event. If X secures a position in an event and
+            all the members of team X are also registered under the same team Y for Bitotsav
+            championship, then team Y would automatically get points for that event as soon as
+            the result is declared.
+          </li>
+        </ol>
       </section>
-
-
       <section id="payment" class="p-4 p-md-5 pt-5 toggle" style="display:none">
         <h2 class="mb-4">Payment</h2>
-        <h5 class="text-center">Comming Soon</h5>
+        <h5 class="text-center">Coming Soon</h5>
       </section>
     </div>
-  </div>
- </div>
 
-  <script src="js/lib/jquery.min.js"></script>
-  <script src="js/lib/popper.min.js"></script>
-  <script src="js/lib/bootstrap.min.js"></script>
-  <script src="./js/dashboard.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./js/particle.js"></script>
-  <script src="./js/preloader.js"></script>
-  <script>
-    $("#sidebar a").click(function (e) {
-      e.preventDefault();
-      $(".toggle").hide();
-      var toShow = $(this).attr('href');
-      $(toShow).show();
-    });
 
-    var fullHeight = function () {
-
-      $('.js-fullheight').css('height', $(window).height());
-      $(window).resize(function () {
-        $('.js-fullheight').css('height', $(window).height());
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/particle.js"></script>
+    <script src="./js/preloader.js"></script>
+    <script>
+      $("#sidebar a").click(function (e) {
+        e.preventDefault();
+        $(".toggle").hide();
+        var toShow = $(this).attr('href');
+        $(toShow).show();
       });
-
-    };
-    fullHeight();
-
-    $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-    });
-
-    $('nav ul li a').click(function (e) {
-      var $this = $(this);
-      $this.parent().siblings().removeClass('active').end().addClass('active');
-      e.preventDefault();
-    });
-  </script>
-</body>
-
+      
+      var fullHeight = function () {
+      
+        $('.js-fullheight').css('height', $(window).height());
+        $(window).resize(function () {
+          $('.js-fullheight').css('height', $(window).height());
+        });
+      
+      };
+      fullHeight();
+      
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+      
+      $('nav ul li a').click(function (e) {
+        var $this = $(this);
+        $this.parent().siblings().removeClass('active').end().addClass('active');
+        e.preventDefault();
+      });
+    </script>
+  </body>
 </html>

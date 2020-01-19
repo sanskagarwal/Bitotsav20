@@ -8713,7 +8713,7 @@ strong {
 .model {
   display: block;
   width: 100%;
-  height: 600px;
+  height: 380px;
   margin-bottom: 0;
   background-position: top center !important;
   z-index: 0;
@@ -8882,6 +8882,7 @@ strong {
 
 .testimony-wrap {
   display: block;
+  height: 330px;
   position: relative;
   background: #202224; }
   .testimony-wrap .user-img {
@@ -9869,7 +9870,8 @@ mapouter{position:relative;
     background-size: cover;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-weight: 500;
+    /*font-size: 1.1em;*/
 }
 
 .carousel-inner .img1 {
@@ -9935,4 +9937,36 @@ mapouter{position:relative;
     background-size: cover;
     color: white;
     font-family: 'Montserrat', sans-serif;
+}
+
+#theme {
+  background-image: url('../images/index/themeC.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+#socialTheme {
+    background-image: url('../images/index/socialThemes.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /*font-weight: bold;*/
+    text-align: justify;
+    margin-right: 0;
+    margin-left: 0; 
+}
+
+#socialTheme .row {
+  margin-left: 0;
+  margin-right: 0; 
+}
+
+#socialTheme h3 {
+  color: black;
 }

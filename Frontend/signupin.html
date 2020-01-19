@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Sign-in| Birla Institute of Technology, Mesra</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Sign in | Birla Institute of Technology, Mesra</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-  <link rel="icon" type="image/png" href="./images/favicon.ico"/>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-  <link rel="stylesheet" href="./css/lib/bootstrap.min.css"> 
-  <link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/signupstyle.css">
-  <link rel="stylesheet" href="./css/S1.css">
-  <link rel="stylesheet" type="text/css" href="./css/preloader.css">
+	<link rel="icon" type="image/png" href="./images/favicon.ico"/>
 
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+	<link rel="stylesheet" href="./css/lib/bootstrap.min.css"> 
+	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/signupstyle.css">
+	<link rel="stylesheet" href="./css/S1.css">
+	<link rel="stylesheet" type="text/css" href="./css/preloader.css">
 
-  <script src="./js/lib/jquery-3.2.1.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LdPBsgUAAAAAPMm-Lao4qSFeiQXuX1hDibxnJNZ"></script>
+
+	<script src="./js/lib/jquery-3.2.1.min.js"></script>
 
 
 </head>
 <body>
-    <div id="loader-wrapper">
-        <div id="loader"></div>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
 
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
 
-    </div>
- <div id="content">
+	</div>
 	<div class="bg-contact100" id="SS">
 		<div class="container-contact100">
 			<div class="wrap-contact100">
@@ -44,7 +43,7 @@
 						Sign in
 					</span>
 
-					
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
 						<input class="input100" type="text" name="email" id="semail1" placeholder="Email">
@@ -61,9 +60,9 @@
 						</span>
 					</div>
 					<a href="forgotPassword.html">Forgot your password?</a>
-					
-					
-					
+
+
+
 					<p class="sxs" id="errrMsg1" style="color: red;"></p>
 
 					<div class="container-contact100-form-btn">
@@ -120,7 +119,7 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-                    <p class="sxs" id="errMsg1" style="color: red;"></p>
+					<p class="sxs" id="errMsg1" style="color: red;"></p>
 
 					<div class="container-contact100-form-btn">
 						<button class="contact100-form-btn" onclick="signupForm1()" id="btnSignUp1">
@@ -136,141 +135,102 @@
 		</div>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<div class="container" id="container">
 		<!-- Sign up -->
-	<div class="form-container sign-up-container">
-		<form action="#" onsubmit=event.preventDefault() method="" role="form">
-			<h1>Sign up</h1>
-			<br>
-			<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
-				<input class="input100" type="text" name="email" id="suemail" placeholder="Email">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-envelope" aria-hidden="true"></i>
-				</span>
-			</div>
-			<div class="wrap-input100 validate-input" data-validate = "Valid Number is required" >
-				<input class="input100" type="text" name="mobile" id="sumobile" placeholder="Mobile Number">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-phone" aria-hidden="true"></i>
-				</span>
-			</div>
-			<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
-				<input class="input100" type="password" name="password" id="supassword" placeholder="Password">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-lock" aria-hidden="true"></i>
-				</span>
-			</div>
-			<div class="wrap-input100 validate-input" data-validate = "Password not matched">
-				<input class="input100" type="password" name="cpassword" id="sucpassword" placeholder="Confirm password">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-lock" aria-hidden="true"></i>
-				</span>
-			</div>
-			
-
-
-			<p id="errMsg" style="color: red;"></p>
-
-			<button onclick="signupForm()" id="btnSignUp" ><span>Sign Up&nbsp;</span><span class="rotator"></span></button>
-		</form>
-	</div>
-	<!-- End -->
- <!-- Sign in -->
- <div class="form-container sign-in-container">
-		<form action="#" onsubmit=event.preventDefault() >
-			
-			<h1>Sign in</h1>
-			<br>
-			<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
-				<input class="input100" type="text" name="email" id="semail" placeholder="Email">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-envelope" aria-hidden="true"></i>
-				</span>
-			</div>
-			<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
-				<input class="input100" type="password" name="password" id="spassword" placeholder="Password">
-				<span class="focus-input100"></span>
-				<span class="symbol-input100">
-					<i class="fa fa-lock" aria-hidden="true"></i>
-				</span>
-			</div>
-			<a href="forgotPassword.html">Forgot your password?</a>
-			<p id="errrMsg" style="color: red;"></p>
-
-			<button  onclick="loginForm()" id="btnSignIn"  ><span>Sign In&nbsp;</span><span class="rotator"></span></button>
-		</form>
-	</div>
-	<!-- End -->
+		<div class="form-container sign-up-container">
+			<form action="#" onsubmit=event.preventDefault() method="" role="form">
+				<h1>Sign up</h1>
+				<br>
+				<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
+					<input class="input100" type="text" name="email" id="suemail" placeholder="Email">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Valid Number is required" >
+					<input class="input100" type="text" name="mobile" id="sumobile" placeholder="Mobile Number">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
+					<input class="input100" type="password" name="password" id="supassword" placeholder="Password">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+					</span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Password not matched">
+					<input class="input100" type="password" name="cpassword" id="sucpassword" placeholder="Confirm password">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+					</span>
+				</div>
 
 
 
+				<p id="errMsg" style="color: red;"></p>
 
- <div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Already Registered?</h1>
-				<p>Login Instead</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Not Registered?</h1>
-				<p>Sign Up Instead</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<button onclick="signupForm()" id="btnSignUp" ><span>Sign Up&nbsp;</span><span class="rotator"></span></button>
+			</form>
+		</div>
+		<!-- End -->
+		<!-- Sign in -->
+		<div class="form-container sign-in-container">
+			<form action="#" onsubmit=event.preventDefault() >
+
+				<h1>Sign in</h1>
+				<br>
+				<div class="wrap-input100 validate-input" data-validate = "Email is required" data-validate1="Valid email is required">
+					<input class="input100" type="text" name="email" id="semail" placeholder="Email">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+					</span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Password is required" data-validate1="Password must be  greater than 6 digit">
+					<input class="input100" type="password" name="password" id="spassword" placeholder="Password">
+					<span class="focus-input100"></span>
+					<span class="symbol-input100">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+					</span>
+				</div>
+				<a href="forgotPassword.html">Forgot your password?</a>
+				<p id="errrMsg" style="color: red;"></p>
+
+				<button  onclick="loginForm()" id="btnSignIn"  ><span>Sign In&nbsp;</span><span class="rotator"></span></button>
+			</form>
+		</div>
+		<!-- End -->
+
+
+
+
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Already Registered?</h1>
+					<p>Login Instead</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Not Registered?</h1>
+					<p>Sign Up Instead</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
 			</div>
 		</div>
 	</div>
- </div>
-</div>
 
-<!-- partial -->
-<script  src="./js/signup.js"></script>
-<script  src="./js/login.js"></script>
-<script  src="./js/transform.js"></script>
-<script  src="./js/forgotpassword.js"></script>
-<script  src="./js/preloader.js"></script>
+	<!-- partial -->
+	<script  src="./js/signup.js"></script>
+	<script  src="./js/login.js"></script>
+	<script  src="./js/transform.js"></script>
+	<script  src="./js/forgotpassword.js"></script>
+	<script  src="./js/preloader.js"></script>
 
 
 
