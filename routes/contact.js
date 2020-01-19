@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 const router = express.Router();
 
 
-router.post('/contact', validateCapcha, [check('email').isEmail(), check('message').length({ min: 15, max: 100 })],
+router.post('/sendMessage', [check('email').isEmail(), check('message').isLength({ min: 15, max: 100 })],
 
     function (req, res, next) {
 
@@ -39,7 +39,7 @@ router.post('/contact', validateCapcha, [check('email').isEmail(), check('messag
         if (!subject) {
             return res.json({
                 status: 400,
-                message: "subject is required!"
+                message: "Subject is required!"
             });
         }
 
@@ -83,7 +83,7 @@ router.post('/contact', validateCapcha, [check('email').isEmail(), check('messag
             message: message
         });
         contactMessage.save();
-        res.json({ status: 200, message: "Message sent successfully!" });
+        res.json({ status: 200, message: "Message sent successfully :)" });
 
     });
 
