@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src:  url(../fonts/Montserrat-SemiBold.ttf);
+  }
 
 :root {
   --blue: #007bff;
@@ -28,8 +33,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+}
 
 *,
 *::before,
@@ -38,7 +42,7 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -48,7 +52,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -151,7 +154,6 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
 pre {
@@ -4882,7 +4884,6 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4967,7 +4968,6 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6765,6 +6765,10 @@ button.bg-dark:focus {
 .py-5 {
   padding-bottom: 3rem !important; }
 
+  .pl-5 p {
+      font-style: normal !important;
+  }
+
 .pl-5,
 .px-5 {
   padding-left: 3rem !important; }
@@ -7899,9 +7903,6 @@ button.bg-dark:focus {
   .mx-xl-auto {
     margin-left: auto !important; } }
 
-.text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
-
 .text-justify {
   text-align: justify !important; }
 
@@ -8134,7 +8135,6 @@ html {
   background: #000; }
 
 body {
-  font-family: "Noto Sans", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.8;
   font-weight: 400;
@@ -8424,7 +8424,6 @@ strong {
     letter-spacing: 2px; }
   .slider-text h1 {
     font-size: 62px;
-    font-family: "Noto Sans", Arial, sans-serif;
     text-transform: uppercase;
     line-height: 1.2;
     font-weight: 700;
@@ -8474,7 +8473,7 @@ strong {
         text-transform: capitalize;
         font-weight: 400;
         padding-bottom: 5px;
-        font-family: "Noto Serif", serif; }
+    }
   .slider-text .btn-custom {
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 15px 20px;
@@ -8503,7 +8502,6 @@ strong {
     font-weight: 700;
     color: #fff;
     font-size: 80px;
-    font-family: "Noto Sans", Arial, sans-serif;
     text-transform: uppercase; }
     @media (max-width: 767.98px) {
       .slider-text .bread {
@@ -8595,13 +8593,11 @@ strong {
 .blockquote p {
   font-size: 18px;
   font-weight: 400;
-  font-family: "Noto Serif", serif;
   color: #fff;
   font-style: italic; }
 
 .blockquote span {
   font-size: 13px;
-  font-family: "Noto Serif", serif;
   font-style: italic; }
 
 .video {
@@ -8926,7 +8922,6 @@ strong {
       height: 30px;
       background: #9d8f8f; }
   .testimony-wrap .text p {
-    font-family: "Noto Serif", serif;
     font-size: 16px;
     font-style: italic;
     color: #fff; }
@@ -9404,7 +9399,6 @@ mapouter{position:relative;
       top: .1em;
       left: 0; }
     .block-8 .accordion-item .heading > a[aria-expanded="true"]:before {
-      font-family: 'icomoon';
       position: absolute;
       content: "\e316";
       -webkit-transition: .3s all ease;
@@ -9416,7 +9410,6 @@ mapouter{position:relative;
     .block-8 .accordion-item .heading > a[aria-expanded="false"]:before {
       content: "\e313";
       color: #ccc;
-      font-family: 'icomoon';
       position: absolute;
       -webkit-transition: .3s all ease;
       -o-transition: .3s all ease;
@@ -9858,7 +9851,6 @@ mapouter{position:relative;
       letter-spacing: 2px;
       text-align: center;
       font-weight: bolder;
-      font-family: 'Courier New', Courier, monospace;
   }
 
   hr.new2 {
@@ -9984,13 +9976,12 @@ mapouter{position:relative;
 
 #header.header-scrolled {
     background: rgba(0, 0, 0, 0.9);
-    padding: 20px 0;
-    height: 72px;
+    padding: 15px 0;
+    height: 60px;
     transition: all 0.5s;
 }
+
 #header {
-font-family: 'Courier New', Courier, monospace;
-font-size: 1.25em;
   font-weight: 600;
     padding: 30px 0;
     height: 92px;
@@ -10018,10 +10009,8 @@ font-size: 1.25em;
 }
 
 #header li a {
+    padding: 10px 5px;
   color: white;
-  font-size:1.1em;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #header .nav-menu > li {
@@ -10051,6 +10040,13 @@ font-size: 1.25em;
     cursor: pointer;
 }
 
+@media (max-width: 1024px) {
+    #socialTheme img {
+        width: 100%;
+        height: 270px;
+    }
+}
+
 @media (max-width: 768px) {
   #mobile-nav-toggle {
       display: inline;
@@ -10058,11 +10054,18 @@ font-size: 1.25em;
   #nav-menu-container {
       display: none;
   }
-  #header {
-    margin-left: 20px;
-  }
   #navbar {
     display: none;
+  }
+  #social-icons {
+      display: none;
+  }
+  .carousel-indicators {
+      display: none;
+  }
+  #socialTheme img {
+      width: 280px;
+      height: 280px;
   }
 }
 
@@ -10138,4 +10141,8 @@ body.mobile-nav-active #mobile-nav {
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+#social-icons i,span {
+    color: white !important;
 }

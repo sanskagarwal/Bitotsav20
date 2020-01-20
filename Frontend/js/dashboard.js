@@ -160,7 +160,7 @@ $.ajax({
             $("#userClgName").val(res.user._doc.clgName);
             $("#userClgCity").val(res.user._doc.clgCity);
             $("#userClgState").val(res.user._doc.clgState);
-            $("#bitId0").val(res.user._doc.bitotsavId);
+            $("#bitId0").val(`BIT-${res.user._doc.bitotsavId}`);
             $("#email0").val(res.user._doc.email);
             if (res.isInTeam === true) {
                 $("#tableAndForm").remove();
