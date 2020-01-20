@@ -472,12 +472,6 @@ input.input100 {
 	opacity: 1;
   }
   
-  @media (max-width: 992px) {
-	.alert-validate::before {
-	  visibility: visible;
-	  opacity: 1;
-	}
-  }
   .alert-validate1::before {
 	content: attr(data-validate1);
 	position: absolute;
@@ -532,10 +526,14 @@ input.input100 {
   }
   
   @media (max-width: 992px) {
-	.alert-validate1::before {
-	  visibility: visible;
+	.alert-validate1:hover::before {
+	  visibility: hidden;
 	  opacity: 1;
-	}
+    }
+    .alert-validate:hover::before {
+        visibility: hidden;
+        opacity: 1;
+      }
   }
   @keyframes spinner {
     to {

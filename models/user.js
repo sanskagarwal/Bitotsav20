@@ -38,6 +38,8 @@ const userSchema = new schema({
     email: {
         type: String,
         unique: true,
+        lowercase: true,
+        trim: true,
         required: true
     },
     password: {
