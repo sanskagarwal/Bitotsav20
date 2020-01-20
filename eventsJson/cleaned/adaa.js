@@ -3,12 +3,11 @@ const adaa = [
 		"id": 18,
 		"name": `MR. & MISS BITOTSAV`,
 		"eventCategory": `ADAA`,
-		"imageName": ``,
 		"individual": `0`,
 		"category": `Flagship`,
 		"points": `None`,
 		"venue": `Shorbagh-1`,
-		"duration": `3-4 hours`,
+		"duration": `15/2: 9:00 AM - 12:00 PM`,
 		"faculty advisor": `Mr. Prem Prakash`,
 		"club": `Rotaract`,
 		"description": `Mr and Miss Bitotsav, the most glamorously sensational and magical pageant of BITOTSAV, aims at providing an amazing opportunity to the freshers to dazzle the audience with their colourful personality, inner glow and ability to shine amidst the crowd. Keep up your peppy spirits and cool quirks to be awarded with this worthy title.
@@ -44,21 +43,19 @@ Round three:
 2. Crown for Miss Bitotsav
 3. Stage (with carpets and flex)
 `,
-		"imageName": `none.jpg `, 
+		"imageName": `mrAndMissBitotsav.jpg`, 
 		"individual": `1`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
-		"cashPrize": ""
+		"cashPrize": "20k"
 	}, {
 		"id": 19,
 		"name": `PANACHE`,
 		"eventCategory": `ADAA`,
-		"imageName": ``,
-		"individual": `0`,
 		"category": `Formal`,
 		"points": `75-50-25`,
 		"venue": `Shorbagh-1`,
-		"duration": `2 hours`,
+		"duration": `14/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Shri Mrinal Kumar Pathak`,
 		"club": `Fine Arts Society`,
 		"description": `You don't do fashion; you live it.
@@ -82,7 +79,7 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 3. Fevicol 50gm-20
 4. Stapler-10
 5. Stapler pins box-5`,
-		"imageName": `none.jpg`, "individual": `0`,
+		"imageName": `panache.jpg`, "individual": `0`,
 		"minParticipants": 3,
 		"maxParticipants": 3,
 		"cashPrize": null
@@ -92,12 +89,10 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 		"id": 20,
 		"name": `BEAUTY AND THE GEEK`,
 		"eventCategory": `ADAA`,
-		"imageName": ``,
-		"individual": `0`,
 		"category": `Formal`,
 		"points": `None`,
 		"venue": `Shorbagh`,
-		"duration": `2 hours`,
+		"duration": `16/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. Rajeev Kumar`,
 		"club": `Leo Club`,
 		"description": `This event comprises of 3 rounds. The first round being a compatibility test, is to be followed by the escape room which uses QR Codes. The last round has 2 sub rounds, the first being a fun event and second being a talent show/ramp walk which will decide the winner.
@@ -112,10 +107,10 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 		"resources required": `1. 18 Water Pots
 2. 2 Mount Boards
 `,
-		"imageName": `none.jpg`, "individual": `1`,
+		"imageName": `beautyAndTheGeek.jpg`, "individual": `1`,
 		"minParticipants": 2,
 		"maxParticipants": 2,
-		"cashPrize": ""
+		"cashPrize": "5k"
 	}
 ]
 

@@ -3,11 +3,10 @@ const swaang = [
 		"id": 7,
 		"name": `PUKAAR`,
 		"eventCategory": `SWAANG`,
-		"imageName": ``,
 		"category": `Flagship`,
 		"points": `None`,
 		"venue": `Shorbagh-1`,
-		"duration": `2 days, 5 hours`,
+		"duration": `14/2: 9:00 AM - 1:00 PM`,
 		"faculty advisor": `Dr. Sandeep Kumar Singh`,
 		"club": `Ehsaas Dramatcs Society`,
 		"description": `This is a street play competton. What beter way than Nukkad to express our views. The voice of our conscience echoes through the words of Nukkad. The evils of the society are brought into light through the plot of Nukkad. Let us rewind the days when some scintllatng performances ignited the fre for change in us.
@@ -15,7 +14,7 @@ const swaang = [
 		"rulesAndRegulations": `This competton will be conducted in two rounds, eliminatons and fnals. Both rounds will be held on two dioerent days of the fest.
         General Rules:
         1. The team shall consist of maximum of 20 people excluding 2 instrumentalists (optonal).
-        2. The tme limit should be strictly adhered to. In case of violaton, partcipants will be penalized by judges. The given tme duraton is from empty stage to empty stage.
+        2. The time limit should be strictly adhered to. In case of violaton, partcipants will be penalized by judges. The given tme duraton is from empty stage to empty stage.
         3. Teams are expected to perform at an open-air venue, on a circular stage with audience on all sides.
         4. Multple teams from the same college are permited.
         5. No hazardous substances are allowed. (fluids and fre)
@@ -43,19 +42,18 @@ const swaang = [
         3. Judges refreshment
         4. Water
 `,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `pukaar.jpg`, "individual": `1`,
 "minParticipants": "",
 "maxParticipants": "",
-"cashPrize": ""
+"cashPrize": "30k"
 	}, {
 		"id": 8,
 		"name": `ABHINAY`,
 		"eventCategory": `SWAANG`,
-		"imageName": ``,
 		"category": `Flagship`,
 		"Points": `None`,
 		"venue": `G.P. Birla Auditorium`,
-		"duration": `2 days, 6 hours`,
+		"duration": `15/2: 12:00 PM - 4:00 PM`,
 		"faculty advisor": `Dr. Sandeep Kumar Singh`,
 		"club": `Ehsaas Dramatics Society`,
 		"description": `This is a stage play competition. If you think you can mesmerize the audience with acting, script, dialogues and sets - then Abhinay is your call! It cannot get better than the annual stage play competition at Bitotsav. Once the stage is set and all is ready - it is show time.
@@ -82,20 +80,19 @@ const swaang = [
         3. Judges refreshment
         4. Water
 `,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `abhinay.jpg`, "individual": `1`,
 "minParticipants": "",
 "maxParticipants": "",
-"cashPrize": ""
+"cashPrize": "30k"
 	},
 	{
 		"id" : 9,
 		"name": `NATSAMRAAT`,
 		"eventCategory": `SWAANG`,
-		"imageName": ``,
 		"category": `Formal`,
-		"points": `NOne`,
+		"points": `None`,
 		"venue": `G.P. Birla Auditorium`,
-		"duration": `3 hours`,
+		"duration": `15/2: 9:00 AM - 12:00 PM`,
 		"faculty advisor": `Dr. Sandeep Kumar Singh`,
 		"club": `Ehsaas Dramatics Society`,
 		"description": `Do you like to fly solo? Do you like that feeling when the spotlight hits you and the whole scene revolves around you? So, here is your chance to prove your talent at mono-acting. Prepare yourself to single-handedly dazzle the audience.
@@ -127,10 +124,10 @@ const swaang = [
         3. Judges refreshment
         4. Water
 `,
-		"imageName": `none.jpg`, "individual": `1`,
+		"imageName": `natsamraat.jpg`, "individual": `1`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
-		"cashPrize": ""
+		"cashPrize": "5k"
 		}
 		
 	

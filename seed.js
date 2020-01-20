@@ -17,6 +17,7 @@ const herald = require('./eventsJson/cleaned/herald');
 const meraki = require('./eventsJson/cleaned/meraki');
 const rhetoric = require('./eventsJson/cleaned/rhetoric');
 const swaang = require('./eventsJson/cleaned/swaang');
+const taabiir = require('./eventsJson/cleaned/taabiir');
 
 const connectDB = require('./db/mongoose_connection');
 connectDB();
@@ -68,7 +69,7 @@ if (req === 1) {
     });
 } else if (req === 4) {
     console.log("It will delete events");
-    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang];
+    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang, ...taabiir];
     eventModel.deleteMany({}, (err, res) => {
         if (err) {
             return console.log(err);

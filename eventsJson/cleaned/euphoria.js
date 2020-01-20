@@ -7,7 +7,7 @@ const euphoria = [
         , "category": `Formal`
         , "Points": `50-30-20`
         , "venue": `Classroom`
-        , "duration": `2 hours`
+        , "duration": `15/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Dr. G. S. Gupta`
         , "club": `IETE`
         , "description": `Round 1:
@@ -28,11 +28,11 @@ const euphoria = [
         3. Buzzers-10
         4. Projector
         `
-        , "imageName": `none.jpg`
+        , "imageName": `psych.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 30
@@ -41,7 +41,7 @@ const euphoria = [
         , "category": `Formal `
         , " Points": "75 - 50 - 25"
         , "venue": `Classroom`
-        , "duration": `3 hours`
+        , "duration": `15/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Dr.Sukalyan Chakraborty`
         , "club": `SMAC`
         , "description": `This event comprises of 3 rounds.The first round is Pictionary in which only the top scorers will be qualifying further.In the second round the participants have to cycle up and down the campus to collect flags.Finally, in the last round two players have to decode a puzzle and get to one place to collect the flag.
@@ -55,11 +55,11 @@ const euphoria = [
         , "resources required": `1. Paper - 30 Sheets
         2. Pen - 10 pieces
         `
-        , "imageName": `none.jpg`
+        , "imageName": `horatio.jpg`
         , "individual": `0`,
         "minParticipants": 4,
         "maxParticipants": 5,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 31
@@ -68,7 +68,7 @@ const euphoria = [
         , "category": `Formal`
         , "Points": `75 - 50 - 25`
         , "venue": `Classroom`
-        , "duration": `3 hours`
+        , "duration": `16/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Dr.Sukalyan Chakraborty`
         , "club": `SMAC`
         , "description": `This event is quite similar to Poker but instead of cards participants will play on questions which are related to particular countries.Each round will have four questions.The game is simple, either you bet or you fold.Join along as you will get to learn, explore and contest.
@@ -82,11 +82,11 @@ const euphoria = [
         2. 10 sheets
         3. 10 pens
         `
-        , "imageName": `none.jpg`
+        , "imageName": `pokerAzia.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 32
@@ -95,7 +95,7 @@ const euphoria = [
         , "category": `Formal`
         , "Points": `50 - 30 - 20`
         , "venue": `IC Arena`
-        , "duration": `3 hours`
+        , "duration": `15/2: 2:00 PM - 5:00 PM`
         , "faculty Advisor": `Club Faculty`
         , "club": `SAE BIT Mesra`
         , "description": `The participating candidate has to first open the wheel of the wheel assembly of an All - Terrain Vehicle and then again assemble it in the given time using the given tools only.
@@ -108,20 +108,20 @@ const euphoria = [
         2. Shivansh Goyal: 8505088160
         BIT ROADIES
         `
-        , "imageName": `none.jpg`
+        , "imageName": `pitstop.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 33
         , "name": `FOODOMANIA`
         , "eventCategory": `euphoria`
-        , "category": `Formal `
+        , "category": `Formal`
         , " Points": `50 - 30 - 20`
         , "venue": `Mehek`
-        , "duration": `2.5 hours`
+        , "duration": `14/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Mr.Prem Prakash`
         , "club": `Rotaract`
         , "description": `This event will be a food eating competition.
@@ -155,11 +155,11 @@ Orange
     Disposable Glasses
 Disposable Plates
  `
-        , "imageName": `none.jpg`
+        , "imageName": `foodOMania.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 34
@@ -168,7 +168,7 @@ Disposable Plates
         , "category": `Formal`
         , "Points": `75 - 50 - 25`
         , "venue": `Mehek`
-        , "duration": `3 hours`
+        , "duration": `14/2: 2:00 PM - 5:00 PM`
         , "faculty Advisor": `Dr. (Mrs.) Vijaya Laxmi`
         , "club": `IEEE`
         , "description": `Da Vinci Code" consists of 3 rounds. The first round is an aptitude test based on the theme. The qualified teams will make it to next round wherein they have to collect some unique items and need to submit them to be qualified for the next round and, at the end, the qualified participants will decipher a code to a specific location and need to reach to, the team who will figure the code out in the least time will win.
@@ -182,11 +182,11 @@ Disposable Plates
         , "resources required": `1. Printed sheets
 2. Pens
     `
-        , "imageName": `none.jpg`
+        , "imageName": `daVinciCode.jpg`
         , "individual": `0`,
         "minParticipants": 3,
         "maxParticipants": 4,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 35
@@ -195,7 +195,7 @@ Disposable Plates
         , "category": `Formal `
         , "Points": `50 - 20 - 10`
         , "venue": `Room No. 217`
-        , "duration": `3 hours`
+        , "duration": `15/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Dr.Arun Dayal Udai`
         , "club": `Robolution`
         , "description": `Air Hockey - An AI based hockey game in which the hands of the players are detected and the stick moves according to the movement of their hand.
@@ -210,11 +210,11 @@ Disposable Plates
         , "resources required": `1. 5 markers
 2. 100 A4 sheets.
     `
-        , "imageName": `none.jpg`
+        , "imageName": `roboairhockey.jpg`
         , "individual": `0`,
         "minParticipants": 1,
         "maxParticipants": 1,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 36
@@ -223,7 +223,7 @@ Disposable Plates
         , "category": `Formal`
         , "Points": `75 - 50 - 25`
         , "venue": `LH - 1`
-        , "duration": `3 hours(10 AM        1 PM)`
+        , "duration": `14/2: 2:00 PM - 5:00 PM`
         , "faculty Advisor": `Dr.Rajeev Kumar`
         , "club": `Leo Club`
         , "description": `This event comprises of 3 rounds.The first round will be a fun game with pedal dustbins.The next round will be a memory game followed by an auction where the logic and way of presenting will decide the winner.
@@ -243,11 +243,11 @@ Disposable Plates
         6. 10 Wooden Sticks(L = 40cm)
 7. 5 Mount boards for making placard
     `
-        , "imageName": `none.jpg`
+        , "imageName": `laLaLaLand.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 3,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 37
@@ -256,7 +256,7 @@ Disposable Plates
         , "category": `Formal`
         , " Points": `50 - 30 - 20`
         , "venue": `IC Arena`
-        , "duration": `3 hours`
+        , "duration": `15/2: 1:00 PM - 4:00 PM`
         , "faculty Advisor": `Dr.Rajeev Kumar`
         , "club": `Leo Club`
         , "description": `This event comprises of 4 Rounds.The first round will be a three leg race followed by a fun event of bursting the balloons.The third round will be a lemon crossover game.Finally, a treasure hunt will be conducted in the last round.
@@ -274,11 +274,11 @@ Disposable Plates
 4. Balloons - 300
 5. Carton
     `
-        , "imageName": `none.jpg`
+        , "imageName": `beatTheClock.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     },
     {
         "id": 38
@@ -287,7 +287,7 @@ Disposable Plates
         , "category": `Formal`
         , "Points": `50 - 30 - 20`
         , "venue": `Lecture Hall`
-        , "duration": `3 hours`
+        , "duration": `16/2: 9:00 AM - 12:00 PM`
         , "faculty Advisor": `Dr.Shakti Pattnayk, Dr.Vishal H.Shah`
         , "club": `EDC`
         , "description": `The participants are placed at the helm of a start - up and they have to make decisions based on various scenarios.
@@ -297,11 +297,11 @@ Disposable Plates
         , "contactInformation": `1. Utkarsh Mishra: 8674960047
 2. Kshitij Yash: 9082499159
     `
-        , "imageName": `none.jpg`
+        , "imageName": `billionairesChoice.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 2,
-        "cashPrize": ""
+        "cashPrize": null
     }
 ]
 

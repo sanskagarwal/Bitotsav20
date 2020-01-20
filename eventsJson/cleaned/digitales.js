@@ -5,7 +5,7 @@ const digitales = [
         , "category": `Flagship`
         , "eventCategory": `DIGITALES`
         , "venue": `CAT Hall`
-        , "duration": `3-4 hours`
+        , "duration": `13/2: 10:00 AM - 3:00 PM`
         , "faculty Advisor": `Dr. Sanjay Kumar`
         , "club": `Photographic Society`
         , "Points": `None`
@@ -39,11 +39,11 @@ const digitales = [
     5. Water
     6. HDMI cable
     7. Audio cable`
-        , "imageName": `none.jpg`
+        , "imageName": `talkies.jpg`
         , "individual": `1`
         , "minParticipants": null
         , "maxParticipants": null
-        , "cashPrize": ""
+        , "cashPrize": "20k"
     },
 
 
@@ -53,7 +53,7 @@ const digitales = [
         , "category": `Formal`
         , "eventCategory": `DIGITALES`
         , "venue": `Classroom`
-        , "duration": `2 hours`
+        , "duration": `14/2: 10:00 AM - 1:00 PM`
         , "faculty Advisor": `Dr. Sanjay Kumar`
         , "club": `Photographic Society`
         , "Points": `75-50-25`
@@ -72,11 +72,11 @@ const digitales = [
     3. Markers
     4. Projector
     `
-        , "imageName": `none.jpg`
+        , "imageName": `digiexpress.jpg`
         , "individual": `0`,
         "minParticipants": 2,
         "maxParticipants": 4,
-        "cashPrize": ""
+        "cashPrize": null
     },
 
 
@@ -86,7 +86,7 @@ const digitales = [
         , "category": `Online-Formal`
         , "eventCategory": `DIGITALES`
         , "venue": `Facebook page of Bitotsav`
-        , "duration": `4 weeks (4 Themes)`
+        , "duration": `3 weeks (3 Themes)`
         , "Points": `None`
         , "faculty Advisor": `Dr. Sanjay Kumar`
         , "club": `Photographic Society`
@@ -108,14 +108,8 @@ const digitales = [
     Creativity: 25 %
     Perception: 30 %
     Likes/shares: 15 %
-    2. All devices with a lens that clicks are welcome i.e. quality of photo will not be judging criteria.
-    HERALD
-    COMPETITIONS FOR JOURNALISM
-    BITOTSAV   20
-    CARNIVAL OF CONUNDRUMS
-    THE JOURNALIST   S HOUR
-    `
-     , "imageName": `none.jpg`
+    2. All devices with a lens that clicks are welcome i.e. quality of photo will not be judging criteria.`
+     , "imageName": `epic.jpg`
     , "individual": `1`,
     "minParticipants": 1,
     "maxParticipants": 1,

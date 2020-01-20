@@ -5,7 +5,7 @@ const dansation = [
     ,"category": `Flagship`
     ,"eventCategory": `DANSATION`
     ,"venue": `GP Birla Auditorium`
-    ,"duration": `2.5 hours`
+    ,"duration": `16/2: 9:00 AM - 12:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dance Club`
     ,"points": `None`
@@ -41,11 +41,11 @@ const dansation = [
     5. Mementos (for 2 judges)
     6. Sheets-20, Pens-5
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `danceSaga.jpg`
     ,"individual": `0`,
     "minParticipants": null,
     "maxParticipants": null,
-    "cashPrize": ""
+    "cashPrize": "30k"
 },
     {
     "id": 4
@@ -53,7 +53,7 @@ const dansation = [
     ,"category": `Flagship`
     ,"eventCategory": `DANSATION`
     ,"venue": `Badminton Court, Sports Complex (if not near LH-1/2)`
-    ,"duration": `3-4 hours`
+    ,"duration": `14/2: 9:00 AM - 1:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dance Club`
     ,"points": `None`
@@ -97,11 +97,11 @@ const dansation = [
     10. Carpets-4
     11. Tapes
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `stompTheYard.jpg`
 	,"individual": `1`,
 	"minParticipants": null,
 	"maxParticipants": null,
-	"cashPrize": ""
+	"cashPrize": "25k"
 },
     {
     "id": 5
@@ -109,7 +109,7 @@ const dansation = [
     ,"category": `Formal`
     ,"eventCategory": `DANSATION`
     ,"venue": `CAT Hall, Main Building`
-    ,"duration": `3 hours`
+    ,"duration": `15/2: 1:00 PM - 5:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dance Club`
     ,"points": `None`
@@ -145,11 +145,11 @@ const dansation = [
     5. Mementos (for 2 judges)
     6. Sheets-20, Pens-5
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `footloose.jpg`
 	,"individual": `1`,
 	"minParticipants": 1,
 	"maxParticipants": 1,
-	"cashPrize": ""
+	"cashPrize": "5k"
 },
     {
     "id": 6
@@ -157,7 +157,7 @@ const dansation = [
     ,"category": `Formal`
     ,"eventCategory": `DANSATION`
     ,"venue": `Shorbagh-1`
-    ,"duration": `2 hours`
+    ,"duration": `16/2: 2:00 PM - 5:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dance Club`
     ,"points": `50-30-20`
@@ -176,11 +176,11 @@ const dansation = [
     2. Sheets-10, Pens-5
     3. PA System
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `danzaDuo.jpg`
 	,"individual": `0`,
 	"minParticipants": 2,
 	"maxParticipants": 2,
-	"cashPrize": ""
+	"cashPrize": null
     }
     
     ]

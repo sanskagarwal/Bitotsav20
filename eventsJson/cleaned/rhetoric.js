@@ -3,11 +3,10 @@ const rhetoric = [
 		"id": 10,
 		"name": `BIT-MUN`,
 		"eventCategory": `RHETORIC`,
-		"imageName": ``,
 		"category": `Flagship`,
 		"points": `None`,
 		"venue": `LH-1`,
-		"duration": `2 full days`,
+		"duration": `14/2 & 15/2: 9:00 AM - 5:00 PM`,
 		"faculty advisor": `Dr. S.K. Mishra`,
 		"club": `UNESQUO`,
 		"description": `BIT-MUN is based on the idea of United Natons General Assembly, where each partcipant represents a certain country or positon. The Assembly has a discussion over a certain topic, on which each partcipant has to present his/her stand according to the country he/she represents.
@@ -24,7 +23,7 @@ const rhetoric = [
         2. Placards
         3. Water botles (small)-1 Carton
         4. Pens (2 boxes)`,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `bitMun.jpg`, "individual": `1`,
 "minParticipants": 1,
 "maxParticipants": 1,
 "cashPrize": " "
@@ -32,11 +31,10 @@ const rhetoric = [
 		"id": 11,
 		"name": `KALAM-E-TAHIR`,
 		"eventCategory": `RHETORIC`,
-		"imageName": ``,
 		"category": `Formal`,
 		"Points": `None`,
 		"venue": `LH-1`,
-		"duration": `2 days, 3 hours each day`,
+		"duration": `14/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. Sanjay Kumar`,
 		"club": `Literary Society, BIT Mesra`,
 		"description": `It is a slam poetry competition in which poets read or recite original work. This event has 2 rounds. Participants are requested refer to YouTube (channels like spill poetry, habitat, tuning fork and the likes of it) to get an idea.
@@ -58,20 +56,19 @@ const rhetoric = [
         3. Public Addressing System
         4. Water bottle-2 Cartons.
 `,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `kalamETahir.jpg`, "individual": `1`,
 "minParticipants": 1,
 "maxParticipants": 1,
-"cashPrize": ""
+"cashPrize": "5k"
 	},
 	{
 		"id" : 12,
 		"name": `EXTEMPORE`,
 		"eventCategory": `RHETORIC`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": `30-20-10`,
 		"venue": `Classroom`,
-		"duration": `2-3 hours`,
+		"duration": `17/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. S. K. Mishra`,
 		"club": `UNESQUO`,
 		"description": `This is an oratory event, where the participant needs to speak on a topic which will be revealed on the spot. They will be judged on their content, presentation and grammar.
@@ -86,7 +83,7 @@ const rhetoric = [
 		"resources required": `1. Sheets-50
         2. Pens-1 box
 `,
-		"imageName": `none.jpg`, "individual": `0`,
+		"imageName": `extempore.jpg`, "individual": `0`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
 		"cashPrize": null

@@ -3,11 +3,10 @@ const meraki = [
 		"id": 26,
 		"name": `MASQUERADE`,
 		"eventCategory": `MERAKI`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": `50-30-20`,
 		"venue": `Classroom`,
-		"duration": `2 hours`,
+		"duration": `15/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Shri Mrinal Kumar Pathak`,
 		"club": `Fine Arts Society`,
 		"description": `Nothing is more real than the masks we make to show each other who we are.
@@ -29,7 +28,7 @@ const meraki = [
         8. Disposable cup set (50pc)-1
         9. Stapler-6
         10. Stapler pins box-3`,
-"imageName": `none.jpg`, "individual": `0`,
+"imageName": `masquerade.jpg`, "individual": `0`,
 "minParticipants": 1,
 "maxParticipants": 2,
 "cashPrize": null
@@ -57,16 +56,15 @@ const meraki = [
         2. Black Pen (likho-pheko) set of 20pc  2
         3. Coloured Sketch pen set -10
         4. 3 Pencil set, 1 eraser set, 1 sharpener set`,
-"imageName": `none.jpg`, "individual": `0`,
+"imageName": `letSScribble.jpg`, "individual": `0`,
 "minParticipants": 1,
 "maxParticipants": 1,
-"cashPrize": ``
+"cashPrize": `5k`
 	},
 	{
 		"id" : 28,
 		"name": `STREAK`,
 		"eventCategory": `MERAKI`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": ``,
 		"venue": `Classroom`,
@@ -107,7 +105,7 @@ const meraki = [
 		2. Judging sheets(to be printed)
 		3. Pens - 1 box
 `,
-		"imageName": `none.jpg`, "individual": `1`,
+		"imageName": `streak.jpg`, "individual": `1`,
 		"minParticipants": 2,
 		"maxParticipants": 3,
 		"cashPrize": ""

@@ -5,7 +5,7 @@ const dhwani = [
     ,"category": `Flagship`
     ,"eventCategory": `Dhwani`
     ,"venue": `Shorbagh-2`
-    ,"duration": `2 days, 5 hours`
+    ,"duration": `14/2: 1:00 PM - 5:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dhwani- Music Club`
     ,"points": `None`
@@ -47,11 +47,11 @@ const dhwani = [
     5. 10 pens and A4 sheets with files and rule list.
     6. Refreshment for judges
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `saptak.jpg`
 	,"individual": `1`,
 	"minParticipants": null,
 	"maxParticipants": null,
-	"cashPrize": ""
+	"cashPrize": "30k"
 },
     {
     "id": 1
@@ -59,7 +59,7 @@ const dhwani = [
     ,"category": `Flagship`
     ,"eventCategory": `Dhwani`
     ,"venue": `Shorbagh-2`
-    ,"duration": `2 days, 5 hours`
+    ,"duration": `15/2: 1:00 PM - 5:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dhwani- Music Club`
     ,"points": `None`
@@ -100,11 +100,11 @@ const dhwani = [
     5. 10 pens and A4 sheets with files and rule list.
     6. Refreshment for judges
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `rhapsody.png`
 	,"individual": `1`,
 	"minParticipants": null,
 	"maxParticipants": null,
-	"cashPrize": ""
+	"cashPrize": "30k"
 },
     {
     "id": 2
@@ -112,7 +112,7 @@ const dhwani = [
     ,"category": `Formal`
     ,"eventCategory": `Dhwani`
     ,"venue": `Shorbagh-2`
-    ,"duration": `5 hours`
+    ,"duration": `16/2: 1:00 PM - 5:00 PM`
     ,"faculty advisors": `Mrs. Alka Srivastava, Mrs. Ritu Agarwal`
     ,"club": `Dhwani- Music Club`
     ,"points": `75-50-25`
@@ -136,11 +136,11 @@ const dhwani = [
     5. 10 pens and A4 sheets with files and rule list
     6. Refreshment for judges
     `
-    ,"imageName": `none.jpg`
+    ,"imageName": `acousticAlchemy.jpg`
 	,"individual": `0`,
 	"minParticipants": null,
 	"maxParticipants": null,
-	"cashPrize": ""
+	"cashPrize": null
     }
     
     ]

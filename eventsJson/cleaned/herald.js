@@ -3,10 +3,9 @@ const herald = [
 		"id": 24,
 		"name": `CSI FILES`,
 		"eventCategory": `HERALD`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": `75-50-25`,
-		"venue": `Lecture Hall`,
+		"venue": `16/2: 1:00 PM - 4:00 PM`,
 		"duration": `3 hours`,
 		"faculty advisor": `Dr. Vijay Nath`,
 		"club": `News and Publication Society`,
@@ -30,7 +29,7 @@ const herald = [
 5. Pens
 6. ID Card for Volunteers with CSI Files written.
 `,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `CSIFiles.jpg`, "individual": `1`,
 "minParticipants": 1,
 "maxParticipants": 3,
 "cashPrize": null
@@ -38,11 +37,10 @@ const herald = [
 		"id": 25,
 		"name": `MEDIA CRE`,
 		"eventCategory": `HERALD`,
-		"imageName": ``,
 		"category": `Formal`,
 		"Points": `75-50-25`,
 		"venue": `Classroom`,
-		"duration": `3 hours`,
+		"duration": `14/2: 10:00 AM - 1:00 PM`,
 		"faculty advisor": `Dr. Vijay Nath`,
 		"club": `News and Publication Society`,
 		"description": `Media Cre will put the participant's wit and vocabulary to test through three intriguing stages. The first round will be a written round. The second will be a pictionary round in which the participants take part in the classic family game mixed with certain twists. In the final round, the participants play the game of Taboo.
@@ -60,7 +58,7 @@ const herald = [
 2. Pens
 3. Chalk Box
 `,
-"imageName": `none.jpg`, "individual": `1`,
+"imageName": `mediaCre.jpg`, "individual": `1`,
 "minParticipants": 2,
 "maxParticipants": 3,
 "cashPrize": null
@@ -69,11 +67,10 @@ const herald = [
 		"id" : 40,
 		"name": `THE JOURNALIST'S HOUR`,
 		"eventCategory": `HERALD`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": `75-50-25`,
 		"venue": `Classroom`,
-		"duration": `3 hours`,
+		"duration": `15/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. Vijay Nath`,
 		"club": `News and Publication Society`,
 		"description": `If you believe that you possess the dedication, reasoning and craft to manoeuvre your way through complex, cumbersome cases to the end, thencome and be a part of The Journalist s Hour.This event is divided into a case study and questionnaire session which is finally followed by a panel discussion.
@@ -99,10 +96,10 @@ const herald = [
 		2. Judging sheets(to be printed)
 		3. Pens - 1 box
 `,
-		"imageName": `none.jpg`, "individual": `1`,
+		"imageName": `theJournalistsHour.jpg`, "individual": `1`,
 		"minParticipants": 2,
 		"maxParticipants": 3,
-		"cashPrize": ""
+		"cashPrize": "10k"
 		}
 		
 	
