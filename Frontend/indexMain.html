@@ -32,6 +32,11 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v5.0"></script>
+
+    <div style="position: absolute; bottom: 10px; left: 10px; z-index: 4;" class="fb-like" data-href="https://www.facebook.com/bitotsav" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+
 	<button type="button" id="mobile-nav-toggle"><i style="color: white;" class="fa fa-bars"></i></button>
 	<header id="header">
 		<div class="container-fluid">
@@ -437,7 +442,7 @@
 				<div class="col-md-4">
 					<div class="media block-6 services d-block ftco-animate">
 						<center>
-							<div class="icon"><img width="300" height="300" src="./images/index/plagueOfPlastic.jpg"
+							<div class="icon"><img width="300" height="300" src="./images/index/plagueofPlastic.jpg"
 									alt="Plastic icon"></div>
 							<div class="media-body">
 								<h3 class="heading mb-3">Plague of Plastic</h3>
@@ -1067,7 +1072,7 @@
 	</script>
 
 	<script type="text/javascript">
-		var url = "http://localhost:5000/api/contact";
+		var url = "https://bitotsav.in/api/contact";
 
 		// Will Add Later
 		$("#contactForm").on("submit", function (e) {
