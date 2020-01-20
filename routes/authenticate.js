@@ -13,7 +13,7 @@ const sendEmail = require('../utils/sendEmail');
 const sendPM = require('./../utils/sendPM');
 
 //routes
-router.post("/register", // validateCaptcha,
+router.post("/register", validateCaptcha,
     [check("email").isEmail(), check("password").isLength({ min: 6, max: 15 }), check("phoneNo").isMobilePhone()],
     (req, res, next) => {
         const errors = validationResult(req);
@@ -104,7 +104,7 @@ router.post("/register", // validateCaptcha,
     }
 );
 
-router.post("/verify", verifyToken, (req, res) => {
+router.post("/verify", validateCaptcha, verifyToken, (req, res) => {
     const id = req.userId;
     if (!id) {
         return res.json({ status: 422, message: "Missing User ID" });
@@ -268,7 +268,7 @@ router.post("/verify", verifyToken, (req, res) => {
 });
 
 router.post(
-    "/login",
+    "/login", validateCaptcha,
     [check("email").isEmail(), check("password").isLength({ min: 6, max: 15 })],
     (req, res, next) => {
         const errors = validationResult(req);
@@ -284,7 +284,6 @@ router.post(
         }
         next();
     },
-    //validateCaptcha,
     (req, res) => {
         let email = req.body.email.toString().trim();
         if (email && req.body.password) {
@@ -361,7 +360,7 @@ router.post("/forgotPassword",
         }
         next();
     },
-    //validateCaptcha,
+    validateCaptcha,
     (req, res) => {
         let email = req.body.email.toString().trim();
         if (email) {
@@ -390,7 +389,9 @@ router.post("/forgotPassword",
                         <h2 align="center">Bitotsav</h2>
                         <p>
                         Hi,<br><br>
-                        Your email OTP is: ${emailOTP}.<br><br>
+                        Your email OTP is: ${emailOTP}.<br>
+                        Go to https://www.bitotsav.in/changepassword.html and enter the credentials.
+                        <br><br>
                         Regards,<br>
                         Web Team<br>
                         Bitotsav'20</p>
@@ -421,7 +422,7 @@ router.post(
         }
         next();
     },
-    //validateCaptcha,
+    validateCaptcha,
     (req, res, next) => {
         let emailOTP = req.body.emailOTP;
         if (!emailOTP) {
