@@ -10067,6 +10067,9 @@ mapouter{position:relative;
       width: 280px;
       height: 280px;
   }
+  .headings {
+      font-size: 2em;
+  }
 }
 
 body.mobile-nav-active #mobile-nav {

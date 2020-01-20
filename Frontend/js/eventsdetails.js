@@ -55,7 +55,7 @@ function eventdetails(events, i , s) {
     <br><br>
     <strong><span class="text">DESCRIPTION:</span><span class="text-inner">${events.description}</span></strong>
     <br><br>
-    <strong><span class="text">RULES AND REGULATIONS:</span><span class="text-inner">${events["rules and regulations"]}</span></strong>
+    <strong><span class="text">RULES AND REGULATIONS:</span><span class="text-inner">${events["rules and regulations"].replace(/\n/g,"<li>")}</span></strong>
     <br><br>
     <strong><span class="text">CONTACT INFORMATION:</span><span class="text-inner">${events["contact information"]}</span></strong>
     <br><br>
