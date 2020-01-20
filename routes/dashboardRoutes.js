@@ -453,13 +453,13 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
     async function teamRegister() {
         try {
             const userId = req.userId;
-            let user = await UserModel.findById(userId);
+            let user = await userModel.findById(userId);
             if (!user) {
                 return res.json({ status: 400, message: "User not found" });
             }
 
             // Check Same Team
-            const foundTeam = await TeamModel.findOne({ teamName: teamName });
+            const foundTeam = await teamModel.findOne({ teamName: teamName });
             if (foundTeam) {
                 return res.json({ status: 415, message: "Team name already used!" });
             }
@@ -468,7 +468,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
             for (let i = 0; i < teamSize; i++) {
                 let email = membersData[i].email,
                     bitotsavId = membersData[i].bitotsavId;
-                const foundUser = await UserModel.findOne({ email: email });
+                const foundUser = await userModel.findOne({ email: email });
                 if (!foundUser) {
                     return res.json({
                         status: 415,
@@ -498,9 +498,10 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         status: 415, message: `Member ${i + 1} is registered in some events, de-regsiter his/her existing events and try again.`
                     });
                 }
+                membersData[i].name = foundUser.name;
             }
 
-            let newTeam = new TeamModel({ teamName, teamSize });
+            let newTeam = new teamModel({ teamName, teamSize });
             newTeam.leaderId = userId;
             newTeam.leaderName = user.name;
             newTeam.leaderPhoneNo = user.phoneNo;
@@ -530,12 +531,13 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
             for (let i = 0; i < teamSize; i++) {
                 bitotsavIdsInTeam.push(membersData[i].bitotsavId);
             }
-            const modifiedTeams = await UserModel.updateMany(
+            const modifiedTeams = await userModel.updateMany(
                 { bitotsavId: { $in: bitotsavIdsInTeam } },
                 { $set: { teamMongoId: _id } }
             );
             return res.json({ status: 200, message: "Team registration complete!" });
         } catch (e) {
+            console.log(e);
             return res.json({ status: 500, message: "Internal server error" });
         }
     }
