@@ -159,8 +159,16 @@ $.ajax({
             }
             if (!userEvents) {
                 userEvents = [];
+                $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
+            } else {
+                $("#no-events").remove();
             }
-            console.log(userEvents);
+            if(res.user.gender === 0){
+                $("#gender-icon-insert").prepend("<i id='gender-icon' class='fas fa-female'>")
+            } else {
+                $("#gender-icon-insert").prepend("<i id='gender-icon' class='fas fa-male'>")
+            }
+
             getAllEvents();
             for (let i = 0; i < userEvents.length; i++) {
                 let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;

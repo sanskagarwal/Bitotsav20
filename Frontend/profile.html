@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Profile | Birla Institute of Technology, Mesra</title>
     <link rel="icon" href="images/favicon.ico">
     <meta charset="utf-8">
@@ -10,564 +11,590 @@
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/profile.css">
 
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
     </div>
     <div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar" class="">
-      <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-        <i class="fa fa-bars"></i>
-        <span class="sr-only">Toggle Menu</span>
-        </button>
-      </div>
-      <div class="p-4">
-        <!-- <h1 style="color: whitesmoke;">Bitotsav</h1> -->
-        <span> <img src="./images/favicon.png" class="img-fluid"></span>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="#profile"><span class="fa fa-user mr-3"></span>Profile</a>
-          </li>
-          <li>
-            <a href="#team"><span class="fa fa-users mr-3"></span>Team Registration</a>
-          </li>
-          <li>
-            <a href="#event"><span class="fa fa-briefcase mr-3"></span>Event Registration</a>
-          </li>
-          <li>
-            <a href="#changePassword"><span class="fa fa-unlock-alt mr-3"></span>Change Password</a>
-          </li>
-          <li>
-            <a href="#instruction"><span class="fa fa-info mr-3"></span>Instructions</a>
-          </li>
-          <br>
-          <li>
-            <a id="logoutBtn" class="btn btn-danger" style="padding-left: 10px;color:whitesmoke;">
-            <i class="fas fa-sign-out-alt">&nbsp;</i>Logout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div id="particles-js"></div>
-    <!-- Page Content  -->
-    <div class="content" style="min-height: 100vh; ">
-      <section id="profile" class="p-4 p-md-5 pt-5 toggle">
-        <h2 class="mb-6 pb-4">User Profile</h2>
-        <h5 class="title">Personal Information</h5>
-        <form action="" class="contact-form row ">
-          <div class="title">Name:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"> <i class="fas fa-user-tie">&nbsp;</i></span>
+        <nav id="sidebar" class="">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
             </div>
-            <input type="text" class="form-control nobdr" id="userName" aria-describedby="basic-addon3" disabled>
-          </div>
-          <div class="title">Email:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-envelope">&nbsp;</i></span>
+            <div class="p-4">
+                <!-- <h1 style="color: whitesmoke;">Bitotsav</h1> -->
+                <span> <img src="./images/favicon.png" class="img-fluid"></span>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a href="#profile"><span class="fa fa-user mr-3"></span>Profile</a>
+                    </li>
+                    <li>
+                        <a href="#team"><span class="fa fa-users mr-3"></span>Team Registration</a>
+                    </li>
+                    <li>
+                        <a href="#event"><span class="fa fa-briefcase mr-3"></span>Event Registration</a>
+                    </li>
+                    <li>
+                        <a href="#changePassword"><span class="fa fa-unlock-alt mr-3"></span>Change Password</a>
+                    </li>
+                    <li>
+                        <a href="#instruction"><span class="fa fa-info mr-3"></span>Instruction</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a id="logoutBtn" class="btn btn-danger" style="padding-left: 10px;color:whitesmoke;">
+                            <i class="fas fa-sign-out-alt">&nbsp;</i>Logout
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <input type="text" class="form-control nobdr" id="userEmail" aria-describedby="basic-addon3" disabled>
-          </div>
-          <div class="title">Phone:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-phone">&nbsp;</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userPhone" aria-describedby="basic-addon3" disabled>
-          </div>
-        </form>
-        <h5 class="title">Institute Details</h5>
-        <form action="" class="contact-form row ">
-          <div class="title"> Institute Name:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-university">&nbsp;</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userClgName" aria-describedby="basic-addon3" disabled>
-          </div>
-          <div class="title">Institute Roll:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="far fa-registered">&nbsp</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userClgId" aria-describedby="basic-addon3" disabled>
-          </div>
-          <div class="title">Institute City:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-building">&nbsp;</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userClgCity" aria-describedby="basic-addon3" disabled>
-          </div>
-          <div class="title">Institute state:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr" class="basic-addon3"><i class="fas fa-globe">&nbsp;</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userClgState" aria-describedby="basic-addon3" disabled>
-          </div>
-        </form>
-        <h5 class="title">Bitotsav Credentials</h5>
-        <form action="" class="contact-form row ">
-          <div class="title">Bitotsav Id:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text nobdr"><i class="fas fa-id-card-alt">&nbsp;</i></span>
-            </div>
-            <input type="text" class="form-control nobdr" id="userBitId" aria-describedby="basic-addon3" disabled>
-          </div>
-        </form>
-      </section>
-      <section id="team" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <div id="tableAndForm">
-          <h2 class="mb-6 pb-4 ">Team Registration</h2>
-          <form action="" class="contact-form row" onsubmit=event.preventDefault()>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">Team Name:</label><br>
-                <input type="text" class="form-control" id="teamName" aria-describedby="basic-addon3"
-                  placeholder="Enter team name" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">Team Size:</label><br>
-                <select class="form-control" id="teamSize">
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">Team Leader Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId0" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" disabled>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">Team Leader Email:</label><br>
-                <input type="email" class="form-control" id="email0" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" disabled>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">2nd Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId1" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">2nd Member Email:</label><br>
-                <input type="email" class="form-control" id="email1" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">3rd Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId2" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">3rd Member Email:</label><br>
-                <input type="email" class="form-control" id="email2" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">4th Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId3" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">4th Member Email:</label><br>
-                <input type="email" class="form-control" id="email3" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">5th Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId4" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">5th Member Email:</label><br>
-                <input type="email" class="form-control" id="email4" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">6th Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId5" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="email">6th Member Email:</label><br>
-                <input type="email" class="form-control" id="email5" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">7th Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId6" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" disabled required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="email">7th Member Email:</label><br>
-                <input type="email" class="form-control" id="email6" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" disabled required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="name">8th Member Bitotsav Id:</label><br>
-                <input type="text" class="form-control" id="bitId7" aria-describedby="basic-addon3"
-                  placeholder="Enter member Id" disabled required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label for="email">8th Member Email:</label><br>
-                <input type="email" class="form-control" id="email7" aria-describedby="basic-addon3"
-                  placeholder="Enter member email" disabled required>
-              </div>
-            </div>
-            <br />
-            <div style="align-items: center;" class=" mx-auto">
-              <button class="btn btn-primary mb-3 " id="teamRegister" type="submit" onclick="registerTeam()"
-                style="color: rgb(243, 240, 240) !important;"><i class="fa fa-spinner fa-spin" id="loadshow2"></i>
-              Register</button>
-            </div>
-          </form>
-          <h5 id="reg-message" class="text-center"></h5>
+        </nav>
+        <div id="particles-js"></div>
+        <!-- Page Content  -->
+        <div class="content" style="min-height: 100vh; ">
+            <section id="profile" class="p-4 p-md-5 pt-5 toggle">
+                
+                <h2 id="gender-icon-insert" class="mb-6 pb-4"></i>&nbsp; User Profile</h2>
+                <h5 class="title">Personal Information</h5>
+                <form action="" class="contact-form row ">
+                    <div class="title">Name:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"> <i
+                                    class="fas fa-user-tie">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userName" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                    <div class="title">Email:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="fas fa-envelope">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userEmail" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                    <div class="title">Phone:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="fas fa-phone">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userPhone" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                </form>
+                <h5 class="title">Institute Details</h5>
+                <form action="" class="contact-form row ">
+                    <div class="title"> Institute Name:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="fas fa-university">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userClgName" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                    <div class="title">Institute Roll:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="far fa-registered">&nbsp</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userClgId" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                    <div class="title">Institute City:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="fas fa-building">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userClgCity" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                    <div class="title">Institute state:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr" class="basic-addon3"><i
+                                    class="fas fa-globe">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userClgState" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                </form>
+                <h5 class="title">Bitotsav Credentials</h5>
+                <form action="" class="contact-form row ">
+                    <div class="title">Bitotsav Id:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text nobdr"><i class="fas fa-id-card-alt">&nbsp;</i></span>
+                        </div>
+                        <input type="text" class="form-control nobdr" id="userBitId" aria-describedby="basic-addon3"
+                            disabled>
+                    </div>
+                </form>
+            </section>
+            <section id="team" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+                <div id="tableAndForm">
+                    <h2 class="mb-6 pb-4 ">Team Registration</h2>
+                    <form action="" class="contact-form row" onsubmit=event.preventDefault()>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">Team Name:</label><br>
+                                <input type="text" class="form-control" id="teamName" aria-describedby="basic-addon3"
+                                    placeholder="Enter team name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">Team Size:</label><br>
+                                <select class="form-control" id="teamSize">
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">Team Leader Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId0" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">Team Leader Email:</label><br>
+                                <input type="email" class="form-control" id="email0" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">2nd Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId1" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">2nd Member Email:</label><br>
+                                <input type="email" class="form-control" id="email1" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">3rd Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId2" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">3rd Member Email:</label><br>
+                                <input type="email" class="form-control" id="email2" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">4th Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId3" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">4th Member Email:</label><br>
+                                <input type="email" class="form-control" id="email3" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">5th Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId4" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">5th Member Email:</label><br>
+                                <input type="email" class="form-control" id="email4" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">6th Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId5" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="email">6th Member Email:</label><br>
+                                <input type="email" class="form-control" id="email5" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">7th Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId6" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" disabled required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="email">7th Member Email:</label><br>
+                                <input type="email" class="form-control" id="email6" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" disabled required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="name">8th Member Bitotsav Id:</label><br>
+                                <input type="text" class="form-control" id="bitId7" aria-describedby="basic-addon3"
+                                    placeholder="Enter member Id" disabled required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="email">8th Member Email:</label><br>
+                                <input type="email" class="form-control" id="email7" aria-describedby="basic-addon3"
+                                    placeholder="Enter member email" disabled required>
+                            </div>
+                        </div>
+                        <br />
+                        <div style="align-items: center;" class=" mx-auto">
+                            <button class="btn btn-primary mb-3 " id="teamRegister" type="submit"
+                                onclick="registerTeam()" style="color: rgb(243, 240, 240) !important;"><i
+                                    class="fa fa-spinner fa-spin" id="loadshow2"></i>
+                                Register</button>
+                        </div>
+                    </form>
+                    <h5 id="reg-message" class="text-center"></h5>
+                </div>
+                <div id="teamMembersDetail">
+                    <h2>Team Details</h2>
+                    <br />
+                    <ol>
+                        <li style="margin-top: 5px;" id="header-name"></li>
+                        <li style="margin-top: 5px;" id="header-size"></li>
+                        <li style="margin-top: 5px;" id="header-id"></li>
+                    </ol>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Member Name</th>
+                                <th>Bitotsav Id</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamMembersRow">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="event" class="toggle" style="display:none">
+                <h3 class="table-head-name">Your Events</h3>
+                <section class="table-section">
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead class="table-head-text" id="event-table-head">
+                                <tr>
+                                    <th>Event ID</th>
+                                    <th>Event name</th>
+                                    <th>Team Leader ID</th>
+                                    <th id="deregister-column" style="display:none">Deregister</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content" id="scrollbar-style">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="events-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <h3 class="table-head-name">More Events</h3>
+                <section class="table-section">
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead class="table-head-text" id="more-events-table-head">
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Event name</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content" id="scrollbar-style">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody id="more-events-table">
+                                <tr>
+                                    <td>DHWANI</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="DHWANI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DANSATION</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">Select Event</button>
+                                            <div id="DANSATION" class="dropdown-menu"
+                                                aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SWAANG</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="SWAANG" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>RHETORIC</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="RHETORIC" class="dropdown-menu"
+                                                aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>TAABIR</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="TAABIR" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ADAA</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="ADAA" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DIGITALES</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="DIGITALES" class="dropdown-menu"
+                                                aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HERALD</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="HERALD" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>MERAKI</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="MERAKI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>EUPHORIA</td>
+                                    <td>
+                                        <div class="dropdown dropdown-width">
+                                            <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
+                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Select Event
+                                            </button>
+                                            <div id="EUPHORIA" class="dropdown-menu"
+                                                aria-labelledby="dropdownMenuButton">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+            <section id="changePassword" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+                <h2 class="mb-6 pb-4">Change Password</h2>
+                <form action="" class="contact-form row " onsubmit=event.preventDefault()>
+                    <div class="title">New Password:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="newPassword" placeholder="Enter New Password"
+                            required>
+                    </div>
+                    <div class="title">Confirm Password:</div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+                            required>
+                    </div>
+                    <div style="align-items: center;" class="mx-auto">
+                        <button class="btn btn-primary " id="changePasswordBtn" type="submit" onclick="changePassword()"
+                            style="color: rgb(246, 246, 246) !important;align-items: center;"> <i
+                                class="fa fa-spinner fa-spin" id="loadshow1"></i> Change Password</button>
+                    </div>
+                </form>
+                <br />
+                <h5 id="password-message" class="text-center"></h5>
+            </section>
+            <section id="instruction" class="p-4 p-md-5 pt-5 toggle" style="display:none">
+                <h2 class="mb-4">Instructions</h2>
+                <p style="font-family: 'Montserrat-bold', sans-serif;">To Register for an Event:</p>
+                <ol>
+                    <li style="margin-top: 5px;">Select the event to register for.</li>
+                    <li>Select the number of team members (including team leader). Please note that the team leader here
+                        signifies the team leader for that particular event and not the BITOTSAV Championship.</li>
+                    <li>Enter the Email Id and BITOTSAV Id of each team member.</li>
+                    <li>Each team member must be registered individually on the website, i.e each member
+                        must have their own BITOTSAV Id.
+                    </li>
+                    <li>None of the team member should be previously registered for that event.</li>
+                    <li>Only for Flagship Events - For Flagship events, only the team leader must register for that
+                        event. After successful registration for the event, the team leader must mail documents,
+                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as
+                        mentioned
+                        in the rules and regulations of the corresponding event.
+                    </li>
+                </ol>
+                <p style="font-family: 'Montserrat-bold', sans-serif;">BITOTSAV Championship</p>
+                <ol>
+                    <li style="margin-top: 5px;">BITOTSAV Championship is awarded to the team whose members
+                        collect the most number of points by winning in formal events.
+                    </li>
+                    <li>There is separate registration for BITOTSAV championship.</li>
+                    <li>Each team can contain 6-8 members.</li>
+                    <li>Each member can belong to exactly one team.</li>
+                    <li>Once formed, the team members can not be added or removed.</li>
+                    <li>Teams can be formed till 11th February, 2020.</li>
+                    <li>The team for BITOTSAV championship is different from the team registering for the
+                        event.
+                    </li>
+                    <li>Lets say a team X registers for an event. If X secures a position in an event and
+                        all the members of team X are also registered under the same team Y for Bitotsav
+                        championship, then team Y would automatically get points for that event as soon as
+                        the result is declared.
+                    </li>
+                </ol>
+            </section>
         </div>
-        <div id="teamMembersDetail">
-          <h2>Team Details</h2>
-          <br />
-          <ol>
-            <li style="margin-top: 5px;" id="header-name"></li>
-            <li style="margin-top: 5px;" id="header-size"></li>
-            <li style="margin-top: 5px;" id="header-id"></li>
-          </ol>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Member Name</th>
-                <th>Bitotsav Id</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody id="teamMembersRow">
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section id="event" class="toggle" style="display:none">
-        <h3 id="table-head-name">Your Events</h3>
-        <section id="table-section">
-          <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <thead class="table-head-text" id="event-table-head">
-                <tr>
-                  <th>Event ID</th>
-                  <th>Event name</th>
-                  <th>Team Leader ID</th>
-                  <th id="deregister-column" style="display:none">Deregister</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div class="tbl-content" id="scrollbar-style">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tbody id="events-table">
-              </tbody>
-            </table>
-          </div>
-        </section>
-        <h3 id="table-head-name" >More Events</h3>
-        <section id="table-section" >
-          <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <thead class="table-head-text" id="more-events-table-head">
-                <tr>
-                  <th>Category</th>
-                  <th>Event name</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div class="tbl-content" id="scrollbar-style">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tbody id="more-events-table">
-                <tr>
-                  <td>DHWANI</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="DHWANI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DANSATION</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Select Event</button>
-                      <div id="DANSATION" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>SWAANG</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="SWAANG" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>RHETORIC</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="RHETORIC" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TAABIR</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="TAABIR" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ADAA</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="ADAA" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>DIGITALES</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="DIGITALES" class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>HERALD</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="HERALD" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>MERAKI</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="MERAKI" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>EUPHORIA</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary btn-info btn-sm dropdown-toggle"
-                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                      Select Event
-                      </button>
-                      <div id="EUPHORIA" class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton">
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </section>
-      <section id="changePassword" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <h2 class="mb-6 pb-4">Change Password</h2>
-        <form action="" class="contact-form row " onsubmit=event.preventDefault()>
-          <div class="title">New Password:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password" class="form-control" id="newPassword" placeholder="Enter New Password" required>
-          </div>
-          <div class="title">Confirm Password:</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
-            </div>
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
-          </div>
-          <div style="align-items: center;" class="mx-auto">
-            <button class="btn btn-primary " id="changePasswordBtn" type="submit" onclick="changePassword()"
-              style="color: rgb(246, 246, 246) !important;align-items: center;"> <i class="fa fa-spinner fa-spin"
-              id="loadshow1"></i> Change Password</button>
-          </div>
-        </form>
-        <br />
-        <h5 id="password-message" class="text-center"></h5>
-      </section>
-      <section id="instruction" class="p-4 p-md-5 pt-5 toggle" style="display:none">
-        <h2 class="mb-4">Instructions</h2>
-        <p style="font-family: 'Montserrat-bold', sans-serif;">To Register for an Event:</p>
-        <ol>
-          <li style="margin-top: 5px;">Select the event to register for.</li>
-          <li>Select the number of team members (including team leader). Please note that the team leader here signifies the team leader for that particular event and not the BITOTSAV Championship.</li>
-          <li>Enter the Email Id and BITOTSAV Id of each team member.</li>
-          <li>Each team member must be registered individually on the website, i.e each member
-            must have their own BITOTSAV Id.
-          </li>
-          <li>None of the team member should be previously registered for that event.</li>
-          <li>Only for Flagship Events - For Flagship events, only the team leader must register for that event. After successful registration for the event, the team leader must mail documents,
-            photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned
-            in the rules and regulations of the corresponding event.
-          </li>
-        </ol>
-        <p style="font-family: 'Montserrat-bold', sans-serif;">BITOTSAV Championship</p>
-        <ol>
-          <li style="margin-top: 5px;">BITOTSAV Championship is awarded to the team whose members
-            collect the most number of points by winning in formal events.
-          </li>
-          <li>There is separate registration for BITOTSAV championship.</li>
-          <li>Each team can contain 6-8 members.</li>
-          <li>Each member can belong to exactly one team.</li>
-          <li>Once formed, the team members can not be added or removed.</li>
-          <li>Teams can be formed till 11th February, 2020.</li>
-          <li>The team for BITOTSAV championship is different from the team registering for the
-            event.
-          </li>
-          <li>Lets say a team X registers for an event. If X secures a position in an event and
-            all the members of team X are also registered under the same team Y for Bitotsav
-            championship, then team Y would automatically get points for that event as soon as
-            the result is declared.
-          </li>
-        </ol>
-      </section>
-    </div>
 
 
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/popper.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
-    <script src="./js/dashboard.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./js/particle.js"></script>
-    <script src="./js/preloader.js"></script>
-    <script>
-      $("#sidebar a").click(function (e) {
-        e.preventDefault();
-        $(".toggle").hide();
-        var toShow = $(this).attr('href');
-        $(toShow).show();
-      });
-      
-      var fullHeight = function () {
-      
-        $('.js-fullheight').css('height', $(window).height());
-        $(window).resize(function () {
-          $('.js-fullheight').css('height', $(window).height());
-        });
-      
-      };
-      fullHeight();
-      
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-      });
-      
-      $('nav ul li a').click(function (e) {
-        var $this = $(this);
-        $this.parent().siblings().removeClass('active').end().addClass('active');
-        e.preventDefault();
-      });
-    </script>
-  </body>
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/popper.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="./js/dashboard.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="./js/particle.js"></script>
+        <script src="./js/preloader.js"></script>
+        <script>
+            $("#sidebar a").click(function (e) {
+                e.preventDefault();
+                $(".toggle").hide();
+                var toShow = $(this).attr('href');
+                $(toShow).show();
+            });
+
+            var fullHeight = function () {
+
+                $('.js-fullheight').css('height', $(window).height());
+                $(window).resize(function () {
+                    $('.js-fullheight').css('height', $(window).height());
+                });
+
+            };
+            fullHeight();
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+
+            $('nav ul li a').click(function (e) {
+                var $this = $(this);
+                $this.parent().siblings().removeClass('active').end().addClass('active');
+                e.preventDefault();
+            });
+        </script>
+</body>
+
 </html>
