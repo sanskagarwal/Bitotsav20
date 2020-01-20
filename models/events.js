@@ -69,12 +69,12 @@ const eventSchema = new schema({
         trim: true,
         // required: true
     },
-    "rules and regulations": {
+    rulesAndRegulations: {
         type: String,
         trim: true,
         // required: true
     },
-    "contact information": {
+    contactInformation: {
         type: String,
         trim: true,
         // required: true

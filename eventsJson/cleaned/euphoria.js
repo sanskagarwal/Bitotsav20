@@ -18,9 +18,9 @@ const euphoria = [
         So here we are, inviting you all to showcase your oratory skills in 'Just A Minute', where you can vent it all out (but yes, just in a minute).
         Team size -2
         `
-        , "rules and regulations": `Rules will be explained on spot.
+        , "rulesAndRegulations": `Rules will be explained on spot.
         `
-        , "contact information": `1. Ravish: 9335036416
+        , "contactInformation": `1. Ravish: 9335036416
         2. Vivek: 9162668319
         `
         , "resources required": `1. A4 Sheets-60
@@ -46,10 +46,10 @@ const euphoria = [
         , "club": `SMAC`
         , "description": `This event comprises of 3 rounds.The first round is Pictionary in which only the top scorers will be qualifying further.In the second round the participants have to cycle up and down the campus to collect flags.Finally, in the last round two players have to decode a puzzle and get to one place to collect the flag.
         `
-        , "rules and regulations": `1. Team of 4 - 5 participants.
+        , "rulesAndRegulations": `1. Team of 4 - 5 participants.
         2. The participants in Round 2 and 3 shouldn   t be the same.
         `
-        , "contact information": `1. Shivam: 9304163852
+        , "contactInformation": `1. Shivam: 9304163852
         2. Kavita: 9546472049
         `
         , "resources required": `1. Paper - 30 Sheets
@@ -73,9 +73,9 @@ const euphoria = [
         , "club": `SMAC`
         , "description": `This event is quite similar to Poker but instead of cards participants will play on questions which are related to particular countries.Each round will have four questions.The game is simple, either you bet or you fold.Join along as you will get to learn, explore and contest.
         `
-        , "rules and regulations": `1. Team of 2 participants.
+        , "rulesAndRegulations": `1. Team of 2 participants.
         `
-        , "contact information": `1. Akshay Desai: 9820710754
+        , "contactInformation": `1. Akshay Desai: 9820710754
         2. Mrinalini: 7485802897
         `
         , "resources required": `1. 3 Poker set
@@ -100,11 +100,11 @@ const euphoria = [
         , "club": `SAE BIT Mesra`
         , "description": `The participating candidate has to first open the wheel of the wheel assembly of an All - Terrain Vehicle and then again assemble it in the given time using the given tools only.
         `
-        , "rules and regulations": `1. Use only one tool at a time.
+        , "rulesAndRegulations": `1. Use only one tool at a time.
         2. Nuts should be tight enough.
         3. In case of any discretion, co - ordinators decision would be final.
         `
-        , "contact information": `1. Trishant Agarwal: 9950069368
+        , "contactInformation": `1. Trishant Agarwal: 9950069368
         2. Shivansh Goyal: 8505088160
         BIT ROADIES
         `
@@ -126,13 +126,13 @@ const euphoria = [
         , "club": `Rotaract`
         , "description": `This event will be a food eating competition.
         `
-        , "rules and regulations": `1. There will be 3 - 4 rounds for this event.
+        , "rulesAndRegulations": `1. There will be 3 - 4 rounds for this event.
         2. There will be a task in each round related to eating food and the difficulty level will increase with each round.
         3. 80 teams will register and there will be 2 members in each team.
         4. Elimination of 20 teams after each round.
         5. The team which survives till the last round with the best performance will win.
         `
-        , "contact information": `1. Sinjini: 8582961928
+        , "contactInformation": `1. Sinjini: 8582961928
 2. Debarun: 8617273106
     `
         , "resources required": `1. Food Items -
@@ -173,10 +173,10 @@ Disposable Plates
         , "club": `IEEE`
         , "description": `Da Vinci Code" consists of 3 rounds. The first round is an aptitude test based on the theme. The qualified teams will make it to next round wherein they have to collect some unique items and need to submit them to be qualified for the next round and, at the end, the qualified participants will decipher a code to a specific location and need to reach to, the team who will figure the code out in the least time will win.
     `
-        , "rules and regulations": `1. Team size - 3 to 4.
+        , "rulesAndRegulations": `1. Team size - 3 to 4.
 2. Use of vehicles during any part of the event is prohibited.
         `
-        , "contact information": `1. Subrata: 82504 54700
+        , "contactInformation": `1. Subrata: 82504 54700
 2. Udit: 81079 13522
     `
         , "resources required": `1. Printed sheets
@@ -200,11 +200,11 @@ Disposable Plates
         , "club": `Robolution`
         , "description": `Air Hockey - An AI based hockey game in which the hands of the players are detected and the stick moves according to the movement of their hand.
         `
-        , "rules and regulations": `1. 2 players can play at a time.
+        , "rulesAndRegulations": `1. 2 players can play at a time.
         2. The player who scores 5 points first wins.
         3. Players will get trial rounds to get used to the game.
         `
-        , "contact information": `1. Sarthak M.Das: 8789365337
+        , "contactInformation": `1. Sarthak M.Das: 8789365337
 2. Saurabh Khemka: 8674810511
     `
         , "resources required": `1. 5 markers
@@ -228,11 +228,11 @@ Disposable Plates
         , "club": `Leo Club`
         , "description": `This event comprises of 3 rounds.The first round will be a fun game with pedal dustbins.The next round will be a memory game followed by an auction where the logic and way of presenting will decide the winner.
         `
-        , "rules and regulations": `1. Team Size: 2 - 3.
+        , "rulesAndRegulations": `1. Team Size: 2 - 3.
 2. All the rounds are elimination rounds only the top few teams qualify for the next round.
         3. The rules and decision by the judging panel will be final in all rounds and in every case.
 `
-        , "contact information": `1. Devanshu: 8271958950
+        , "contactInformation": `1. Devanshu: 8271958950
 2. Shreshth: 8687557555
     `
         , "resources required": `1. 12 Plastic Pedal Dustbins
@@ -261,11 +261,11 @@ Disposable Plates
         , "club": `Leo Club`
         , "description": `This event comprises of 4 Rounds.The first round will be a three leg race followed by a fun event of bursting the balloons.The third round will be a lemon crossover game.Finally, a treasure hunt will be conducted in the last round.
         `
-        , "rules and regulations": `1. Team Size: 2
+        , "rulesAndRegulations": `1. Team Size: 2
 2. All the rounds are elimination rounds only the top few teams qualify for the next round.
         3. The rules and decision by the judging panel will be final in all rounds and in every case.
 `
-        , "contact information": `1. Abhishek: 9304864561
+        , "contactInformation": `1. Abhishek: 9304864561
 2. Sneha: 7484864586
     `
         , "resources required": `1. 40 Lemons
@@ -292,9 +292,9 @@ Disposable Plates
         , "club": `EDC`
         , "description": `The participants are placed at the helm of a start - up and they have to make decisions based on various scenarios.
         `
-        , "rules and regulations": `1. Maximum of 2 participants per team.
+        , "rulesAndRegulations": `1. Maximum of 2 participants per team.
         `
-        , "contact information": `1. Utkarsh Mishra: 8674960047
+        , "contactInformation": `1. Utkarsh Mishra: 8674960047
 2. Kshitij Yash: 9082499159
     `
         , "imageName": `none.jpg`

@@ -13,7 +13,7 @@ const adaa = [
 		"club": `Rotaract`,
 		"description": `Mr and Miss Bitotsav, the most glamorously sensational and magical pageant of BITOTSAV, aims at providing an amazing opportunity to the freshers to dazzle the audience with their colourful personality, inner glow and ability to shine amidst the crowd. Keep up your peppy spirits and cool quirks to be awarded with this worthy title.
 `,
-		"rules and regulations": `The event will be held in three rounds. The rules and regulations for these rounds are as follows:
+		"rulesAndRegulations": `The event will be held in three rounds. The rules and regulations for these rounds are as follows:
 Round one:
 1. Participants are required to send an entry consisting of a photograph of themselves.
 2. The photography should be accompanied by a tagline that complies with the themes and campaigns of Bitotsav'20 as mentioned below:
@@ -37,19 +37,18 @@ Round three:
 2. On the day of the final event, three sub rounds will be organised for to check the following criteria- ramp walk, posture, final pose, costume, make-up, accessories and hair-do.
 3. The participants should be ready to answer a questionnaire given by the judges.
 `,
-		"contact information": `1. Chaitanya: 7974401456
+		"contactInformation": `1. Chaitanya: 7974401456
 2. Shivangi: 9910366760
 `,
 		"resources required": `1. Sash for both the winners
 2. Crown for Miss Bitotsav
 3. Stage (with carpets and flex)
 `,
-"imageName": `
-none.jpg `, "individual": `
-1 `,
-"minParticipants": 1,
-"maxParticipants": 1,
-"cashPrize": ""
+		"imageName": `none.jpg `, 
+		"individual": `1`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": ""
 	}, {
 		"id": 19,
 		"name": `PANACHE`,
@@ -65,7 +64,7 @@ none.jpg `, "individual": `
 		"description": `You don't do fashion; you live it.
 If you are ready to kindle the fashion suitor within you, we bring you the event Panache. Get ready to let your charisma and flamboyance stupefy the commoners through a paper costume design competition.
 `,
-		"rules and regulations": `1. This is a team event. Each team will have 3 members, one for whom an outfit will be designed and the other two who design the outfit.
+		"rulesAndRegulations": `1. This is a team event. Each team will have 3 members, one for whom an outfit will be designed and the other two who design the outfit.
 2. Participating teams are needed to design the outfit out of newspapers and other required logistics that will be provided on the spot.
 4. Resource and logistics other than the ones provided in the beginning will not be allowed.
 5. The choice of theme for designing the dress is up to the participating teams.
@@ -75,7 +74,7 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 9. Any change or modification in rules is solely in the hands of the judging panel.
 10. The decision of the judges shall remain final and binding.
 `,
-		"contact information": `1. Ankit Sahu: 7061965509
+		"contactInformation": `1. Ankit Sahu: 7061965509
 2. Pratima Gorai: 7485813820
 `,
 		"resources required": `1. Newspapers
@@ -83,13 +82,13 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 3. Fevicol 50gm-20
 4. Stapler-10
 5. Stapler pins box-5`,
- "imageName": `none.jpg`, "individual": `0`,
-"minParticipants": 3,
-"maxParticipants": 3,
-"cashPrize": null
+		"imageName": `none.jpg`, "individual": `0`,
+		"minParticipants": 3,
+		"maxParticipants": 3,
+		"cashPrize": null
 
 	},
-	 {
+	{
 		"id": 20,
 		"name": `BEAUTY AND THE GEEK`,
 		"eventCategory": `ADAA`,
@@ -103,20 +102,20 @@ If you are ready to kindle the fashion suitor within you, we bring you the event
 		"club": `Leo Club`,
 		"description": `This event comprises of 3 rounds. The first round being a compatibility test, is to be followed by the escape room which uses QR Codes. The last round has 2 sub rounds, the first being a fun event and second being a talent show/ramp walk which will decide the winner.
 `,
-		"rules and regulations": `1. Team Size: 2
+		"rulesAndRegulations": `1. Team Size: 2
 2. All the rounds are elimination rounds; only the top few teams qualify for the next round.
 3. The rules and decision by the judging panel will be final in all rounds and in every case.
 `,
-		"contact information": `1. Kritika: 9471544492
+		"contactInformation": `1. Kritika: 9471544492
 2. Devanshu: 8210111569
 `,
 		"resources required": `1. 18 Water Pots
 2. 2 Mount Boards
 `,
-"imageName": `none.jpg`, "individual": `1`,
-"minParticipants": 2,
-"maxParticipants": 2,
-"cashPrize": ""
+		"imageName": `none.jpg`, "individual": `1`,
+		"minParticipants": 2,
+		"maxParticipants": 2,
+		"cashPrize": ""
 	}
 ]
 

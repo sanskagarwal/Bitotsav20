@@ -10,7 +10,7 @@ $("#teamSize").change(function () {
         $("#email7").attr("disabled", true);
     }
     if (x == 8) {
-        $("bitId6").attr("disabled", false);
+        $("#bitId6").attr("disabled", false);
         $("#email6").attr("disabled", false);
         $("#bitId7").attr("disabled", false);
         $("#email7").attr("disabled", false);
@@ -38,29 +38,6 @@ $(window).on("load resize ", function () {
 
 
 const url = "https://bitotsav.in/api";
-/*$.ajax({
-    url: url + "/userProfile",
-    method: "GET",
-    headers: {
-        "x-access-token": localStorage.getItem("token")
-    },
-    cors: true,
-    success: (res) => {
-        if (res.status === 200) {
-            $("#userName").val(res.user.name);
-            $("#userEmail").val(res.user.email);
-            $("#userPhone").val(res.user.phoneNo);
-            $("#userBitId").val("BIT-" + res.user.bitotsovId);
-            $("#userClgId").val(res.user.clgId);
-            $("#userClgName").val(res.user.clgName);
-            $("#userClgCity").val(res.user.clgCity);
-            $("#userClgState").val(res.user.clgState);
-        }
-    },
-    error: function (err) {
-        console.log(err);
-    }
-});*/
 let dhwaniCounter = 0, dansationCounter = 0, swaangCounter = 0, rhetoricCounter = 0, taabirCounter = 0, adaaCounter = 0, digitalesCounter = 0, heraldCounter = 0, merakiCounter = 0, euphoriaCounter = 0;
 var userEvents = [];
 function getAllEvents() {
@@ -155,12 +132,12 @@ $.ajax({
             $("#userName").val(res.user._doc.name);
             $("#userEmail").val(res.user._doc.email);
             $("#userPhone").val(res.user._doc.phoneNo);
-            $("#userBitId").val(res.user._doc.bitotsavId);
+            $("#userBitId").val(`BIT-${res.user._doc.bitotsavId}`);
             $("#userClgId").val(res.user._doc.clgId);
             $("#userClgName").val(res.user._doc.clgName);
             $("#userClgCity").val(res.user._doc.clgCity);
             $("#userClgState").val(res.user._doc.clgState);
-            $("#bitId0").val(`BIT-${res.user._doc.bitotsavId}`);
+            $("#bitId0").val(res.user._doc.bitotsavId);
             $("#email0").val(res.user._doc.email);
             if (res.isInTeam === true) {
                 $("#tableAndForm").remove();
@@ -182,8 +159,16 @@ $.ajax({
             }
             if (!userEvents) {
                 userEvents = [];
+                $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
+            } else {
+                $("#no-events").remove();
             }
-            console.log(userEvents);
+            if(res.user.gender === 0){
+                $("#gender-icon-insert").prepend("<i id='gender-icon' class='fas fa-female'>")
+            } else {
+                $("#gender-icon-insert").prepend("<i id='gender-icon' class='fas fa-male'>")
+            }
+
             getAllEvents();
             for (let i = 0; i < userEvents.length; i++) {
                 let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;

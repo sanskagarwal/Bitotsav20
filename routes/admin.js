@@ -3,43 +3,6 @@ const router = express.Router();
 const adminAuth = require('./../utils/adminAuth');
 const Sap = require('./../models/studentAmbassador');
 
-
-const eventModel = require('../models/events');
-const coreTeamModel = require('../models/coreTeam');
-const dhwani = require('../eventsJson/cleaned/dhwani');
-const dansation = require('../eventsJson/cleaned/dansation');
-const adaa = require('../eventsJson/cleaned/adaa');
-const digitales = require('../eventsJson/cleaned/digitales');
-const euphoria = require('../eventsJson/cleaned/euphoria');
-const herald = require('../eventsJson/cleaned/herald');
-const meraki = require('../eventsJson/cleaned/meraki');
-const rhetoric = require('../eventsJson/cleaned/rhetoric');
-const swaang = require('../eventsJson/cleaned/swaang');
-
-//to insert to database
-router.get('/addMultipleEvents', (req, res)=>{
-    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang];
-    eventModel.insertMany(events)
-        .then(()=>{
-            return res.json({status: 200, message: "Inserted successfully!!"});
-        })
-        .catch((error)=>{
-            return res.json({status: 500, message: "Internal server error!! Try again!"});
-        })
-});
-
-router.get('/addCoreTeam', (req, res) => {
-    let liss = require('./../teamJson/team.json');
-    liss = [...liss];
-    coreTeamModel.insertMany(liss)
-        .then(()=>{
-            return res.json({status: 200, message: "Inserted successfully!!"});
-        })
-        .catch((error)=>{
-            return res.json({status: 500, message: "Internal server error!! Try again!"});
-        })
-});
-
 router.post('/getAllSaps', (req, res, next) => {
     console.log(req.body);
     const valid = adminAuth('publicity', req.body.password);

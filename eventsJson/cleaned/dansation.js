@@ -12,7 +12,7 @@ const dansation = [
     ,"description": `"If you stumble, make it a part of the dance."
     Wavy steps, lacy moves and graceful expressions- if all these occur in unison, the result is angelic! Dance is the art that comes straight from the heart. So, get ready to enthral the audience as Bitotsav'20 brings to you its flagship event- Dance Saga! Get set to let yourself loose as your energy rattles the stage. Bring your group and stand a chance to win excitng cash prizes.
     `
-    ,"rules and regulations": `This is a group dance competition that will be held in the main campus of BIT Mesra, Ranchi.
+    ,"rulesAndRegulations": `This is a group dance competition that will be held in the main campus of BIT Mesra, Ranchi.
     1. Team Size: 6-20.
     2. Time limit: 4-8 minutes.
     3. A minimum of 6 dancers are required to be present on the stage throughout the performance.
@@ -31,7 +31,7 @@ const dansation = [
     1. Choreography, expressions, energy level, presentation, costumes and props, innovation and overall impact.
     2. In case of conflicts, decision of the judges would be considered final.
     `
-    ,"contact information": `1. Aditya: 7481840750
+    ,"contactInformation": `1. Aditya: 7481840750
     2. Samridhi: 6206365768
     `
     ,"resources required": `1. Tables-2
@@ -59,7 +59,7 @@ const dansation = [
     ,"points": `None`
     ,"description": `For the zealous dancers who do not need a stage to showcase their mettle, for the free souls who can mesmerise the audience with their raw passion and energy, for the street-smart people around, Bitotsav'20 presents    STOMP THE YARD   , a street dancing competition. Come with your crew and beat the competition for the street is the stage and the prizes are aplenty.
     `
-    ,"rules and regulations": `This is a Street Dance Competition that will be held in two rounds at BIT Mesra, Ranchi main campus.
+    ,"rulesAndRegulations": `This is a Street Dance Competition that will be held in two rounds at BIT Mesra, Ranchi main campus.
     1. Dance groups are required to send a video entry of not more than 5 minutes from their performance along with details (names of members, college name, props being used). The video size should not be more than 50 MB.
     E-mail ID: events@bitotsav.in
     Last Date: 5th February 2020 (11:59 pm)
@@ -82,7 +82,7 @@ const dansation = [
     1. Participants will be judged on synchronization, choreography, stage utilization, costumes, energy level, prop usage, stage coverage, innovation, presentation, and overall impact on the crowd.
     2. For the face-off, teams will be evaluated on crowd support and overshadowing opposite team.
     `
-    ,"contact information": `1. Aditya: 7481840750
+    ,"contactInformation": `1. Aditya: 7481840750
     2. Samridhi: 6206365768
     `
     ,"resources required": `1. Tables-2
@@ -116,7 +116,7 @@ const dansation = [
     ,"description": `"Dancing is the closest thing to magic."
     Think your moves are better than the rest? Do you have the talent to light up the dance floor all by yourself? Then get ready to set the crowd grooving to your beats as the solo dance event    FOOTLOOSE    brings to you the opportunity to showcase what you've got. What's more? You stand a chance to win exciting cash prizes.
     `
-    ,"rules and regulations": `The rules and regulations are given below:-
+    ,"rulesAndRegulations": `The rules and regulations are given below:-
     1. This is a solo dance event.
     2. Participants are required to send a video entry of not more than 2 minutes from their performance along with details (name, college name) at events@bitotsav.in before 5th February 2020 (11:59 pm)
     3. Props involving fire, water and powered substances (like talcum powder/Holi colour/rangoli colour etc) are strictly prohibited.
@@ -135,7 +135,7 @@ const dansation = [
     2. Each participant will have the turn to perform.
     3. The decision of the judges will be final and binding.
     `
-    ,"contact information": `1. Aditya: 7481840750
+    ,"contactInformation": `1. Aditya: 7481840750
     2. Samridhi: 6206365768
     `
     ,"resources required": `1. Tables-2
@@ -163,13 +163,13 @@ const dansation = [
     ,"points": `50-30-20`
     ,"description": `Participants will have to pair up for impromptu dance performances with friends or strangers in Danza duo.
     `
-    ,"rules and regulations": `1. This is a duet dance event.
+    ,"rulesAndRegulations": `1. This is a duet dance event.
     2. Time limit: 3-5 minutes.
     3. You must perform with a partner. Group or solo participation is not allowed.
     4. You can select the song on the spot or bring your own song in a pen drive. Songs should not contain any explicit and offensive words.
     5. Props are not allowed.
     `
-    ,"contact information": `1. Aditya: 7481840750
+    ,"contactInformation": `1. Aditya: 7481840750
     2. Samridhi: 6206365768
     `
     ,"resources required": `1. Water Bottles-5
