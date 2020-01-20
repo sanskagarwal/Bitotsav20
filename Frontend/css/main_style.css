@@ -10129,3 +10129,13 @@ body.mobile-nav-active #mobile-nav {
     opacity: .8;
     display: none;
 }
+
+
+/* footer*/
+.nice-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

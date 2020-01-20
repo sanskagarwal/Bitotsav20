@@ -79,4 +79,3 @@ jQuery(document).ready(function($){
 		if(section.parents('.no-csstransitions').length > 0 ) animateLayer(section.find('.cd-modal-bg'), 1, false);
 	}
 });
-

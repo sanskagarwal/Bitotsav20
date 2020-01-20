@@ -760,11 +760,13 @@ Primary style
 	z-index: 800;
   }
   
-  
-
-
-  
-  
+  .nice-footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
   
   
 
