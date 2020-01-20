@@ -11,7 +11,7 @@ const dhwani = [
     ,"points": `None`
     ,"description": `A contest where bands from various colleges present musical performances from eastern genre and compete for the title of the "best band".
     `
-    ,"rules and regulations": `The competition will be conducted in two rounds, Eliminations and Finals. Both rounds will be held at BIT Mesra, Ranchi main campus on two successive days.
+    ,"rulesAndRegulations": `The competition will be conducted in two rounds, Eliminations and Finals. Both rounds will be held at BIT Mesra, Ranchi main campus on two successive days.
     1. Participants should bring their own instruments. However, a basic drum kit will be provided.
     2. The Band needs to consist of college students. Semi-professional bands are also allowed.
     3. The team size is 3-8 members.
@@ -27,7 +27,7 @@ const dhwani = [
     11. Finals: Time limit is 20 minutes (stage in to stage out). Points will be deducted for exceeding the time limit.
     12. There is no restriction on the number of songs. However, medleys are not allowed.
     `
-    ,"contact information": `1. Mudit Nagar: 7339920249
+    ,"contactInformation": `1. Mudit Nagar: 7339920249
     2. Nachiket Agni: 9006598738
     `
     ,"resources required": `1. Stage Requirements
@@ -65,7 +65,7 @@ const dhwani = [
     ,"points": `None`
     ,"description": `In this contest, bands present musical performances from western genre and compete for the title.
     `
-    ,"rules and regulations": `1. Participants should bring their own instruments. However, a basic drum kit will be provided.
+    ,"rulesAndRegulations": `1. Participants should bring their own instruments. However, a basic drum kit will be provided.
     2. The Band needs to consist of college students. Semi-professional bands are also allowed.
     3. The team size is 3-8 members.
     4. Multiple teams from the same college are permitted.
@@ -80,7 +80,7 @@ const dhwani = [
     11. Finals: Time limit is 20 minutes (stage in to stage out). Points will be deducted for exceeding the time limit.
     12. There is no restriction on the number of songs. However, medleys are not allowed.
     `
-    ,"contact information": `1. Yash Goyal: 8757411836
+    ,"contactInformation": `1. Yash Goyal: 8757411836
     2. Saket Anand: 9709222435
     `
     ,"resources required": `1. Stage Requirements
@@ -118,7 +118,7 @@ const dhwani = [
     ,"points": `75-50-25`
     ,"description": `Let us all go old school again! Jamming with a single guitar, some whistling, toe tapping, clicking and clapping never grows old! Acoustic alchemy is an event that provides a platform to such performances with only acoustic music, devoid of any    electric    or    electronic    amplification. It is an unplugged event.
     `
-    ,"rules and regulations": `1. Participants can use only acoustic instruments like acoustic guitars, flutes, violins, piano etc.
+    ,"rulesAndRegulations": `1. Participants can use only acoustic instruments like acoustic guitars, flutes, violins, piano etc.
     2. Participants can use a synthesizer but only under the piano patch, no additional effects are allowed.
     3. A bass guitar is allowed.
     4. Solo performances are not allowed. Participants can perform in a group of minimum 2 and maximum 7 members.
@@ -126,7 +126,7 @@ const dhwani = [
     6. More than one group from the same college is permitted.
     7. Time limit for the performance is 7 minutes which includes the sound check.
     `
-    ,"contact information": `1. Prashanta Purkayastha: 9101007489
+    ,"contactInformation": `1. Prashanta Purkayastha: 9101007489
     2. Durjoy Basumatary: 9101188103
     `
     ,"resources required": `1. PA system (including mixer, microphones and jacks)

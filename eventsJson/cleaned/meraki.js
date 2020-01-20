@@ -13,11 +13,11 @@ const meraki = [
 		"description": `Nothing is more real than the masks we make to show each other who we are.
         Get ready for the enthralling event    Masquerade    where you get to put all your emotons and personalites together and crat them into a mask that shall reflect what the face can't.
         `,
-		"rules and regulations": `1. Partcipate individually or in groups of 2 (max).
+		"rulesAndRegulations": `1. Partcipate individually or in groups of 2 (max).
         2. Partcipants are required to decorate a mask provided to them using the given resources.
         3. No theme restrictons but in case of te, preference will be given to the mask which matches the theme given on the spot.
         `,
-		"contact information": `1. Abhishikth Abhi: 9493878234
+		"contactInformation": `1. Abhishikth Abhi: 9493878234
         2. Madhulika: 8123116891`,
 		"resources required": `1. Ivory Sheets-8
         2. Pair of scissors-6
@@ -46,12 +46,12 @@ const meraki = [
 		"club": `Fine Arts Society`,
 		"description": `Are you the one who scribbles to get over boring lectures? Does the intricacies in the doodles astound you? Then get ready to make some tght curls, some jagged zigzags, loops, coils and points untl your heart says it   s done in this event that will let your creatvity juggle your grey mater.
         `,
-		"rules and regulations": `1. Individual Partcipaton.
+		"rulesAndRegulations": `1. Individual Partcipaton.
         2. No theme restrictons but in case of te, preference will be given to the artwork related to the theme given on the spot.
         3. Resources will be provided.
         4. Spill out all your original ideas on the sheet (plagiarism is forbidden).
         `,
-		"contact information": `1. Shubhangi Narayan: 8051860490
+		"contactInformation": `1. Shubhangi Narayan: 8051860490
         2. Ayushee Diwan: 7389744489`,
 		"resources required": `1. A4 sheets  40
         2. Black Pen (likho-pheko) set of 20pc  2
@@ -75,7 +75,7 @@ const meraki = [
 		"club": `Fine Arts Society`,
 		"description": `If you think you can best express yourself using a canvas and a paintbrush, then this is the place for you. Let your imagination run wild and use those beautiful colours to bring it on the canvas in front of you. Send us an electronic entry of the same.
         `,
-		"rules and regulations": `1. This competition is open to any artist (professional or amateur) pursuing any course in any of the colleges of India.
+		"rulesAndRegulations": `1. This competition is open to any artist (professional or amateur) pursuing any course in any of the colleges of India.
         2. THEME- There is no restriction on the theme, but extra points will be credited who base their painting on either of these:
         - Carnival of Conundrums
         - Plague of Plastic
@@ -99,7 +99,7 @@ const meraki = [
         10. Send in electronic entries at events@bitotsav.in before 15th January 2020. Image size should be less than 5MB.
         11. The decision of the jury and the judges shall be final. We believe in respecting fellow artists and one another's artworks - therefore, you may not criticize, make derogatory or otherwise inappropriate comments anywhere or in any other public forum about any other artist participating in STREAK (or his/her works). Doing so will result in disqualification of your art from the contest.
         `,
-		"contact information": `1. Ankit: 9521616410
+		"contactInformation": `1. Ankit: 9521616410
         2. Sheshadri: 7903782338
 `,
 		"resources required": `1. 10 Ivory sheets(

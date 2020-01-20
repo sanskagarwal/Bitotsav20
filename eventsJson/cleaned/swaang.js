@@ -12,7 +12,7 @@ const swaang = [
 		"club": `Ehsaas Dramatcs Society`,
 		"description": `This is a street play competton. What beter way than Nukkad to express our views. The voice of our conscience echoes through the words of Nukkad. The evils of the society are brought into light through the plot of Nukkad. Let us rewind the days when some scintllatng performances ignited the fre for change in us.
         `,
-		"rules and regulations": `This competton will be conducted in two rounds, eliminatons and fnals. Both rounds will be held on two dioerent days of the fest.
+		"rulesAndRegulations": `This competton will be conducted in two rounds, eliminatons and fnals. Both rounds will be held on two dioerent days of the fest.
         General Rules:
         1. The team shall consist of maximum of 20 people excluding 2 instrumentalists (optonal).
         2. The tme limit should be strictly adhered to. In case of violaton, partcipants will be penalized by judges. The given tme duraton is from empty stage to empty stage.
@@ -35,7 +35,7 @@ const swaang = [
         Finals:
         The tme limit shall be 20+2 minutes.
         `,
-		"contact information": `1. Shivam: 9523126405
+		"contactInformation": `1. Shivam: 9523126405
         2. Shambhavi: 8840358232
 `,
 		"resources required": `1. Table and chairs
@@ -60,7 +60,7 @@ const swaang = [
 		"club": `Ehsaas Dramatics Society`,
 		"description": `This is a stage play competition. If you think you can mesmerize the audience with acting, script, dialogues and sets - then Abhinay is your call! It cannot get better than the annual stage play competition at Bitotsav. Once the stage is set and all is ready - it is show time.
         `,
-		"rules and regulations": `This competition will be conducted in two rounds, eliminations and finals. Both rounds will be held on two different days of the fest.
+		"rulesAndRegulations": `This competition will be conducted in two rounds, eliminations and finals. Both rounds will be held on two different days of the fest.
         General rules:
         1. Each team should have a minimum of 5 and a maximum of 10 actors. In addition, there can be 1 person in charge of music and a maximum of 2 people for lights.
         2. No hazardous substances are allowed.
@@ -74,7 +74,7 @@ const swaang = [
         Finals:
         The time duration is 50 minutes which includes performance time and stage setting time. The given time duration is from empty stage to empty stage.
         `,
-		"contact information": `1. Shivam: 9523126405
+		"contactInformation": `1. Shivam: 9523126405
         2. Shambhavi: 8840358232
 `,
 		"resources required": `1. Table and chairs
@@ -100,7 +100,7 @@ const swaang = [
 		"club": `Ehsaas Dramatics Society`,
 		"description": `Do you like to fly solo? Do you like that feeling when the spotlight hits you and the whole scene revolves around you? So, here is your chance to prove your talent at mono-acting. Prepare yourself to single-handedly dazzle the audience.
         `,
-		"rules and regulations": `This event will be held in two rounds consisting of an online round followed by further rounds at BIT Mesra, Ranchi main campus.
+		"rulesAndRegulations": `This event will be held in two rounds consisting of an online round followed by further rounds at BIT Mesra, Ranchi main campus.
         General Rules:
         1. This is a solo participation event.
         2. The participant can prepare a monologue or solo act of their choice.
@@ -119,7 +119,7 @@ const swaang = [
         4. The performance must consist of a single act with no blackouts.
         5. The time limit for each performance is 6 minutes (max). Points will be deducted for exceeding the time limit.
         `,
-		"contact information": `1. Shivam: 9523126405
+		"contactInformation": `1. Shivam: 9523126405
         2. Shambhavi: 8840358232
 `,
 		"resources required": `1. Table and chairs

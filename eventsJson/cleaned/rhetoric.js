@@ -12,12 +12,12 @@ const rhetoric = [
 		"club": `UNESQUO`,
 		"description": `BIT-MUN is based on the idea of United Natons General Assembly, where each partcipant represents a certain country or positon. The Assembly has a discussion over a certain topic, on which each partcipant has to present his/her stand according to the country he/she represents.
         `,
-		"rules and regulations": `1. Individual Partcipaton.
+		"rulesAndRegulations": `1. Individual Partcipaton.
         2. The proper dress code should be followed.
         3. The countries will be assigned before the session begins.
         4. The partcipant is required to send in their details (name, college name, etc) at events@bitotsav.in before 5th February 2020 (11:59 pm).
         `,
-		"contact information": `1. Madhav: 8987519793
+		"contactInformation": `1. Madhav: 8987519793
         2. Subhomoy: 9163933404
 `,
 		"resources required": `1. Paper 1 ream
@@ -41,7 +41,7 @@ const rhetoric = [
 		"club": `Literary Society, BIT Mesra`,
 		"description": `It is a slam poetry competition in which poets read or recite original work. This event has 2 rounds. Participants are requested refer to YouTube (channels like spill poetry, habitat, tuning fork and the likes of it) to get an idea.
         `,
-		"rules and regulations": `Participants are required to send in an excerpt from their work along with details (name, college name) at events@bitotsav.in before 5th February, 2020 (11:59 pm).
+		"rulesAndRegulations": `Participants are required to send in an excerpt from their work along with details (name, college name) at events@bitotsav.in before 5th February, 2020 (11:59 pm).
         This event will be held in two rounds. Each round will be held on a different day at BIT Mesra, Ranchi Main Campus.
         Round no. 1:
         1. Participants must present their pre-written poems.
@@ -50,7 +50,7 @@ const rhetoric = [
         1. Selected finalists must write and present their own poem on a theme that will be provided and present it on the next day.
         2. Timing for recitation: 4 minutes.
         `,
-		"contact information": `1. Sharique-8002803897
+		"contactInformation": `1. Sharique-8002803897
         2. Faraz-9110024154
 `,
 		"resources required": `1. Pens
@@ -76,11 +76,11 @@ const rhetoric = [
 		"club": `UNESQUO`,
 		"description": `This is an oratory event, where the participant needs to speak on a topic which will be revealed on the spot. They will be judged on their content, presentation and grammar.
         `,
-		"rules and regulations": `1. Individual Participation.
+		"rulesAndRegulations": `1. Individual Participation.
         2. No electronic device will be allowed during the event.
         3. Language to be used will be English, and use of any other vernacular language is prohibited.
         `,
-		"contact information": `1. Aishwarya: 9939505896
+		"contactInformation": `1. Aishwarya: 9939505896
         2. Samridhi: 6206365768
 `,
 		"resources required": `1. Sheets-50
