@@ -1,16 +1,12 @@
-@font-face {
-	font-family: "ral";
-	src: url("../fonts/raleway/Raleway-SemiBold.ttf") format("opentype");
-  }
-  
+
   @font-face {
-	font-family: "monre";
-	src: url("../fonts/Montserrat-Regular.ttf") format("opentype");
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat-SemiBold.ttf") format("opentype");
   }
 
 
 body {
-	font-family: 'ral';
+	font-family: 'Montserrat', sans-serif;
 	background: #fff;
 	background-image: url(../images/events-bg.jpg);
 	background-repeat: no-repeat;
@@ -64,14 +60,14 @@ body {
 }
 .heading{
 	font-size: 10em;
-	font-family:'ral';
+	font-family: 'Montserrat', sans-serif;
 	color:aliceblue;
 	font-weight: bold;
 }
 @media only screen and (max-width: 1000px){
 	.heading{
 		font-size: 3em;
-		font-family:'ral';
+        font-family: 'Montserrat', sans-serif;
 		color:aliceblue;
 		font-weight: bold;
 	}
@@ -87,7 +83,8 @@ body {
 	background: rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.6);
 			box-shadow: 0 0 8px rgba(0,0,0,0.2);
-			font-family:'ral';
+            font-family: 'Montserrat', sans-serif;
+
 }
 
 .box h2 {
@@ -100,8 +97,8 @@ body {
 	background: rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.6);
 			box-shadow: 0 0 8px rgba(0,0,0,0.2);
-			font-family:'ral';
-}
+            font-family: 'Montserrat', sans-serif;
+        }
 
 .date h4 {
 	color: #fff;
@@ -406,7 +403,7 @@ Primary style
   
   body {
 	font-size: 1.6rem;
-	font-family: "ral";
+	font-family: 'Montserrat', sans-serif;
 	color: #34383c;
 	background-color: #ffffff;
   }
@@ -573,7 +570,7 @@ Primary style
 	-webkit-transition: color 0.2s 0.3s, width 0.3s 0s;
 	-moz-transition: color 0.2s 0.3s, width 0.3s 0s;
 	transition: color 0.2s 0.3s, width 0.3s 0s;
-	font-family: 'ral';
+	font-family: 'Montserrat', sans-serif;
 	letter-spacing:0.5mm;
   }
   .cd-modal-action .btn.to-circle {
