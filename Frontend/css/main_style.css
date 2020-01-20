@@ -10025,6 +10025,10 @@ mapouter{position:relative;
     white-space: nowrap;
 }
 
+#gallery a span {
+    color: black;
+}
+
 #mobile-nav-toggle {
     position: fixed;
     right: 20px;
@@ -10146,6 +10150,10 @@ body.mobile-nav-active #mobile-nav {
   color: white;
 }
 
-#social-icons i,span {
+#social-icons i {
+    color: white !important;
+}
+
+#social-icons span {
     color: white !important;
 }
