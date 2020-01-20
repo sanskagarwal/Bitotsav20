@@ -882,3 +882,7 @@ body {
 	  align-items: center;
 	  color: white;
   }
+
+  .mobile-nav-active .mobile-nav-toggle i {
+    color: #fff;
+  }
