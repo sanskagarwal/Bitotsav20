@@ -28,6 +28,10 @@ console.log(queryParam);
 
 
 function eventdetails(events, i , s) {
+    let duration = events.duration;
+    let date = duration.slice(0,4);
+    let time = duration.slice(6);
+    console.log(events.rulesAndRegulations)
   return (`                                                                                    
     <div class="box two" style="background: url(../images/Events/${events.imageName})">
     
@@ -44,23 +48,45 @@ function eventdetails(events, i , s) {
     
     <div class="popup__text scrollbar">
     <strong style="font-size:3.5em; color:black; padding-top: 30px; font-family:ral; text-decoration: underline; ">${events.name}</strong>
+    
     <div class="container">
-   
-    <br><br> 
-    <p> <strong><span class="text">EVENT CATEGORY:</span><span class="text-inner">${capitalizeFirstLetter(events.category)}</span></strong>
     <br><br>
-    <strong><span class="text">VENUE:</span><span class="text-inner">${events.venue}</span></strong>
-    <br><br>
-    <strong><span class="text">DURATION:</span><span class="text-inner">${events.duration}</span></strong>
-    <br><br>
-    <strong><span class="text">DESCRIPTION:</span><span class="text-inner">${events.description}</span></strong>
-    <br><br>
-    <strong><span class="text">RULES AND REGULATIONS:</span><span class="text-inner">${events["rulesAndRegulations"].replace(/\n/g,"<li>")}</span></strong>
-    <br><br>
-    <strong><span class="text">CONTACT INFORMATION:</span><span class="text-inner">${events["contactInformation"]}</span></strong>
-    <br><br>
-    </p>
+        <div class="container">
+    <table style="width:100%" cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+            <tr>
+                <td class="text">EVENT CATEGORY:</td>
+                <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
+            </tr>
+            <tr>
+                <td class="text">VENUE:</td>
+                <td class="text-inner">${events.venue}</td>
+            </tr>
+            <tr>
+                <td class="text">DATE:</td>
+                <td class="text-inner">${date}</td>
+            </tr>
+            <tr>
+                <td class="text">TIME:</td>
+                <td class="text-inner">${time}</td>
+            </tr>
+            <tr>
+                <td class="text">DESCRIPTION:</td>
+                <td class="text-inner">${events.description}</td>
+            </tr>
+            <tr>
+                <td class="text">RULES AND REGULATIONS:</td>
+                <td class="text-inner">${events["rulesAndRegulations"].replace(/\n/g, "<p class='rulesAndReg'>")}</td>
+            </tr>
+            <tr>
+                <td class="text">CONTACT INFORMATION:</td>
+                <td class="text-inner">${events["contactInformation"]}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
     </div>
+
     </div>
     <a class="popup__close" href="#">X</a>
     </div>
