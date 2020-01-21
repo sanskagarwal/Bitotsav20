@@ -483,6 +483,11 @@ textarea.input100 {
   }
 }
 
+.rotator {
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
 .spinner:before {
   content: '';
   box-sizing: border-box;
