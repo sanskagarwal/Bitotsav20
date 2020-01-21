@@ -49,7 +49,7 @@ function eventdetails(events, i, s) {
     return (`                                                                                    
     <div class="col-md-4">
         <div class="card" style="margin-bottom: 20px">
-            <img class="card-img-top img-fluid" height="300" src="./images/Events/allEvents3/${events.imageName}" alt="${events.name}">
+            <img class="card-img-top img-fluid" height="300" src="./images/Events/allEvents/${events.imageName}" alt="${events.name}">
             <div class="card-body">
                 <hr>
                 ${events.name}
