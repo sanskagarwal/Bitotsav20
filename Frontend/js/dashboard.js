@@ -144,7 +144,7 @@ $.ajax({
                 userEvents = res.user.teamEventsRegistered;
                 $("#header-name").text(`Team Name : ${res.team.teamName}`);
                 $("#header-size").text(`Team Size : ${res.team.teamSize}`);
-                $("#header-id").text(`Team Id : ${res.team.teamId}`);
+                $("#header-id").text(`Team Id : TA-${res.team.teamId}`);
                 for (i = 0; i < res.team.teamMembers.length; i++) {
                     $("#teamMembersRow").append(`<tr>
                         <td>${res.team.teamMembers[i].name}</td>

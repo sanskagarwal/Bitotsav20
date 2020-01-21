@@ -10164,3 +10164,7 @@ body.mobile-nav-active #mobile-nav {
     background-attachment: fixed;
     background-size: cover;
 }
+
+.g-recaptcha {
+    display: inline-block;
+}

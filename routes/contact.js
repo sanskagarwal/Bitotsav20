@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 const router = express.Router();
 
 
-router.post('/sendMessage', [check('email').isEmail(), check('message').isLength({ min: 15, max: 100 })],
+router.post('/sendMessage', validateCapcha, [check('email').isEmail(), check('message').isLength({ min: 15, max: 100 })],
 
     function (req, res, next) {
 

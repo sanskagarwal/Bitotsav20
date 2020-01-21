@@ -306,7 +306,7 @@
                     </table>
                 </div>
             </section>
-            <section id="event" class="toggle" style="display:none">
+            <section id="event" class="p-4 p-md-5 pt-5 toggle" style="display:none">
                 <h3 class="table-head-name">Your Events</h3>
                 <section class="table-section">
                     <div class="tbl-header">
@@ -564,9 +564,16 @@
         <script src="js/lib/popper.min.js"></script>
         <script src="js/lib/bootstrap.min.js"></script>
         <script src="./js/dashboard.js"></script>
+        <script>
+            
+            $(document).ready(function() {
+                $("#team").html('<h1>Coming Soon</h1>');
+                $("#event").html('<h1>Coming Soon</h1>');
+            });
+
+        </script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script src="./js/particle.js"></script>
-        <script src="./js/preloader.js"></script>
         <script>
             $("#sidebar a").click(function (e) {
                 e.preventDefault();
@@ -595,6 +602,8 @@
                 e.preventDefault();
             });
         </script>
+        <script src="./js/preloader.js"></script>
+
 </body>
 
 </html>

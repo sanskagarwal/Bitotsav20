@@ -5,6 +5,8 @@ function validateCaptcha(req, res, next) {
     let secret;
     if(req.body.client === 'app') {
         secret = config.secret_key_captcha_v2_android;
+    } else if(req.body.client === 'index') {
+        secret = config.secret_key_captcha_v2_web;
     } else {
         secret = config.secret_key_captcha_v3_web;
     }
