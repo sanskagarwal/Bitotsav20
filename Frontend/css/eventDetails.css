@@ -1,18 +1,31 @@
 @font-face {
-	font-family: "Montserrat";
-	src: url("../fonts/Montserrat-SemiBold.ttf") format("opentype");
-  }
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-SemiBold.ttf") format("opentype");
+}
 
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	background: #fff;
-	background-image: url(../images/events-bg.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    background-image: url(../images/events-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
 }
-  /*--------------------------------------------------------------
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 
@@ -26,7 +39,8 @@ body {
     box-shadow: 0px 0px 0px rgba(227, 229, 233, 0.3);
 }
 
-#header.header-scrolled, #header.header-pages {
+#header.header-scrolled,
+#header.header-pages {
     height: 60px;
     padding: 10px 0;
     background: black;
@@ -42,7 +56,8 @@ body {
     text-transform: uppercase;
 }
 
-#header .logo h1 a, #header .logo h1 a:hover {
+#header .logo h1 a,
+#header .logo h1 a:hover {
     color: #094b92;
     text-decoration: none;
 }
@@ -64,7 +79,8 @@ body {
 
 /* Desktop Navigation */
 
-.main-nav, .main-nav * {
+.main-nav,
+.main-nav * {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -87,7 +103,9 @@ body {
     font-weight: 600;
 }
 
-.main-nav a:hover, .main-nav .active>a, .main-nav li:hover>a .header {
+.main-nav a:hover,
+.main-nav .active>a,
+.main-nav li:hover>a .header {
     color: white;
     text-decoration: none;
 }
@@ -123,7 +141,9 @@ body {
     color: #004289;
 }
 
-.main-nav .drop-down ul a:hover, .main-nav .drop-down ul .active>a, .main-nav .drop-down ul li:hover>a {
+.main-nav .drop-down ul a:hover,
+.main-nav .drop-down ul .active>a,
+.main-nav .drop-down ul li:hover>a {
     color: #007bff;
 }
 
@@ -183,7 +203,9 @@ body {
     font-weight: 500;
 }
 
-.mobile-nav a:hover, .mobile-nav .active>a, .mobile-nav li:hover>a {
+.mobile-nav a:hover,
+.mobile-nav .active>a,
+.mobile-nav li:hover>a {
     color: #74b5fc;
     text-decoration: none;
 }
@@ -255,4 +277,21 @@ body {
 
 .mobile-nav-active .mobile-nav-toggle i {
     color: #fff;
+}
+
+.modal-body {
+    background: #F2994A;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F2C94C, #F2994A);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.modal-header, .modal-footer {
+    
+    background: #f46b45;
+    background: -webkit-linear-gradient(to right, #eea849, #f46b45);
+    background: linear-gradient(to right, #eea849, #f46b45);
 }

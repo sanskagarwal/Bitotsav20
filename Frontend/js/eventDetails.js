@@ -29,22 +29,35 @@ console.log(queryParam);
 
 function eventdetails(events, i, s) {
     let duration = events.duration;
-    let date = duration.slice(0, 4);
+    let date = Number(duration.slice(0, 2)) - 13;
     let time = duration.slice(6);
     let imageName = events.imageName.slice(0, events.imageName.lastIndexOf("."));
-    
+    let pointsOrCash = {
+        name: '',
+        value: ''
+    };
+    if (!events.points || events.points.toLowerCase() === 'none') {
+        pointsOrCash.name = 'CASHPRIZE:';
+        pointsOrCash.value = '&#8377;&nbsp;' + events.cashPrize;
+    } else {
+        pointsOrCash.name = 'POINTS:';
+        pointsOrCash.value = events.points;
+    }
+
+
     return (`                                                                                    
     <div class="col-md-4">
         <div class="card">
             <img class="card-img-top" height="300" src="./images/Events/allEvents2/${imageName}.jpg" alt="${events.name}">
             <div class="card-body">
+                <hr>
                 ${events.name}
                 <br>
                 <button data-toggle="modal" data-target="#events${i}Modal" class="btn btn-primary">Show Details</button>
             </div>
         </div>
         <div class="modal fade" id="events${i}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">${events.name}</h5>
@@ -56,22 +69,32 @@ function eventdetails(events, i, s) {
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td class="text">EVENT CATEGORY:</td>
+                        <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td class="text">VENUE:</td>
+                        <td class="text-inner">${events.venue}</td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td class="text">DAY:</td>
+                        <td class="text-inner">${date}</td>
+                    </tr>
+                    <tr>
+                        <td class="text">TIME:</td>
+                        <td class="text-inner">${time}</td>
+                    </tr>
+                    <tr>
+                        <td class="text">${pointsOrCash.name}</td>
+                        <td class="text-inner">${pointsOrCash.value}</td>
+                    </tr>
+                    <tr>
+                        <td class="text">DESCRIPTION:</td>
+                        <td class="text-inner" style="text-align:left;">${events.description}</td>
+                    </tr>
+                    <tr>
+                        <td class="text">RULES AND REGULATIONS:</td>
+                        <td class="text-inner" style="text-align:left;">${events["rulesAndRegulations"].replace(/\n/g, "<p class='rulesAndReg'>")}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -146,7 +169,12 @@ if (queryParam) {
 
 $(document).ready(function () {
     $(".button").on("click", function () {
-        $(`#events${i}Modal`).css({ "visibilty": "visible", "opacity": "1", "background": "" }); 4
+        $(`#events${i}Modal`).css({
+            "visibilty": "visible",
+            "opacity": "1",
+            "background": ""
+        });
+        4
 
     });
 
@@ -160,13 +188,19 @@ $(document).ready(function () {
         var hashParam = windowUrl.substr(ind + 1);
         console.log(hashParam);
         if (hashParam.includes("events")) {
-            $(`#${hashParam}`).css({ "visibility": "visible", "opacity": "1" });
+            $(`#${hashParam}`).css({
+                "visibility": "visible",
+                "opacity": "1"
+            });
         }
     }
 });
 
 
-$('.two').css({ 'background': 'url(../images/Events/Dhwani.jpg)', 'background-repeat': 'no repeat' });
+$('.two').css({
+    'background': 'url(../images/Events/Dhwani.jpg)',
+    'background-repeat': 'no repeat'
+});
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
