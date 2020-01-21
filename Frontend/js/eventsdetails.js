@@ -43,7 +43,7 @@ function eventdetails(events, i , s) {
    
     
     <div class="popup__text scrollbar">
-    <strong style="font-size:3.5em; color:black;  font-family:ral; text-decoration: underline; ">${events.name}</strong>
+    <strong style="font-size:3.5em; color:black; padding-top: 30px; font-family:ral; text-decoration: underline; ">${events.name}</strong>
     <div class="container">
    
     <br><br> 
