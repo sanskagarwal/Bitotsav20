@@ -10168,3 +10168,18 @@ body.mobile-nav-active #mobile-nav {
 .g-recaptcha {
     display: inline-block;
 }
+
+@media (max-width: 600px) {
+    .g-recaptcha {
+        width: 280px;
+    }
+    .g-recaptcha iframe {
+        width: 100%;
+    }
+    .g-recaptcha > div {
+        width: 280px !important;
+    }
+    * {
+        background-size: contain;
+    }
+}

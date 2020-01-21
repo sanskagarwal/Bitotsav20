@@ -653,6 +653,10 @@ body {
     overflow: hidden;
     margin-bottom: 30px;
   }
+
+  .speaker {
+      border-radius: 10px;
+  }
   
   #speakers .speaker .details {
     background: rgba(41, 41, 41, 0.698);
