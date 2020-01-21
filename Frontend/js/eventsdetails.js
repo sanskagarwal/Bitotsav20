@@ -33,7 +33,7 @@ function eventdetails(events, i , s) {
     let time = duration.slice(6);
     console.log(events.rulesAndRegulations)
   return (`                                                                                    
-    <div class="box two" style="background: url(../images/Events/${events.imageName})">
+    <div class="box two" style="background: url(./images/Events/allEvents/${events.imageName})">
     
     <br>
     
