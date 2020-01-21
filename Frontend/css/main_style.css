@@ -8881,7 +8881,9 @@ strong {
   display: block;
   height: 330px;
   position: relative;
-  background: #202224; }
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+}
   .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
@@ -10182,4 +10184,9 @@ body.mobile-nav-active #mobile-nav {
     * {
         background-size: contain;
     }
+}
+
+#contact .py-md-5 {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
 }
