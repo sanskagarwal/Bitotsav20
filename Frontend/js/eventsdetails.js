@@ -1,11 +1,11 @@
 function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-  results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
 var windowUrl = window.location.href;
@@ -27,131 +27,147 @@ console.log(queryParam);
 // console.log(s);
 
 
-function eventdetails(events, i , s) {
+function eventdetails(events, i, s) {
     let duration = events.duration;
-    let date = duration.slice(0,4);
+    let date = duration.slice(0, 4);
     let time = duration.slice(6);
-    console.log(events.rulesAndRegulations)
-  return (`                                                                                    
-    <div class="box two" style="background: url(./images/Events/allEvents/${events.imageName})">
+    let imageName = events.imageName.slice(0, events.imageName.lastIndexOf("."));
     
-    <br>
-    
-    <br>
-   
-    <br><br>  
-         
-    <div class="popup" id="events${i}Modal">
-    <div class="popup-inner">
-
-   
-    
-    <div class="popup__text scrollbar">
-    <strong style="font-size:3.5em; color:black; padding-top: 30px; font-family:ral; text-decoration: underline; ">${events.name}</strong>
-    
-    <div class="container">
-    <br><br>
-        <div class="container">
-    <table style="width:100%" cellpadding="0" cellspacing="0" border="0">
-        <tbody>
-            <tr>
-                <td class="text">EVENT CATEGORY:</td>
-                <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
-            </tr>
-            <tr>
-                <td class="text">VENUE:</td>
-                <td class="text-inner">${events.venue}</td>
-            </tr>
-            <tr>
-                <td class="text">DATE:</td>
-                <td class="text-inner">${date}</td>
-            </tr>
-            <tr>
-                <td class="text">TIME:</td>
-                <td class="text-inner">${time}</td>
-            </tr>
-            <tr>
-                <td class="text">DESCRIPTION:</td>
-                <td class="text-inner">${events.description}</td>
-            </tr>
-            <tr>
-                <td class="text">RULES AND REGULATIONS:</td>
-                <td class="text-inner">${events["rulesAndRegulations"].replace(/\n/g, "<p class='rulesAndReg'>")}</td>
-            </tr>
-            <tr>
-                <td class="text">CONTACT INFORMATION:</td>
-                <td class="text-inner">${events["contactInformation"]}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    return (`                                                                                    
+    <div class="col-md-4">
+        <div class="card">
+            <img class="card-img-top" height="300" src="./images/Events/allEvents2/${imageName}.jpg" alt="${events.name}">
+            <div class="card-body">
+                ${events.name}
+                <br>
+                <button data-toggle="modal" data-target="#events${i}Modal" class="btn btn-primary">Show Details</button>
+            </div>
+        </div>
+        <div class="modal fade" id="events${i}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">${events.name}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                ${events.contactInformation.replace(/\n/g, "<br>")}
+            </div>
+            </div>
+        </div>
+        </div> 
     </div>
-
-    </div>
-    <a class="popup__close" href="#">X</a>
-    </div>
-  
-    </div>
-
-    <br><br><br><br><br><br>
-   
-    <a class="button" href="#events${i}Modal" style="color:black; font-size:0.8em; font-weight:800;">More Details</a>
-    <br><br><br><br><br>
-    <h3>${events.name}</h3>
-
-    </div>
-    
-    
-          
     `);
 }
 
+/*
+<div class="popup-inner">
+                <table style="width:100%" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="text">EVENT CATEGORY:</td>
+                            <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">VENUE:</td>
+                            <td class="text-inner">${events.venue}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">DATE:</td>
+                            <td class="text-inner">${date}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">TIME:</td>
+                            <td class="text-inner">${time}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">DESCRIPTION:</td>
+                            <td class="text-inner">${events.description}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">RULES AND REGULATIONS:</td>
+                            <td class="text-inner">${events["rulesAndRegulations"].replace(/\n/g, "<p class='rulesAndReg'>")}</td>
+                        </tr>
+                        <tr>
+                            <td class="text">CONTACT INFORMATION:</td>
+                            <td class="text-inner">${events["contactInformation"]}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            */
 
-if(queryParam) {
-  queryParam = queryParam.toLowerCase();
-  var url1= "https://bitotsav.in";
-  $.ajax({
-    url: url1+"/api/events/getEventByCategory?category="+queryParam,
-    method:"GET",
-    crossDomain:true,
-    success: function(res) {
-      console.log(res);
-      if(res.status === 200) {
-        for (i = 0; i < res.data.length; i++) {
-          $(".wrap").append(eventdetails(res.data[i], i, queryParam));
+if (queryParam) {
+    queryParam = queryParam.toLowerCase();
+    var url1 = "https://bitotsav.in";
+    $.ajax({
+        url: url1 + "/api/events/getEventByCategory?category=" + queryParam,
+        method: "GET",
+        crossDomain: true,
+        success: function (res) {
+            console.log(res);
+            if (res.status === 200) {
+                for (i = 0; i < res.data.length; i++) {
+                    $(".row").append(eventdetails(res.data[i], i, queryParam));
+                }
+            }
+        },
+        error: function (err) {
+            alert("Some Error Occured, while fetching Event Details");
         }
-      }
-    },
-    error: function(err) {
-      alert("Some Error Occured, while fetching Event Details");
-    }
-  });
+    });
 }
 
-$(document).ready(function(){
-  $(".button").on("click",function(){
-    $(`#events${i}Modal`).css({"visibilty": "visible", "opacity": "1","background":""});4
-   
-  });
+$(document).ready(function () {
+    $(".button").on("click", function () {
+        $(`#events${i}Modal`).css({ "visibilty": "visible", "opacity": "1", "background": "" }); 4
 
- 
+    });
 
 
 
-  // Open Event Modal
-  var ind = windowUrl.lastIndexOf("#");
-  if(ind !== -1) {
-    var hashParam = windowUrl.substr(ind+1);
-    console.log(hashParam);
-    if(hashParam.includes("events")) {
-      $(`#${hashParam}`).css({"visibility": "visible", "opacity": "1"});
+
+
+    // Open Event Modal
+    var ind = windowUrl.lastIndexOf("#");
+    if (ind !== -1) {
+        var hashParam = windowUrl.substr(ind + 1);
+        console.log(hashParam);
+        if (hashParam.includes("events")) {
+            $(`#${hashParam}`).css({ "visibility": "visible", "opacity": "1" });
+        }
     }
-  }
 });
 
 
-$('.two').css({'background': 'url(../images/Events/Dhwani.jpg)', 'background-repeat': 'no repeat'});
+$('.two').css({ 'background': 'url(../images/Events/Dhwani.jpg)', 'background-repeat': 'no repeat' });
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }

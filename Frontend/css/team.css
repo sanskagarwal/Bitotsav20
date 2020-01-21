@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+  @font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat-SemiBold.ttf") format("opentype");
+  }
 
 body {
     background: #fff;
