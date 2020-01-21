@@ -12,21 +12,6 @@ var windowUrl = window.location.href;
 var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
 
-// var url=window.location.href;
-// console.log(url);
-// console.log(p.indexOf("?"));
-// var t=(p.length);
-// var l=(p.indexOf("="))
-// console.log(l);
-// var i;
-// var s='';
-// for(i=l+1;i<t;i++)
-// {
-//  s=s+p[i];
-// }
-// console.log(s);
-
-
 function eventdetails(events, i, s) {
     let duration = events.duration;
     let date = Number(duration.slice(0, 2)) - 13;
@@ -54,7 +39,7 @@ function eventdetails(events, i, s) {
                 <hr>
                 ${events.name}
                 <br>
-                <button data-toggle="modal" data-target="#events${i}Modal" class="btn btn-primary">Show Details</button>
+                <button data-toggle="modal" href="#events${i}Modal" class="btn btn-primary">Show Details</button>
             </div>
         </div>
         <div class="modal fade" id="events${i}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -106,43 +91,6 @@ function eventdetails(events, i, s) {
     `);
 }
 
-/*
-<div class="popup-inner">
-                <table style="width:100%" cellpadding="0" cellspacing="0" border="0">
-                    <tbody>
-                        <tr>
-                            <td class="text">EVENT CATEGORY:</td>
-                            <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">VENUE:</td>
-                            <td class="text-inner">${events.venue}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">DATE:</td>
-                            <td class="text-inner">${date}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">TIME:</td>
-                            <td class="text-inner">${time}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">DESCRIPTION:</td>
-                            <td class="text-inner">${events.description}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">RULES AND REGULATIONS:</td>
-                            <td class="text-inner">${events["rulesAndRegulations"].replace(/\n/g, "<p class='rulesAndReg'>")}</td>
-                        </tr>
-                        <tr>
-                            <td class="text">CONTACT INFORMATION:</td>
-                            <td class="text-inner">${events["contactInformation"]}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            */
-
 if (queryParam) {
     queryParam = queryParam.toLowerCase();
     var url1 = "https://bitotsav.in";
@@ -156,6 +104,17 @@ if (queryParam) {
                 for (i = 0; i < res.data.length; i++) {
                     $(".row").append(eventdetails(res.data[i], i, queryParam));
                 }
+
+                // Open Event Modal
+                var ind = windowUrl.lastIndexOf("#");
+                console.log(windowUrl);
+                if (ind !== -1) {
+                    var hashParam = windowUrl.substr(ind + 1);
+                    console.log(hashParam);
+                    if (hashParam.includes("events")) {
+                        $(`#${hashParam}`).modal('show');
+                    }
+                }
             }
         },
         error: function (err) {
@@ -164,40 +123,10 @@ if (queryParam) {
     });
 }
 
-$(document).ready(function () {
-    $(".button").on("click", function () {
-        $(`#events${i}Modal`).css({
-            "visibilty": "visible",
-            "opacity": "1",
-            "background": ""
-        });
-        4
+// $(document).ready(function () {
+//     // Open Event Modal
 
-    });
-
-
-
-
-
-    // Open Event Modal
-    var ind = windowUrl.lastIndexOf("#");
-    if (ind !== -1) {
-        var hashParam = windowUrl.substr(ind + 1);
-        console.log(hashParam);
-        if (hashParam.includes("events")) {
-            $(`#${hashParam}`).css({
-                "visibility": "visible",
-                "opacity": "1"
-            });
-        }
-    }
-});
-
-
-$('.two').css({
-    'background': 'url(../images/Events/Dhwani.jpg)',
-    'background-repeat': 'no repeat'
-});
+// });
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
