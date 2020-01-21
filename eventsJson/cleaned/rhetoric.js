@@ -23,16 +23,16 @@ const rhetoric = [
         2. Placards
         3. Water botles (small)-1 Carton
         4. Pens (2 boxes)`,
-"imageName": `bitMun.jpg`, "individual": `1`,
-"minParticipants": 1,
-"maxParticipants": 1,
-"cashPrize": " "
+		"imageName": `bitMun.jpg`, "individual": `1`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": " "
 	}, {
 		"id": 11,
 		"name": `KALAM-E-TAHIR`,
 		"eventCategory": `RHETORIC`,
 		"category": `Formal`,
-		"Points": `None`,
+		"points": `None`,
 		"venue": `LH-1`,
 		"duration": `14/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. Sanjay Kumar`,
@@ -56,13 +56,13 @@ const rhetoric = [
         3. Public Addressing System
         4. Water bottle-2 Cartons.
 `,
-"imageName": `kalamETahir.jpg`, "individual": `1`,
-"minParticipants": 1,
-"maxParticipants": 1,
-"cashPrize": "5k"
+		"imageName": `kalamETahir.jpg`, "individual": `1`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": "5k"
 	},
 	{
-		"id" : 12,
+		"id": 12,
 		"name": `EXTEMPORE`,
 		"eventCategory": `RHETORIC`,
 		"category": `Formal`,
@@ -87,9 +87,9 @@ const rhetoric = [
 		"minParticipants": 1,
 		"maxParticipants": 1,
 		"cashPrize": null
-		}
-		
-	
+	}
+
+
 ]
 
-module.exports = rhetoric ;
+module.exports = rhetoric;

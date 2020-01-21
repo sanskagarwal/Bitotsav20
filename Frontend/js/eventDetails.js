@@ -36,8 +36,9 @@ function eventdetails(events, i, s) {
         name: '',
         value: ''
     };
+    console.log(events.points)
     if (!events.points || events.points.toLowerCase() === 'none') {
-        pointsOrCash.name = 'CASHPRIZE:';
+        pointsOrCash.name = 'PRIZES WORTH:';
         pointsOrCash.value = '&#8377;&nbsp;' + events.cashPrize;
     } else {
         pointsOrCash.name = 'POINTS:';
@@ -47,8 +48,8 @@ function eventdetails(events, i, s) {
 
     return (`                                                                                    
     <div class="col-md-4">
-        <div class="card">
-            <img class="card-img-top" height="300" src="./images/Events/allEvents2/${imageName}.jpg" alt="${events.name}">
+        <div class="card" style="margin-bottom: 20px">
+            <img class="card-img-top img-fluid" height="300" src="./images/Events/allEvents3/${events.imageName}" alt="${events.name}">
             <div class="card-body">
                 <hr>
                 ${events.name}
@@ -71,10 +72,6 @@ function eventdetails(events, i, s) {
                     <tr>
                         <td class="text">EVENT CATEGORY:</td>
                         <td class="text-inner">${capitalizeFirstLetter(events.category)}</td>
-                    </tr>
-                    <tr>
-                        <td class="text">VENUE:</td>
-                        <td class="text-inner">${events.venue}</td>
                     </tr>
                     <tr>
                         <td class="text">DAY:</td>

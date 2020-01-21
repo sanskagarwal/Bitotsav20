@@ -13,24 +13,12 @@ body {
     background-attachment: fixed;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-}
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 
 #header {
-    margin: 0 100px;
+    padding: 0 100px;
     height: 80px;
     transition: all 0.5s;
     z-index: 997;

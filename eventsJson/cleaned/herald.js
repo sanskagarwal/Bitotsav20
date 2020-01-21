@@ -5,8 +5,8 @@ const herald = [
 		"eventCategory": `HERALD`,
 		"category": `Formal`,
 		"points": `75-50-25`,
-		"venue": `16/2: 1:00 PM - 4:00 PM`,
-		"duration": `3 hours`,
+		"duration": `16/2: 1:00 PM - 4:00 PM`,
+		"venue": `Room 211`,
 		"faculty advisor": `Dr. Vijay Nath`,
 		"club": `News and Publication Society`,
 		"description": `A crime has been committed on our campus and being a member of the fourth pillar of democracy, it's your job to bring the truth to the people. Follow the clues, interact with the witnesses and put your facts together to solve the mystery to get a taste of investigative journalism through this event.
@@ -29,16 +29,16 @@ const herald = [
 5. Pens
 6. ID Card for Volunteers with CSI Files written.
 `,
-"imageName": `CSIFiles.jpg`, "individual": `1`,
-"minParticipants": 1,
-"maxParticipants": 3,
-"cashPrize": null
+		"imageName": `csiFiles.jpg`, "individual": `1`,
+		"minParticipants": 1,
+		"maxParticipants": 3,
+		"cashPrize": null
 	}, {
 		"id": 25,
 		"name": `MEDIA CRE`,
 		"eventCategory": `HERALD`,
 		"category": `Formal`,
-		"Points": `75-50-25`,
+		"points": `75-50-25`,
 		"venue": `Classroom`,
 		"duration": `14/2: 10:00 AM - 1:00 PM`,
 		"faculty advisor": `Dr. Vijay Nath`,
@@ -58,13 +58,13 @@ const herald = [
 2. Pens
 3. Chalk Box
 `,
-"imageName": `mediaCre.jpg`, "individual": `1`,
-"minParticipants": 2,
-"maxParticipants": 3,
-"cashPrize": null
+		"imageName": `MediaCre.jpg`, "individual": `1`,
+		"minParticipants": 2,
+		"maxParticipants": 3,
+		"cashPrize": null
 	},
 	{
-		"id" : 40,
+		"id": 40,
 		"name": `THE JOURNALIST'S HOUR`,
 		"eventCategory": `HERALD`,
 		"category": `Formal`,
@@ -100,9 +100,9 @@ const herald = [
 		"minParticipants": 2,
 		"maxParticipants": 3,
 		"cashPrize": "10k"
-		}
-		
-	
+	}
+
+
 ]
 
-module.exports = herald ;
+module.exports = herald;

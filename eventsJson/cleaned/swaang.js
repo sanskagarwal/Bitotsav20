@@ -42,16 +42,16 @@ const swaang = [
         3. Judges refreshment
         4. Water
 `,
-"imageName": `pukaar.jpg`, "individual": `1`,
-"minParticipants": "",
-"maxParticipants": "",
-"cashPrize": "30k"
+		"imageName": `pukaar.jpg`, "individual": `1`,
+		"minParticipants": "",
+		"maxParticipants": "",
+		"cashPrize": "30k"
 	}, {
 		"id": 8,
 		"name": `ABHINAY`,
 		"eventCategory": `SWAANG`,
 		"category": `Flagship`,
-		"Points": `None`,
+		"points": `None`,
 		"venue": `G.P. Birla Auditorium`,
 		"duration": `15/2: 12:00 PM - 4:00 PM`,
 		"faculty advisor": `Dr. Sandeep Kumar Singh`,
@@ -80,13 +80,13 @@ const swaang = [
         3. Judges refreshment
         4. Water
 `,
-"imageName": `abhinay.jpg`, "individual": `1`,
-"minParticipants": "",
-"maxParticipants": "",
-"cashPrize": "30k"
+		"imageName": `abhinay.jpg`, "individual": `1`,
+		"minParticipants": "",
+		"maxParticipants": "",
+		"cashPrize": "30k"
 	},
 	{
-		"id" : 9,
+		"id": 9,
 		"name": `NATSAMRAAT`,
 		"eventCategory": `SWAANG`,
 		"category": `Formal`,
@@ -128,9 +128,9 @@ const swaang = [
 		"minParticipants": 1,
 		"maxParticipants": 1,
 		"cashPrize": "5k"
-		}
-		
-	
+	}
+
+
 ]
 
-module.exports = swaang ;
+module.exports = swaang;

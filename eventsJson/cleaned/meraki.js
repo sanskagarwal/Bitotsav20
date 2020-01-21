@@ -28,17 +28,17 @@ const meraki = [
         8. Disposable cup set (50pc)-1
         9. Stapler-6
         10. Stapler pins box-3`,
-"imageName": `masquerade.jpg`, "individual": `0`,
-"minParticipants": 1,
-"maxParticipants": 2,
-"cashPrize": null
+		"imageName": `masquerade.jpg`, "individual": `0`,
+		"minParticipants": 1,
+		"maxParticipants": 2,
+		"cashPrize": null
 	}, {
 		"id": 27,
 		"name": `LET'S SCRIBBLE`,
 		"eventCategory": `MERAKI`,
 		"imageName": ``,
 		"category": `Formal`,
-		"Points": `30-20-10`,
+		"points": `30-20-10`,
 		"venue": `Classroom`,
 		"duration": `2 hours`,
 		"faculty advisor": `Shri Mrinal Kumar Pathak`,
@@ -56,13 +56,13 @@ const meraki = [
         2. Black Pen (likho-pheko) set of 20pc  2
         3. Coloured Sketch pen set -10
         4. 3 Pencil set, 1 eraser set, 1 sharpener set`,
-"imageName": `letSScribble.jpg`, "individual": `0`,
-"minParticipants": 1,
-"maxParticipants": 1,
-"cashPrize": `5k`
+		"imageName": `letSScribble.jpg`, "individual": `0`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": `5k`
 	},
 	{
-		"id" : 28,
+		"id": 28,
 		"name": `STREAK`,
 		"eventCategory": `MERAKI`,
 		"category": `Formal`,
@@ -109,9 +109,9 @@ const meraki = [
 		"minParticipants": 2,
 		"maxParticipants": 3,
 		"cashPrize": ""
-		}
-		
-	
+	}
+
+
 ]
 
-module.exports = meraki ;
+module.exports = meraki;
