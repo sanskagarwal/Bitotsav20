@@ -99,7 +99,7 @@ router.post('/register', verifyToken, async (req, res) => {
             return res.json({ status: 400, message: "User not found" });
         }
 
-        const eventId = req.body.eventId;
+        const eventId = Number(req.body.eventId);
         if (!eventId || (eventId < 0) || (eventId > 40)) {
             return res.json({ status: 400, message: "Invalid Event Id" });
         }
@@ -234,7 +234,7 @@ router.post('/deregister', verifyToken, async (req, res) => {
             return res.json({ status: 400, message: "User not found." });
         }
 
-        const eventId = req.body.eventId;
+        const eventId = Number(req.body.eventId);
         if (!eventId || (eventId < 0) || (eventId > 40)) {
             return res.json({ status: 400, message: "Invalid Event Id." });
         }
