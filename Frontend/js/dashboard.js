@@ -25,7 +25,7 @@ $("#teamSize").change(function () {
 
 $("#logoutBtn").click(function () {
     localStorage.setItem("token", "");
-    window.location.href = "./signupin.html";
+    window.location.href = "./index.html";
 
 })
 
