@@ -132,3 +132,5 @@ $('.main-nav a, .mobile-nav a, .scrollto').on('click', function () {
 		
 	});
 });
+
+$('.cd-section a').addClass('btn-info')

@@ -5,7 +5,7 @@ const digitales = [
 		, "category": `Flagship`
 		, "eventCategory": `DIGITALES`
 		, "venue": `CAT Hall`
-		, "duration": `13/2: 10:00 AM - 3:00 PM`
+		, "duration": `14/2: 10:00 AM - 3:00 PM`
 		, "faculty Advisor": `Dr. Sanjay Kumar`
 		, "club": `Photographic Society`
 		, "points": `None`
@@ -86,7 +86,7 @@ const digitales = [
 		, "category": `Online-Formal`
 		, "eventCategory": `DIGITALES`
 		, "venue": `Facebook page of Bitotsav`
-		, "duration": `3 weeks (3 Themes)`
+		, "duration": `@Online: 3 weeks`
 		, "points": `None`
 		, "faculty Advisor": `Dr. Sanjay Kumar`
 		, "club": `Photographic Society`

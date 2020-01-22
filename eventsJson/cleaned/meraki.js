@@ -36,11 +36,10 @@ const meraki = [
 		"id": 27,
 		"name": `LET'S SCRIBBLE`,
 		"eventCategory": `MERAKI`,
-		"imageName": ``,
 		"category": `Formal`,
 		"points": `30-20-10`,
 		"venue": `Classroom`,
-		"duration": `2 hours`,
+		"duration": `14/2: 10:00 AM - 1:00 PM`,
 		"faculty advisor": `Shri Mrinal Kumar Pathak`,
 		"club": `Fine Arts Society`,
 		"description": `Are you the one who scribbles to get over boring lectures? Does the intricacies in the doodles astound you? Then get ready to make some tght curls, some jagged zigzags, loops, coils and points untl your heart says it   s done in this event that will let your creatvity juggle your grey mater.
@@ -66,9 +65,9 @@ const meraki = [
 		"name": `STREAK`,
 		"eventCategory": `MERAKI`,
 		"category": `Formal`,
-		"points": ``,
+		"points": `None`,
 		"venue": `Classroom`,
-		"duration": `2 hours`,
+		"duration": `@Online: 3 weeks`,
 		"faculty advisor": `Shri Mrinal Kumar Pathak`,
 		"club": `Fine Arts Society`,
 		"description": `If you think you can best express yourself using a canvas and a paintbrush, then this is the place for you. Let your imagination run wild and use those beautiful colours to bring it on the canvas in front of you. Send us an electronic entry of the same.
@@ -100,15 +99,14 @@ const meraki = [
 		"contactInformation": `1. Ankit: 9521616410
         2. Sheshadri: 7903782338
 `,
-		"resources required": `1. 10 Ivory sheets(
-			for placards)
+		"resources required": `1. 10 Ivory sheets(for placards)
 		2. Judging sheets(to be printed)
 		3. Pens - 1 box
 `,
 		"imageName": `streak.jpg`, "individual": `1`,
 		"minParticipants": 2,
 		"maxParticipants": 3,
-		"cashPrize": ""
+		"cashPrize": "-"
 	}
 
 
