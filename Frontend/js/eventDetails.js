@@ -329,6 +329,7 @@ function getEventByCategory() {
                 }
             },
             error: function (err) {
+                $('body').addClass('loaded');
                 alert("Some Error Occured, while fetching Event Details");
             }
         });
