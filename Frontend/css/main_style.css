@@ -10172,6 +10172,39 @@ body.mobile-nav-active #mobile-nav {
 }
 
 @media (max-width: 600px) {
+    .img1 {
+        background-image: url("../images/index/mob/img1Mob.jpg") !important;
+    }
+    .img2{
+        background-image: url('../images/index/mob/img2Mob.jpg') !important;
+    }
+    .img3{
+        background-image: url('../images/index/mob/img3Mob.jpg') !important;
+    }
+    .img4{
+        background-image: url('../images/index/mob/img4Mob.jpg') !important;
+    }
+    .img5{
+        background-image: url('../images/index/mob/img5Mob.jpg') !important;
+    }
+    .img6{
+        background-image: url('../images/index/mob/img6Mob.jpg') !important;
+    }
+    .img7{
+        background-image: url('../images/index/mob/img7Mob.jpg') !important;
+    }
+    #socialTheme {
+        background-image: url('../images/index/mob/socialThemesMob.jpg') !important;
+    }
+    #testimonial {
+        background-image: url('../images/index/mob/testiAMob.jpg') !important;
+    }
+    #theme {
+        background-image: url('../images/index/mob/themeCMob.jpg') !important;
+    }
+    #facts {
+        background-image: url('../images/index/mob/crowdDemographicsMob.jpg') !important;
+    }
     .g-recaptcha {
         width: 280px;
     }
