@@ -411,9 +411,19 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
         });
     }
 
+    if (teamSize !== req.body.membersData.length) {
+        return res.json({
+            status: 422,
+            message: "Invalid Team Size"
+        });
+    }
+
     let membersData = [];
     for (let i = 0; i < teamSize; i++) {
         const obj = req.body.membersData[i];
+        if (!obj) {
+            return res.json({ status: 422, message: `Missing Data of member ${i + 1}` });
+        }
         let bitotsavId = obj.bitotsavId, emailId = obj.email;
         if (!bitotsavId || !emailId) {
             return res.json({ status: 422, message: `Missing Data of member ${i + 1}` });
@@ -548,7 +558,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                 { $set: { teamMongoId: _id } }
             );
             res.json({ status: 200, message: "Team registration complete!" });
-            newTeam.teamNotifications.push({message: `${user.name} registered the team ${newTeam.teamName}  with ${newTeam.teamSize} members.`});
+            newTeam.teamNotifications.push({ message: `${user.name} registered the team ${newTeam.teamName}  with ${newTeam.teamSize} members.` });
             await newTeam.save();
         } catch (e) {
             console.log(e);
