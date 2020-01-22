@@ -25,7 +25,7 @@ $("#teamSize").change(function () {
 
 $("#logoutBtn").click(function () {
     localStorage.setItem("token", "");
-    window.location.href = "./signupin.html";
+    window.location.href = "./index.html";
 
 })
 
@@ -38,86 +38,7 @@ $(window).on("load resize ", function () {
 
 
 const url = "https://bitotsav.in/api";
-let dhwaniCounter = 0, dansationCounter = 0, swaangCounter = 0, rhetoricCounter = 0, taabirCounter = 0, adaaCounter = 0, digitalesCounter = 0, heraldCounter = 0, merakiCounter = 0, euphoriaCounter = 0;
 var userEvents = [];
-function getAllEvents() {
-    $.ajax({
-        url: url + "/events/allEvents",
-        method: "GET",
-        headers: {
-            "x-access-token": localStorage.getItem("token")
-        },
-        cors: true,
-        success: function (res) {
-            if (res.status === 200) {
-
-                var allevents = res.events;
-                console.log(allevents);
-                console.log(typeof (allevents instanceof Array));
-                let notRegisteredEvents = res.events;
-                for (let i = 0; i < allevents.length; i++) {
-                    let eventRegistered = false;
-                    for (let j = 0; j < userEvents.length; j++) {
-                        if (userEvents[j].eventId === allevents[i].id) {
-                            eventRegistered = true;
-                        }
-                    }
-                    if (eventRegistered === true) {
-                        notRegisteredEvents.splice(i);
-                    }
-                }
-                console.log(notRegisteredEvents)
-                for (let i = 0; i < notRegisteredEvents.length; i++) {
-                    let category = notRegisteredEvents[i].eventCategory;
-                    category = category.toUpperCase();
-                    if (category === "DHWANI") {
-                        dhwaniCounter = dhwaniCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, dhwaniCounter);
-                    }
-                    if (category === "DANSATION") {
-                        dansationCounter = dansationCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, dansationCounter);
-                    }
-                    if (category === "SWAANG") {
-                        swaangCounter = swaangCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, swaangCounter);
-                    }
-                    if (category === "RHETORIC") {
-                        rhetoricCounter = rhetoricCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, rhetoricCounter);
-                    }
-                    if (category === "TAABIR") {
-                        taabirCounter = taabirCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, taabirCounter);
-                    }
-                    if (category === "ADAA") {
-                        adaaCounter = adaaCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, adaaCounter);
-                    }
-                    if (category === "DIGITALES") {
-                        digitalesCounter = digitalesCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, digitalesCounter);
-                    }
-                    if (category === "HERALD") {
-                        heraldCounter = heraldCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, heraldCounter);
-                    }
-                    if (category === "MERAKI") {
-                        merakiCounter = merakiCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, merakiCounter);
-                    }
-                    if (category === "EUPHORIA") {
-                        euphoriaCounter = euphoriaCounter + 1;
-                        dropdownEvents(category, notRegisteredEvents[i].name, euphoriaCounter);
-                    }
-                }
-            }
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
 
 $.ajax({
     url: url + "/dash/getProfile",
@@ -129,16 +50,16 @@ $.ajax({
     success: function (res) {
         if (res.status === 200) {
             console.log(res);
-            $("#userName").val(res.user._doc.name);
-            $("#userEmail").val(res.user._doc.email);
-            $("#userPhone").val(res.user._doc.phoneNo);
-            $("#userBitId").val(`BIT-${res.user._doc.bitotsavId}`);
-            $("#userClgId").val(res.user._doc.clgId);
-            $("#userClgName").val(res.user._doc.clgName);
-            $("#userClgCity").val(res.user._doc.clgCity);
-            $("#userClgState").val(res.user._doc.clgState);
-            $("#bitId0").val(res.user._doc.bitotsavId);
-            $("#email0").val(res.user._doc.email);
+            $("#userName").val(res.user.name);
+            $("#userEmail").val(res.user.email);
+            $("#userPhone").val(res.user.phoneNo);
+            $("#userBitId").val(`BIT-${res.user.bitotsavId}`);
+            $("#userClgId").val(res.user.clgId);
+            $("#userClgName").val(res.user.clgName);
+            $("#userClgCity").val(res.user.clgCity);
+            $("#userClgState").val(res.user.clgState);
+            $("#bitId0").val(res.user.bitotsavId);
+            $("#email0").val(res.user.email);
             if (res.isInTeam === true) {
                 $("#tableAndForm").remove();
                 userEvents = res.user.teamEventsRegistered;
@@ -157,7 +78,8 @@ $.ajax({
             else {
                 userEvents = res.user.soloEventsRegistered;
             }
-            if (!userEvents) {
+            console.log(userEvents);
+            if (!userEvents || userEvents.length === 0) {
                 userEvents = [];
                 $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
             } else {
@@ -169,23 +91,14 @@ $.ajax({
                 $("#gender-icon-insert").prepend("<i id='gender-icon' class='fas fa-male'>")
             }
 
-            getAllEvents();
+            // getAllEvents();
             for (let i = 0; i < userEvents.length; i++) {
                 let isEventLead = userEvents[i].eventLeaderBitotsavId === res.user.bitotsavId;
                 eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId, isEventLead);
             }
-
         }
     }
 });
-
-function dropdownEvents(ctg, newEvent, counter) {
-    ctg = ctg.toLowerCase();
-    let appendEvent = '<a class="dropdown-item " href="eventsdetails.html?q=' + ctg + '#events' + counter + 'Modal">' + newEvent + '</a>';
-    console.log(appendEvent);
-    ctg = ctg.toUpperCase();
-    $("#" + ctg).append(appendEvent);
-}
 
 function deregisterEvent(eid) {
     $.ajax({
@@ -261,9 +174,9 @@ function changePassword() {
                 $("#password-message").text(res.message);
                 $("#changePasswordBtn").attr("disabled", false);
                 $("#loadshow1").hide();
-                // setTimeout(function () {
-                //     window.location.reload(true);
-                // }, 1600);
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 1600);
             }
         },
         error: function (err) {
@@ -274,7 +187,6 @@ function changePassword() {
     });
 
 }
-
 
 function registerTeam() {
 
@@ -296,7 +208,7 @@ function registerTeam() {
     $("#teamRegister").attr("disabled", true);
     const membersData = [];
     for (i = 0; i < teamSize1; i++) {
-        obj = {
+        let obj = {
             bitotsavId: $(`#bitId${i}`).val(),
             email: $(`#email${i}`).val()
         }
@@ -306,7 +218,6 @@ function registerTeam() {
     console.log(membersData);
     console.log(teamName);
     console.log(teamSize);
-
 
     $.ajax({
         url: url + "/dash/teamRegister",
@@ -321,7 +232,7 @@ function registerTeam() {
             membersData: membersData
         },
         success: function (res) {
-            if (res.status == 200) {
+            if (res.status === 200) {
                 $("#reg-message").text(res.message);
                 $("#loadshow2").hide();
                 $("#teamRegister").attr("disabled", false);
@@ -330,9 +241,9 @@ function registerTeam() {
                 $("#reg-message").text(res.message);
                 $("#loadshow2").hide();
                 $("#teamRegister").attr("disabled", false);
-                // setTimeout(function () {
-                //     window.location.reload(true);
-                // }, 1600);
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 1600);
             }
         },
         error: function (err) {
@@ -340,3 +251,89 @@ function registerTeam() {
         }
     });
 }
+
+
+// let dhwaniCounter = 0, dansationCounter = 0, swaangCounter = 0, rhetoricCounter = 0, taabirCounter = 0, adaaCounter = 0, digitalesCounter = 0, heraldCounter = 0, merakiCounter = 0, euphoriaCounter = 0;
+// function dropdownEvents(ctg, newEvent, counter) {
+//     ctg = ctg.toLowerCase();
+//     let appendEvent = '<a class="dropdown-item " href="eventsdetails.html?q=' + ctg + '#events' + counter + 'Modal">' + newEvent + '</a>';
+//     console.log(appendEvent);
+//     ctg = ctg.toUpperCase();
+//     $("#" + ctg).append(appendEvent);
+// }
+// function getAllEvents() {
+//     $.ajax({
+//         url: url + "/events/allEvents",
+//         method: "GET",
+//         headers: {
+//             "x-access-token": localStorage.getItem("token")
+//         },
+//         cors: true,
+//         success: function (res) {
+//             if (res.status === 200) {
+
+//                 var allevents = res.events;
+//                 let notRegisteredEvents = res.events;
+//                 for (let i = 0; i < allevents.length; i++) {
+//                     let eventRegistered = false;
+//                     for (let j = 0; j < userEvents.length; j++) {
+//                         if (userEvents[j].eventId === allevents[i].id) {
+//                             eventRegistered = true;
+//                         }
+//                     }
+//                     if (eventRegistered === true) {
+//                         notRegisteredEvents.splice(i);
+//                     }
+//                 }
+//                 console.log(notRegisteredEvents)
+//                 for (let i = 0; i < notRegisteredEvents.length; i++) {
+//                     let category = notRegisteredEvents[i].eventCategory;
+//                     category = category.toUpperCase();
+//                     if (category === "DHWANI") {
+//                         dhwaniCounter = dhwaniCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, dhwaniCounter);
+//                     }
+//                     if (category === "DANSATION") {
+//                         dansationCounter = dansationCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, dansationCounter);
+//                     }
+//                     if (category === "SWAANG") {
+//                         swaangCounter = swaangCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, swaangCounter);
+//                     }
+//                     if (category === "RHETORIC") {
+//                         rhetoricCounter = rhetoricCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, rhetoricCounter);
+//                     }
+//                     if (category === "TAABIR") {
+//                         taabirCounter = taabirCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, taabirCounter);
+//                     }
+//                     if (category === "ADAA") {
+//                         adaaCounter = adaaCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, adaaCounter);
+//                     }
+//                     if (category === "DIGITALES") {
+//                         digitalesCounter = digitalesCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, digitalesCounter);
+//                     }
+//                     if (category === "HERALD") {
+//                         heraldCounter = heraldCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, heraldCounter);
+//                     }
+//                     if (category === "MERAKI") {
+//                         merakiCounter = merakiCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, merakiCounter);
+//                     }
+//                     if (category === "EUPHORIA") {
+//                         euphoriaCounter = euphoriaCounter + 1;
+//                         dropdownEvents(category, notRegisteredEvents[i].name, euphoriaCounter);
+//                     }
+//                 }
+//             }
+//         },
+//         error: function (err) {
+//             console.log(err);
+//         }
+//     });
+// }

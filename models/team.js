@@ -11,7 +11,8 @@ const teamMemberSchema = new schema({
         required: true
     },
     name: {
-        type: String
+        type: String,
+        required: true
     }
 });
 
@@ -23,6 +24,17 @@ const registeredEventSchema = new schema({
     eventLeaderBitotsavId: {
         type: Number,
         required: true 
+    }
+});
+
+const notificationSchema = new schema({
+    message: {
+        type: String,
+        required: true
+    },
+    timeStamp: {
+        type: Date,
+        default: Date.now
     }
 });
 
@@ -68,6 +80,10 @@ const teamSchema = new schema({
     teamVerified: {
         type: Boolean,
         default: false
+    },
+    teamNotifications: {
+        type: [notificationSchema],
+        default: []
     },
     dummy1: {
         type: String,

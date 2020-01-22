@@ -6,7 +6,7 @@ const rhetoric = [
 		"category": `Flagship`,
 		"points": `None`,
 		"venue": `LH-1`,
-		"duration": `14/2 & 15/2: 9:00 AM - 5:00 PM`,
+		"duration": `14/2: 9:00 AM - 5:00 PM`,
 		"faculty advisor": `Dr. S.K. Mishra`,
 		"club": `UNESQUO`,
 		"description": `BIT-MUN is based on the idea of United Natons General Assembly, where each partcipant represents a certain country or positon. The Assembly has a discussion over a certain topic, on which each partcipant has to present his/her stand according to the country he/she represents.
@@ -68,7 +68,7 @@ const rhetoric = [
 		"category": `Formal`,
 		"points": `30-20-10`,
 		"venue": `Classroom`,
-		"duration": `17/2: 2:00 PM - 5:00 PM`,
+		"duration": `16/2: 2:00 PM - 5:00 PM`,
 		"faculty advisor": `Dr. S. K. Mishra`,
 		"club": `UNESQUO`,
 		"description": `This is an oratory event, where the participant needs to speak on a topic which will be revealed on the spot. They will be judged on their content, presentation and grammar.

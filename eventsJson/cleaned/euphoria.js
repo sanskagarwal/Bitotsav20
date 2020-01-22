@@ -119,7 +119,7 @@ const euphoria = [
 		, "name": `FOODOMANIA`
 		, "eventCategory": `euphoria`
 		, "category": `Formal`
-		, " Points": `50 - 30 - 20`
+		, "points": `50 - 30 - 20`
 		, "venue": `Mehek`
 		, "duration": `14/2: 10:00 AM - 1:00 PM`
 		, "faculty Advisor": `Mr.Prem Prakash`
@@ -254,7 +254,7 @@ Disposable Plates
 		, "name": `BEAT THE CLOCK`
 		, "eventCategory": `euphoria`
 		, "category": `Formal`
-		, " Points": `50 - 30 - 20`
+		, "points": `50 - 30 - 20`
 		, "venue": `IC Arena`
 		, "duration": `15/2: 1:00 PM - 4:00 PM`
 		, "faculty Advisor": `Dr.Rajeev Kumar`
