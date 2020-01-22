@@ -547,7 +547,9 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                 { bitotsavId: { $in: bitotsavIdsInTeam } },
                 { $set: { teamMongoId: _id } }
             );
-            return res.json({ status: 200, message: "Team registration complete!" });
+            res.json({ status: 200, message: "Team registration complete!" });
+            newTeam.teamNotifications.push({message: `${user.name} registered the team ${newTeam.teamName}  with ${newTeam.teamSize} members.`});
+            await newTeam.save();
         } catch (e) {
             console.log(e);
             return res.json({ status: 500, message: "Internal server error" });
