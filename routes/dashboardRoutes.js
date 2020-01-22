@@ -105,7 +105,8 @@ router.post('/register', verifyToken, async (req, res) => {
         }
 
         //Event Name will not be in body
-        const eventName = await eventModel.findOne({ id: eventId }, 'name');
+        const eventDetail = await eventModel.findOne({ id: eventId });
+        const eventName = eventDetail.name;
 
         const participantsObjectArray = [...(req.body.participants)];
         //participants' bitotsavId and email is provided as an array of objects
@@ -132,14 +133,17 @@ router.post('/register', verifyToken, async (req, res) => {
             const teamMembers = team.teamMembers;
             const teamSize = teamMembers.length;
             for (let i = 0; i < participantsSize; i++) {
-                for (let j = 0; j < teamSize; j++) {
-                    if ((participantsObjectArray[i].bitotsavId === teamMembers[j].bitotsavId) && (participantsObjectArray[i].email === teamMembers[j].email)) {
+                let j;
+                for (j = 0; j < teamSize; j++) {
+                    if ((Number(participantsObjectArray[i].bitotsavId) === teamMembers[j].bitotsavId) && (participantsObjectArray[i].email === teamMembers[j].email)) {
                         break;
                     }
                 }
                 if (j === teamSize) { // No member found
-                    return res.json({ status: 403, message: `The participant with email: ${participantsObjectArray[i].email} is not a part of current team.` });
-                    break;
+                    return res.json({
+                        status: 403,
+                        message: `The participant with email: ${participantsObjectArray[i].email} is not a part of current team.`
+                    });
                 }
             }
 
@@ -147,7 +151,7 @@ router.post('/register', verifyToken, async (req, res) => {
             let participants = [];
             participantsObjectArray.forEach((member) => {
                 participants.push({
-                    bitotsavId: member.bitotsavId,
+                    bitotsavId: Number(member.bitotsavId),
                     email: member.email
                 });
             });
@@ -168,7 +172,7 @@ router.post('/register', verifyToken, async (req, res) => {
             //check1....the participants array must be unique objects
             const participantsSet = new Set(participantsObjectArray);
             if (participantsSet.size < participantsObjectArray.length) {
-                return res.json({ status: 403, message: "Duplicate participants not allowed!!" });
+                return res.json({ status: 403, message: "Duplicate participants not allowed." });
             }
 
             //check2....participants credentials must be correct and none of the participants should already be in any sub-team registered for that event
@@ -176,7 +180,7 @@ router.post('/register', verifyToken, async (req, res) => {
                 let indivParticipant = await userModel.findOne({ email: participantsObjectArray[i].email, bitotsavId: participantsObjectArray[i].bitotsavId, teamMongoId: null });
                 if (indivParticipant) {
                     if (indivParticipant.soloEventsRegistered.find((event) => event.eventId === eventId)) {
-                        return res.json({ status: 403, message: `Participant (${indivParticipant.name}) is already registered in this event!!` });
+                        return res.json({ status: 403, message: `Participant (${indivParticipant.name}) is already registered in this event.` });
                     }
                     continue;
                 }
@@ -201,10 +205,11 @@ router.post('/register', verifyToken, async (req, res) => {
                 members: soloParticipants
             };
             await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { $push: { soloEventsRegistered: event } });
-            return res.json({ status: 200, message: `Congrats ${rawUser.name}!!As the event leader you have successfully registered for ${eventName} along with your friends!!` });
+            return res.json({ status: 200, message: `${rawUser.name} have successfully registered for ${eventName} as the event leader.` });
         }
     }
     catch (e) {
+        console.log(e);
         return res.json({ status: 500, message: "Internal server error!!" });
     }
 });
@@ -226,16 +231,17 @@ router.post('/deregister', verifyToken, async (req, res) => {
         const userMongoId = req.userId;
         const rawUser = await userModel.findById(userMongoId);
         if (!rawUser) {
-            return res.json({ status: 400, message: "User not found!!" });
+            return res.json({ status: 400, message: "User not found." });
         }
 
         const eventId = req.body.eventId;
         if (!eventId || (eventId < 0) || (eventId > 40)) {
-            return res.json({ status: 400, message: "Invalid Event Id!!" });
+            return res.json({ status: 400, message: "Invalid Event Id." });
         }
 
         //Event Name will not be in body
-        const eventName = await eventModel.findOne({ id: eventId }, 'name');
+        const eventDetail = await eventModel.findOne({ id: eventId });
+        const eventName = eventDetail.name;
 
         const teamMongoId = rawUser.teamMongoId;
         const userBitotsavId = rawUser.bitotsavId;
@@ -245,13 +251,13 @@ router.post('/deregister', verifyToken, async (req, res) => {
             //check1....user must be registered in the team event specified by eventId
             const event = teamEventsReg.find((eventObj) => eventObj.eventId === eventId);
             if (!event) {
-                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place!!" });
+                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place." });
             }
 
             //check2....user must be the event leader for that event
             const leaderBitotsavId = event.eventLeaderBitotsavId;
             if (userBitotsavId !== leaderBitotsavId) {
-                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event!!" });
+                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event." });
             }
 
             //now deregister from the event
@@ -271,7 +277,7 @@ router.post('/deregister', verifyToken, async (req, res) => {
             //check2....user must be the event leader for that event
             const leaderBitotsavId = event.eventLeaderBitotsavId;
             if (userBitotsavId !== leaderBitotsavId) {
-                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event!!" });
+                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event." });
             }
 
             //now deregister from the event
@@ -281,13 +287,13 @@ router.post('/deregister', verifyToken, async (req, res) => {
                 soloParticipantsEmail.push(participant.email);
             });
 
-
             await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { $pull: { soloEventsRegistered: { eventId: eventId } } });
-            return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
+            return res.json({ status: 200, message: `Successfully de-registered from the event: ${eventName}` });
         }
     }
     catch (e) {
-        return res.json({ status: 500, message: "Internal server error!!" });
+        console.log(e);
+        return res.json({ status: 500, message: "Internal server error." });
     }
 });
 
@@ -456,7 +462,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
     if (bitotsavIdSet.size < teamSize) {
         return res.json({
             status: 415,
-            message: "Ensure that unique pantheon ids are used for team regsitration!"
+            message: "Ensure that unique Bitotsav ids are used for team regsitration!"
         });
     }
 
