@@ -37,7 +37,7 @@ $(window).on("load resize ", function () {
 }).resize();
 
 
-const url = "http://localhost:5000/api";
+const url = "https://bitotsav.in/api";
 var userEvents = [];
 
 $.ajax({
