@@ -23,15 +23,19 @@ router.get('/getProfile', verifyToken, async (req, res) => {
         }
 
         if (!rawUser.teamMongoId) {
-            let user = { ...rawUser };
-            delete user.password;
-            delete user.emailOTP;
-            delete user.mobileOTP;
-            delete user.teamMongoId;
-            delete user.teamEventsRegistered;
-            delete user.dummy1;
-            delete user.dummy2;
-            delete user.dummy3;
+            let user = {
+                name: rawUser.name,
+                email: rawUser.email,
+                phoneNo: rawUser.phoneNo,
+                gender: rawUser.gender,
+                clgName: rawUser.clgName,
+                clgCity: rawUser.clgCity,
+                clgState: rawUser.clgState,
+                clgId: rawUser.clgId,
+                isTeamLeader: rawUser.isTeamLeader,
+                bitotsavId: rawUser.bitotsavId,
+                soloEventsRegistered: rawUser.soloEventsRegistered
+            };
 
             return res.json({ status: 200, user: user, isInTeam: false });
         }
@@ -44,20 +48,28 @@ router.get('/getProfile', verifyToken, async (req, res) => {
             return res.json({ status: 400, message: "Malacious user" });
         }
 
-        let user = { ...rawUser };
-        delete user.password;
-        delete user.emailOTP;
-        delete user.mobileOTP;
-        delete user.teamMongoId;
-        delete user.soloEventsRegistered;
-        delete user.dummy1;
-        delete user.dummy2;
-        delete user.dummy3;
+        let user = {
+            name: rawUser.name,
+            email: rawUser.email,
+            phoneNo: rawUser.phoneNo,
+            gender: rawUser.gender,
+            clgName: rawUser.clgName,
+            clgCity: rawUser.clgCity,
+            clgState: rawUser.clgState,
+            clgId: rawUser.clgId,
+            isTeamLeader: rawUser.isTeamLeader,
+            bitotsavId: rawUser.bitotsavId,
+            teamEventsRegistered: rawUser.teamEventsRegistered
+        };
 
-        delete team.dummy1;
-        delete team.dummy2;
+        let teamD = {
+            teamName: team.teamName,
+            teamSize: team.teamSize,
+            teamId: team.teamId,
+            teamMembers: team.teamMembers
+        }
 
-        return res.json({ status: 200, user: user, team: team, isInTeam: true });
+        return res.json({ status: 200, user: user, team: teamD, isInTeam: true });
     }
     catch (e) {
         return res.json({ status: 500, message: "Internal server error." });
