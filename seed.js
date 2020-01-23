@@ -101,6 +101,28 @@ if (req === 1) {
                 return console.log(error);
             })
     });
-} else {
-    console.log("Check Number");
+} else if (req === 6) {
+    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang, ...taabiir];
+    let nameList = new Set();
+    let mySet = new Set();
+    events.forEach((val) => {
+        nameList.add(val.name);
+        mySet.add(val.imageName);
+    });
+    console.log(nameList.size);
+    console.log(mySet.size);
+    eventModel.find({}, (err, eventRes) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(eventRes.length);
+        let nameList = new Set();
+        let mySet = new Set();
+        eventRes.forEach((val) => {
+            nameList.add(val.name);
+            mySet.add(val.imageName);
+        });
+        console.log(nameList.size);
+        console.log(mySet.size);
+    });
 }

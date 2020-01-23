@@ -115,6 +115,30 @@ Round 2: Versatility Check:
 		"cashPrize": "1k"
 	},
 	{
+		"id": 41
+		, "name": `YOU’RE HIRED!`
+		, "eventCategory": `taabiir`
+		, "category": `Formal`
+		, "points": `30-20-10`
+		, "venue": `Classroom`
+		, "duration": `16/2: 2:00 PM - 5:00 PM`
+		, "Faculty Advisor": `Dr. Sukalyan Chakraborty`
+		, "club": `SMAC`
+		, "description": `This event comprises of 3 rounds. Round 1 is aptitude test which is followed by
+		a group discussion in round 2. Round 3 is personal interview.
+`
+		, "rulesAndRegulations": `1. Individual participation`
+		, "contactInformation": `1. Siddhi: 7021121526
+		2. Aditya: 9709315267
+`
+		, "resources required": `1. Paper-150 sheets
+		2. Pen-50`,
+		"imageName": `youReHired.jpg`, "individual": `0`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": null
+	},
+	{
 		"id": 17
 		, "name": `AUTO-QUIZ`
 		, "eventCategory": `taabiir`

@@ -10214,9 +10214,6 @@ body.mobile-nav-active #mobile-nav {
     .g-recaptcha > div {
         width: 280px !important;
     }
-    * {
-        background-size: contain;
-    }
 }
 
 #contact .py-md-5 {

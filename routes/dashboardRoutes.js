@@ -163,7 +163,13 @@ router.post('/register', verifyToken, async (req, res) => {
             };
             // Nice DB Query :)
             await userModel.updateMany({ teamMongoId: teamMongoId }, { $push: { teamEventsRegistered: event } });
-            await teamModel.updateOne({ _id: teamMongoId }, { $push: { eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId } } });
+            await teamModel.updateOne({ _id: teamMongoId }, { 
+                $push: { 
+                    eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: { 
+                        message: `${rawUser.name} registered your team for the event ${eventName}` 
+                    }
+                }
+            });
             return res.json({ status: 200, message: `Successfully Registered, ${rawUser.name} is the event leader for the event ${eventName}` });
         }
 
@@ -204,7 +210,9 @@ router.post('/register', verifyToken, async (req, res) => {
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: soloParticipants
             };
-            await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { $push: { soloEventsRegistered: event } });
+            await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { 
+                $push: { soloEventsRegistered: event } 
+            });
             return res.json({ status: 200, message: `${rawUser.name} have successfully registered for ${eventName} as the event leader.` });
         }
     }
@@ -262,7 +270,10 @@ router.post('/deregister', verifyToken, async (req, res) => {
 
             //now deregister from the event
             await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: { teamEventsRegistered: { eventId: eventId } } });
-            await teamModel.updateOne({ _id: teamMongoId }, { $pull: { eventsRegistered: { eventId: eventId } } });
+            await teamModel.updateOne({ _id: teamMongoId }, { 
+                $pull: { eventsRegistered: { eventId: eventId } }, 
+                $push: { teamNotifications: { message: `${rawUser.name} deregistered the team from the event ${eventName}` } } 
+            });
             return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
         }
         else {
@@ -323,7 +334,18 @@ router.post('/deregister', verifyToken, async (req, res) => {
 
 
 
-
+router.get("/getTeamNotifications", verifyToken, async (req, res) => {
+    const user = await userModel.findById(req.userId);
+    if (!user) {
+        return res.json({ status: 400, message: "User not found" });
+    }
+    const teamId = user.teamMongoId;
+    const team = await teamModel.findById(teamId);
+    if (!team) {
+        return res.json({ status: 400, message: "User not registered in a team" });
+    }
+    return res.json({ status: 200, message: team.teamNotifications });
+});
 
 router.post(
     "/updatePassword",

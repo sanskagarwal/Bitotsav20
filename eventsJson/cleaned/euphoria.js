@@ -1,5 +1,52 @@
 const euphoria = [
-
+	{
+		"id": 42
+		, "name": `TECH RELAY`
+		, "eventCategory": `euphoria`
+		, "category": `Formal`
+		, "points": `75-50-25`
+		, "venue": `Mehek`
+		, "duration": `15/2: 10:00 AM - 1:00 PM`
+		, "faculty Advisor": `D. K. Upadhyay`
+		, "club": `IET`
+		, "description": `If you feel you have a Dora 'The Explorer' alongside a Derek O’Brien in your
+		team and you can memorize your mom's grocery list, why not show it oo. So,
+		join us at 'The Tech Relay' and make your team win big.
+        `
+		, "rulesAndRegulations": `1. Team Size-4.
+		2. No vehicular transports allowed.
+        `
+		, "contactInformation": `1. Kushal: 7376664861
+		2. Abhilasha: 8789351376
+        `
+		, "resources required": `
+		* Objects:
+		1. A4 paper 80
+		2. Pens 40
+		3. Tooth picks 250
+		4. Bowl 2
+		* Circular/Spherical:
+		5. Cello tapes 4
+		6. Plastc Balls 4
+		7. Botle caps 4
+		* Square/Cuboid:
+		8. Dice 49. Bricks 4
+		10.Eraser 4
+		* Triangular/Conical:
+		11. Set squares 4
+		12.Triangular flags 4
+		13.Ice cream cone 4
+		* Cylindrical:
+		14.Cold drink can (unused) 4
+		15.Fevicol 4
+		16.Water botle 4
+        `
+		, "imageName": `techRelay.jpg`
+		, "individual": `0`,
+		"minParticipants": 4,
+		"maxParticipants": 4,
+		"cashPrize": null
+	},
 	{
 		"id": 29
 		, "name": `PSYCH`
@@ -106,12 +153,40 @@ const euphoria = [
         `
 		, "contactInformation": `1. Trishant Agarwal: 9950069368
         2. Shivansh Goyal: 8505088160
-        BIT ROADIES
         `
 		, "imageName": `pitstop.jpg`
 		, "individual": `0`,
 		"minParticipants": 2,
 		"maxParticipants": 2,
+		"cashPrize": null
+	},
+	{
+		"id": 43
+		, "name": `BIT ROADIES`
+		, "eventCategory": `euphoria`
+		, "category": `Formal`
+		, "points": `30-20-10`
+		, "venue": `Apni Rasoi`
+		, "duration": `15/2: 2:00 PM - 5:00 PM`
+		, "faculty Advisor": `Mr. Prem Prakash`
+		, "club": `Rotaract`
+		, "description": `Based on MTV ROADIES. Interview + Tasks.`
+		, "rulesAndRegulations": `1. There will be 2 rounds in this event.
+		2. Round 1: A personal interview will be conducted on the basis of a
+		prepared questonnaire and 20 partcipants will be selected.
+		3. Round 2: The partcipants will batle for the ttle of the winner
+		through various gruelling tasks which will be both physically and
+		mentally challenging.
+		4. Based on Round 2, the best performer will be declared the winner of
+		BIT Roadies.
+        `
+		, "contactInformation": `1. Sinjini: 8582961928
+		2. Debarun: 8617273106
+        `
+		, "imageName": ``
+		, "individual": `0`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
 		"cashPrize": null
 	},
 	{
@@ -301,6 +376,35 @@ Disposable Plates
 		, "individual": `0`,
 		"minParticipants": 2,
 		"maxParticipants": 2,
+		"cashPrize": null
+	},
+	{
+		"id": 39
+		, "name": `FOLD & FLY`
+		, "eventCategory": `euphoria`
+		, "category": `Formal`
+		, "points": `75-50-25`
+		, "venue": `Lecture Hall`
+		, "duration": `16/2: 9:00 AM - 12:00 PM`
+		, "faculty Advisor": `Dr. Priyank Kumar`
+		, "club": `Aerospace Society`
+		, "description": `A fun and exciting event wherein students are required to design paper airplanes. They are expected to answer questions like how manipulating the design of aircraft changes the size and direction of flight forces and link those changes to changes in the aircraft’s motion. Accordingly the design of paper airplanes is done.
+        `
+		, "rulesAndRegulations": `1.	Each team will be provided with 3 A4 sheets only.
+		2.	Each team is to design and build their own paper aircraft, keeping in mind the four forces affecting flight. 
+		3.	The airplanes will be judged in two different categories: 1) the furthest distance traveled and 2) the gliding time.
+		4.	Students are allowed to make up to 3 variations of their airplanes but only 2 can be used in the contest. The better of the two will be considered for judgement.
+		5.	No other sheets of paper will be handed out.
+		6.	Teams will be given 30 minutes for designing and building their planes and 15 minutes for testing per slot. (Team Size: 2-3 members)
+		7.	Teams won't be allowed to use any kind of reference during the design phase.
+        `
+		, "contactInformation": `1.	Jyoti: 7632909273
+		2.	Abhishek Chowdhary: 8918034158
+    `
+		, "imageName": `fold&Fly.jpg`
+		, "individual": `0`,
+		"minParticipants": 2,
+		"maxParticipants": 3,
 		"cashPrize": null
 	}
 ]
