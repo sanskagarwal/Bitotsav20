@@ -49,8 +49,9 @@ const dhwani = [
     `
 		, "imageName": `saptak.jpg`
 		, "individual": `1`,
-		"minParticipants": null,
-		"maxParticipants": null,
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "30k"
 	},
 	{
@@ -102,8 +103,9 @@ const dhwani = [
     `
 		, "imageName": `rhapsody.jpg`
 		, "individual": `1`,
-		"minParticipants": null,
-		"maxParticipants": null,
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "30k"
 	},
 	{
@@ -138,8 +140,9 @@ const dhwani = [
     `
 		, "imageName": `acousticAlchemy.jpg`
 		, "individual": `0`,
-		"minParticipants": null,
-		"maxParticipants": null,
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": null
 	}
 

@@ -93,6 +93,7 @@ Round 2: Versatility Check:
 		, "eventCategory": `taabiir`
 		, "category": `Online`
 		, "points": `None`
+		,"venue": `Classroom`
 		, "duration": `15/2: 11:00 AM - 1:00 PM`
 		, "Faculty Advisor": `Dr. Sanjay Kumar`
 		, "club": `Literary Society, BIT Mesra`

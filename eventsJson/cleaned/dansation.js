@@ -43,8 +43,9 @@ const dansation = [
     `
 		, "imageName": `danceSaga.jpg`
 		, "individual": `0`,
-		"minParticipants": null,
-		"maxParticipants": null,
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "30k"
 	},
 	{
@@ -99,8 +100,9 @@ const dansation = [
     `
 		, "imageName": `stompTheYard.jpg`
 		, "individual": `1`,
-		"minParticipants": null,
-		"maxParticipants": null,
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "25k"
 	},
 	{

@@ -37,7 +37,7 @@ const eventSchema = new schema({
     category: {
         type: String,
         lowercase: true,
-        // required: true
+        required: true
     },
     eventCategory: {
         type: String,
@@ -46,11 +46,11 @@ const eventSchema = new schema({
     },
     venue: {
         type: String,
-        // required: true
+        required: true
     },
     duration: {
         type: String,
-        // required: true
+        required: true
     },
     "faculty advisors": {
         type: String,
@@ -62,22 +62,23 @@ const eventSchema = new schema({
     },
     points: {
         type: String,
-        default: null
+        required: true
+        // default: null
     },
     description: {
         type: String,
         trim: true,
-        // required: true
+        required: true
     },
     rulesAndRegulations: {
         type: String,
         trim: true,
-        // required: true
+        required: true
     },
     contactInformation: {
         type: String,
         trim: true,
-        // required: true
+        required: true
     },
     "resources required": {
         type: String,
@@ -85,11 +86,15 @@ const eventSchema = new schema({
     },
     imageName: {
         type: String,
-        default: null
+        required: true
     },
     individual: {
-        type: String,
+        type: Number,
         required: true
+    },
+    group: {
+        type: Number,
+        default: 0
     },
     eventWinners: {
         type: [eventWinnerSchema],
@@ -97,11 +102,11 @@ const eventSchema = new schema({
     },
     minParticipants: {
         type: Number,
-        // required: true
+        required: true
     },
     maxParticipants: {
         type: Number,
-        // required: true
+        required: true
     },
     cashPrize: {
         type: String,

@@ -41,8 +41,9 @@ const digitales = [
     7. Audio cable`
 		, "imageName": `talkies.jpg`
 		, "individual": `1`
-		, "minParticipants": null
-		, "maxParticipants": null
+		, "group": 1
+		, "minParticipants": 0
+		, "maxParticipants": 0
 		, "cashPrize": "20k"
 	},
 

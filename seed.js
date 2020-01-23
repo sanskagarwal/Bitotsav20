@@ -106,6 +106,10 @@ if (req === 1) {
     let nameList = new Set();
     let mySet = new Set();
     events.forEach((val) => {
+        if(!val.maxParticipants) {
+            console.log(val.name);
+            console.log(val.eventCategory)
+        }
         nameList.add(val.name);
         mySet.add(val.imageName);
     });

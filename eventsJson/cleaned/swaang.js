@@ -43,8 +43,9 @@ const swaang = [
         4. Water
 `,
 		"imageName": `pukaar.jpg`, "individual": `1`,
-		"minParticipants": "",
-		"maxParticipants": "",
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "30k"
 	}, {
 		"id": 8,
@@ -81,8 +82,9 @@ const swaang = [
         4. Water
 `,
 		"imageName": `abhinay.jpg`, "individual": `1`,
-		"minParticipants": "",
-		"maxParticipants": "",
+		"group": 1,
+		"minParticipants": 0,
+		"maxParticipants": 0,
 		"cashPrize": "30k"
 	},
 	{

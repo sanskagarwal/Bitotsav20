@@ -183,7 +183,7 @@ const euphoria = [
 		, "contactInformation": `1. Sinjini: 8582961928
 		2. Debarun: 8617273106
         `
-		, "imageName": ``
+		, "imageName": `roadies.jpg`
 		, "individual": `0`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
