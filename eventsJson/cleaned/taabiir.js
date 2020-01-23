@@ -53,7 +53,7 @@ Round 2: Versatility Check:
 		, "resources required": `1. Pen-1 box
 2. Printed scoring sheets
 3. Relevant furniture setup for ease in conducting team-wise discussion`,
-		"imageName": `none.jpg`, "individual": `0`,
+		"imageName": `ballador.jpg`, "individual": `0`,
 		"minParticipants": 1,
 		"maxParticipants": 2,
 		"cashPrize": null
@@ -146,7 +146,7 @@ Round 2: Versatility Check:
 		, "category": `Formal`
 		, "points": `50-30-20`
 		, "venue": `Classroom`
-		, "duration": `16/2: 2:00 PM - 5:00 PM`
+		, "duration": `14/2: 10:00 AM - 1:00 PM`
 		, "Faculty Advisor": `Dr. Paritosh Mahata`
 		, "club": `Firebolt Racing`
 		, "description": `Are you one of those people who have a thing for Cars? Do you have the passion for automobiles? If machines are your thing, and these mechanical beasts fascinate you, then this event is for you. Show- off your knowledge here at this Automobile Quiz!

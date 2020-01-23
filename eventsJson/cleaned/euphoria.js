@@ -6,7 +6,7 @@ const euphoria = [
 		, "category": `Formal`
 		, "points": `75-50-25`
 		, "venue": `Mehek`
-		, "duration": `15/2: 10:00 AM - 1:00 PM`
+		, "duration": `15/2: 2:00 PM - 5:00 PM`
 		, "faculty Advisor": `D. K. Upadhyay`
 		, "club": `IET`
 		, "description": `If you feel you have a Dora 'The Explorer' alongside a Derek O’Brien in your
@@ -167,7 +167,7 @@ const euphoria = [
 		, "category": `Formal`
 		, "points": `30-20-10`
 		, "venue": `Apni Rasoi`
-		, "duration": `15/2: 2:00 PM - 5:00 PM`
+		, "duration": `14/2: 2:00 PM - 5:00 PM`
 		, "faculty Advisor": `Mr. Prem Prakash`
 		, "club": `Rotaract`
 		, "description": `Based on MTV ROADIES. Interview + Tasks.`
@@ -183,7 +183,7 @@ const euphoria = [
 		, "contactInformation": `1. Sinjini: 8582961928
 		2. Debarun: 8617273106
         `
-		, "imageName": `roadies.jpg`
+		, "imageName": `bitRoadies.jpg`
 		, "individual": `0`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
@@ -385,7 +385,7 @@ Disposable Plates
 		, "category": `Formal`
 		, "points": `75-50-25`
 		, "venue": `Lecture Hall`
-		, "duration": `16/2: 9:00 AM - 12:00 PM`
+		, "duration": `14/2: 10:00 AM - 1:00 PM`
 		, "faculty Advisor": `Dr. Priyank Kumar`
 		, "club": `Aerospace Society`
 		, "description": `A fun and exciting event wherein students are required to design paper airplanes. They are expected to answer questions like how manipulating the design of aircraft changes the size and direction of flight forces and link those changes to changes in the aircraft’s motion. Accordingly the design of paper airplanes is done.

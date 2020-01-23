@@ -155,7 +155,7 @@ router.post('/register', verifyToken, async (req, res) => {
                     bitotsavId: Number(member.bitotsavId),
                     email: member.email
                 });
-                participantString += `${ind + 1}. ${member.bitotsavId}\n`;
+                participantString += `${ind + 1}. BIT-${member.bitotsavId}\n`;
             });
             const event = {
                 eventId: eventId,
