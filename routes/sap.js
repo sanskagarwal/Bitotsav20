@@ -49,7 +49,7 @@ router.post('/register', validateCaptcha, validate('sapUser'), async (req, res) 
         }
 
         await newStudentAmbassador.save();
-        res.json({ status: 200, message: "Registered successfully, OTP sent to email." });
+        res.json({ status: 200, message: "Verify your email to continue, OTP sent to email." });
 
         try {
             sendEmail('Email Verification', `
