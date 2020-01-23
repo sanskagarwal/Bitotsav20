@@ -78,7 +78,6 @@ $.ajax({
             else {
                 userEvents = res.user.soloEventsRegistered;
             }
-            console.log(userEvents);
             if (!userEvents || userEvents.length === 0) {
                 userEvents = [];
                 $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
@@ -97,6 +96,9 @@ $.ajax({
                 eventlist(userEvents[i].eventId, userEvents[i].eventName, userEvents[i].eventLeaderBitotsavId, isEventLead);
             }
         }
+    },
+    error: function(err) {
+        return console.log(err);
     }
 });
 

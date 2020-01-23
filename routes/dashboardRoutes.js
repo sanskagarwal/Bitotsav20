@@ -149,11 +149,13 @@ router.post('/register', verifyToken, async (req, res) => {
 
             //now register for the event
             let participants = [];
-            participantsObjectArray.forEach((member) => {
+            let participantString = ""
+            participantsObjectArray.forEach((member, ind) => {
                 participants.push({
                     bitotsavId: Number(member.bitotsavId),
                     email: member.email
                 });
+                participantString += `${ind + 1}. ${member.bitotsavId}\n`;
             });
             const event = {
                 eventId: eventId,
@@ -163,10 +165,10 @@ router.post('/register', verifyToken, async (req, res) => {
             };
             // Nice DB Query :)
             await userModel.updateMany({ teamMongoId: teamMongoId }, { $push: { teamEventsRegistered: event } });
-            await teamModel.updateOne({ _id: teamMongoId }, { 
-                $push: { 
-                    eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: { 
-                        message: `${rawUser.name} registered your team for the event ${eventName}` 
+            await teamModel.updateOne({ _id: teamMongoId }, {
+                $push: {
+                    eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: {
+                        message: `${rawUser.name} registered your team for the event ${eventName} with members: \n${participantString}`
                     }
                 }
             });
@@ -210,8 +212,8 @@ router.post('/register', verifyToken, async (req, res) => {
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: soloParticipants
             };
-            await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, { 
-                $push: { soloEventsRegistered: event } 
+            await userModel.updateMany({ email: { $in: soloParticipantsEmail } }, {
+                $push: { soloEventsRegistered: event }
             });
             return res.json({ status: 200, message: `${rawUser.name} have successfully registered for ${eventName} as the event leader.` });
         }
@@ -270,9 +272,11 @@ router.post('/deregister', verifyToken, async (req, res) => {
 
             //now deregister from the event
             await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: { teamEventsRegistered: { eventId: eventId } } });
-            await teamModel.updateOne({ _id: teamMongoId }, { 
-                $pull: { eventsRegistered: { eventId: eventId } }, 
-                $push: { teamNotifications: { message: `${rawUser.name} deregistered the team from the event ${eventName}` } } 
+            await teamModel.updateOne({ _id: teamMongoId }, {
+                $pull: { eventsRegistered: { eventId: eventId } },
+                $push: {
+                    teamNotifications: { message: `${rawUser.name} deregistered the team from the event ${eventName}` }
+                }
             });
             return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
         }
@@ -282,7 +286,7 @@ router.post('/deregister', verifyToken, async (req, res) => {
             //check1....user must be registered in the solo event specified by eventId
             const event = soloEventsReg.find((eventObj) => eventObj.eventId === eventId);
             if (!event) {
-                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place!!" });
+                return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place." });
             }
 
             //check2....user must be the event leader for that event
@@ -334,7 +338,7 @@ router.post('/deregister', verifyToken, async (req, res) => {
 
 
 
-router.get("/getTeamNotifications", verifyToken, async (req, res) => {
+router.post("/getTeamNotifications", verifyToken, async (req, res) => {
     const user = await userModel.findById(req.userId);
     if (!user) {
         return res.json({ status: 400, message: "User not found" });
@@ -587,7 +591,11 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
             );
             res.json({ status: 200, message: "Team registration complete!" });
             newTeam.teamNotifications.push({ message: `${user.name} registered the team ${newTeam.teamName} with ${newTeam.teamSize} members.` });
-            await newTeam.save();
+            try {
+                await newTeam.save();
+            } catch (e) {
+                return console.log(e);
+            }
         } catch (e) {
             console.log(e);
             return res.json({ status: 500, message: "Internal server error" });
