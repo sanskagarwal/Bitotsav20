@@ -162,7 +162,7 @@ function soloRegTeamSizeChangeHandler(i, maxP) {
         $(`#events${i}SoloRegMember${j}Email`).prop("disabled", false);
         $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", false);
     }
-    for(let j=size+1;j<=max;j++) {
+    for (let j = size + 1; j <= max; j++) {
         $(`#events${i}SoloRegMember${j}Email`).prop("disabled", true);
         $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", true);
     }
@@ -313,7 +313,7 @@ function displaySoloEventParticipantsForm(event, i) {
 
         let buttons = `
             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-            ${displaySoloEventRegistrationButton(event,i)}
+            ${displaySoloEventRegistrationButton(event, i)}
         `;
         html += buttons;
     }
@@ -370,10 +370,10 @@ console.log(queryParam);
 
 function eventdetails(event, i, s) {
     let duration = event.duration, date, time;
-    if(duration[0] === "@") {
+    if (duration[0] === "@") {
         let colonIndex = duration.indexOf(':')
         date = duration.slice(1, duration.indexOf(':'));
-        time = duration.slice(colonIndex+1);
+        time = duration.slice(colonIndex + 1);
     } else {
         date = Number(duration.slice(0, 2)) - 13;
         time = duration.slice(6);
@@ -383,7 +383,7 @@ function eventdetails(event, i, s) {
         name: '',
         value: ''
     };
-    if(event.id === 27) { // Let's Scribble
+    if (event.id === 27) { // Let's Scribble
         pointsOrCash.name = 'POINTS & PRIZES:';
         pointsOrCash.value = event.points + ', &#8377;&nbsp;' + event.cashPrize;
     } else if (!event.points || event.points.toLowerCase() === 'none') {
@@ -394,29 +394,35 @@ function eventdetails(event, i, s) {
         pointsOrCash.value = event.points;
     }
 
-    let finalRegButton, groupRegisterButton="";
+    let finalRegButton, groupRegisterButton = "";
 
     const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
-    if(userEvents.find((val) => val.eventId = event.id ) != undefined ) {
+    let flag = 0;
+    userEvents.forEach((val) => {
+        if (val.eventId === event.id) {
+            flag = 1;
+        }
+    });
+    if (flag) {
         finalRegButton = `<button type="button" disabled class="btn btn-outline-success">Registered</button>`;
-    } else if(event.group === 1) {
+    } else if (event.group === 1) {
         let teamRegText = "Group Register";
         finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}GroupRegisterModal">
         ${teamRegText}
         </button>`;
 
-        if(userDetails.isTeamLeader) {
+        if (userDetails.isTeamLeader) {
             groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
         }
-    } else if(event.individual === 1) {
+    } else if (event.individual === 1) {
         let soloRegText = "Solo Register";
         finalRegButton = `
             <button type="button" class="btn btn-outline-success" data-toggle="modal"
             data-target="#events${i}SoloRegisterModal">
             ${soloRegText}
             </button>`;
-    } else if(isInTeam) {
+    } else if (isInTeam) {
         let teamRegText = "Team Register";
         finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}TeamRegisterModal">
@@ -430,7 +436,7 @@ function eventdetails(event, i, s) {
         ${soloRegText}
         </button>`;
     }
-    
+
 
 
     return (`
@@ -511,13 +517,13 @@ function eventdetails(event, i, s) {
                         <p>Since this event carries points and is to be considered for Bitotsav Championship, you must be a part of a team.</p>
                         <p>Proceed to register your team for this event.</p>
                         <div id="regModalBody${i}">
-                            ${displayMembers(event,i)}
+                            ${displayMembers(event, i)}
                             <br><p id="events${i}TeamRegisterErrMsg"></p>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-                        ${displayTeamRegistrationButton(event,i)}
+                        ${displayTeamRegistrationButton(event, i)}
                     </div>
                 </div>
             </div>
