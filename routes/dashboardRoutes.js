@@ -34,7 +34,8 @@ router.get('/getProfile', verifyToken, async (req, res) => {
                 clgId: rawUser.clgId,
                 isTeamLeader: rawUser.isTeamLeader,
                 bitotsavId: rawUser.bitotsavId,
-                soloEventsRegistered: rawUser.soloEventsRegistered
+                soloEventsRegistered: rawUser.soloEventsRegistered,
+                teamEventsRegistered: rawUser.teamEventsRegistered
             };
 
             return res.json({ status: 200, user: user, isInTeam: false });
@@ -59,6 +60,7 @@ router.get('/getProfile', verifyToken, async (req, res) => {
             clgId: rawUser.clgId,
             isTeamLeader: rawUser.isTeamLeader,
             bitotsavId: rawUser.bitotsavId,
+            soloEventsRegistered: rawUser.soloEventsRegistered,
             teamEventsRegistered: rawUser.teamEventsRegistered
         };
 

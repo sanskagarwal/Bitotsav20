@@ -140,10 +140,6 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
     }
 }
 
-
-
-
-
 // Solo Registration
 
 
@@ -399,7 +395,11 @@ function eventdetails(event, i, s) {
     }
 
     let finalRegButton, groupRegisterButton="";
-    if(event.group === 1) {
+
+    const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
+    if(userEvents.find((val) => val.eventId = event.id ) !== undefined ) {
+        finalRegButton = `<button type="button" disabled class="btn btn-outline-success">Registered</button>`;
+    } else if(event.group === 1) {
         let teamRegText = "Group Register";
         finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}GroupRegisterModal">
@@ -564,7 +564,7 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>This event does not carry any points and will not be considered for Bitotsav Championship. So you need not to be a part of some team to register in this event.</p>
+                        <p>${event.individual === 1 ? 'This event is independent of being in championship team or not.' : 'You can either participate as an independent team or championship team (requires to create a championship team).'}</p>
                         <p>Please provide the details of whomsoever you want to participate with in this event.</p>
                         ${displaySoloEventParticipantsForm(event, i)}
                         <br><p id="events${i}SoloRegisterErrMsg"></p>
