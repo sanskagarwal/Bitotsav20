@@ -125,6 +125,10 @@ router.post('/register', verifyToken, async (req, res) => {
             return res.json({ status: 200, message: `Successfully Registered for the flagship event ${eventName}, now mail the details of participants to the mentioned.` });
         }
 
+        if (!req.body.participants) {
+            return res.json({ status: 400, message: `Make sure you selected the no. of participants.` });
+        }
+
         if (eventDetail.individual === 1) {
             const participantsObjectArray = [...(req.body.participants)];
             const participantsSize = participantsObjectArray.length;

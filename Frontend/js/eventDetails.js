@@ -280,9 +280,6 @@ function displaySoloEventRegistrationButton(event, i) {
     return html;
 }
 
-
-
-
 function displaySoloEventParticipantsForm(event, i) {
     let html = ``;
     if (userDetails === null) {
@@ -322,7 +319,7 @@ function displaySoloEventParticipantsForm(event, i) {
 
 // Group Registration
 
-function groupRegister(eventId) {
+function groupRegister(eventId, i) {
     $(`#events${i}GroupRegisterButton`).prop("disabled", true);
     const url = "https://bitotsav.in";
     $.ajax({
@@ -348,7 +345,8 @@ function groupRegister(eventId) {
             }
         },
         error: function (err) {
-            $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
+            console.log(err);
+            // $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
             $(`#events${i}GroupRegisterButton`).prop("disabled", false);
         }
     });
@@ -413,7 +411,7 @@ function eventdetails(event, i, s) {
         </button>`;
 
         if (userDetails.isTeamLeader) {
-            groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
+            groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id}, ${i})">Register your team</button>`;
         } else {
             groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
         }
