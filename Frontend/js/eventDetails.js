@@ -78,7 +78,7 @@ function displayTeamRegistrationButton(event, i) {
 
     let html = ``;
     if (userDetails && isInTeam) {
-        html += `<button id="events${i}TeamRegisterButton" class="btn btn-outline-success" onclick="teamRegFormSubmit(${i}, ${event.id}, ${event.minParticipants}, ${event.maxParticipants})">Register</button>`
+        html += `<button id="events${i}TeamRegisterButton" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" class="btn btn-outline-success" onclick="teamRegFormSubmit(${i}, ${event.id}, ${event.minParticipants}, ${event.maxParticipants})">Register</button>`
     }
     return html;
 }
@@ -275,7 +275,7 @@ function displaySoloEventRegistrationButton(event, i) {
 
     let html = ``;
     if (userDetails) {
-        html += `<button id="events${i}SoloRegisterButton" class="btn btn-outline-success" onclick="soloRegFormSubmit(${i}, ${event.id})">Register</button>`
+        html += `<button id="events${i}SoloRegisterButton" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" class="btn btn-outline-success" onclick="soloRegFormSubmit(${i}, ${event.id})">Register</button>`
     }
     return html;
 }
@@ -411,7 +411,7 @@ function eventdetails(event, i, s) {
         </button>`;
 
         if (userDetails.isTeamLeader) {
-            groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id}, ${i})">Register your team</button>`;
+            groupRegisterButton = `<button class="btn btn-outline-success" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" onclick="groupRegister(${event.id}, ${i})">Register your team</button>`;
         } else {
             groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
         }

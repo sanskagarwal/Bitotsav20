@@ -103,7 +103,7 @@ $.ajax({
 
 function deregisterEvent(eid) {
     $("#deregister" + eid).attr("disabled", true);
-    $('.rotator').addClass('spinner');
+    // $('.rotator').addClass('spinner');
 
     $.ajax({
         url: url + "/dash/deregister",
@@ -114,7 +114,7 @@ function deregisterEvent(eid) {
         },
         crossDomain: true,
         success: function (res) {
-            $('.rotator').removeClass('spinner');
+            // $('.rotator').removeClass('spinner');
             alert(res.message);
             if(res.status === 200){
             window.location.reload();
@@ -123,7 +123,7 @@ function deregisterEvent(eid) {
             }
         },
         error: function (err) {
-            $('.rotator').removeClass('spinner');
+            // $('.rotator').removeClass('spinner');
             $("#deregister" + eid).attr("disabled", false);
             console.log(err);
         }
@@ -136,10 +136,10 @@ function eventlist(i, n, t, l) {
     var teamLeaderId = t;
     var newevent = `<tr class="event"><td>${eventName}</td><td>${teamLeaderId}</td>`;
     if (l === true) {
-        newevent += `<td><button class="btn btn-danger" id="deregister${eventId}" onclick = 'deregisterEvent("${eventId}")'>De-register<div style="display: inline-block;" class="rotator"></div></button></td></tr>`;
+        newevent += `<td><button class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" id="deregister${eventId}" onclick = 'deregisterEvent("${eventId}")'>De-register<div style="display: inline-block;" class="rotator"></div></button></td></tr>`;
     }
     else {
-        newevent += `<td><button class="btn btn-danger" id="deregister${eventId}" disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
+        newevent += `<td><button class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" id="deregister${eventId}" disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     $("#events-table").append(newevent);
 }

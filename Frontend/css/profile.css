@@ -1017,6 +1017,22 @@ pre code {
 }
 
 @media (max-width: 575.98px) {
+    .table-head-text th {
+        font-weight: 500;
+        font-size: 9px;
+        overflow-wrap: break-word;
+    }
+
+    .table-section {
+        margin: 40px;
+        width: 90%;
+    }
+
+    .table-section td {
+        padding: 9px;
+        font-size: 9px;
+    }
+
     .table-responsive-sm {
         display: block;
         width: 100%;
@@ -10086,24 +10102,6 @@ h5,
 .rotator {
     margin-bottom: 20px;
     margin-left: 5px;
-}
-
-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spinner:before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border-top: 2px solid white;
-    border-right: 2px solid transparent;
-    animation: spinner .6s linear infinite;
 }
 
 #sidebar {
