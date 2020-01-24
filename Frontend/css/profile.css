@@ -10083,6 +10083,29 @@ h5,
     width: 100%;
 }
 
+.rotator {
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-top: 2px solid white;
+    border-right: 2px solid transparent;
+    animation: spinner .6s linear infinite;
+}
+
 #sidebar {
     min-width: 270px;
     max-width: 270px;
