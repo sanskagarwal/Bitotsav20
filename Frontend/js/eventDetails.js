@@ -414,6 +414,8 @@ function eventdetails(event, i, s) {
 
         if (userDetails.isTeamLeader) {
             groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
+        } else {
+            groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
         }
     } else if (event.individual === 1) {
         let soloRegText = "Solo Register";
