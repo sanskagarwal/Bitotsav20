@@ -75,9 +75,8 @@ $.ajax({
                 }
                 $("#teamMembersDetail").show();
             }
-            else {
-                userEvents = res.user.soloEventsRegistered;
-            }
+            userEvents = res.user.soloEventsRegistered.concat(res.user.teamEventsRegistered);
+
             if (!userEvents || userEvents.length === 0) {
                 userEvents = [];
                 $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
@@ -125,12 +124,12 @@ function eventlist(i, n, t, l) {
     var eventId = i;
     var eventName = n;
     var teamLeaderId = t;
-    var deregister_button = "<button onclick = 'deregisterEvent(" + eventId + ")'> Deregister Event </button>";
+    var newevent = `<tr class="event"> <td>${eventId}</td><td>${eventName}</td><td>${teamLeaderId}</td>`;
     if (l === false) {
-        var newevent = "<tr id='event" + eventId + "'> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td></tr>";
+        newevent += `<td><button onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     else {
-        var newevent = "<tr> <td>" + eventId + "</td><td >" + eventName + "</td><td >" + teamLeaderId + "</td><td>" + deregister_button + "</td></tr>";
+        newevent += `<td><button disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     $("#events-table").append(newevent);
 }

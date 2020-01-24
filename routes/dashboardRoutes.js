@@ -600,7 +600,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                 if (!foundUser) {
                     return res.json({
                         status: 415,
-                        message: `wrong credentials of member ${i + 1}`
+                        message: `Invalid credentials of member ${i + 1}`
                     });
                 } else if (!foundUser.bitotsavId || !foundUser.email) {
                     return res.json({

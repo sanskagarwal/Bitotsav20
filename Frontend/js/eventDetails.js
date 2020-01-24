@@ -163,13 +163,12 @@ function soloRegTeamSizeChangeHandler(i, maxP) {
     console.log(size);
     const max = Number(maxP);
     for (let j = 2; j <= size; j++) {
-        if (j <= size) {
-            $(`#events${i}SoloRegMember${j}Email`).prop("disabled", false);
-            $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", false);
-        } else {
-            // $(`#events${i}SoloRegMember${j}Email`).removeAttr('required');​​​​​
-            // $(`#events${i}SoloRegMember${j}BitotsavId`).removeAttr('required');​​​​​
-        }
+        $(`#events${i}SoloRegMember${j}Email`).prop("disabled", false);
+        $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", false);
+    }
+    for(let j=size+1;j<=max;j++) {
+        $(`#events${i}SoloRegMember${j}Email`).prop("disabled", true);
+        $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", true);
     }
 }
 
