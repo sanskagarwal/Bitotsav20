@@ -621,9 +621,20 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         message: `Member ${i +
                             1} is already registered in some another team!`
                     });
-                } else if (Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
+                } else if(Array.isArray(foundUser.teamEventsRegistered) && foundUser.teamEventsRegistered.length > 0) {
+                    // Not possible though
                     return res.json({
                         status: 415, message: `Member ${i + 1} is registered in some events, de-register his/her existing events and try again.`
+                    });
+                } else if (Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
+                    foundUser.soloEventsRegistered.forEach(async (val) => {
+                        const eventId = val.eventId;
+                        const eventDetail = await eventModel.findById(eventId);
+                        if(eventDetail.group === 1 || eventDetail.individual === 0) {
+                            return res.json({
+                                status: 415, message: `Member ${i + 1} is registered in some events, de-register his/her existing events and try again.`
+                            });
+                        }
                     });
                 }
                 membersData[i].name = foundUser.name;
@@ -678,6 +689,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
     teamRegister();
 });
 
+// Might be incorrect
 router.post("/deleteTeam", verifyToken, (req, res) => {
     const userId = req.userId;
     async function deleteTeam() {
@@ -718,11 +730,14 @@ router.post("/deleteTeam", verifyToken, (req, res) => {
             for (let i = 0; i < teamSize; i++) {
                 bitIds.push(teamDetails.teamMembers[i].bitotsavId);
             }
-            const modifiedUsers = await UserModel.updateMany(
-                { bitotsavId: { $in: panIds } },
-                { $set: { teamMongoId: null } }
+            const modifiedUsers = await UserModel.updateMany({ bitotsavId: { $in: panIds } }, { 
+                    $set: {
+                        teamMongoId: null,
+                        teamEventsRegistered: []
+                    }
+                }
             );
-            const NotaTeamLeader = await userModel.updateOne({ bitotsavId: userFound.bitotsavId }, { $set: { isTeamLeader: false, teamEventsRegistered: [] } });
+            const NotaTeamLeader = await userModel.updateOne({ bitotsavId: userFound.bitotsavId }, { $set: { isTeamLeader: false } });
 
             const teamDeleted = await teamModel.deleteOne({ _id: teamMongoId });
 
@@ -730,7 +745,6 @@ router.post("/deleteTeam", verifyToken, (req, res) => {
                 status: 200,
                 message: "Team deleted successfully!"
             });
-
         }
         catch (err) {
             console.log(err);
