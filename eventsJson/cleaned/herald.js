@@ -35,7 +35,7 @@ const herald = [
 		"cashPrize": null
 	}, {
 		"id": 25,
-		"name": `MEDIA CRE`,
+		"name": `MEDIA-CRE`,
 		"eventCategory": `HERALD`,
 		"category": `Formal`,
 		"points": `75-50-25`,

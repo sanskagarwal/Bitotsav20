@@ -11,14 +11,14 @@ const swaang = [
 		"club": `Ehsaas Dramatcs Society`,
 		"description": `This is a street play competton. What beter way than Nukkad to express our views. The voice of our conscience echoes through the words of Nukkad. The evils of the society are brought into light through the plot of Nukkad. Let us rewind the days when some scintllatng performances ignited the fre for change in us.
         `,
-		"rulesAndRegulations": `This competton will be conducted in two rounds, eliminatons and fnals. Both rounds will be held on two dioerent days of the fest.
+		"rulesAndRegulations": `This competton will be conducted in two rounds, eliminatons and finals. Both rounds will be held on two dioerent days of the fest.
         General Rules:
-        1. The team shall consist of maximum of 20 people excluding 2 instrumentalists (optonal).
+        1. The team shall consist of maximum of 20 people excluding 2 instrumentalists (optional).
         2. The time limit should be strictly adhered to. In case of violaton, partcipants will be penalized by judges. The given tme duraton is from empty stage to empty stage.
         3. Teams are expected to perform at an open-air venue, on a circular stage with audience on all sides.
         4. Multple teams from the same college are permited.
-        5. No hazardous substances are allowed. (fluids and fre)
-        6. Partcipatng teams are required to send in a sot copy of their scripts along with details (names of members, college name, props being used, instruments) at events@bitotsav.in before 5th February 2020 (11:59 pm).
+        5. No hazardous substances are allowed. (fluids and fire)
+        6. Partcipatng teams are required to send in a soft copy of their scripts along with details (names of members, college name, props being used, instruments) at events@bitotsav.in before 5th February 2020 (11:59 pm).
         7. Obscenity of any kind is prohibited.
         8. For live music teams will have to bring their own instruments but no electronic device or recorded music.
         9. The languages permited are Hindi and English.
@@ -28,11 +28,11 @@ const swaang = [
         iii) 20 % - Audience Response
         iv) 15 % - Directon
         v) 10 % - Miscellaneous Eoects
-        11.The decision of the judging panel shall remain fnal and binding.
+        11.The decision of the judging panel shall remain final and binding.
         Eliminatons:
-        The tme limit shall be 12+2 minutes.
+        The time limit shall be 12+2 minutes.
         Finals:
-        The tme limit shall be 20+2 minutes.
+        The time limit shall be 20+2 minutes.
         `,
 		"contactInformation": `1. Shivam: 9523126405
         2. Shambhavi: 8840358232
