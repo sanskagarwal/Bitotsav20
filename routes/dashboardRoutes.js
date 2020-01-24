@@ -117,6 +117,7 @@ router.post('/register', verifyToken, async (req, res) => {
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: []
             };
+            await userModel.updateMany({ teamMongoId: teamMongoId }, { $push: { teamEventsRegistered: event } });
             await teamModel.updateOne({ _id: teamMongoId }, {
                 $push: {
                     eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: {
