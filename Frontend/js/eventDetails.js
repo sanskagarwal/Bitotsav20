@@ -399,25 +399,9 @@ function eventdetails(event, i, s) {
         pointsOrCash.value = event.points;
     }
 
-
-    let teamRegText = "Team Reg";
-    let soloRegText = "Solo Reg";
-
-    let teamRegButton = `
-    <button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
-    data-target="#events${i}TeamRegisterModal">
-    ${teamRegText}
-    </button>`;
-    let soloRegButton = `
-    <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
-    data-target="#events${i}SoloRegisterModal">
-    ${soloRegText}
-    </button>`;
-
     let finalRegButton, groupRegisterButton="";
     if(event.group === 1) {
-        let teamRegText = "Team Reg";
-
+        let teamRegText = "Group Register";
         finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}GroupRegisterModal">
         ${teamRegText}
@@ -426,12 +410,22 @@ function eventdetails(event, i, s) {
         if(userDetails.isTeamLeader) {
             groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
         }
-    } else {
+    } else if(event.individual === 1) {
+        let soloRegText = "Solo Register";
         finalRegButton = `
-        <button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+            <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+            data-target="#events${i}SoloRegisterModal">
+            ${soloRegText}
+            </button>`;
+    } else if(isInTeam) {
+        let teamRegText = "Team Register";
+        finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}TeamRegisterModal">
         ${teamRegText}
-        </button>
+        </button>`;
+    } else { // Solo
+        let soloRegText = "Solo Register";
+        finalRegButton = `
         <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}SoloRegisterModal">
         ${soloRegText}
