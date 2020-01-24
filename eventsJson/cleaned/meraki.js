@@ -106,7 +106,7 @@ const meraki = [
 		"imageName": `streak.jpg`, "individual": `1`,
 		"minParticipants": 2,
 		"maxParticipants": 3,
-		"cashPrize": "-"
+		"cashPrize": "2k"
 	}
 
 

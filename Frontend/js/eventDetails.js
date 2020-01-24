@@ -381,6 +381,9 @@ function eventdetails(event, i, s) {
         name: '',
         value: ''
     };
+    if(event.id === 10) { // BIT MUN    
+        date = "1 & 2";
+    }
     if (event.id === 27) { // Let's Scribble
         pointsOrCash.name = 'POINTS & PRIZES:';
         pointsOrCash.value = event.points + ', &#8377;&nbsp;' + event.cashPrize;
@@ -392,20 +395,20 @@ function eventdetails(event, i, s) {
         pointsOrCash.value = event.points;
     }
 
-    let finalRegButton, groupRegisterButton = "";
-
-    const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
-    let flag = 0;
-    userEvents.forEach((val) => {
-        if (val.eventId === event.id) {
-            flag = 1;
-        }
-    });
-    if (flag) {
-        finalRegButton = `<button type="button" disabled class="btn btn-outline-success">Registered</button>`;
-    } else if (event.group === 1) {
-        let teamRegText = "Group Register";
-        finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
+    let finalRegButton="", groupRegisterButton = "";
+    if (userDetails) {
+        const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
+        let flag = 0;
+        userEvents.forEach((val) => {
+            if (val.eventId === event.id) {
+                flag = 1;
+            }
+        });
+        if (flag) {
+            finalRegButton = `<button type="button" disabled class="btn btn-outline-success">Registered</button>`;
+        } else if (event.group === 1) {
+            let teamRegText = "Group Register";
+            finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}GroupRegisterModal">
         ${teamRegText}
         </button>`;
@@ -422,19 +425,20 @@ function eventdetails(event, i, s) {
             data-target="#events${i}SoloRegisterModal">
             ${soloRegText}
             </button>`;
-    } else if (isInTeam) {
-        let teamRegText = "Team Register";
-        finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
+        } else if (isInTeam) {
+            let teamRegText = "Team Register";
+            finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}TeamRegisterModal">
         ${teamRegText}
         </button>`;
-    } else { // Solo
-        let soloRegText = "Solo Register";
-        finalRegButton = `
+        } else { // Solo
+            let soloRegText = "Register";
+            finalRegButton = `
         <button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}SoloRegisterModal">
         ${soloRegText}
         </button>`;
+        }
     }
 
 
@@ -540,9 +544,9 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>It is a Flagship event, only the team leader can register for the
+                        <p>It is a Group event, only the team leader can register for the
                         event. After successful registration, the team leader must mail documents,
-                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> (Create team if register option not visible)</p>
+                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned in the rules and regulations of the corresponding event. (Create team if register option is not visible)</p>
 
                         ${groupRegisterButton}
 
@@ -569,8 +573,8 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>${event.individual === 1 ? 'This event is independent of being in championship team or not.' : 'You can either participate as an independent team or championship team (requires to create a championship team).'}</p>
-                        <p>Please provide the details of whomsoever you want to participate with in this event.</p>
+                        <p>${event.individual === 1 ? 'This event does not have points. Participate to win exciting cash prizes!' : 'You can either participate as an independent team or as a part of a BITOTSAV Championship team (requires to form and register a championship team).'}</p>
+                        <p>Please provide the details of whomsoever you want to participate with in this event. Team member(s) can be outside of your championship team as well.</p>
                         ${displaySoloEventParticipantsForm(event, i)}
                         <br><p id="events${i}SoloRegisterErrMsg"></p>
                     </div>

@@ -26,7 +26,7 @@ const rhetoric = [
 		"imageName": `bitMun.jpg`, "individual": `1`,
 		"minParticipants": 1,
 		"maxParticipants": 1,
-		"cashPrize": " "
+		"cashPrize": "10k"
 	}, {
 		"id": 11,
 		"name": `KALAM-E-TAHIR`,
@@ -87,9 +87,40 @@ const rhetoric = [
 		"minParticipants": 1,
 		"maxParticipants": 1,
 		"cashPrize": null
+	},
+	{
+		"id": 44,
+		"name": `Humorously Yours`,
+		"eventCategory": `RHETORIC`,
+		"category": `Formal`,
+		"points": `30-20-10`,
+		"venue": `IC Stage`,
+		"duration": `16/2: 11:00 AM - 3:00 PM`,
+		"faculty advisor": `Dr. S. K. Mishra`,
+		"club": `UNESQUO`,
+		"description": `Do you find yourself jocular enough to put yourself in their shoes and provide an audience a steady  stream of laughter? Unlooping one and all from the regular redundancy of routine work, BITOTSAV’20 presents Humorously Yours, a stand-up competition to leave the audience in splits. Laughter is an in-stant vacation to take a break and brake away from the rough and tumble of life. So if your stand up can make people roll down with laughter, drop down your cursor for further details as the show is all yours.
+        `,
+		"rulesAndRegulations": `Participants are required to send a video entry of no more than 2 mins. from their performance along with details ( name, college details) to events@bitotsav.in till 5th February, 2020 (11:59 PM).
+		The participants who clear the online round will be asked to prepare a sketch of maximum 5 minutes to perform in front of a live audience.
+		
+		General Rules
+		1. Mono-acting, puppetry, musicals are not allowed through ventriloquism is allowed.
+		2. Use of props is allowed, brought in by the participant himself.
+		3. The organizers hold the discretion of allowing it on stage.
+		4. Both English and Hindi are allowed. No other language is allowed.
+		5. Use of obscenity/profanity (at the discretion of the judges) is not allowed and there should be no  direct implications.
+		6. Any Form of music is not allowed during the performance.
+		7. Decisions taken by the judges are absolute and binding.`,
+		"contactInformation": `1. Prajjawal Pande: 8637576711`,
+		"resources required": `1. Sheets-50
+        2. Pens-1 box
+`,
+		"imageName": `humourouslyYours.jpg`, 
+		"individual": `0`,
+		"minParticipants": 1,
+		"maxParticipants": 1,
+		"cashPrize": null
 	}
-
-
 ]
 
 module.exports = rhetoric;
