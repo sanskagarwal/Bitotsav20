@@ -117,6 +117,7 @@ router.post('/register', verifyToken, async (req, res) => {
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: []
             };
+            await userModel.updateMany({ teamMongoId: teamMongoId }, { $push: { teamEventsRegistered: event } });
             await teamModel.updateOne({ _id: teamMongoId }, {
                 $push: {
                     eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: {
@@ -141,7 +142,7 @@ router.post('/register', verifyToken, async (req, res) => {
             }
 
             for (let i = 0; i < participantsSize; i++) {
-                let indivParticipant = await userModel.findOne({ email: participantsObjectArray[i].email, bitotsavId: participantsObjectArray[i].bitotsavId, teamMongoId: null });
+                let indivParticipant = await userModel.findOne({ email: participantsObjectArray[i].email, bitotsavId: participantsObjectArray[i].bitotsavId });
                 if (indivParticipant) {
                     if (indivParticipant.soloEventsRegistered.find((event) => event.eventId === eventId)) {
                         return res.json({ status: 403, message: `Participant (${indivParticipant.name}) is already registered in this event.` });

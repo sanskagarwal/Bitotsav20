@@ -414,6 +414,8 @@ function eventdetails(event, i, s) {
 
         if (userDetails.isTeamLeader) {
             groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
+        } else {
+            groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
         }
     } else if (event.individual === 1) {
         let soloRegText = "Solo Register";
@@ -529,12 +531,11 @@ function eventdetails(event, i, s) {
             </div>
         </div>
 
-        <div class="modal fade" id="events${i}GroupRegisterModal" tabindex="-1" role="dialog"
-            aria-labelledby="events${i}TeamRegisterModalLabel" aria-hidden="true">
+        <div class="modal fade" id="events${i}GroupRegisterModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="events${i}TeamRegisterModalLabel">Registration for
+                        <h5 class="modal-title">Registration for
                             ${event.name.toUpperCase()}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
