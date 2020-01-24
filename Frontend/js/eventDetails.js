@@ -67,6 +67,8 @@ function displayMembers(event, i) {
             // $(`#events${i}TeamRegisterForm`).select2(maxParticipantsObj, {
             //     allowClear: true
             // });
+        } else {
+            html += `<p>You must be in registered in a team to participate in this event!</p>`;
         }
     }
     return html;
@@ -137,6 +139,194 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
         }
     }
 }
+
+
+
+
+
+// Solo Registration
+
+
+//to insert options into number of participants select ranging from minP and maxP
+function insertSoloRegTeamSizeOptions(minP, maxP) {
+    let html = ``;
+    for (let i = minP; i <= maxP; i++) {
+        html += `<option value="${i.toString()}">${i.toString()}</option>`
+    }
+    return html;
+}
+
+
+//called whenever number of participants selected ........to enable initial required input tags and rest input tags remain disabled according to the number of participants selected
+function soloRegTeamSizeChangeHandler(i, maxP) {
+    const size = Number($(`#events${i}soloRegTeamSizeSelect`).val());
+    console.log(size);
+    const max = Number(maxP);
+    for (let j = 2; j <= size; j++) {
+        if (j <= size) {
+            $(`#events${i}SoloRegMember${j}Email`).prop("disabled", false);
+            $(`#events${i}SoloRegMember${j}BitotsavId`).prop("disabled", false);
+        } else {
+            // $(`#events${i}SoloRegMember${j}Email`).removeAttr('required');​​​​​
+            // $(`#events${i}SoloRegMember${j}BitotsavId`).removeAttr('required');​​​​​
+        }
+    }
+}
+
+
+//to append input tags so that participants details can ne entered
+function soloRegInput(i, j) {
+    let html = ``;
+
+    if (j === 1) {
+        html += `
+        <br>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="events${i}SoloRegMember${j}Email">Email</label>
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="email" class="form-control" id="events${i}SoloRegMember${j}Email" value="${userDetails.email}" aria-describedby="inputGroupPrepend" required disabled>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="events${i}SoloRegMember${j}BitotsavId">BitotsavId</label>
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">BIT-</span>
+                </div>
+                <input type="number" class="form-control" id="events${i}SoloRegMember${j}BitotsavId" value="${userDetails.bitotsavId}" aria-describedby="inputGroupPrepend" required disabled>
+                </div>
+            </div>
+        </div>
+        `;
+    } else {
+        html += `
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="email" class="form-control" id="events${i}SoloRegMember${j}Email" placeholder="Email" aria-describedby="inputGroupPrepend" required disabled>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">BIT-</span>
+                </div>
+                <input type="number" class="form-control" id="events${i}SoloRegMember${j}BitotsavId" placeholder="BitotsavId" aria-describedby="inputGroupPrepend" required disabled>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    return html;
+
+}
+
+
+//to handle submission of solo reg form
+function soloRegFormSubmit(i, eventId) {
+    const pSize = Number($(`#events${i}soloRegTeamSizeSelect`).val());
+    let participantsArr = [];
+
+    for (let j = 1; j <= pSize; j++) {
+        participantsArr.push({
+            email: $(`#events${i}SoloRegMember${j}Email`).val().toString(),
+            bitotsavId: $(`#events${i}SoloRegMember${j}BitotsavId`).val().toString()
+        });
+    }
+
+    const url = "https://bitotsav.in";
+    $.ajax({
+        url: url + "/api/dash/register",
+        method: "POST",
+        headers: {
+            'x-access-token': token
+        },
+        data: {
+            eventId: eventId,
+            participants: participantsArr
+        },
+        crossDomain: true,
+        success: function (res) {
+            console.log(res);
+            if (res.status === 200) {
+                $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'green');
+                $(`#events${i}SoloRegisterButton`).prop("disabled", true);
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'red');
+            }
+        },
+        error: function (err) {
+            $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'red');
+        }
+    });
+
+}
+
+
+
+//to handle submit button
+function displaySoloEventRegistrationButton(event, i) {
+
+    let html = ``;
+    if (userDetails) {
+        html += `<button id="events${i}SoloRegisterButton" class="btn btn-outline-success" onclick="soloRegFormSubmit(${i}, ${event.id})">Register</button>`
+    }
+    return html;
+}
+
+
+
+
+function displaySoloEventParticipantsForm(event, i) {
+    let html = ``;
+    if (userDetails === null) {
+        html += `<p>You must be logged in to register in any event!</p>`;
+    } else {
+
+        html += `
+                <p>Number of allowed participants: ${event.minParticipants} - ${event.maxParticipants}.</p>
+                <p>"${userDetails.name}" will be the event leader.</p>
+                <p>Please provide the details of the other participants: </p>
+            `;
+
+        const numberOfParticipantsSelect = `
+        <select class="custom-select" required id="events${i}soloRegTeamSizeSelect" onchange="soloRegTeamSizeChangeHandler(${i}, ${event.maxParticipants})">
+            <option value="" disabled selected>Choose the number of participants: </option>            
+            ${insertSoloRegTeamSizeOptions(event.minParticipants, event.maxParticipants)}
+        </select>
+        `;
+        html += numberOfParticipantsSelect;
+
+        let memberInputs = ``;
+
+        for (let j = 1; j <= event.maxParticipants; j++) {
+            memberInputs += soloRegInput(i, j);
+        }
+
+        html += memberInputs;
+
+        let buttons = `
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+            ${displaySoloEventRegistrationButton(event,i)}
+        `;
+        html += buttons;
+    }
+    return html;
+}
+
+
+
 
 
 function getParameterByName(name, url) {
@@ -256,6 +446,8 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
+                        <p>Since this event carries points and is to be considered for Bitotsav Championship, you must be a part of a team.</p>
+                        <p>Proceed to register your team for this event.</p>
                         <div id="regModalBody${i}">
                             ${displayMembers(event,i)}
                             <br><p id="events${i}TeamRegisterErrMsg"></p>
@@ -283,11 +475,13 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <p>This event does not carry any points and will not be considered for Bitotsav Championship. So you need not to be a part of some team to register in this event.</p>
+                        <p>Please provide the details of whomsoever you want to participate with in this event.</p>
+                        ${displaySoloEventParticipantsForm(event, i)}
+                        <br><p id="events${i}SoloRegisterErrMsg"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-success">Register</button>
+                        
                     </div>
                 </div>
             </div>
@@ -313,19 +507,8 @@ function getEventByCategory() {
                         $(".row").append(eventdetails(res.data[i], i, queryParam));
                     }
 
-                    // Open Event Modal
-                    // var ind = windowUrl.lastIndexOf("#");
-                    // console.log(windowUrl);
-                    // if (ind !== -1) {
-                    //     var hashParam = windowUrl.substr(ind + 1);
-                    //     console.log(hashParam);
-                    //     if (hashParam.includes("events")) {
-                    //         $(`#${hashParam}`).modal('show');
-                    //     }
-                    // }
-
                     $('.js-example-basic-multiple').select2();
-                    $('body').addClass('loaded');                    
+                    $('body').addClass('loaded');
                 }
             },
             error: function (err) {
@@ -335,15 +518,6 @@ function getEventByCategory() {
         });
     }
 }
-
-
-
-
-
-// $(document).ready(function () {
-//     // Open Event Modal
-
-// });
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
