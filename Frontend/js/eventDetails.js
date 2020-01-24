@@ -397,11 +397,11 @@ function eventdetails(event, i, s) {
     let finalRegButton, groupRegisterButton="";
 
     const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
-    if(userEvents.find((val) => val.eventId = event.id ) !== undefined ) {
+    if(userEvents.find((val) => val.eventId = event.id ) != undefined ) {
         finalRegButton = `<button type="button" disabled class="btn btn-outline-success">Registered</button>`;
     } else if(event.group === 1) {
         let teamRegText = "Group Register";
-        finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}GroupRegisterModal">
         ${teamRegText}
         </button>`;
@@ -412,20 +412,20 @@ function eventdetails(event, i, s) {
     } else if(event.individual === 1) {
         let soloRegText = "Solo Register";
         finalRegButton = `
-            <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+            <button type="button" class="btn btn-outline-success" data-toggle="modal"
             data-target="#events${i}SoloRegisterModal">
             ${soloRegText}
             </button>`;
     } else if(isInTeam) {
         let teamRegText = "Team Register";
-        finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        finalRegButton = `<button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}TeamRegisterModal">
         ${teamRegText}
         </button>`;
     } else { // Solo
         let soloRegText = "Solo Register";
         finalRegButton = `
-        <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        <button type="button" class="btn btn-outline-success" data-toggle="modal"
         data-target="#events${i}SoloRegisterModal">
         ${soloRegText}
         </button>`;
@@ -537,7 +537,7 @@ function eventdetails(event, i, s) {
                     <div class="modal-body">
                         <p>It is a Flagship event, only the team leader can register for the
                         event. After successful registration, the team leader must mail documents,
-                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a></p>
+                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> (Create team if register option not visible)</p>
 
                         ${groupRegisterButton}
 
