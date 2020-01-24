@@ -691,68 +691,68 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
 });
 
 // Might be incorrect
-router.post("/deleteTeam", verifyToken, (req, res) => {
-    const userId = req.userId;
-    async function deleteTeam() {
-        try {
-            const userFound = await userModel.findById(userId);
-            if (!userFound) {
-                return res.json({
-                    status: 422,
-                    message: "User not found"
-                });
-            }
-            const teamMongoId = userFound.teamMongoId;
-            const isTeamLeader = userFound.isTeamLeader;
-            if (!teamMongoId) {
-                return res.json({
-                    status: 422,
-                    message: "You are not in a Team!"
-                });
-            }
-            if (!isTeamLeader) {
-                return res.json({
-                    status: 422,
-                    message: "Only team leader can delete the team!"
-                });
-            }
-            const teamDetails = await teamModel.findById(teamMongoId);
-            if (!teamDetails) {
-                return res.json({ status: 422, message: "Team Doesn't Exist" });
-            }
-            if (teamDetails.leaderId !== userId) {
-                return res.json({ status: 422, message: "Not a leader of this Team" });
-            }
-            if (!teamDetails.teamMembers) {
-                return res.json({ status: 422, message: "Empty Team" });
-            }
-            const teamSize = teamDetails.teamSize;
-            let bitIds = [];
-            for (let i = 0; i < teamSize; i++) {
-                bitIds.push(teamDetails.teamMembers[i].bitotsavId);
-            }
-            const modifiedUsers = await userModel.updateMany({ bitotsavId: { $in: bitIds } }, {
-                $set: {
-                    teamMongoId: null,
-                    teamEventsRegistered: []
-                }
-            }
-            );
-            const NotaTeamLeader = await userModel.updateOne({ bitotsavId: userFound.bitotsavId }, { $set: { isTeamLeader: false } });
+// router.post("/deleteTeam", verifyToken, (req, res) => {
+//     const userId = req.userId;
+//     async function deleteTeam() {
+//         try {
+//             const userFound = await userModel.findById(userId);
+//             if (!userFound) {
+//                 return res.json({
+//                     status: 422,
+//                     message: "User not found"
+//                 });
+//             }
+//             const teamMongoId = userFound.teamMongoId;
+//             const isTeamLeader = userFound.isTeamLeader;
+//             if (!teamMongoId) {
+//                 return res.json({
+//                     status: 422,
+//                     message: "You are not in a Team!"
+//                 });
+//             }
+//             if (!isTeamLeader) {
+//                 return res.json({
+//                     status: 422,
+//                     message: "Only team leader can delete the team!"
+//                 });
+//             }
+//             const teamDetails = await teamModel.findById(teamMongoId);
+//             if (!teamDetails) {
+//                 return res.json({ status: 422, message: "Team Doesn't Exist" });
+//             }
+//             if (teamDetails.leaderId !== userId) {
+//                 return res.json({ status: 422, message: "Not a leader of this Team" });
+//             }
+//             if (!teamDetails.teamMembers) {
+//                 return res.json({ status: 422, message: "Empty Team" });
+//             }
+//             const teamSize = teamDetails.teamSize;
+//             let bitIds = [];
+//             for (let i = 0; i < teamSize; i++) {
+//                 bitIds.push(teamDetails.teamMembers[i].bitotsavId);
+//             }
+//             const modifiedUsers = await userModel.updateMany({ bitotsavId: { $in: bitIds } }, {
+//                 $set: {
+//                     teamMongoId: null,
+//                     teamEventsRegistered: []
+//                 }
+//             }
+//             );
+//             const NotaTeamLeader = await userModel.updateOne({ bitotsavId: userFound.bitotsavId }, { $set: { isTeamLeader: false } });
 
-            const teamDeleted = await teamModel.deleteOne({ _id: teamMongoId });
+//             const teamDeleted = await teamModel.deleteOne({ _id: teamMongoId });
 
-            return res.json({
-                status: 200,
-                message: "Team deleted successfully!"
-            });
-        }
-        catch (err) {
-            console.log(err);
-            return res.json({ status: 500, message: "Error on the server!" });
-        }
-    }
-    deleteTeam();
-});
+//             return res.json({
+//                 status: 200,
+//                 message: "Team deleted successfully!"
+//             });
+//         }
+//         catch (err) {
+//             console.log(err);
+//             return res.json({ status: 500, message: "Error on the server!" });
+//         }
+//     }
+//     deleteTeam();
+// });
 
 module.exports = router;
