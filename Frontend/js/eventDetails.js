@@ -325,9 +325,39 @@ function displaySoloEventParticipantsForm(event, i) {
     return html;
 }
 
+// Group Registration
 
-
-
+function groupRegister(eventId) {
+    $(`#events${i}GroupRegisterButton`).prop("disabled", true);
+    const url = "https://bitotsav.in";
+    $.ajax({
+        url: url + "/api/dash/register",
+        method: "POST",
+        headers: {
+            'x-access-token': token
+        },
+        data: {
+            eventId: eventId,
+        },
+        crossDomain: true,
+        success: function (res) {
+            console.log(res);
+            if (res.status === 200) {
+                $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'green');
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
+                $(`#events${i}GroupRegisterButton`).prop("disabled", false);
+            }
+        },
+        error: function (err) {
+            $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
+            $(`#events${i}GroupRegisterButton`).prop("disabled", false);
+        }
+    });
+}
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -344,15 +374,24 @@ var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
 
 function eventdetails(event, i, s) {
-    let duration = event.duration;
-    let date = Number(duration.slice(0, 2)) - 13;
-    let time = duration.slice(6);
+    let duration = event.duration, date, time;
+    if(duration[0] === "@") {
+        let colonIndex = duration.indexOf(':')
+        date = duration.slice(1, duration.indexOf(':'));
+        time = duration.slice(colonIndex+1);
+    } else {
+        date = Number(duration.slice(0, 2)) - 13;
+        time = duration.slice(6);
+    }
     let imageName = event.imageName.slice(0, event.imageName.lastIndexOf("."));
     let pointsOrCash = {
         name: '',
         value: ''
     };
-    if (!event.points || event.points.toLowerCase() === 'none') {
+    if(event.id === 27) { // Let's Scribble
+        pointsOrCash.name = 'POINTS & PRIZES:';
+        pointsOrCash.value = event.points + ', &#8377;&nbsp;' + event.cashPrize;
+    } else if (!event.points || event.points.toLowerCase() === 'none') {
         pointsOrCash.name = 'PRIZES WORTH:';
         pointsOrCash.value = '&#8377;&nbsp;' + event.cashPrize;
     } else {
@@ -361,7 +400,47 @@ function eventdetails(event, i, s) {
     }
 
 
-    return (`                                                                                    
+    let teamRegText = "Team Reg";
+    let soloRegText = "Solo Reg";
+
+    let teamRegButton = `
+    <button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+    data-target="#events${i}TeamRegisterModal">
+    ${teamRegText}
+    </button>`;
+    let soloRegButton = `
+    <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+    data-target="#events${i}SoloRegisterModal">
+    ${soloRegText}
+    </button>`;
+
+    let finalRegButton, groupRegisterButton="";
+    if(event.group === 1) {
+        let teamRegText = "Team Reg";
+
+        finalRegButton = `<button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        data-target="#events${i}GroupRegisterModal">
+        ${teamRegText}
+        </button>`;
+
+        if(userDetails.isTeamLeader) {
+            groupRegisterButton = `<button class="btn btn-outline-success" onclick="groupRegister(${event.id})">Register your team</button>`;
+        }
+    } else {
+        finalRegButton = `
+        <button id="teamRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        data-target="#events${i}TeamRegisterModal">
+        ${teamRegText}
+        </button>
+        <button id="soloRegisterModalButton" type="button" class="btn btn-outline-success" data-toggle="modal"
+        data-target="#events${i}SoloRegisterModal">
+        ${soloRegText}
+        </button>`;
+    }
+    
+
+
+    return (`
     <div class="col-md-4">
         <div class="card" style="margin-bottom: 20px">
             <img class="card-img-top img-fluid" height="300" src="./images/Events/allEvents/${event.imageName}"
@@ -370,17 +449,7 @@ function eventdetails(event, i, s) {
                 <h5>${event.name}</h5>
                 <button data-toggle="modal" href="#events${i}Modal" class="btn btn-outline-primary">Show Details</button>
 
-
-                <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                    data-target="#events${i}TeamRegisterModal">
-                    Team Reg
-                </button>
-
-
-                <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                    data-target="#events${i}SoloRegisterModal">
-                    Solo Reg
-                </button>
+                ${finalRegButton}
 
             </div>
         </div>
@@ -456,6 +525,33 @@ function eventdetails(event, i, s) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
                         ${displayTeamRegistrationButton(event,i)}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="events${i}GroupRegisterModal" tabindex="-1" role="dialog"
+            aria-labelledby="events${i}TeamRegisterModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="events${i}TeamRegisterModalLabel">Registration for
+                            ${event.name.toUpperCase()}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>It is a Flagship event, only the team leader can register for the
+                        event. After successful registration, the team leader must mail documents,
+                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a></p>
+
+                        ${groupRegisterButton}
+
+                        <p id="events${i}GroupRegisterErrMsg"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
