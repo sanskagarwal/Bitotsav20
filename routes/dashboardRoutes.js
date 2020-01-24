@@ -87,9 +87,6 @@ router.post('/register', verifyToken, async (req, res) => {
         }
 
         const eventId = Number(req.body.eventId);
-        if (!eventId) {
-            return res.json({ status: 400, message: "Invalid Event Id" });
-        }
 
         //Event Name will not be in body
         const eventDetail = await eventModel.findOne({ id: eventId });
@@ -295,9 +292,6 @@ router.post('/deregister', verifyToken, async (req, res) => {
         }
 
         const eventId = Number(req.body.eventId);
-        if (!eventId) {
-            return res.json({ status: 400, message: "Invalid Event Id." });
-        }
 
         // Event Name will not be in body
         const eventDetail = await eventModel.findOne({ id: eventId });
