@@ -76,7 +76,7 @@ $.ajax({
                 $("#teamMembersDetail").show();
             }
             userEvents = res.user.soloEventsRegistered.concat(res.user.teamEventsRegistered);
-
+            console.log(userEvents)
             if (!userEvents || userEvents.length === 0) {
                 userEvents = [];
                 $("#events-table").append("<tr id='no-events'><td>You are currently not registered in any event.</td></tr>")
@@ -112,7 +112,8 @@ function deregisterEvent(eid) {
         crossDomain: true,
         success: function (res) {
             alert(res.message);
-            $('#event' + eid).remove();
+            // $('#event' + eid).remove();
+            window.location.reload();
         },
         error: function (err) {
             console.log(err);
@@ -125,11 +126,11 @@ function eventlist(i, n, t, l) {
     var eventName = n;
     var teamLeaderId = t;
     var newevent = `<tr class="event"> <td>${eventId}</td><td>${eventName}</td><td>${teamLeaderId}</td>`;
-    if (l === false) {
-        newevent += `<td><button onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
+    if (l === true) {
+        newevent += `<td><button class="btn btn-danger" onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     else {
-        newevent += `<td><button disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
+        newevent += `<td><button class="btn btn-danger" disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     $("#events-table").append(newevent);
 }
@@ -236,19 +237,20 @@ function registerTeam() {
             if (res.status === 200) {
                 $("#reg-message").text(res.message);
                 $("#loadshow2").hide();
-                $("#teamRegister").attr("disabled", false);
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 1600);
             }
             else {
                 $("#reg-message").text(res.message);
                 $("#loadshow2").hide();
                 $("#teamRegister").attr("disabled", false);
-                setTimeout(function () {
-                    window.location.reload(true);
-                }, 1600);
             }
         },
         error: function (err) {
             console.log(err);
+            $("#loadshow2").hide();
+            $("#teamRegister").attr("disabled", false);
         }
     });
 }
