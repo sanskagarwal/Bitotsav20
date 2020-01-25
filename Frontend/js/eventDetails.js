@@ -78,7 +78,7 @@ function displayTeamRegistrationButton(event, i) {
 
     let html = ``;
     if (userDetails && isInTeam) {
-        html += `<button id="events${i}TeamRegisterButton" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" class="btn btn-outline-success" onclick="teamRegFormSubmit(${i}, ${event.id}, ${event.minParticipants}, ${event.maxParticipants})">Register</button>`
+        html += `<button id="events${i}TeamRegisterButton" class="btn btn-outline-success btn-loader" onclick="teamRegFormSubmit(${i}, ${event.id}, ${event.minParticipants}, ${event.maxParticipants})"><span class="loader"></span>Register</button>`
     }
     return html;
 }
@@ -89,6 +89,8 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
     const maxParticipants = maxP;
     const participants = $(`#events${i}TeamRegisterForm`).select2('data');
     const indices = [];
+    $(".loader").addClass("spinner-grow spinner-grow-sm");
+
     participants.forEach((part) => {
         indices.push(Number(part.id));
     });
@@ -229,6 +231,7 @@ function soloRegInput(i, j) {
 function soloRegFormSubmit(i, eventId) {
     const pSize = Number($(`#events${i}soloRegTeamSizeSelect`).val());
     let participantsArr = [];
+    $(".loader").addClass("spinner-grow spinner-grow-sm");
 
     for (let j = 1; j <= pSize; j++) {
         participantsArr.push({
@@ -275,7 +278,7 @@ function displaySoloEventRegistrationButton(event, i) {
 
     let html = ``;
     if (userDetails) {
-        html += `<button id="events${i}SoloRegisterButton" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" class="btn btn-outline-success" onclick="soloRegFormSubmit(${i}, ${event.id})">Register</button>`
+        html += `<button id="events${i}SoloRegisterButton" class="btn btn-outline-success btn-loader" onclick="soloRegFormSubmit(${i}, ${event.id})"><span class="loader"></span>Register</button>`
     }
     return html;
 }
@@ -321,6 +324,7 @@ function displaySoloEventParticipantsForm(event, i) {
 
 function groupRegister(eventId, i) {
     $(`#events${i}GroupRegisterButton`).prop("disabled", true);
+    $(".loader").addClass("spinner-grow spinner-grow-sm");
     const url = "https://bitotsav.in";
     $.ajax({
         url: url + "/api/dash/register",
@@ -414,7 +418,7 @@ function eventdetails(event, i, s) {
         </button>`;
 
         if (userDetails.isTeamLeader) {
-            groupRegisterButton = `<button class="btn btn-outline-success" data-loading-text="<i class='fa fa-spinner fa-spin '>Registered</i>" onclick="groupRegister(${event.id}, ${i})">Register your team</button>`;
+            groupRegisterButton = `<button class="btn btn-outline-success btn-loader" onclick="groupRegister(${event.id}, ${i})"><span class="loader"></span>Register your team</button>`;
         } else {
             groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
         }

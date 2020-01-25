@@ -139,7 +139,7 @@ function eventlist(i, n, t, l) {
         newevent += `<td><button class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" id="deregister${eventId}" onclick = 'deregisterEvent("${eventId}")'>De-register<div style="display: inline-block;" class="rotator"></div></button></td></tr>`;
     }
     else {
-        newevent += `<td><button class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" id="deregister${eventId}" disabled onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
+        newevent += `<td><button class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" id="deregister${eventId}" disabled title="Only leader can deregister" onclick = 'deregisterEvent("${eventId}")'>De-register</button></td></tr>`;
     }
     $("#events-table").append(newevent);
 }
