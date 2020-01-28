@@ -3,6 +3,9 @@
     src: url("../fonts/Montserrat-SemiBold.ttf") format("opentype");
 }
 
+.select2-container--open {
+    z-index: 9999999
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
