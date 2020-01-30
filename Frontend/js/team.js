@@ -27,7 +27,7 @@ $.ajax({
                     if (team[j] === res.details[i].team) {
                         $(`#t${j}`).append(`<div class="col-lg-4 col-md-6">
                             <div class="speaker">
-                                <div style="height:250px;">
+                                <div style="height:auto;">
                                     <img src="images/team/${res.details[i].image}" alt="${res.details.name}" class="img-fluid">
                                 </div>
                                 <div class="details">
