@@ -256,7 +256,7 @@ router.post("/verify", validateCaptcha, verifyToken, (req, res) => {
                     }
                     return res.json({
                         status: 200,
-                        isVerfied: true,
+                        isVerified: true,
                         token: req.headers["x-access-token"],
                     });
                 });
