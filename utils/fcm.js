@@ -66,6 +66,8 @@ function sendFcmMessage(fcmMessage) {
     });
 }
 
+module.exports = sendFcmMessage;
+
 /* Message Form
 
     {

@@ -9,6 +9,9 @@ const adminAuth = (role, password) => {
     if (role === 'publicity' && config.publicityAdmin === password) {
         return 1;
     }
+    if (role === 'events' && config.eventsAdmin === password) {
+        return 1;
+    }
     // Create Another Role
     return 0;
 };

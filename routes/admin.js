@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const adminAuth = require('./../utils/adminAuth');
+const sendFcmMessage = require('./../utils/fcm');
 const Sap = require('./../models/studentAmbassador');
 
 router.post('/getAllSaps', (req, res, next) => {
@@ -42,6 +43,32 @@ router.post('/getSapById', (req, res, next) => {
         console.log(e);
         return res.json({ status: 500, message: "Server Error" });
     }
+});
+
+router.post('/announcement', (req, res) => {
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({ status: 401, message: "Not Authorised" });
+    }
+    let title = req.body.title;
+    let message = req.body.message;
+    if (!title || !message) {
+        return res.json({ status: 422, message: "Missing Fields" });
+    }
+    title = title.trim();
+    message = message.trim();
+    sendFcmMessage({
+        "message": {
+            "topic": "general",
+            "notification": {
+                "title": "Breaking News",
+                "body": "New news story available."
+            },
+            "data": {
+                "story_id": "story_12345"
+            }
+        }
+    });
 });
 
 
