@@ -96,13 +96,15 @@ router.post('/getAllEvents', (req, res, next) => {
         });
     }
     next();
-}, async(req, res)=>{
+}, async (req, res) => {
     try {
         const events = await eventModel.find({}, {
             _id: 0,
             name: 1,
             id: 1
-        });
+        }.sort({
+            name: 1
+        }));
         if (!events) {
             return res.json({
                 status: 404,
@@ -114,6 +116,47 @@ router.post('/getAllEvents', (req, res, next) => {
             events: events
         });
     } catch (e) {
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
+    }
+});
+
+router.post('/getEventById', (req, res, next) => {
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    next();
+}, async (req, res) => {
+    try {
+        if (!req.body.eventId) {
+            return res.json({
+                status: 403,
+                message: "Required Id"
+            });
+        }
+        const event = await eventModel.findOne({
+            id: Number(req.body.eventId)
+        }, {
+            _id: 0
+        });
+        if (!event) {
+            return res.json({
+                status: 404,
+                message: "Not found"
+            });
+        }
+        return res.json({
+            status: 200,
+            event: event
+        });
+    } catch (e) {
+        console.log(e);
         return res.json({
             status: 500,
             message: "Server Error"
