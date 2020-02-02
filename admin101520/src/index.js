@@ -4,9 +4,8 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import Login from "./components/Login";
 import Sap from "./components/Sap";
-// import Event from "./components/Event";
+import Event from "./components/Event";
 import Logout from "./components/Logout";
-
 
 class App extends React.Component {
     constructor(props) {
@@ -30,7 +29,7 @@ class App extends React.Component {
                 <div className="container">
                     <Route exact path="/" render={(props) => <Login updatePage={this.updatePage} loggedIn={this.state.loggedIn} />} />
                     <Route path="/sap" component={Sap} />
-                    {/* <Route path="/event" component={Event} /> */}
+                    <Route path="/event" component={Event} />
                     <Route path="/logout" component={Logout} />
                 </div>
             </Router>
