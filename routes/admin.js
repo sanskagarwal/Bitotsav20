@@ -12,7 +12,7 @@ router.post('/getAllSaps', (req, res, next) => {
     if (!valid) {
         return res.json({
             status: 401,
-            message: "Not Authorised"
+            message: "Not Authorised!"
         });
     }
     next();
@@ -28,7 +28,7 @@ router.post('/getAllSaps', (req, res, next) => {
         if (!saps) {
             return res.json({
                 status: 404,
-                message: "Not found"
+                message: "Not found!"
             });
         }
         return res.json({
@@ -38,7 +38,7 @@ router.post('/getAllSaps', (req, res, next) => {
     } catch (e) {
         return res.json({
             status: 500,
-            message: "Server Error"
+            message: "Server Error!"
         });
     }
 });
@@ -48,7 +48,7 @@ router.post('/getSapById', (req, res, next) => {
     if (!valid) {
         return res.json({
             status: 401,
-            message: "Not Authorised"
+            message: "Not Authorised!"
         });
     }
     next();
@@ -57,7 +57,7 @@ router.post('/getSapById', (req, res, next) => {
         if (!req.body.sapId) {
             return res.json({
                 status: 403,
-                message: "Required Id"
+                message: "Required Id!"
             });
         }
         const saps = await Sap.findOne({
@@ -69,7 +69,7 @@ router.post('/getSapById', (req, res, next) => {
         if (!saps) {
             return res.json({
                 status: 404,
-                message: "Not found"
+                message: "Not found!"
             });
         }
         return res.json({
@@ -80,7 +80,7 @@ router.post('/getSapById', (req, res, next) => {
         console.log(e);
         return res.json({
             status: 500,
-            message: "Server Error"
+            message: "Server Error!"
         });
     }
 });
@@ -92,7 +92,7 @@ router.post('/getAllEvents', (req, res, next) => {
     if (!valid) {
         return res.json({
             status: 401,
-            message: "Not Authorised"
+            message: "Not Authorised!"
         });
     }
     next();
@@ -108,7 +108,7 @@ router.post('/getAllEvents', (req, res, next) => {
         if (!events) {
             return res.json({
                 status: 404,
-                message: "Not found"
+                message: "Not found!"
             });
         }
         return res.json({
@@ -118,7 +118,7 @@ router.post('/getAllEvents', (req, res, next) => {
     } catch (e) {
         return res.json({
             status: 500,
-            message: "Server Error"
+            message: "Server Error!"
         });
     }
 });
@@ -128,7 +128,7 @@ router.post('/getEventById', (req, res, next) => {
     if (!valid) {
         return res.json({
             status: 401,
-            message: "Not Authorised"
+            message: "Not Authorised!"
         });
     }
     next();
@@ -137,7 +137,7 @@ router.post('/getEventById', (req, res, next) => {
         if (!req.body.eventId) {
             return res.json({
                 status: 403,
-                message: "Required Id"
+                message: "Required Id!"
             });
         }
         const event = await eventModel.findOne({
@@ -148,7 +148,7 @@ router.post('/getEventById', (req, res, next) => {
         if (!event) {
             return res.json({
                 status: 404,
-                message: "Not found"
+                message: "Not found!"
             });
         }
         return res.json({
@@ -159,70 +159,113 @@ router.post('/getEventById', (req, res, next) => {
         console.log(e);
         return res.json({
             status: 500,
-            message: "Server Error"
+            message: "Server Error!"
         });
     }
 });
 
+router.post('/updateEventById', (req, res, next) {
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, function (req, res, next) {
 
-router.post('/updateEventById', function (req, res, next) {
-        const eventId = req.body.eventId;
-        eventModel.findOne({
-            eventId: eventId
-        }, function (err, event) {
-            if (err) {
-                return res.json({
-                    status: 500,
-                    message: "Internal server error"
-                });
-            } else if (!event) {
-                return res.json({
-                    status: 422,
-                    message: "Event Id not found"
-                });
-            } else if (event) {
-                next();
-            }
-        })
-    },
-    function (req, res, next) {
-        const eventId = req.body.eventId;
-        const eventName = req.body.eventName;
-        const club = req.body.club;
-        const venue = req.body.venue;
-        const duration = req.body.duration;
-        const teamSize = req.body.teamSize;
-        const description = req.body.description;
-        const coordinators = req.body.coordinators;
+    try {
+        const eventMongoId = req.body._id;
+        if (!eventMongoId) {
+            return res.json({
+                status: 422,
+                message: "Event Id not found!"
+            });
+        }
+
         const points = req.body.points;
-        const category = req.body.category;
-        eventModel.findOne({
-            eventId: eventId
-        }, function (err, event) {
-            if (err) {
-                return res.json({
-                    status: 500,
-                    message: "Internal server error"
-                });
-            } else {
-                event.eventName = eventName;
-                event.club = club;
-                event.venue = venue;
-                event.duration = duration;
-                event.teamSize = teamSize;
-                event.description = description;
-                event.coordinators = coordinators;
-                event.points = points;
-                event.category = category;
-                event.save();
-                return res.json({
-                    status: 200,
-                    message: "Event Details Updated successfully"
-                });
-            }
-        })
+        if (!points) {
+            return res.json({
+                status: 422,
+                message: "Points can't be empty!"
+            });
+        }
 
-    });
+        const venue = req.body.venue;
+        if (!venue) {
+            return res.json({
+                status: 422,
+                message: "Venue can't be empty!"
+            });
+        }
+
+        const description = req.body.description;
+        if (!description) {
+            return res.json({
+                status: 422,
+                message: "Description can't be empty!"
+            });
+        }
+
+        const rulesAndRegulations = req.body.rulesAndRegulations;
+        if (!rulesAndRegulations) {
+            return res.json({
+                status: 422,
+                message: "Rules and regulations can't be empty!"
+            });
+        }
+
+        const contactInformation = req.body.contactInformation;
+        if (!contactInformation) {
+            return res.json({
+                status: 422,
+                message: "Contact information can't be empty!"
+            });
+        }
+
+        const duration = req.body.duration;
+        if (!duration) {
+            return res.json({
+                status: 422,
+                message: "Duration can't be empty!"
+            });
+        }
+
+        const cashPrize = req.body.cashPrize;
+        if (!cashPrize) {
+            return res.json({
+                status: 422,
+                message: "Cash prize can't be empty!"
+            });
+        }
+
+
+        const updatedEvent = eventModel.findOneAndUpdate({
+            _id: eventMongoId
+        }, {
+            points,
+            venue,
+            description,
+            rulesAndRegulations,
+            contactInformation,
+            duration,
+            cashPrize
+        });
+
+        return res.json({
+            status: 200,
+            message: "Successfully updated the event!"
+        });
+    } catch (e) {
+        console.log(e);
+        return res.json({
+            status: 500,
+            message: "Server Error!"
+        });
+    }
+});
+
 
 router.post('/announcement', (req, res) => {
     const valid = adminAuth('events', req.body.password);
