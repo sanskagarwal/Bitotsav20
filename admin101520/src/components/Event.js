@@ -1,4 +1,5 @@
 import React from 'react';
+import './../css/Event.css';
 
 let URL;
 if (process.env.NODE_ENV === 'development') {
@@ -10,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 class Event extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { events: [], eventId: -1, update: 0 };
+        this.state = { events: [], eventId: -1, update: 0, points: '', venue: '', description: '', rulesAndRegulations: '', contactInformation: '', duration: '', cashPrize: '', _id: '', eventDetails: {} };
     }
 
     componentDidMount = async () => {
@@ -50,6 +51,8 @@ class Event extends React.Component {
                 return alert(data.message);
             }
             console.log(data.event);
+            const event = data.event;
+            this.setState({ eventDetails: event, points: event.points, _id: event._id, venue: event.venue, description: event.description, rulesAndRegulations: event.rulesAndRegulations, contactInformation: event.contactInformation, duration: event.duration, cashPrize: event.cashPrize });
         } catch (e) {
             alert(e);
         }
@@ -67,9 +70,41 @@ class Event extends React.Component {
         this.getEventById();
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        
+    handleFormChange = (e) => {
+        let nam = e.target.name;
+        let val = e.target.value;
+        console.log(val, nam);
+        console.log(this.state.venue);
+        this.setState({ [nam]: val });
+    }
+
+    handleFormSubmit = async (e) => {
+        try {
+            const url = URL + '/api/admin/updateEventById';
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    password: sessionStorage.getItem('password'),
+                    _id: this.state._id,
+                    points: this.state.points,
+                    venue: this.state.venue,
+                    description: this.state.description,
+                    rulesAndRegulations: this.state.rulesAndRegulations,
+                    contactInformation: this.state.contactInformation,
+                    duration: this.state.duration,
+                    cashPrize: this.state.cashPrize
+                }),
+            });
+            const data = await res.json();
+            if (data.status !== 200) {
+                return alert(data.message);
+            }
+            alert(data.message);
+            this.setState({ update: 0 });
+        } catch (e) {
+            alert(e);
+        }
     }
 
     render() {
@@ -96,7 +131,7 @@ class Event extends React.Component {
                             })}
                         </select>
                     </div>
-                    <button onClick={this.handleClick1} className="btn btn-success">Show Details</button>
+                    <button onClick={this.handleClick1} className="btn btn-info">Show Details</button>
                     <button onClick={this.handleClick2} className="btn btn-warning">Update Event</button>
 
                     <div className="container-fluid">
@@ -104,57 +139,58 @@ class Event extends React.Component {
                             Name:
                     </div>
                         <div>
-                            {this.state.name}
+                            {this.state.eventDetails.name}
                         </div>
                         <div className="font-weight-bold">
-                            Email:
+                            Event Category:
                     </div>
                         <div>
-                            {this.state.email}
+                            {this.state.eventDetails.eventCategory}
                         </div>
                         <div className="font-weight-bold">
-                            Phone Number:
+                            Venue:
                     </div>
                         <div>
-                            {this.state.phno}
+                            {this.state.update === 1 ? (<input type="text" name="venue" value={this.state.venue} onChange={this.handleFormChange} />) : this.state.eventDetails.venue}
                         </div>
                         <div className="font-weight-bold">
-                            College:
+                            Points:
                     </div>
                         <div>
-                            {this.state.college}
+                            {this.state.update === 1 ? (<input type="text" name="points" value={this.state.points} onChange={this.handleFormChange} />) : this.state.eventDetails.points}
                         </div>
                         <div className="font-weight-bold">
-                            Why do you wish to become the Student Ambassador of your college?
+                            Cash Prizes
                     </div>
                         <div>
-                            {this.state.q1}
+                            {this.state.update === 1 ? (<input type="text" name="cashPrize" value={this.state.cashPrize} onChange={this.handleFormChange} />) : this.state.eventDetails.cashPrize}
                         </div>
                         <div className="font-weight-bold">
-                            How long have you been enrolled in your college?
+                            Duration
                     </div>
                         <div>
-                            {this.state.q2}
+                            {this.state.update === 1 ? (<input type="text" name="duration" value={this.state.duration} onChange={this.handleFormChange} />) : this.state.eventDetails.duration}
                         </div>
                         <div className="font-weight-bold">
-                            Do you have any other commitments in the month of January-February 2019?
+                            Description
                     </div>
                         <div>
-                            {this.state.q3}
+                            {this.state.update === 1 ? (<textarea rows="10" name="description" value={this.state.description} onChange={this.handleFormChange} />) : this.state.eventDetails.description}
                         </div>
                         <div className="font-weight-bold">
-                            Do you have any club related experience in your college?
+                            Rules and Regulations
                     </div>
                         <div>
-                            {this.state.q4}
+                            {this.state.update === 1 ? (<textarea rows="10" name="rulesAndRegulation" value={this.state.rulesAndRegulations} onChange={this.handleFormChange} />) : this.state.eventDetails.rulesAndRegulations}
                         </div>
 
                         <div className="font-weight-bold">
-                            How many participants can we expect if you are made the Student Ambassador?
+                            Contact Information
                     </div>
                         <div>
-                            {this.state.q5}
+                            {this.state.update === 1 ? (<textarea rows="2" name="contactInformation" value={this.state.contactInformation} onChange={this.handleFormChange} />) : this.state.eventDetails.contactInformation}
                         </div>
+                        <button onClick={this.handleFormSubmit} className="btn btn-success">Update</button>
                     </div>
                     <br />
                     <br />
