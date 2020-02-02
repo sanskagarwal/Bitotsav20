@@ -25,6 +25,9 @@ class Header extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/event"> Event </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/eventParticipants"> Event Participants </Link>
+                            </li>
                         </ul>
 
                         <ul className="navbar-nav nav ml-auto">

@@ -5,6 +5,7 @@ const sendFcmMessage = require('./../utils/fcm');
 const Sap = require('./../models/studentAmbassador');
 const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
+const teamModel = require('./../models/team');
 
 //sap routes
 router.post('/getAllSaps', (req, res, next) => {
@@ -133,7 +134,7 @@ router.post('/getEventById', (req, res, next) => {
     next();
 }, async (req, res) => {
     try {
-        if (!req.body.eventId) {
+        if (req.body.eventId === undefined) {
             return res.json({
                 status: 403,
                 message: "Required Id!"
@@ -251,7 +252,28 @@ router.post('/updateEventById', (req, res, next) => {
     }
 });
 
-
+router.post("/getTeamsByEventId", async (req, res) => {
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    const eventId = req.body.eventId;
+    if (eventId === undefined) {
+        return res.json({ status: 422, message: "Event Id is required" });
+    }
+    try {
+        const teams = await teamModel.find({ "eventsRegistered.eventId": eventId }, { _id: 0, points: 0, teamNotifications: 0, eventsRegistered: 0, leaderId: 0 });
+        if (!teams) {
+            return res.json({ status: 404, message: "No Team Found" });
+        }
+        return res.json({ status: 200, teams: teams });
+    } catch (e) {
+        return res.json({ status: 500, message: "Server Error" });
+    }
+});
 
 //user details routes
 router.post('/getUser', (req, res, next) => {
