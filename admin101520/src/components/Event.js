@@ -11,7 +11,7 @@ class Event extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { sapValue: "0", name: "", email: "", phno: "", college: "", q1: "", q2: "", q3: "", q4: "", q5: "", saps: [] };
+        this.state = {  };
     }
 
     componentDidMount = async () => {
