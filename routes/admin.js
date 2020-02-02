@@ -259,17 +259,29 @@ router.post('/getUser', (req, res, next) => {
     if (!valid) {
         return res.json({
             status: 401,
-            message: "Not Authorised"
+            message: "Not Authorised!"
         });
     }
     next();
 }, async (req, res) => {
-    //req.body.parameter = 'email' || 'bitotsavId'
     try {
+
+        if(!req.body.parameter || req.body.parameter === ''){
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if(!req.body.paramValue || req.body.paramValue === ''){
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+
         const parameter = req.body.parameter;
-        let paramValue = null;
-        if (parameter === 'email') {
-            paramValue = req.body.email;
+        let paramValue = req.body.paramValue;
+        if (parameter === 'Email') {
             const user = await userModel.findOne({
                 email: paramValue
             }, {
@@ -287,10 +299,17 @@ router.post('/getUser', (req, res, next) => {
                 status: 200,
                 user: user
             });
-        } else if (paramValue === 'bitotsavId') {
-            paramValue = req.body.bitotsavId;
+        } else if (parameter === 'Bitotsav Id') {
+            if(isNaN(paramValue)){
+                return res.json({
+                    status: 422,
+                    message: "Bitotsav Id is not a number!",
+                    user: null
+                });
+            }
+
             const user = await userModel.findOne({
-                bitotsavId: paramValue
+                bitotsavId: Number(paramValue)
             }, {
                 _id: 0,
                 name: 1,
@@ -309,7 +328,7 @@ router.post('/getUser', (req, res, next) => {
         } else {
             return res.json({
                 status: 422,
-                message: "Missing Fields!"
+                message: "Invalid Fields!"
             });
         }
     } catch (e) {
@@ -319,6 +338,8 @@ router.post('/getUser', (req, res, next) => {
         });
     }
 });
+
+
 
 
 router.post('/announcement', (req, res) => {
@@ -334,7 +355,7 @@ router.post('/announcement', (req, res) => {
     if (!title || !message) {
         return res.json({
             status: 422,
-            message: "Missing Fields"
+            message: "Missing Fields!"
         });
     }
     title = title.trim();
