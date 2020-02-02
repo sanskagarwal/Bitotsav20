@@ -7,7 +7,6 @@ const eventModel = require('./../models/events');
 
 //sap routes
 router.post('/getAllSaps', (req, res, next) => {
-    console.log(req.body);
     const valid = adminAuth('publicity', req.body.password);
     if (!valid) {
         return res.json({
@@ -87,7 +86,6 @@ router.post('/getSapById', (req, res, next) => {
 
 //events routes
 router.post('/getAllEvents', (req, res, next) => {
-    console.log(req.body);
     const valid = adminAuth('events', req.body.password);
     if (!valid) {
         return res.json({
@@ -162,7 +160,7 @@ router.post('/getEventById', (req, res, next) => {
     }
 });
 
-router.post('/updateEventById', (req, res, next) {
+router.post('/updateEventById', (req, res, next) => {
     const valid = adminAuth('events', req.body.password);
     if (!valid) {
         return res.json({
@@ -171,8 +169,7 @@ router.post('/updateEventById', (req, res, next) {
         });
     }
     next();
-}, function (req, res, next) {
-
+}, async (req, res, next) => {
     try {
         const eventMongoId = req.body._id;
         if (!eventMongoId) {
@@ -183,12 +180,6 @@ router.post('/updateEventById', (req, res, next) {
         }
 
         const points = req.body.points;
-        if (!points) {
-            return res.json({
-                status: 422,
-                message: "Points can't be empty!"
-            });
-        }
 
         const venue = req.body.venue;
         if (!venue) {
@@ -231,24 +222,19 @@ router.post('/updateEventById', (req, res, next) {
         }
 
         const cashPrize = req.body.cashPrize;
-        if (!cashPrize) {
-            return res.json({
-                status: 422,
-                message: "Cash prize can't be empty!"
-            });
-        }
 
-
-        const updatedEvent = eventModel.findOneAndUpdate({
+        const updatedEvent = await eventModel.updateOne({
             _id: eventMongoId
         }, {
-            points,
-            venue,
-            description,
-            rulesAndRegulations,
-            contactInformation,
-            duration,
-            cashPrize
+            $set: {
+                points,
+                venue,
+                description,
+                rulesAndRegulations,
+                contactInformation,
+                duration,
+                cashPrize
+            }
         });
 
         return res.json({
