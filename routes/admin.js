@@ -102,9 +102,9 @@ router.post('/getAllEvents', (req, res, next) => {
             _id: 0,
             name: 1,
             id: 1
-        }.sort({
+        }).sort({
             name: 1
-        }));
+        });
         if (!events) {
             return res.json({
                 status: 404,
@@ -142,8 +142,6 @@ router.post('/getEventById', (req, res, next) => {
         }
         const event = await eventModel.findOne({
             id: Number(req.body.eventId)
-        }, {
-            _id: 0
         });
         if (!event) {
             return res.json({
@@ -166,25 +164,25 @@ router.post('/getEventById', (req, res, next) => {
 
 
 router.post('/updateEventById', function (req, res, next) {
-        const eventId = req.body.eventId;
-        eventModel.findOne({
-            eventId: eventId
-        }, function (err, event) {
-            if (err) {
-                return res.json({
-                    status: 500,
-                    message: "Internal server error"
-                });
-            } else if (!event) {
-                return res.json({
-                    status: 422,
-                    message: "Event Id not found"
-                });
-            } else if (event) {
-                next();
-            }
-        })
-    },
+    const eventId = req.body.eventId;
+    eventModel.findOne({
+        eventId: eventId
+    }, function (err, event) {
+        if (err) {
+            return res.json({
+                status: 500,
+                message: "Internal server error"
+            });
+        } else if (!event) {
+            return res.json({
+                status: 422,
+                message: "Event Id not found"
+            });
+        } else if (event) {
+            next();
+        }
+    })
+},
     function (req, res, next) {
         const eventId = req.body.eventId;
         const eventName = req.body.eventName;

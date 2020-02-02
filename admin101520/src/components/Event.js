@@ -10,52 +10,66 @@ if (process.env.NODE_ENV === 'development') {
 class Event extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {  };
+        this.state = { events: [], eventId: -1, update: 0 };
     }
 
     componentDidMount = async () => {
         try {
-            const url = URL + '/api/admin/getAllSaps';
+            const url = URL + '/api/admin/getAllEvents';
             const res = await fetch(url, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ 
-                    password: sessionStorage.getItem('password') 
+                body: JSON.stringify({
+                    password: sessionStorage.getItem('password')
                 }),
             });
             const data = await res.json();
             if (data.status !== 200) {
                 return alert(data.message);
             }
-            this.setState({ saps: data.saps });
+            this.setState({ events: data.events });
         } catch (e) {
             alert(e);
         }
     }
 
     handleChange = (e) => {
-        this.setState({ sapValue: e.target.value });
+        this.setState({ eventId: e.target.value });
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
+    getEventById = async () => {
         try {
-            const url = URL + '/api/admin/getSapById';
+            const url = URL + '/api/admin/getEventById';
             const res = await fetch(url, {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ password: sessionStorage.getItem('password'), sapId: this.state.sapValue }),
+                body: JSON.stringify({ password: sessionStorage.getItem('password'), eventId: this.state.eventId }),
             });
             const data = await res.json();
             if (data.status !== 200) {
                 return alert(data.message);
             }
-            const sapData = data.saps;
-            this.setState({ name: sapData.name, email: sapData.email, college: sapData.college, phno: sapData.phone, q1: sapData.ans1, q2: sapData.ans2, q3: sapData.ans3, q4: sapData.ans4, q5: sapData.ans5 });
+            console.log(data.event);
         } catch (e) {
             alert(e);
         }
+    }
+
+    handleClick1 = (e) => {
+        console.log(this.state.eventId);
+        this.setState({ update: 0 });
+        this.getEventById();
+    }
+
+    handleClick2 = (e) => {
+        console.log(this.state.eventId);
+        this.setState({ update: 1 });
+        this.getEventById();
+    }
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        
     }
 
     render() {
@@ -65,26 +79,25 @@ class Event extends React.Component {
                     <h1 style={{ textAlign: "center" }}>Instructions</h1>
                     <hr />
                     <ul>
-                        <li>This section is to check SAP details</li>
-                        <li>Use the dropout to select the SAP Id. Details will be displayed below.</li>
+                        <li>This section is used for updating and viewing details of an event</li>
+                        <li>Use the dropout to select the Event Id - Event Name. Details will be displayed below.</li>
                     </ul>
                     <hr />
                 </div>
                 <div className="col-md-8">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="SAPId">SAP Id</label>
-                            <select className="form-control" id="sapId" name="SAPId" required onChange={this.handleChange} value={this.state.sapValue} >
-                                <option value="0">Select an Id</option>
-                                {this.state.saps.map((res) => {
-                                    return (
-                                        <option key={res.sapId} value={res.sapId}>{res.sapId} - {res.name}</option>
-                                    )
-                                })}
-                            </select>
-                        </div>
-                        <button type="submit" className="btn btn-success">Get Info</button>
-                    </form >
+                    <div className="form-group">
+                        <label htmlFor="eventId">Event Id</label>
+                        <select className="form-control" id="eventId" name="eventId" required onChange={this.handleChange} value={this.state.eventId} >
+                            <option value="-1">Select an Id</option>
+                            {this.state.events.map((res) => {
+                                return (
+                                    <option key={res.id} value={res.id}>{res.name} - {res.id}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
+                    <button onClick={this.handleClick1} className="btn btn-success">Show Details</button>
+                    <button onClick={this.handleClick2} className="btn btn-warning">Update Event</button>
 
                     <div className="container-fluid">
                         <div className="font-weight-bold">
@@ -151,4 +164,4 @@ class Event extends React.Component {
     }
 }
 
-export default Sap; 
+export default Event; 
