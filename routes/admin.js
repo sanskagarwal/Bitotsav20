@@ -3,62 +3,145 @@ const router = express.Router();
 const adminAuth = require('./../utils/adminAuth');
 const sendFcmMessage = require('./../utils/fcm');
 const Sap = require('./../models/studentAmbassador');
+const eventModel = require('./../models/events');
 
+//sap routes
 router.post('/getAllSaps', (req, res, next) => {
     console.log(req.body);
     const valid = adminAuth('publicity', req.body.password);
     if (!valid) {
-        return res.json({ status: 401, message: "Not Authorised" });
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
     }
     next();
 }, async (req, res) => {
     try {
-        const saps = await Sap.find({ isVerified: true }, { _id: 0, name: 1, sapId: 1 });
+        const saps = await Sap.find({
+            isVerified: true
+        }, {
+            _id: 0,
+            name: 1,
+            sapId: 1
+        });
         if (!saps) {
-            return res.json({ status: 404, message: "Not found" });
+            return res.json({
+                status: 404,
+                message: "Not found"
+            });
         }
-        return res.json({ status: 200, saps: saps });
+        return res.json({
+            status: 200,
+            saps: saps
+        });
     } catch (e) {
-        return res.json({ status: 500, message: "Server Error" });
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
     }
 });
 
 router.post('/getSapById', (req, res, next) => {
     const valid = adminAuth('publicity', req.body.password);
     if (!valid) {
-        return res.json({ status: 401, message: "Not Authorised" });
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
     }
     next();
 }, async (req, res) => {
     try {
         if (!req.body.sapId) {
-            return res.json({ status: 403, message: "Required Id" });
+            return res.json({
+                status: 403,
+                message: "Required Id"
+            });
         }
-        const saps = await Sap.findOne({ sapId: Number(req.body.sapId) }, { _id: 0, otp: 0 });
+        const saps = await Sap.findOne({
+            sapId: Number(req.body.sapId)
+        }, {
+            _id: 0,
+            otp: 0
+        });
         if (!saps) {
-            return res.json({ status: 404, message: "Not found" });
+            return res.json({
+                status: 404,
+                message: "Not found"
+            });
         }
-        return res.json({ status: 200, saps: saps });
+        return res.json({
+            status: 200,
+            saps: saps
+        });
     } catch (e) {
         console.log(e);
-        return res.json({ status: 500, message: "Server Error" });
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
     }
 });
 
+//events routes
+router.post('/getAllEvents', (req, res, next) => {
+    console.log(req.body);
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    next();
+}, async(req, res)=>{
+    try {
+        const events = await eventModel.find({}, {
+            _id: 0,
+            name: 1,
+            id: 1
+        });
+        if (!events) {
+            return res.json({
+                status: 404,
+                message: "Not found"
+            });
+        }
+        return res.json({
+            status: 200,
+            events: events
+        });
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
+    }
+});
+
+
 router.post('/updateEventById', function (req, res, next) {
-    const eventId = req.body.eventId;
-    eventModel.findOne({ eventId: eventId }, function (err, event) {
-        if (err) {
-            return res.json({ status: 500, message: "Internal server error" });
-        }
-        else if (!event) {
-            return res.json({ status: 422, message: "Event Id not found" });
-        }
-        else if (event) {
-            next();
-        }
-    })
-},
+        const eventId = req.body.eventId;
+        eventModel.findOne({
+            eventId: eventId
+        }, function (err, event) {
+            if (err) {
+                return res.json({
+                    status: 500,
+                    message: "Internal server error"
+                });
+            } else if (!event) {
+                return res.json({
+                    status: 422,
+                    message: "Event Id not found"
+                });
+            } else if (event) {
+                next();
+            }
+        })
+    },
     function (req, res, next) {
         const eventId = req.body.eventId;
         const eventName = req.body.eventName;
@@ -70,11 +153,15 @@ router.post('/updateEventById', function (req, res, next) {
         const coordinators = req.body.coordinators;
         const points = req.body.points;
         const category = req.body.category;
-        eventModel.findOne({ eventId: eventId }, function (err, event) {
+        eventModel.findOne({
+            eventId: eventId
+        }, function (err, event) {
             if (err) {
-                return res.json({ status: 500, message: "Internal server error" });
-            }
-            else {
+                return res.json({
+                    status: 500,
+                    message: "Internal server error"
+                });
+            } else {
                 event.eventName = eventName;
                 event.club = club;
                 event.venue = venue;
@@ -85,7 +172,10 @@ router.post('/updateEventById', function (req, res, next) {
                 event.points = points;
                 event.category = category;
                 event.save();
-                return res.json({ status: 200, message: "Event Details Updated successfully" });
+                return res.json({
+                    status: 200,
+                    message: "Event Details Updated successfully"
+                });
             }
         })
 
@@ -94,12 +184,18 @@ router.post('/updateEventById', function (req, res, next) {
 router.post('/announcement', (req, res) => {
     const valid = adminAuth('events', req.body.password);
     if (!valid) {
-        return res.json({ status: 401, message: "Not Authorised" });
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
     }
     let title = req.body.title;
     let message = req.body.message;
     if (!title || !message) {
-        return res.json({ status: 422, message: "Missing Fields" });
+        return res.json({
+            status: 422,
+            message: "Missing Fields"
+        });
     }
     title = title.trim();
     message = message.trim();
