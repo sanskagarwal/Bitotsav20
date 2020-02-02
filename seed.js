@@ -2,6 +2,7 @@
 
 // Models
 const eventModel = require('./models/events');
+const userModel = require('./models/user');
 const coreTeamModel = require('./models/coreTeam');
 const bitIdCounter = require('./models/bitIdCounter');
 const sapIdCounter = require('./models/sapIdCounter');
@@ -85,7 +86,7 @@ if (req === 1) {
     });
 } else if (req === 5) {
     console.log("It will delete Team");
-
+    return console.log("Closing the route......");
     let teamJson = require('./teamJson/team.json');
     teamJson = [...teamJson];
     coreTeamModel.deleteMany({}, (err, res) => {
@@ -106,7 +107,7 @@ if (req === 1) {
     let nameList = new Set();
     let mySet = new Set();
     events.forEach((val) => {
-        if(!val.maxParticipants) {
+        if (!val.maxParticipants) {
             console.log(val.name);
             console.log(val.eventCategory)
         }
@@ -128,5 +129,22 @@ if (req === 1) {
         });
         console.log(nameList.size);
         console.log(mySet.size);
+    });
+} else if (req === 7) {
+    let totalUsers, bitUsers;
+    userModel.find({ clgName: "Birla Institute of Technology, Mesra", isVerified: true }, { _id: 1 }, (err, users) => {
+        if (err) {
+            return console.log(err);
+        }
+        bitUsers = users.length;
+        userModel.find({ isVerified: true }, { _id: 1 }, (err, users) => {
+            if (err) {
+                return console.log(err);
+            }
+            totalUsers = users.length;
+            console.log(`Total Users: ${totalUsers}`);
+            console.log(`BIT Users: ${bitUsers}`);
+            console.log(`Outside Users: ${totalUsers - bitUsers}`);
+        });
     });
 }
