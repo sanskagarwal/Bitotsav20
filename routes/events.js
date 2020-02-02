@@ -24,7 +24,7 @@ router.get('/getEventByCategory', async (req, res) => {
 //2.getEventById......Id can be from 0 to 39
 router.get('/getEventById', async (req, res) => {
     try {
-        if (!req.query.id) {
+        if (req.query.id === undefined) {
             return res.json({ status: 422, message: "Missing query parameter!!" });
         }
         const eventId = req.query.id;

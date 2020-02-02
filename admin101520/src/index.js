@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Sap from "./components/Sap";
 import Event from "./components/Event";
 import User from "./components/User";
+import EventParticipants from './components/EventParticipants';
 import Logout from "./components/Logout";
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
                     <Route path="/event" component={Event} />
                     <Route path="/user" component={User} />
                     <Route path="/logout" component={Logout} />
+                    <Route path="/eventParticipants" component={EventParticipants} />
                 </div>
             </Router>
         );

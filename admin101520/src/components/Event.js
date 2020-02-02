@@ -35,7 +35,7 @@ class Event extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({ eventId: e.target.value });
+        this.setState({ eventId: e.target.value, update: 0 });
     }
 
     getEventById = async () => {
@@ -109,93 +109,95 @@ class Event extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-4">
-                    <h1 style={{ textAlign: "center" }}>Instructions</h1>
-                    <hr />
-                    <ul>
-                        <li>This section is used for updating and viewing details of an event</li>
-                        <li>Use the dropout to select the Event Id - Event Name. Details will be displayed below.</li>
-                    </ul>
-                    <hr />
-                </div>
-                <div className="col-md-8">
-                    <div className="form-group">
-                        <label htmlFor="eventId">Event Id</label>
-                        <select className="form-control" id="eventId" name="eventId" required onChange={this.handleChange} value={this.state.eventId} >
-                            <option value="-1">Select an Id</option>
-                            {this.state.events.map((res) => {
-                                return (
-                                    <option key={res.id} value={res.id}>{res.name} - {res.id}</option>
-                                )
-                            })}
-                        </select>
+            <div>
+                <div className="row">
+                    <div className="col-md-4">
+                        <h1 style={{ textAlign: "center" }}>Instructions</h1>
+                        <hr />
+                        <ul>
+                            <li>This section is used for updating and viewing details of an event</li>
+                            <li>Use the dropout to select the Event Id - Event Name. Details will be displayed below.</li>
+                        </ul>
+                        <hr />
                     </div>
-                    <button onClick={this.handleClick1} className="btn btn-info">Show Details</button>
-                    <button onClick={this.handleClick2} className="btn btn-warning">Update Event</button>
+                    <div className="col-md-8">
+                        <div className="form-group">
+                            <label htmlFor="eventId">Event Id</label>
+                            <select className="form-control" id="eventId" name="eventId" required onChange={this.handleChange} value={this.state.eventId} >
+                                <option value="-1">Select an Id</option>
+                                {this.state.events.map((res) => {
+                                    return (
+                                        <option key={res.id} value={res.id}>{res.name} - {res.id}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
+                        <button onClick={this.handleClick1} className="btn btn-info">Show Details</button>
+                        <button onClick={this.handleClick2} className="btn btn-warning">Update Event</button>
 
-                    <div className="container-fluid">
-                        <div className="font-weight-bold">
-                            Name:
+                        <div className="container-fluid">
+                            <div className="font-weight-bold">
+                                Name:
                     </div>
-                        <div>
-                            {this.state.eventDetails.name}
-                        </div>
-                        <div className="font-weight-bold">
-                            Event Category:
+                            <div>
+                                {this.state.eventDetails.name}
+                            </div>
+                            <div className="font-weight-bold">
+                                Event Category:
                     </div>
-                        <div>
-                            {this.state.eventDetails.eventCategory}
-                        </div>
-                        <div className="font-weight-bold">
-                            Venue:
+                            <div>
+                                {this.state.eventDetails.eventCategory}
+                            </div>
+                            <div className="font-weight-bold">
+                                Venue:
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<input type="text" name="venue" value={this.state.venue} onChange={this.handleFormChange} />) : this.state.eventDetails.venue}
-                        </div>
-                        <div className="font-weight-bold">
-                            Points:
+                            <div>
+                                {this.state.update === 1 ? (<input type="text" name="venue" value={this.state.venue} onChange={this.handleFormChange} />) : this.state.eventDetails.venue}
+                            </div>
+                            <div className="font-weight-bold">
+                                Points:
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<input type="text" name="points" value={this.state.points} onChange={this.handleFormChange} />) : this.state.eventDetails.points}
-                        </div>
-                        <div className="font-weight-bold">
-                            Cash Prizes
+                            <div>
+                                {this.state.update === 1 ? (<input type="text" name="points" value={this.state.points} onChange={this.handleFormChange} />) : this.state.eventDetails.points}
+                            </div>
+                            <div className="font-weight-bold">
+                                Cash Prizes
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<input type="text" name="cashPrize" value={this.state.cashPrize} onChange={this.handleFormChange} />) : this.state.eventDetails.cashPrize}
-                        </div>
-                        <div className="font-weight-bold">
-                            Duration
+                            <div>
+                                {this.state.update === 1 ? (<input type="text" name="cashPrize" value={this.state.cashPrize} onChange={this.handleFormChange} />) : this.state.eventDetails.cashPrize}
+                            </div>
+                            <div className="font-weight-bold">
+                                Duration
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<input type="text" name="duration" value={this.state.duration} onChange={this.handleFormChange} />) : this.state.eventDetails.duration}
-                        </div>
-                        <div className="font-weight-bold">
-                            Description
+                            <div>
+                                {this.state.update === 1 ? (<input type="text" name="duration" value={this.state.duration} onChange={this.handleFormChange} />) : this.state.eventDetails.duration}
+                            </div>
+                            <div className="font-weight-bold">
+                                Description
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<textarea rows="10" name="description" value={this.state.description} onChange={this.handleFormChange} />) : this.state.eventDetails.description}
-                        </div>
-                        <div className="font-weight-bold">
-                            Rules and Regulations
+                            <div>
+                                {this.state.update === 1 ? (<textarea rows="10" name="description" value={this.state.description} onChange={this.handleFormChange} />) : this.state.eventDetails.description}
+                            </div>
+                            <div className="font-weight-bold">
+                                Rules and Regulations
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<textarea rows="10" name="rulesAndRegulation" value={this.state.rulesAndRegulations} onChange={this.handleFormChange} />) : this.state.eventDetails.rulesAndRegulations}
-                        </div>
+                            <div>
+                                {this.state.update === 1 ? (<textarea rows="10" name="rulesAndRegulation" value={this.state.rulesAndRegulations} onChange={this.handleFormChange} />) : this.state.eventDetails.rulesAndRegulations}
+                            </div>
 
-                        <div className="font-weight-bold">
-                            Contact Information
+                            <div className="font-weight-bold">
+                                Contact Information
                     </div>
-                        <div>
-                            {this.state.update === 1 ? (<textarea rows="2" name="contactInformation" value={this.state.contactInformation} onChange={this.handleFormChange} />) : this.state.eventDetails.contactInformation}
+                            <div>
+                                {this.state.update === 1 ? (<textarea rows="2" name="contactInformation" value={this.state.contactInformation} onChange={this.handleFormChange} />) : this.state.eventDetails.contactInformation}
+                            </div>
+                            {this.state.update === 1 && <button onClick={this.handleFormSubmit} className="btn btn-success">Update</button>}
                         </div>
-                        <button onClick={this.handleFormSubmit} className="btn btn-success">Update</button>
+                        <br />
+                        <br />
                     </div>
-                    <br />
-                    <br />
-                </div>
-            </div >
+                </div >
+            </div>
         );
     }
 }
