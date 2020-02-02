@@ -4,6 +4,7 @@ const adminAuth = require('./../utils/adminAuth');
 const sendFcmMessage = require('./../utils/fcm');
 const Sap = require('./../models/studentAmbassador');
 const eventModel = require('./../models/events');
+const userModel = require('./../models/user');
 
 //sap routes
 router.post('/getAllSaps', (req, res, next) => {
@@ -257,6 +258,75 @@ router.post('/updateEventById', (req, res, next) {
         });
     } catch (e) {
         console.log(e);
+        return res.json({
+            status: 500,
+            message: "Server Error!"
+        });
+    }
+});
+
+
+
+//user details routes
+router.post('/getUser', (req, res, next) => {
+    const valid = adminAuth('events', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    next();
+}, async (req, res) => {
+    //req.body.parameter = 'email' || 'bitotsavId'
+    try {
+        const parameter = req.body.parameter;
+        let paramValue = null;
+        if (parameter === 'email') {
+            paramValue = req.body.email;
+            const user = await userModel.findOne({
+                email: paramValue
+            }, {
+                _id: 0,
+                name: 1,
+                email: 1,
+                phoneNo: 1,
+                bitotsavId: 1,
+                clgName: 1,
+                clgId: 1,
+                clgCity: 1,
+                clgState: 1
+            });
+            return res.json({
+                status: 200,
+                user: user
+            });
+        } else if (paramValue === 'bitotsavId') {
+            paramValue = req.body.bitotsavId;
+            const user = await userModel.findOne({
+                bitotsavId: paramValue
+            }, {
+                _id: 0,
+                name: 1,
+                email: 1,
+                phoneNo: 1,
+                bitotsavId: 1,
+                clgName: 1,
+                clgId: 1,
+                clgCity: 1,
+                clgState: 1
+            });
+            return res.json({
+                status: 200,
+                user: user
+            });
+        } else {
+            return res.json({
+                status: 422,
+                message: "Missing Fields!"
+            });
+        }
+    } catch (e) {
         return res.json({
             status: 500,
             message: "Server Error!"
