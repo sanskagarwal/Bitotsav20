@@ -271,8 +271,9 @@ router.post('/updateEventById', (req, res, next) => {
 });
 
 router.post("/getTeamsByEventId", async (req, res) => {
-    const valid = adminAuth('events', req.body.password);
-    if (!valid) {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
         return res.json({
             status: 401,
             message: "Not Authorised"
