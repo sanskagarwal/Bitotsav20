@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const axios = require('axios');
 const adminAuth = require('./../utils/adminAuth');
 const sendFcmMessage = require('./../utils/fcm');
 const Sap = require('./../models/studentAmbassador');
 const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
 const teamModel = require('./../models/team');
+const config = require('./../config');
 
 async function asyncForEach(array, callback) {
     for (let index = 0; index < array.length; index++) {
@@ -356,8 +358,9 @@ router.post("/getTeamsByEventId", async (req, res) => {
 
 //user details routes
 router.post('/getUser', (req, res, next) => {
-    const valid = adminAuth('events', req.body.password);
-    if (!valid) {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
         return res.json({
             status: 401,
             message: "Not Authorised!"
@@ -536,7 +539,35 @@ router.post('/announcement', (req, res, next) => {
 
 });
 
+router.post("/sendSMS", (req, res) => {
+    const valid = adminAuth('web', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    let phoneNo = req.body.phoneNo, message = req.body.message;
+    if (!phoneNo || !message) {
+        return res.json({ status: 422, message: "Required phone no and message" });
+    }
+    message = message.trim();
+    phoneNo = phoneNo.trim();
+    if (phoneNo.length !== 10 || message.length > 130) {
+        return res.json({ status: 422, message: "Phone length: 10, Message length: 1-130" });
+    }
+    let otpUrl = `http://sms.digimiles.in/bulksms/bulksms?username=${config.digimiles.username}&password=${config.digimiles.password}&type=0&dlr=1&destination=${phoneNo}&source=BITOSV&message=${message}`;
 
+    axios.get(otpUrl)
+        .then(function (response) {
+            console.log("SMS sent");
+            return res.json({ status: 200, message: "SMS Sent Successfully" });
+        })
+        .catch(function (error) {
+            console.log(error);
+            return res.json({ status: 500, message: "Server Error" });
+        });
+});
 
 
 
