@@ -562,6 +562,12 @@
             };
             fullHeight();
 
+            $("a[href$='#event']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            })
+
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });
