@@ -13,6 +13,9 @@ async function asyncForEach(array, callback) {
     }
 }
 
+
+
+
 //sap routes
 router.post('/getAllSaps', (req, res, next) => {
     const valid = adminAuth('publicity', req.body.password);
@@ -91,6 +94,13 @@ router.post('/getSapById', (req, res, next) => {
         });
     }
 });
+
+
+
+
+
+
+
 
 //events routes
 router.post('/getAllEvents', (req, res, next) => {
@@ -336,6 +346,14 @@ router.post("/getTeamsByEventId", async (req, res) => {
     }
 });
 
+
+
+
+
+
+
+
+
 //user details routes
 router.post('/getUser', (req, res, next) => {
     const valid = adminAuth('events', req.body.password);
@@ -448,37 +466,82 @@ router.post("/getStats", (req, res) => {
     });
 });
 
-router.post('/announcement', (req, res) => {
-    const valid = adminAuth('events', req.body.password);
+
+
+
+
+
+
+
+
+
+//notifications
+router.post('/announcement', (req, res, next) => {
+    const valid = adminAuth('web', req.body.password);
     if (!valid) {
         return res.json({
             status: 401,
             message: "Not Authorised"
         });
     }
-    let title = req.body.title;
-    let message = req.body.message;
-    if (!title || !message) {
+    next();
+
+}, async (req, res) => {
+    try {
+        const title = req.body.title.trim();
+        const message = req.body.message.trim();
+        if (!title || !message) {
+            return res.json({
+                status: 422,
+                message: "Missing Fields!"
+            });
+        }
+
+        const newNotification = await notificationModel.create({
+            title: title,
+            message: message
+        });
+
+        const notificationMongoId = newNotification._id;
+        console.log(notificationMongoId);
+
+
+        // sendFcmMessage({
+        //     "message": {
+        //         "topic": "General",
+        //         "notification": {
+        //             "title": title,
+        //             "body": message
+        //         },
+        //         "data": {
+        //             "notification_id": notificationMongoId
+        //         }
+        //     }
+        // });
+
+
         return res.json({
-            status: 422,
-            message: "Missing Fields!"
+            status: 200,
+            message: "Notification sent successfully!"
+        });
+        
+    }
+    catch(e){
+        return res.json({
+            status: 500,
+            message: "Server Error!"
         });
     }
-    title = title.trim();
-    message = message.trim();
-    sendFcmMessage({
-        "message": {
-            "topic": "general",
-            "notification": {
-                "title": "Breaking News",
-                "body": "New news story available."
-            },
-            "data": {
-                "story_id": "story_12345"
-            }
-        }
-    });
+
+
 });
+
+
+
+
+
+
+
 
 
 
