@@ -7,6 +7,12 @@ const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
 const teamModel = require('./../models/team');
 
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+}
+
 //sap routes
 router.post('/getAllSaps', (req, res, next) => {
     const valid = adminAuth('publicity', req.body.password);
@@ -265,11 +271,66 @@ router.post("/getTeamsByEventId", async (req, res) => {
         return res.json({ status: 422, message: "Event Id is required" });
     }
     try {
-        const teams = await teamModel.find({ "eventsRegistered.eventId": eventId }, { _id: 0, points: 0, teamNotifications: 0, eventsRegistered: 0, leaderId: 0 });
-        if (!teams) {
-            return res.json({ status: 404, message: "No Team Found" });
+        const eventDetails = await eventModel.find({ id: eventId });
+        if (!eventDetails) {
+            return res.json({ status: 422, message: "Invalid Event Id" });
         }
-        return res.json({ status: 200, teams: teams });
+        const mainUsers = [];
+        let users = await userModel.find({ "soloEventsRegistered.eventId": eventId });
+        users.forEach((user) => {
+            const userBitId = user.bitotsavId;
+            let events = user.soloEventsRegistered.filter((event) => { // No Strict Matching
+                return event.eventLeaderBitotsavId == userBitId && event.eventId == eventId;
+            });
+            if (events.length > 0) {
+                events = events[0];
+                mainUsers.push({
+                    teamId: "-",
+                    teamName: "-",
+                    leaderName: user.name,
+                    leaderPhoneNo: user.phoneNo,
+                    teamMembers: events.members
+                });
+            }
+        });
+        users = await userModel.find({ isVerified: true, "teamEventsRegistered.eventId": eventId });
+        const teamSearchStart = async () => {
+            await asyncForEach(users, async (user) => {
+                const userBitId = user.bitotsavId;
+                let events = user.teamEventsRegistered.filter((event) => {
+                    return event.eventLeaderBitotsavId == userBitId && event.eventId == eventId;
+                });
+                if (events.length > 0) {
+                    events = events[0];
+                    const team = await teamModel.findById(user.teamMongoId);
+                    if (events.members.length === 0) {
+                        mainUsers.push({
+                            teamId: team.teamId,
+                            teamName: team.teamName,
+                            leaderName: user.name,
+                            leaderPhoneNo: user.phoneNo,
+                            teamMembers: [{
+                                email: user.email,
+                                bitotsavId: user.bitotsavId
+                            }]
+                        });
+                    } else {
+                        mainUsers.push({
+                            teamId: team.teamId,
+                            teamName: team.teamName,
+                            leaderName: user.name,
+                            leaderPhoneNo: user.phoneNo,
+                            teamMembers: events.members
+                        });
+                    }
+                }
+            });
+            if (mainUsers.length === 0) {
+                return res.json({ status: 404, message: "No Team Found" });
+            }
+            return res.json({ status: 200, teams: mainUsers });
+        }
+        teamSearchStart();
     } catch (e) {
         return res.json({ status: 500, message: "Server Error" });
     }
