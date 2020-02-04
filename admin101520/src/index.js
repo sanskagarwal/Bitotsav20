@@ -9,6 +9,7 @@ import User from "./components/User";
 import Team from "./components/Team";
 import EventParticipants from './components/EventParticipants';
 import Stats from './components/Stats';
+import SMS from './components/SMS';
 import Logout from "./components/Logout";
 
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
                     <Route path="/logout" component={Logout} />
                     <Route path="/eventParticipants" component={EventParticipants} />
                     <Route path="/stats" component={Stats} />
+                    <Route path="/sms" component={SMS} />
                 </div>
             </Router>
         );
