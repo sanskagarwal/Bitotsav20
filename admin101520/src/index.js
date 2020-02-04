@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Sap from "./components/Sap";
 import Event from "./components/Event";
 import User from "./components/User";
+import Team from "./components/Team";
 import EventParticipants from './components/EventParticipants';
 import Stats from './components/Stats';
 import Logout from "./components/Logout";
@@ -34,6 +35,7 @@ class App extends React.Component {
                     <Route path="/sap" component={Sap} />
                     <Route path="/event" component={Event} />
                     <Route path="/user" component={User} />
+                    <Route path="/team" component={Team} />
                     <Route path="/logout" component={Logout} />
                     <Route path="/eventParticipants" component={EventParticipants} />
                     <Route path="/stats" component={Stats} />

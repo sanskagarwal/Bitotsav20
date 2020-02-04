@@ -420,6 +420,117 @@ router.post('/announcement', (req, res) => {
 });
 
 
+
+
+
+//team details routes
+router.post('/getTeam', (req, res, next) => {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, async (req, res) => {
+    try {
+
+        if (!req.body.parameter || req.body.parameter === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if (!req.body.paramValue || req.body.paramValue === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+
+        const parameter = req.body.parameter;
+
+        if (parameter === 'Team Name') {
+            const paramValue = req.body.paramValue
+                .toString()
+                .trim()
+                .toLowerCase();
+
+            const team = await teamModel.findOne({
+                teamName: paramValue
+            }, {
+                _id: 0,
+                teamName: 1,
+                teamId: 1,
+                teamSize: 1,
+                teamMembers: 1,
+                points: 1,
+                leaderId: 1,
+                leaderName: 1,
+                leaderPhoneNo: 1,
+                teamVerified: 1
+            });
+            return res.json({
+                status: 200,
+                team: team
+            });
+        } else if (parameter === 'Team Id') {
+            const paramValue = req.body.paramValue
+                .toString()
+                .trim();
+
+            if (isNaN(paramValue)) {
+                return res.json({
+                    status: 422,
+                    message: "Team Id is not a number!",
+                    team: null
+                });
+            }
+
+            const team = await teamModel.findOne({
+                teamId: Number(paramValue)
+            }, {
+                _id: 0,
+                teamName: 1,
+                teamId: 1,
+                teamSize: 1,
+                teamMembers: 1,
+                points: 1,
+                leaderId: 1,
+                leaderName: 1,
+                leaderPhoneNo: 1,
+                teamVerified: 1
+            });
+            return res.json({
+                status: 200,
+                team: team
+            });
+        } else {
+            return res.json({
+                status: 422,
+                message: "Invalid Fields!"
+            });
+        }
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: "Server Error!"
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
 /* 
 router.post("/teamDetails", adminAuth, async (req, res) => {
     const teamzId = req.body.teamId;
