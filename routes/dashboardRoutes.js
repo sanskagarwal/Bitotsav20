@@ -96,32 +96,21 @@ router.post('/register', verifyToken, async (req, res) => {
         const eventName = eventDetail.name;
 
         if (eventDetail.group === 1) {
-            if (!rawUser.isTeamLeader) {
-                return res.json({ status: 400, message: "Only Team Leader can register for flagship events." });
-            }
-            const teamMongoId = rawUser.teamMongoId;
-            const team = await teamModel.findById(teamMongoId);
-
-            const eventsReg = team.eventsRegistered;
+            const eventsReg = rawUser.soloEventsRegistered;
             const eventFind = eventsReg.find((event) => event.eventId === eventId);
             if (eventFind !== undefined) { // An Object is found
-                return res.json({ status: 403, message: "You team is already registered in this event!" });
+                return res.json({ status: 403, message: "You are already registered in this event!" });
             }
-
             const event = {
                 eventId: eventId,
                 eventName: eventName,
                 eventLeaderBitotsavId: rawUser.bitotsavId,
-                members: []
+                members: [{
+                    bitotsavId: rawUser.bitotsavId,
+                    email: rawUser.bitotsavId
+                }]
             };
-            await userModel.updateMany({ teamMongoId: teamMongoId }, { $push: { teamEventsRegistered: event } });
-            await teamModel.updateOne({ _id: teamMongoId }, {
-                $push: {
-                    eventsRegistered: { eventId: eventId, eventLeaderBitotsavId: rawUser.bitotsavId }, teamNotifications: {
-                        message: `${rawUser.name} registered your team for the event ${eventName}`
-                    }
-                }
-            });
+            await userModel.updateOne({ _id: rawUser._id }, { $push: { soloEventsRegistered: event } });
             return res.json({ status: 200, message: `Successfully Registered for the flagship event ${eventName}, now mail the details of participants to the mentioned.` });
         }
 
@@ -308,28 +297,12 @@ router.post('/deregister', verifyToken, async (req, res) => {
         const userBitotsavId = rawUser.bitotsavId;
 
         if (eventDetail.group === 1) {
-            if (!rawUser.isTeamLeader) {
-                return res.json({ status: 400, message: "Only Team Leader can de-register the event" })
-            }
-            const teamEventsReg = rawUser.teamEventsRegistered;
-            const event = teamEventsReg.find((eventObj) => eventObj.eventId === eventId);
+            const soloEventsReg = rawUser.soloEventsRegistered;
+            const event = soloEventsReg.find((eventObj) => eventObj.eventId === eventId);
             if (!event) {
                 return res.json({ status: 403, message: "Can't deregister if you are not registered in the first place." });
             }
-
-            // Not Possible, but adds a bit of shield
-            const leaderBitotsavId = event.eventLeaderBitotsavId;
-            if (userBitotsavId !== leaderBitotsavId) {
-                return res.json({ status: 403, message: "Only event leader is allowed to deregister the team from any event." });
-            }
-
-            await userModel.updateMany({ teamMongoId: teamMongoId }, { $pull: { teamEventsRegistered: { eventId: eventId } } });
-            await teamModel.updateOne({ _id: teamMongoId }, {
-                $pull: { eventsRegistered: { eventId: eventId } },
-                $push: {
-                    teamNotifications: { message: `${rawUser.name} deregistered the team from the event ${eventName}` }
-                }
-            });
+            await userModel.updateOne({ _id: rawUser._id }, { $pull: { soloEventsRegistered: { eventId: eventId } } });
             return res.json({ status: 200, message: `Successfully deregistered from the event: ${eventName}` });
         }
 

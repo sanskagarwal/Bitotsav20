@@ -417,11 +417,7 @@ function eventdetails(event, i, s) {
         ${teamRegText}
         </button>`;
 
-        if (userDetails.isTeamLeader) {
-            groupRegisterButton = `<button class="btn btn-outline-success btn-loader" onclick="groupRegister(${event.id}, ${i})"><span class="loader"></span>Register your team</button>`;
-        } else {
-            groupRegisterButton = `<button class="btn btn-outline-success" disabled>Register your team</button>`;
-        }
+        groupRegisterButton = `<button class="btn btn-outline-success btn-loader" onclick="groupRegister(${event.id}, ${i})"><span class="loader"></span>Register</button>`;
     } else if (event.individual === 1) {
         let soloRegText = "Solo Register";
         finalRegButton = `
@@ -548,9 +544,7 @@ function eventdetails(event, i, s) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>It is a Group event, only the team leader can register for the
-                        event. After successful registration, the team leader must mail documents,
-                        photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned in the rules and regulations of the corresponding event. (Create team if register option is not visible)</p>
+                        <p>It is a Group event. After successful registration, the team leader must mail documents, photos etc. to <a href="mailto:events@bitotsav.in" target="_blank">events@bitotsav.in</a> as mentioned in the rules and regulations of the corresponding event.</p>
 
                         ${groupRegisterButton}
 
