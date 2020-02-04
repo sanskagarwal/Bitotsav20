@@ -7,6 +7,7 @@ const Sap = require('./../models/studentAmbassador');
 const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
 const teamModel = require('./../models/team');
+const announcementModel = require('./../models/announcement');
 const config = require('./../config');
 
 async function asyncForEach(array, callback) {
@@ -491,8 +492,11 @@ router.post('/announcement', (req, res, next) => {
 
 }, async (req, res) => {
     try {
-        const title = req.body.title.trim();
-        const message = req.body.message.trim();
+        const title = req.body.title.toString().trim();
+        const message = req.body.message.toString().trim();
+
+        console.log(title, message);
+
         if (!title || !message) {
             return res.json({
                 status: 422,
@@ -500,13 +504,13 @@ router.post('/announcement', (req, res, next) => {
             });
         }
 
-        const newNotification = await notificationModel.create({
+        const newannouncement = await announcementModel.create({
             title: title,
             message: message
         });
 
-        const notificationMongoId = newNotification._id;
-        console.log(notificationMongoId);
+        const announcementMongoId = newannouncement._id;
+        console.log(announcementMongoId);
 
 
         // sendFcmMessage({

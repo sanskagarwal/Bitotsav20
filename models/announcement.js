@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const notificationSchema = new schema({
+const announcementSchema = new schema({
     title: {
         type: String,
         required: true
@@ -12,5 +12,5 @@ const notificationSchema = new schema({
     }
 });
 
-const notificationModel = mongoose.model("notifications", notificationSchema);
-module.exports = notificationModel;
+const announcementModel = mongoose.model("announcements", announcementSchema);
+module.exports = announcementModel;

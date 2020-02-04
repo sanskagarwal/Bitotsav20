@@ -11,6 +11,7 @@ import EventParticipants from './components/EventParticipants';
 import Stats from './components/Stats';
 import SMS from './components/SMS';
 import Logout from "./components/Logout";
+import Announcement from "./components/Announcement"; 
 
 class App extends React.Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class App extends React.Component {
                     <Route path="/eventParticipants" component={EventParticipants} />
                     <Route path="/stats" component={Stats} />
                     <Route path="/sms" component={SMS} />
+                    <Route path="/Announcement" component={Announcement} />
                 </div>
             </Router>
         );
