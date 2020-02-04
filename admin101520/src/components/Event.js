@@ -73,8 +73,6 @@ class Event extends React.Component {
     handleFormChange = (e) => {
         let nam = e.target.name;
         let val = e.target.value;
-        console.log(val, nam);
-        console.log(this.state.venue);
         this.setState({ [nam]: val });
     }
 
@@ -182,7 +180,7 @@ class Event extends React.Component {
                                 Rules and Regulations
                     </div>
                             <div>
-                                {this.state.update === 1 ? (<textarea rows="10" name="rulesAndRegulation" value={this.state.rulesAndRegulations} onChange={this.handleFormChange} />) : this.state.eventDetails.rulesAndRegulations}
+                                {this.state.update === 1 ? (<textarea rows="10" name="rulesAndRegulations" value={this.state.rulesAndRegulations} onChange={this.handleFormChange} />) : this.state.eventDetails.rulesAndRegulations}
                             </div>
 
                             <div className="font-weight-bold">

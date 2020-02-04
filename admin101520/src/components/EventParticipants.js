@@ -111,7 +111,7 @@ class EventParticipants extends React.Component {
                                     this.state.sel === 1 && (this.state.teams.map((res, ind) => {
                                         const members = res.teamMembers.map((mem) => {
                                             return (
-                                                <li>{mem.name} - {mem.bitotsavId}</li>
+                                                <li>{mem.email} - {mem.bitotsavId}</li>
                                             );
                                         });
                                         return (
