@@ -3,6 +3,7 @@
 // Models
 const eventModel = require('./models/events');
 const userModel = require('./models/user');
+const teamModel = require('./models/team');
 const coreTeamModel = require('./models/coreTeam');
 const bitIdCounter = require('./models/bitIdCounter');
 const sapIdCounter = require('./models/sapIdCounter');
@@ -131,20 +132,19 @@ if (req === 1) {
         console.log(mySet.size);
     });
 } else if (req === 7) {
-    let totalUsers, bitUsers;
-    userModel.find({ clgName: "Birla Institute of Technology, Mesra", isVerified: true }, { _id: 1 }, (err, users) => {
-        if (err) {
-            return console.log(err);
-        }
-        bitUsers = users.length;
-        userModel.find({ isVerified: true }, { _id: 1 }, (err, users) => {
-            if (err) {
-                return console.log(err);
-            }
-            totalUsers = users.length;
-            console.log(`Total Users: ${totalUsers}`);
-            console.log(`BIT Users: ${bitUsers}`);
-            console.log(`Outside Users: ${totalUsers - bitUsers}`);
-        });
+    let bitUsers = 0, totalUsers = 0, outsideUsers = 0, teamCount = 0;
+    let promises = [
+        userModel.countDocuments({ clgName: "Birla Institute of Technology, Mesra", isVerified: true }).exec(),
+        userModel.countDocuments({ isVerified: true }).exec(),
+        teamModel.countDocuments({}).exec()
+    ];
+    Promise.all(promises).then((results) => {
+        bitUsers = results[0];
+        totalUsers = results[1];
+        outsideUsers = totalUsers - bitUsers;
+        teamCount = results[2];
+        console.log(results);
+    }).catch((err) => {
+        console.log(err);
     });
 }

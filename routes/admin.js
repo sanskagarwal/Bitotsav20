@@ -288,13 +288,13 @@ router.post('/getUser', (req, res, next) => {
 }, async (req, res) => {
     try {
 
-        if(!req.body.parameter || req.body.parameter === ''){
+        if (!req.body.parameter || req.body.parameter === '') {
             return res.json({
                 status: 422,
                 message: "Missing fields!"
             });
         }
-        if(!req.body.paramValue || req.body.paramValue === ''){
+        if (!req.body.paramValue || req.body.paramValue === '') {
             return res.json({
                 status: 422,
                 message: "Missing fields!"
@@ -322,7 +322,7 @@ router.post('/getUser', (req, res, next) => {
                 user: user
             });
         } else if (parameter === 'Bitotsav Id') {
-            if(isNaN(paramValue)){
+            if (isNaN(paramValue)) {
                 return res.json({
                     status: 422,
                     message: "Bitotsav Id is not a number!",
@@ -361,8 +361,31 @@ router.post('/getUser', (req, res, next) => {
     }
 });
 
-
-
+router.post("/getStats", (req, res) => {
+    const valid = adminAuth('publicity', req.body.password);
+    if (!valid) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised"
+        });
+    }
+    let bitUsers = 0, totalUsers = 0, outsideUsers = 0, teamCount = 0;
+    let promises = [
+        userModel.countDocuments({ clgName: "Birla Institute of Technology, Mesra", isVerified: true }).exec(),
+        userModel.countDocuments({ isVerified: true }).exec(),
+        teamModel.countDocuments({}).exec()
+    ];
+    Promise.all(promises).then((results) => {
+        bitUsers = results[0];
+        totalUsers = results[1];
+        outsideUsers = totalUsers - bitUsers;
+        teamCount = results[2];
+        return res.json({ status: 200, bitUsers, totalUsers, outsideUsers, teamCount });
+    }).catch((err) => {
+        console.log(err);
+        return res.json({ status: 500, message: "Server Error" });
+    });
+});
 
 router.post('/announcement', (req, res) => {
     const valid = adminAuth('events', req.body.password);
