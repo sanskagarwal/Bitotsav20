@@ -533,9 +533,9 @@ router.post('/announcement', (req, res, next) => {
             status: 200,
             message: "Notification sent successfully!"
         });
-        
+
     }
-    catch(e){
+    catch (e) {
         return res.json({
             status: 500,
             message: "Server Error!"
@@ -682,6 +682,18 @@ router.post('/getTeam', (req, res, next) => {
     }
 });
 
+router.post("/leaderboard", async (req, res) => {
+    try {
+        const leaderboard = await teamModel.
+            find({ 'teamVerified': true }).
+            sort({ points: -1 }).
+            select({ _id: 0, teamName: 1, teamId: 1, points: 1 });
+        return res.send({ status: 200, leaderboard: leaderboard });
+    }
+    catch (e) {
+        return res.send({ status: 500, message: 'Error on the server!' });
+    }
+});
 
 
 
