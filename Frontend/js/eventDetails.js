@@ -486,6 +486,10 @@ function eventdetails(event, i, s) {
                                     <td class="text-inner">${pointsOrCash.value}</td>
                                 </tr>
                                 <tr>
+                                    <td class="text">VENUE:</td>
+                                    <td class="text-inner">${event.venue}</td>
+                                </tr>
+                                <tr>
                                     <td class="text">DESCRIPTION:</td>
                                     <td class="text-inner" style="text-align:left;">${event.description}</td>
                                 </tr>

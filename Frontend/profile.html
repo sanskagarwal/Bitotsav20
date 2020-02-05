@@ -562,11 +562,37 @@
             };
             fullHeight();
 
-            $("a[href$='#event']").click(function () {
+            $("a[href='#event']").click(function () {
                 if( screen.width < 600){
                     $('#sidebar').toggleClass('active');
                 }
-            })
+            });
+            $("a[href='#team']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            });
+            $("a[href='#profile']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            });
+            $("a[href='#changePassword']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            });
+            $("a[href='#instruction']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            });
+            $("a[href='#teamNotification']").click(function () {
+                if( screen.width < 600){
+                    $('#sidebar').toggleClass('active');
+                }
+            });
+            
 
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
