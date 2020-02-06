@@ -606,7 +606,7 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         const eventDetail = await eventModel.find({ id: eventId });
                         if (eventDetail.individual === 0) {
                             return res.json({
-                                status: 415, message: `Member ${i + 1} is registered in some team events, de-register his/her existing events and try again.`
+                                status: 415, message: `Member ${i + 1} is registered in events that can be registered if in team too, de-register those team events and try again.`
                             });
                         }
                     });
