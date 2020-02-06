@@ -198,4 +198,33 @@ if (req === 1) {
         }
         console.log("Fixed");
     });
+} else if (req === 11) {
+    console.log("It will find invalid teams");
+    const teamEventIds = [];
+    eventModel.find({ individual: 0 }, { _id: 0, id: 1 }, (err, events) => {
+        if (err) {
+            return console.log(err);
+        }
+        events.forEach((eve) => {
+            teamEventIds.push(eve.id);
+        });
+        teamModel.find({}, async (err, teams) => {
+            if (err) {
+                return console.log(err);
+            }
+            for (let i = 0; i < teams.length; i++) {
+                const team = teams[i];
+                for (let j = 0; j < team.teamMembers.length; j++) {
+                    const user = team.teamMembers[j];
+                    const userDetails = await userModel.findOne({ email: user.email });
+                    for (let k = 0; k < userDetails.soloEventsRegistered.length; k++) {
+                        const event = userDetails.soloEventsRegistered[k];
+                        if (teamEventIds.includes(event.eventId)) {
+                            console.log(`Fucked by Team ${team.teamId}, Member ${user.email} - ${user.name}`);
+                        }
+                    }
+                }
+            }
+        });
+    })
 }

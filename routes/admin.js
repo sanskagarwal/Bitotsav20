@@ -286,7 +286,7 @@ router.post("/getTeamsByEventId", async (req, res) => {
         return res.json({ status: 422, message: "Event Id is required" });
     }
     try {
-        const eventDetails = await eventModel.find({ id: eventId });
+        const eventDetails = await eventModel.findOne({ id: eventId });
         if (!eventDetails) {
             return res.json({ status: 422, message: "Invalid Event Id" });
         }
