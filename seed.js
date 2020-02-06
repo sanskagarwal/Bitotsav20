@@ -27,6 +27,13 @@ connectDB();
 const req = Number(process.argv[2]);
 console.log(`Requested route: ${req}`);
 
+
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+}
+
 if (req === 1) {
     teamIdCounter.find({}, (err, docs) => {
         if (err) {
@@ -143,33 +150,52 @@ if (req === 1) {
         totalUsers = results[1];
         outsideUsers = totalUsers - bitUsers;
         teamCount = results[2];
-        console.log(results);
+        console.log(bitUsers, totalUsers, outsideUsers, teamCount);
     }).catch((err) => {
         console.log(err);
     });
 } else if (req === 8) {
-    console.log("For Fixing error in user Model :(");
+    console.log("It will fix error in user Model");
+    const groupEventIds = [0, 1, 2, 3, 4, 7, 8, 21];
+    return console.log("Fixed :)");
     async function correctGroup() {
-        users = await userModel.findOne({ isVerified: true, "soloEventsRegistered.eventId": { $in: [0, 1, 2, 3, 4, 7, 8, 21] } });
-        console.log(users);
-        console.log(users.soloEventsRegistered[1].members, users.soloEventsRegistered[0].members);
+        try {
+            users = await userModel.find({ isVerified: true, "soloEventsRegistered.eventId": { $in: groupEventIds } });
+            console.log(users.length);
+            let cnt = 0;
+            for (let j = 0; j < users.length; j++) {
+                const user = users[j];
+                for (let i = 0; i < user.soloEventsRegistered.length; i++) {
+                    const event = user.soloEventsRegistered[i];
+                    if ((groupEventIds.includes(event.eventId)) && (user.bitotsavId == event.eventLeaderBitotsavId)) {
+                        cnt++;
+                        user.soloEventsRegistered[i].members[0].email = user.email;
+                    }
+                }
+                await user.save();
+                console.log(j);
+            }
+            console.log(cnt);
+        } catch (e) {
+            console.log(e);
+        }
     }
-    correctGroup();
-    // users.forEach((user) => {
-    //     const userBitId = user.bitotsavId;
-    //     let events = user.soloEventsRegistered.filter((event) => { // No Strict Matching
-    //         return event.eventLeaderBitotsavId == userBitId && event.eventId == eventId;
-    //     });
-    //     if (events.length > 0) {
-    //         events = events[0];
-    //         mainUsers.push({
-    //             teamId: "-",
-    //             teamName: "-",
-    //             leaderName: user.name,
-    //             leaderPhoneNo: user.phoneNo,
-    //             teamMembers: events.members,
-    //             college: user.clgName
-    //         });
-    //     }
-    // });
+    // correctGroup();
+} else if (req === 9) {
+    console.log("It will list the disaster caused by my little mistake");
+    userModel.find({ isVerified: false, "soloEventsRegistered.0": { "$exists": true } }, (err, users) => {
+        if (err) {
+            return console.log("Some err");
+        }
+        console.log(users);
+    })
+} else if (req === 10) {
+    console.log("It will correct the un-verified users participating in events");
+    return console.log("Alread Fixed");
+    userModel.updateMany({ isVerified: false, "soloEventsRegistered.0": { "$exists": true } }, { $set: { soloEventsRegistered: [] } }, async (err) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Fixed");
+    });
 }
