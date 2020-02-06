@@ -10,6 +10,12 @@ const eventModel = require('../models/events');
 const TeamIdCounter = require('../models/teamIdCounter');
 
 
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+}
+
 //for all dashbaord routes -> req.userId contains user mongo id
 //1.getProfile 
 //  if teamMongo Id -> get team details and send with team events registered
@@ -601,15 +607,18 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         status: 415, message: `Member ${i + 1} is registered in some events, de-register his/her existing events and try again.`
                     });
                 } else if (Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
-                    foundUser.soloEventsRegistered.forEach(async (val) => {
-                        const eventId = val.eventId;
-                        const eventDetail = await eventModel.find({ id: eventId });
-                        if (eventDetail.individual === 0) {
-                            return res.json({
-                                status: 415, message: `Member ${i + 1} is registered in events that can be registered if in team too, de-register those team events and try again.`
-                            });
-                        }
-                    });
+                    const soloSearchStart = async () => {
+                        await asyncForEach(foundUser.soloEventsRegistered, async (val) => {
+                            const eventId = val.eventId;
+                            const eventDetail = await eventModel.find({ id: eventId });
+                            if (eventDetail.individual === 0) {
+                                return res.json({
+                                    status: 415, message: `Member ${i + 1} is registered in events that can be registered if in team too, de-register those team events and try again.`
+                                });
+                            }
+                        });
+                    }
+                    soloSearchStart();
                 }
                 membersData[i].name = foundUser.name;
             }

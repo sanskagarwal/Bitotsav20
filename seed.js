@@ -147,4 +147,28 @@ if (req === 1) {
     }).catch((err) => {
         console.log(err);
     });
+} else if (req === 8) {
+    console.log("For Fixing error in user Model :(");
+    async function correctGroup() {
+        users = await userModel.findOne({ isVerified: true, "soloEventsRegistered.eventId": { $in: [0, 1, 2, 3, 4, 7, 8, 21] } });
+        console.log(users.soloEventsRegistered[1].members, users.soloEventsRegistered[0].members);
+    }
+    correctGroup();
+    // users.forEach((user) => {
+    //     const userBitId = user.bitotsavId;
+    //     let events = user.soloEventsRegistered.filter((event) => { // No Strict Matching
+    //         return event.eventLeaderBitotsavId == userBitId && event.eventId == eventId;
+    //     });
+    //     if (events.length > 0) {
+    //         events = events[0];
+    //         mainUsers.push({
+    //             teamId: "-",
+    //             teamName: "-",
+    //             leaderName: user.name,
+    //             leaderPhoneNo: user.phoneNo,
+    //             teamMembers: events.members,
+    //             college: user.clgName
+    //         });
+    //     }
+    // });
 }
