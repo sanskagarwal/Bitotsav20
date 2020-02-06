@@ -169,20 +169,27 @@ if (req === 1) {
     async function correctGroup() {
         try {
             users = await userModel.find({ isVerified: true, "soloEventsRegistered.eventId": { $in: groupEventIds } });
-            for(let j=0;j<users.length;j++) {
+            for (let j = 0; j < users.length; j++) {
                 const user = users[j];
-                const events = user.soloEventsRegistered;
-                for(let i=0;i<user.soloEventsRegistered.length;i++) {
+                for (let i = 0; i < user.soloEventsRegistered.length; i++) {
                     const event = user.soloEventsRegistered[i];
-                    if((event.eventId in groupEventIds) && (user.bitotsavId == event.eventLeaderBitotsavId)) {
+                    if ((event.eventId in groupEventIds) && (user.bitotsavId == event.eventLeaderBitotsavId)) {
                         user.soloEventsRegistered[i].members[0].email = user.email;
                     }
                 }
-                await user.save();
+                // await user.save();
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     }
     correctGroup();
+} else if (req === 10) {
+    console.log("It will list the disaster caused by my little mistake");
+    userModel.find({ isVerified: false, "soloEventsRegistered.0": { "$exists": true } }, (err, users) => {
+        if (err) {
+            return console.log("Some err");
+        }
+        console.log(users);
+    })
 }

@@ -378,6 +378,9 @@ var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
 
 function eventdetails(event, i, s) {
+    if (event.id === 38) {
+        return;
+    }
     let duration = event.duration, date, time;
     if (duration[0] === "@") {
         let colonIndex = duration.indexOf(':')
