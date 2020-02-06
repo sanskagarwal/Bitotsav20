@@ -151,6 +151,7 @@ if (req === 1) {
     console.log("For Fixing error in user Model :(");
     async function correctGroup() {
         users = await userModel.findOne({ isVerified: true, "soloEventsRegistered.eventId": { $in: [0, 1, 2, 3, 4, 7, 8, 21] } });
+        console.log(users);
         console.log(users.soloEventsRegistered[1].members, users.soloEventsRegistered[0].members);
     }
     correctGroup();

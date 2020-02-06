@@ -85,12 +85,12 @@ function displayTeamRegistrationButton(event, i) {
 
 
 function teamRegFormSubmit(i, eventId, minP, maxP) {
+    $(`#events${i}TeamRegisterButton`).prop("disabled", true);
+    $(".loader").addClass("spinner-grow spinner-grow-sm");
     const minParticipants = minP;
     const maxParticipants = maxP;
     const participants = $(`#events${i}TeamRegisterForm`).select2('data');
     const indices = [];
-    $(".loader").addClass("spinner-grow spinner-grow-sm");
-
     participants.forEach((part) => {
         indices.push(Number(part.id));
     });
@@ -126,16 +126,19 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
                     console.log(res);
                     if (res.status === 200) {
                         $(`#events${i}TeamRegisterErrMsg`).text(res.message).css('color', 'green');
-                        $(`#events${i}TeamRegisterButton`).prop("disabled", true);
                         setTimeout(function () {
                             window.location.reload();
                         }, 2000);
                     } else {
+                        $(`#events${i}TeamRegisterButton`).prop("disabled", false);
+                        $(".loader").removeClass("spinner-grow spinner-grow-sm");
                         $(`#events${i}TeamRegisterErrMsg`).text(res.message).css('color', 'red');
                     }
                 },
                 error: function (err) {
                     $(`#events${i}TeamRegisterErrMsg`).text(res.message).css('color', 'red');
+                    $(".loader").removeClass("spinner-grow spinner-grow-sm");
+                    $(`#events${i}TeamRegisterButton`).prop("disabled", false);
                 }
             });
         }
@@ -229,17 +232,16 @@ function soloRegInput(i, j) {
 
 //to handle submission of solo reg form
 function soloRegFormSubmit(i, eventId) {
+    $(".loader").addClass("spinner-grow spinner-grow-sm");
+    $(`#events${i}SoloRegisterButton`).prop("disabled", true);
     const pSize = Number($(`#events${i}soloRegTeamSizeSelect`).val());
     let participantsArr = [];
-    $(".loader").addClass("spinner-grow spinner-grow-sm");
-
     for (let j = 1; j <= pSize; j++) {
         participantsArr.push({
             email: $(`#events${i}SoloRegMember${j}Email`).val().toString(),
             bitotsavId: $(`#events${i}SoloRegMember${j}BitotsavId`).val().toString()
         });
     }
-
     const url = "https://bitotsav.in";
     $.ajax({
         url: url + "/api/dash/register",
@@ -256,16 +258,19 @@ function soloRegFormSubmit(i, eventId) {
             console.log(res);
             if (res.status === 200) {
                 $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'green');
-                $(`#events${i}SoloRegisterButton`).prop("disabled", true);
                 setTimeout(function () {
                     window.location.reload();
                 }, 2000);
             } else {
                 $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'red');
+                $(`#events${i}SoloRegisterButton`).prop("disabled", false);
+                $(".loader").removeClass("spinner-grow spinner-grow-sm");
             }
         },
         error: function (err) {
-            $(`#events${i}SoloRegisterErrMsg`).text(res.message).css('color', 'red');
+            $(`#events${i}SoloRegisterErrMsg`).text("Some Error Occured").css('color', 'red');
+            $(`#events${i}SoloRegisterButton`).prop("disabled", false);
+            $(".loader").removeClass("spinner-grow spinner-grow-sm");
         }
     });
 
@@ -345,12 +350,14 @@ function groupRegister(eventId, i) {
                 }, 2000);
             } else {
                 $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
+                $(".loader").removeClass("spinner-grow spinner-grow-sm");
                 $(`#events${i}GroupRegisterButton`).prop("disabled", false);
             }
         },
         error: function (err) {
             console.log(err);
-            // $(`#events${i}GroupRegisterErrMsg`).text(res.message).css('color', 'red');
+            $(`#events${i}GroupRegisterErrMsg`).text("Some Error Occured").css('color', 'red');
+            $(".loader").removeClass("spinner-grow spinner-grow-sm");
             $(`#events${i}GroupRegisterButton`).prop("disabled", false);
         }
     });
@@ -385,7 +392,7 @@ function eventdetails(event, i, s) {
         name: '',
         value: ''
     };
-    if(event.id === 10) { // BIT MUN    
+    if (event.id === 10) { // BIT MUN    
         date = "1 & 2";
     }
     if (event.id === 27) { // Let's Scribble
@@ -399,7 +406,7 @@ function eventdetails(event, i, s) {
         pointsOrCash.value = event.points;
     }
 
-    let finalRegButton="", groupRegisterButton = "";
+    let finalRegButton = "", groupRegisterButton = "";
     if (userDetails) {
         const userEvents = userDetails.soloEventsRegistered.concat(userDetails.teamEventsRegistered);
         let flag = 0;
@@ -417,10 +424,10 @@ function eventdetails(event, i, s) {
         ${teamRegText}
         </button>`;
 
-        groupRegisterButton = `<button class="btn btn-outline-success btn-loader" onclick="groupRegister(${event.id}, ${i})"><span class="loader"></span>Register</button>`;
-    } else if (event.individual === 1) {
-        let soloRegText = "Solo Register";
-        finalRegButton = `
+            groupRegisterButton = `<button class="btn btn-outline-success btn-loader" onclick="groupRegister(${event.id}, ${i})"><span class="loader"></span>Register</button>`;
+        } else if (event.individual === 1) {
+            let soloRegText = "Solo Register";
+            finalRegButton = `
             <button type="button" class="btn btn-outline-success" data-toggle="modal"
             data-target="#events${i}SoloRegisterModal">
             ${soloRegText}

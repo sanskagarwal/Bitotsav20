@@ -91,6 +91,9 @@ router.post('/register', verifyToken, async (req, res) => {
         if (!rawUser) {
             return res.json({ status: 400, message: "User not found" });
         }
+        if (rawUser.isVerified === false) {
+            return res.json({ status: 400, message: "Verify your details first at https://bitotsav.in/verify.html" });
+        }
 
         const eventId = Number(req.body.eventId);
 
@@ -288,6 +291,9 @@ router.post('/deregister', verifyToken, async (req, res) => {
         const rawUser = await userModel.findById(userMongoId);
         if (!rawUser) {
             return res.json({ status: 400, message: "User not found." });
+        }
+        if (rawUser.isVerified === false) {
+            return res.json({ status: 400, message: "Verify your details first at https://bitotsav.in/verify.html" });
         }
 
         const eventId = Number(req.body.eventId);
