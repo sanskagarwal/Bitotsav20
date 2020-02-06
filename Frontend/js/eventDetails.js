@@ -378,7 +378,7 @@ var queryParam = getParameterByName("q", windowUrl);
 console.log(queryParam);
 
 function eventdetails(event, i, s) {
-    if (event.id === 38) {
+    if (event.id === 38) { // Billionaire's choice canceled
         return;
     }
     let duration = event.duration, date, time;
