@@ -278,7 +278,7 @@ $(function () {
 
 });
 
-$('.owl-carousel').owlCarousel({
+$('#sponsors .owl-carousel').owlCarousel({
   stagePadding: 200,
   loop: true,
   margin: 10,
@@ -320,4 +320,4 @@ $('.owl-carousel').owlCarousel({
   }
 })
 
-$(".owl-nav").hide();
+$("#sponsors .owl-nav").hide();

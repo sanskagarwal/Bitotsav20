@@ -10243,7 +10243,7 @@ body.mobile-nav-active #mobile-nav {
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
 
-.inner{position:absolute; bottom:30px; left:0; right:0; text-align:center;}
+.inner{text-align:center; color: white; font-size: 1.3em;}
 .inner a{color:#fff; text-decoration:none; border-bottom:2px solid rgba(255,255,255,0.5); transition:.3s ease border-color}
 .inner a:hover{border-color:#fff;}
 .black .inner a{color:#000; border-color:rgba(0,0,0,0.4)}
