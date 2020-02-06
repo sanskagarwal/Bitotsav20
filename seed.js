@@ -201,7 +201,7 @@ if (req === 1) {
 } else if (req === 11) {
     console.log("It will find invalid teams");
     const teamEventIds = [];
-    eventModel.find({ individual: 0 }, { _id: 0, id: 1 }, (err, events) => {
+    eventModel.find({ individual: 0, group: 0 }, { _id: 0, id: 1 }, (err, events) => {
         if (err) {
             return console.log(err);
         }
@@ -227,4 +227,19 @@ if (req === 1) {
             }
         });
     })
+} else if (req === 12) {
+    console.log("It will fix both invalid users");
+    return console.log("Fixed");
+    userModel.updateOne({ email: "sharmaashvini961@gmail.com" }, { $set: { soloEventsRegistered: [] } }, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Fixed 1");
+    });
+    userModel.updateOne({ email: "pallaviwagadre1998@gmail.com" }, { $set: { soloEventsRegistered: [] } }, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Fixed 2");
+    });
 }
