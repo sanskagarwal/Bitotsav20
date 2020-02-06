@@ -368,20 +368,13 @@ router.post("/forgotPassword",
                 if (err) {
                     return res.json({ status: 500, message: "Internal Server Error" });
                 }
-                else if (!user) {
+                if (!user) {
                     return res.json({ status: 500, message: "Email id does not exist" });
                 }
-                else {
-                    const emailOTP = Math.floor(100000 + Math.random() * 900000).toString();
-                    user.emailOTP = emailOTP;
-                    await user.save(err => {
-                        if (err) {
-                            return res.json({
-                                status: 500,
-                                message: "Internal server error"
-                            });
-                        }
-                    });
+                const emailOTP = Math.floor(100000 + Math.random() * 900000).toString();
+                user.emailOTP = emailOTP;
+                try {
+                    await user.save();
                     res.json({ status: 200, message: "OTP sent to your email address" });
 
                     //email
@@ -398,6 +391,8 @@ router.post("/forgotPassword",
                     `,
                         email
                     );
+                } catch (e) {
+                    res.json({ status: 500, message: "Internal Server Error" });
                 }
             });
         } else {
