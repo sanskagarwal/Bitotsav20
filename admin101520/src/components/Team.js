@@ -25,7 +25,27 @@ function TableRow (props) {
 class Team extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { errMsg: '' ,inputType: 'text' ,parameter: 'Team Name' ,paramValue: '' ,teamName: '', teamId: '', teamSize: '', teamMembers: [], points: '', leaderName: '', leaderPhoneNo: '', teamVerified: '' };
+        this.state = { teamIds: [] ,errMsg: '' ,parameter: 'Team Name' ,nameInput: '' ,idInput: '' ,teamName: '', teamId: '', teamSize: '', teamMembers: [],points: '', leaderName: '', leaderPhoneNo: '', teamVerified: '', teamNameInputDisabled: false , teamIdInputDisabled: true };
+    }
+
+    componentDidMount = async () => {
+        try {
+            const url = URL + '/api/admin/getAllTeamIds';
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    password: sessionStorage.getItem('password') 
+                }),
+            });
+            const data = await res.json();
+            if (data.status !== 200) {
+                return alert(data.message);
+            }
+            this.setState({ teamIds: data.teamIds });
+        } catch (e) {
+            alert(e);
+        }
     }
 
 
@@ -34,14 +54,18 @@ class Team extends React.Component {
         if(parameter === 'Team Name'){
             this.setState({
                 parameter: parameter,
-                inputType: 'text'
+                idInput: '',
+                teamNameInputDisabled: false,
+                teamIdInputDisabled: true
             });
         }
         else if(parameter === 'Team Id'){
             // console.log(this.state);
             this.setState({
                 parameter: parameter,
-                inputType: 'number'
+                nameInput: '',
+                teamNameInputDisabled: true,
+                teamIdInputDisabled: false
             });
         }
         else {
@@ -52,8 +76,27 @@ class Team extends React.Component {
 
     handleInputChange = (e) => {
         const value = e.target.value;
+        const parameter = this.state.parameter;
+        if(parameter === 'Team Name'){
+            this.setState({
+                nameInput: value,
+                teamNameInputDisabled: false
+
+            });
+        }
+        if(parameter === 'Team Id'){
+            this.setState({
+                idInput: value,
+                teamNameInputDisabled: true
+            });
+        }
+        
+    }
+
+    handleTeamIdChange = (e) => {
+        const value = e.target.value;
         this.setState({
-            paramValue: value
+            idInput: value
         });
     }
 
@@ -66,18 +109,21 @@ class Team extends React.Component {
             points: '',
             leaderName: '',
             leaderPhoneNo: '',
-            paramValue: '',
+            idInput: '',
+            nameInput: '',
             errMsg: '',
-            teamVerified: ''
+            teamVerified: '',
+            parameter: 'Team Name'
         });
     }
 
     handleFormSubmit = async (e) => {
         try {
-            console.log(this.state);
+            // console.log(this.state);
 
             const parameter = this.state.parameter;
-            const paramValue = this.state.paramValue;
+            const idInput = this.state.idInput;
+            const nameInput = this.state.nameInput;
 
 
 
@@ -87,7 +133,7 @@ class Team extends React.Component {
                 });
                 return;
             }
-            if(!paramValue || paramValue === ''){
+            if((!idInput || idInput === '')&&(!nameInput || nameInput === '')){
                 this.setState({
                     errMsg: 'Missing fields!'
                 });
@@ -95,17 +141,32 @@ class Team extends React.Component {
             }
 
 
-            if(paramValue && parameter) {
+            if(parameter && (idInput || nameInput)) {
                 const url = URL + '/api/admin/getTeam';
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        password: sessionStorage.getItem('password'),
-                        parameter: parameter,
-                        paramValue: paramValue
-                    }),
-                });
+                let res = null;
+                if(parameter === 'Team Name'){
+                    res = await fetch(url, {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            password: sessionStorage.getItem('password'),
+                            parameter: parameter,
+                            paramValue: nameInput
+                        }),
+                    });
+                }
+                if(parameter === 'Team Id'){
+                    res = await fetch(url, {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            password: sessionStorage.getItem('password'),
+                            parameter: parameter,
+                            paramValue: idInput
+                        }),
+                    });
+                }
+                
                 const data = await res.json();
 
                 // console.log(data);
@@ -157,7 +218,18 @@ class Team extends React.Component {
                                 <option value="Team Name">Team Name</option>
                             </select>
                             <br></br>
-                            <input className="form-control" type={this.state.inputType} placeholder={`Enter the Team  ${this.state.parameter === 'Team Name' ? 'Name' : 'Id'} `} value={this.state.paramValue} onChange={this.handleInputChange}></input>
+                            <input className="form-control" disabled={this.state.teamNameInputDisabled} placeholder='Enter the team name' value={this.state.nameInput} onChange={this.handleInputChange}></input>
+                            <br></br>
+                            
+                            <label htmlFor="teamIdSelect">Select Team Id: </label>
+                            <select className="form-control" id="teamIdSelect" disabled={this.state.teamIdInputDisabled} name="teamIds" required onChange={this.handleTeamIdChange} value={this.state.idInput} >
+                                <option value="0">Select an Id</option>
+                                {this.state.teamIds.map((team) => {
+                                    return (
+                                        <option key={team.teamId} value={team.teamId}>{team.teamId}</option>
+                                    )
+                                })}
+                            </select>
                             <br></br>
                             <p className="errMsg">{this.state.errMsg}</p>
                             <button  onClick={this.handleFormSubmit} className="btn btn-primary">Show Team Details</button>
@@ -243,7 +315,7 @@ class Team extends React.Component {
                                     </thead>
                                     <tbody>
                                     
-                                        {this.state.teamMembers.map((member, index)=><TableRow id={index+1} name={member.name} bitId={member.bitotsavId} email={member.email}></TableRow>) }
+                                        {this.state.teamMembers.map((member, index)=><TableRow key={member.email} id={index+1} name={member.name} bitId={member.bitotsavId} email={member.email}></TableRow>) }
                                     
                                     </tbody>
                             </table>

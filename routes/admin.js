@@ -283,15 +283,25 @@ router.post("/getTeamsByEventId", async (req, res) => {
     }
     const eventId = req.body.eventId;
     if (eventId === undefined) {
-        return res.json({ status: 422, message: "Event Id is required" });
+        return res.json({
+            status: 422,
+            message: "Event Id is required"
+        });
     }
     try {
-        const eventDetails = await eventModel.findOne({ id: eventId });
+        const eventDetails = await eventModel.findOne({
+            id: eventId
+        });
         if (!eventDetails) {
-            return res.json({ status: 422, message: "Invalid Event Id" });
+            return res.json({
+                status: 422,
+                message: "Invalid Event Id"
+            });
         }
         const mainUsers = [];
-        let users = await userModel.find({ "soloEventsRegistered.eventId": eventId });
+        let users = await userModel.find({
+            "soloEventsRegistered.eventId": eventId
+        });
         users.forEach((user) => {
             const userBitId = user.bitotsavId;
             let events = user.soloEventsRegistered.filter((event) => { // No Strict Matching
@@ -309,7 +319,10 @@ router.post("/getTeamsByEventId", async (req, res) => {
                 });
             }
         });
-        users = await userModel.find({ isVerified: true, "teamEventsRegistered.eventId": eventId });
+        users = await userModel.find({
+            isVerified: true,
+            "teamEventsRegistered.eventId": eventId
+        });
         const teamSearchStart = async () => {
             await asyncForEach(users, async (user) => {
                 const userBitId = user.bitotsavId;
@@ -344,13 +357,22 @@ router.post("/getTeamsByEventId", async (req, res) => {
                 }
             });
             if (mainUsers.length === 0) {
-                return res.json({ status: 404, message: "No Team Found" });
+                return res.json({
+                    status: 404,
+                    message: "No Team Found"
+                });
             }
-            return res.json({ status: 200, teams: mainUsers });
+            return res.json({
+                status: 200,
+                teams: mainUsers
+            });
         }
         teamSearchStart();
     } catch (e) {
-        return res.json({ status: 500, message: "Server Error" });
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
     }
 });
 
@@ -457,10 +479,18 @@ router.post("/getStats", (req, res) => {
             message: "Not Authorised"
         });
     }
-    let bitUsers = 0, totalUsers = 0, outsideUsers = 0, teamCount = 0;
+    let bitUsers = 0,
+        totalUsers = 0,
+        outsideUsers = 0,
+        teamCount = 0;
     let promises = [
-        userModel.countDocuments({ clgName: "Birla Institute of Technology, Mesra", isVerified: true }).exec(),
-        userModel.countDocuments({ isVerified: true }).exec(),
+        userModel.countDocuments({
+            clgName: "Birla Institute of Technology, Mesra",
+            isVerified: true
+        }).exec(),
+        userModel.countDocuments({
+            isVerified: true
+        }).exec(),
         teamModel.countDocuments({}).exec()
     ];
     Promise.all(promises).then((results) => {
@@ -468,10 +498,19 @@ router.post("/getStats", (req, res) => {
         totalUsers = results[1];
         outsideUsers = totalUsers - bitUsers;
         teamCount = results[2];
-        return res.json({ status: 200, bitUsers, totalUsers, outsideUsers, teamCount });
+        return res.json({
+            status: 200,
+            bitUsers,
+            totalUsers,
+            outsideUsers,
+            teamCount
+        });
     }).catch((err) => {
         console.log(err);
-        return res.json({ status: 500, message: "Server Error" });
+        return res.json({
+            status: 500,
+            message: "Server Error"
+        });
     });
 });
 
@@ -537,8 +576,7 @@ router.post('/announcement', (req, res, next) => {
             message: "Notification sent successfully!"
         });
 
-    }
-    catch (e) {
+    } catch (e) {
         return res.json({
             status: 500,
             message: "Server Error!"
@@ -556,25 +594,38 @@ router.post("/sendSMS", (req, res) => {
             message: "Not Authorised"
         });
     }
-    let phoneNo = req.body.phoneNo, message = req.body.message;
+    let phoneNo = req.body.phoneNo,
+        message = req.body.message;
     if (!phoneNo || !message) {
-        return res.json({ status: 422, message: "Required phone no and message" });
+        return res.json({
+            status: 422,
+            message: "Required phone no and message"
+        });
     }
     message = message.trim();
     phoneNo = phoneNo.trim();
     if (phoneNo.length !== 10 || message.length > 130) {
-        return res.json({ status: 422, message: "Phone length: 10, Message length: 1-130" });
+        return res.json({
+            status: 422,
+            message: "Phone length: 10, Message length: 1-130"
+        });
     }
     let otpUrl = `http://sms.digimiles.in/bulksms/bulksms?username=${config.digimiles.username}&password=${config.digimiles.password}&type=0&dlr=1&destination=${phoneNo}&source=BITOSV&message=${message}`;
 
     axios.get(otpUrl)
         .then(function (response) {
             console.log("SMS sent");
-            return res.json({ status: 200, message: "SMS Sent Successfully" });
+            return res.json({
+                status: 200,
+                message: "SMS Sent Successfully"
+            });
         })
         .catch(function (error) {
             console.log(error);
-            return res.json({ status: 500, message: "Server Error" });
+            return res.json({
+                status: 500,
+                message: "Server Error"
+            });
         });
 });
 
@@ -685,16 +736,73 @@ router.post('/getTeam', (req, res, next) => {
     }
 });
 
+
+router.post('/getAllTeamIds', (req, res, next) => {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, async (req, res) => {
+    try {
+        const teamIds = await teamModel.
+        find({}).
+        sort({
+            teamId: 1
+        }).
+        select({
+            _id: 0,
+            teamId: 1
+        });
+
+        // console.log(teamIds);
+
+        return res.json({
+            status: 200,
+            teamIds: teamIds
+        });
+    } catch (e) {
+        res.json({
+            status: 500,
+            message: 'Error on the server!'
+        });
+    }
+});
+
+
+
+
+
+
+
 router.post("/leaderboard", async (req, res) => {
     try {
         const leaderboard = await teamModel.
-            find({ 'teamVerified': true }).
-            sort({ points: -1 }).
-            select({ _id: 0, teamName: 1, teamId: 1, points: 1 });
-        return res.send({ status: 200, leaderboard: leaderboard });
-    }
-    catch (e) {
-        return res.send({ status: 500, message: 'Error on the server!' });
+        find({
+            'teamVerified': true
+        }).
+        sort({
+            points: -1
+        }).
+        select({
+            _id: 0,
+            teamName: 1,
+            teamId: 1,
+            points: 1
+        });
+        return res.send({
+            status: 200,
+            leaderboard: leaderboard
+        });
+    } catch (e) {
+        return res.send({
+            status: 500,
+            message: 'Error on the server!'
+        });
     }
 });
 
@@ -709,32 +817,44 @@ router.post("/deleteTeam", (req, res) => {
     }
     async function deleteTeam() {
         try {
-            const teamDetails = await teamModel.findOne({ teamId: req.body.teamId });
+            const teamDetails = await teamModel.findOne({
+                teamId: req.body.teamId
+            });
             if (!teamDetails) {
-                return res.json({ status: 422, message: "Team not found" });
+                return res.json({
+                    status: 422,
+                    message: "Team not found"
+                });
             }
             const teamSize = teamDetails.teamSize;
             let bitIds = [];
             for (let i = 0; i < teamSize; i++) {
                 bitIds.push(teamDetails.teamMembers[i].bitotsavId);
             }
-            await userModel.updateMany({ bitotsavId: { $in: bitIds } }, {
+            await userModel.updateMany({
+                bitotsavId: {
+                    $in: bitIds
+                }
+            }, {
                 $set: {
                     teamMongoId: null,
                     teamEventsRegistered: [],
                     isTeamLeader: false
                 }
-            }
-            );
-            await teamModel.deleteOne({ teamId: req.body.teamId });
+            });
+            await teamModel.deleteOne({
+                teamId: req.body.teamId
+            });
             return res.json({
                 status: 200,
                 message: "Team deleted successfully!"
             });
-        }
-        catch (err) {
+        } catch (err) {
             console.log(err);
-            return res.json({ status: 500, message: "Error on the server!" });
+            return res.json({
+                status: 500,
+                message: "Error on the server!"
+            });
         }
     }
     deleteTeam();
