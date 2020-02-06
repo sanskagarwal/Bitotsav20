@@ -304,7 +304,8 @@ router.post("/getTeamsByEventId", async (req, res) => {
                     teamName: "-",
                     leaderName: user.name,
                     leaderPhoneNo: user.phoneNo,
-                    teamMembers: events.members
+                    teamMembers: events.members,
+                    college: user.clgName
                 });
             }
         });
@@ -327,7 +328,8 @@ router.post("/getTeamsByEventId", async (req, res) => {
                             teamMembers: [{
                                 email: user.email,
                                 bitotsavId: user.bitotsavId
-                            }]
+                            }],
+                            college: user.clgName
                         });
                     } else {
                         mainUsers.push({
@@ -335,7 +337,8 @@ router.post("/getTeamsByEventId", async (req, res) => {
                             teamName: team.teamName,
                             leaderName: user.name,
                             leaderPhoneNo: user.phoneNo,
-                            teamMembers: events.members
+                            teamMembers: events.members,
+                            college: user.clgName
                         });
                     }
                 }

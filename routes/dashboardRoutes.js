@@ -107,7 +107,7 @@ router.post('/register', verifyToken, async (req, res) => {
                 eventLeaderBitotsavId: rawUser.bitotsavId,
                 members: [{
                     bitotsavId: rawUser.bitotsavId,
-                    email: rawUser.bitotsavId
+                    email: rawUser.email
                 }]
             };
             await userModel.updateOne({ _id: rawUser._id }, { $push: { soloEventsRegistered: event } });
