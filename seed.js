@@ -27,6 +27,13 @@ connectDB();
 const req = Number(process.argv[2]);
 console.log(`Requested route: ${req}`);
 
+
+async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+}
+
 if (req === 1) {
     teamIdCounter.find({}, (err, docs) => {
         if (err) {
@@ -149,27 +156,33 @@ if (req === 1) {
     });
 } else if (req === 8) {
     console.log("For Fixing error in user Model :(");
+    const groupEventIds = [0, 1, 2, 3, 4, 7, 8, 21];
     async function correctGroup() {
-        users = await userModel.findOne({ isVerified: true, "soloEventsRegistered.eventId": { $in: [0, 1, 2, 3, 4, 7, 8, 21] } });
+        users = await userModel.findOne({ isVerified: true, "soloEventsRegistered.eventId": { $in: groupEventIds } });
         console.log(users);
         console.log(users.soloEventsRegistered[1].members, users.soloEventsRegistered[0].members);
     }
     correctGroup();
-    // users.forEach((user) => {
-    //     const userBitId = user.bitotsavId;
-    //     let events = user.soloEventsRegistered.filter((event) => { // No Strict Matching
-    //         return event.eventLeaderBitotsavId == userBitId && event.eventId == eventId;
-    //     });
-    //     if (events.length > 0) {
-    //         events = events[0];
-    //         mainUsers.push({
-    //             teamId: "-",
-    //             teamName: "-",
-    //             leaderName: user.name,
-    //             leaderPhoneNo: user.phoneNo,
-    //             teamMembers: events.members,
-    //             college: user.clgName
-    //         });
-    //     }
-    // });
+} else if (req === 9) {
+    console.log("It will fix error in user Model");
+    const groupEventIds = [0, 1, 2, 3, 4, 7, 8, 21];
+    async function correctGroup() {
+        try {
+            users = await userModel.find({ isVerified: true, "soloEventsRegistered.eventId": { $in: groupEventIds } });
+            for(let j=0;j<users.length;j++) {
+                const user = users[j];
+                const events = user.soloEventsRegistered;
+                for(let i=0;i<user.soloEventsRegistered.length;i++) {
+                    const event = user.soloEventsRegistered[i];
+                    if((event.eventId in groupEventIds) && (user.bitotsavId == event.eventLeaderBitotsavId)) {
+                        user.soloEventsRegistered[i].members[0].email = user.email;
+                    }
+                }
+                await user.save();
+            }
+        } catch(e) {
+            console.log(e);
+        }
+    }
+    correctGroup();
 }
