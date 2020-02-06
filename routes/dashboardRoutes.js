@@ -213,7 +213,7 @@ router.post('/register', verifyToken, async (req, res) => {
 
             // Register for the event
             let participants = [];
-            let participantString = ""
+            let participantString = "";
             participantsObjectArray.forEach((member, ind) => {
                 participants.push({
                     bitotsavId: Number(member.bitotsavId),
@@ -613,18 +613,16 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
                         status: 415, message: `Member ${i + 1} is registered in some events, de-register his/her existing events and try again.`
                     });
                 } else if (Array.isArray(foundUser.soloEventsRegistered) && foundUser.soloEventsRegistered.length > 0) {
-                    const soloSearchStart = async () => {
-                        await asyncForEach(foundUser.soloEventsRegistered, async (val) => {
-                            const eventId = val.eventId;
-                            const eventDetail = await eventModel.find({ id: eventId });
-                            if (eventDetail.individual === 0) {
-                                return res.json({
-                                    status: 415, message: `Member ${i + 1} is registered in events that can be registered if in team too, de-register those team events and try again.`
-                                });
-                            }
-                        });
+                    for (let j = 0; j < foundUser.soloEventsRegistered.length; j++) {
+                        const val = foundUser.soloEventsRegistered[j];
+                        const eventId = val.eventId;
+                        const eventDetail = await eventModel.findOne({ id: eventId });
+                        if (eventDetail.individual === 0) {
+                            return res.json({
+                                status: 415, message: `Member ${i + 1} is registered in events that can be registered if in team too, de-register those team events and try again.`
+                            });
+                        }
                     }
-                    soloSearchStart();
                 }
                 membersData[i].name = foundUser.name;
             }
@@ -677,70 +675,5 @@ router.post("/teamRegister", verifyToken, (req, res, next) => {
     }
     teamRegister();
 });
-
-// Might be incorrect
-// router.post("/deleteTeam", verifyToken, (req, res) => {
-//     const userId = req.userId;
-//     async function deleteTeam() {
-//         try {
-//             const userFound = await userModel.findById(userId);
-//             if (!userFound) {
-//                 return res.json({
-//                     status: 422,
-//                     message: "User not found"
-//                 });
-//             }
-//             const teamMongoId = userFound.teamMongoId;
-//             const isTeamLeader = userFound.isTeamLeader;
-//             if (!teamMongoId) {
-//                 return res.json({
-//                     status: 422,
-//                     message: "You are not in a Team!"
-//                 });
-//             }
-//             if (!isTeamLeader) {
-//                 return res.json({
-//                     status: 422,
-//                     message: "Only team leader can delete the team!"
-//                 });
-//             }
-//             const teamDetails = await teamModel.findById(teamMongoId);
-//             if (!teamDetails) {
-//                 return res.json({ status: 422, message: "Team Doesn't Exist" });
-//             }
-//             if (teamDetails.leaderId !== userId) {
-//                 return res.json({ status: 422, message: "Not a leader of this Team" });
-//             }
-//             if (!teamDetails.teamMembers) {
-//                 return res.json({ status: 422, message: "Empty Team" });
-//             }
-//             const teamSize = teamDetails.teamSize;
-//             let bitIds = [];
-//             for (let i = 0; i < teamSize; i++) {
-//                 bitIds.push(teamDetails.teamMembers[i].bitotsavId);
-//             }
-//             const modifiedUsers = await userModel.updateMany({ bitotsavId: { $in: bitIds } }, {
-//                 $set: {
-//                     teamMongoId: null,
-//                     teamEventsRegistered: []
-//                 }
-//             }
-//             );
-//             const NotaTeamLeader = await userModel.updateOne({ bitotsavId: userFound.bitotsavId }, { $set: { isTeamLeader: false } });
-
-//             const teamDeleted = await teamModel.deleteOne({ _id: teamMongoId });
-
-//             return res.json({
-//                 status: 200,
-//                 message: "Team deleted successfully!"
-//             });
-//         }
-//         catch (err) {
-//             console.log(err);
-//             return res.json({ status: 500, message: "Error on the server!" });
-//         }
-//     }
-//     deleteTeam();
-// });
 
 module.exports = router;

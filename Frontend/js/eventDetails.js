@@ -97,6 +97,8 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
 
     if (indices.length < minParticipants || indices.length > maxParticipants) {
         $(`#events${i}TeamRegisterErrMsg`).text(`Number of allowed participants: ${minParticipants} - ${maxParticipants}`).css('color', 'red');
+        $(`#events${i}TeamRegisterButton`).prop("disabled", false);
+        $(".loader").removeClass("spinner-grow spinner-grow-sm");
     } else {
         let leaderFound = false;
         const members = [];
@@ -109,6 +111,8 @@ function teamRegFormSubmit(i, eventId, minP, maxP) {
         });
         if (leaderFound === false) {
             $(`#events${i}TeamRegisterErrMsg`).text('Event leader not selected!').css('color', 'red');
+            $(`#events${i}TeamRegisterButton`).prop("disabled", false);
+            $(".loader").removeClass("spinner-grow spinner-grow-sm");
         } else {
             const url = "https://bitotsav.in";
             $.ajax({
