@@ -442,7 +442,7 @@ router.post(
                     if (err) {
                         return res.json({ status: 500, message: "Server Error" });
                     }
-                    return res.json({ status: 200, message: "Password succesfully changed" });
+                    return res.json({ status: 200, message: "Password changed successfully!" });
                 });
             });
         } catch (e) {

@@ -242,4 +242,18 @@ if (req === 1) {
         }
         console.log("Fixed 2");
     });
+} else if (req === 13) {
+    console.log("It will check any DB inconsistent users");
+    userModel.find({ teamMongoId: { $ne: null } }, async (err, users) => {
+        if (err) {
+            return console.log(err);
+        }
+        for (let i = 0; i < users.length; i++) {
+            const team = await teamModel.findById(users[i].teamMongoId);
+            if (!team) {
+                console.log(users[i].bitotsavId);
+            }
+        }
+        console.log("done");
+    });
 }
