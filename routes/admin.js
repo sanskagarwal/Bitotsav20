@@ -8,6 +8,7 @@ const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
 const teamModel = require('./../models/team');
 const announcementModel = require('./../models/announcement');
+const contactModel = require('./../models/contact');
 const config = require('./../config');
 
 async function asyncForEach(array, callback) {
@@ -769,6 +770,36 @@ router.post('/getAllTeamIds', (req, res, next) => {
         res.json({
             status: 500,
             message: 'Error on the server!'
+        });
+    }
+});
+
+
+
+
+//contact us routes
+router.post('/getMessages', (req, res, next) => {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, async (req, res) => {
+    try {
+        const feedbacks = await contactModel.find({},{_id: 0});
+        // console.log(feedbacks);
+        return res.json({
+            status: 200,
+            feedbacks: feedbacks
+        });
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: 'Server error!'
         });
     }
 });
