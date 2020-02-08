@@ -1,6 +1,7 @@
 // Database seed file (Proceed with caution!!)
 
 // Models
+const fs = require("fs");
 const eventModel = require('./models/events');
 const userModel = require('./models/user');
 const teamModel = require('./models/team');
@@ -8,18 +9,6 @@ const coreTeamModel = require('./models/coreTeam');
 const bitIdCounter = require('./models/bitIdCounter');
 const sapIdCounter = require('./models/sapIdCounter');
 const teamIdCounter = require('./models/teamIdCounter');
-
-// Json
-const dhwani = require('./eventsJson/cleaned/dhwani');
-const dansation = require('./eventsJson/cleaned/dansation');
-const adaa = require('./eventsJson/cleaned/adaa');
-const digitales = require('./eventsJson/cleaned/digitales');
-const euphoria = require('./eventsJson/cleaned/euphoria');
-const herald = require('./eventsJson/cleaned/herald');
-const meraki = require('./eventsJson/cleaned/meraki');
-const rhetoric = require('./eventsJson/cleaned/rhetoric');
-const swaang = require('./eventsJson/cleaned/swaang');
-const taabiir = require('./eventsJson/cleaned/taabiir');
 
 const connectDB = require('./db/mongoose_connection');
 connectDB();
@@ -76,25 +65,8 @@ if (req === 1) {
             });
         }
     });
-} else if (req === 4) {
-    console.log("It will delete events");
-    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang, ...taabiir];
-    eventModel.deleteMany({}, (err, res) => {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Events Deleted");
-        eventModel.insertMany(events)
-            .then(() => {
-                return console.log("Inserted Events");
-            })
-            .catch((error) => {
-                return console.log(error);
-            });
-    });
 } else if (req === 5) {
     console.log("It will delete Team");
-    return console.log("Closing the route......");
     let teamJson = require('./teamJson/team.json');
     teamJson = [...teamJson];
     coreTeamModel.deleteMany({}, (err, res) => {
@@ -109,34 +81,6 @@ if (req === 1) {
             .catch((error) => {
                 return console.log(error);
             })
-    });
-} else if (req === 6) {
-    const events = [...dhwani, ...dansation, ...adaa, ...digitales, ...euphoria, ...herald, ...meraki, ...rhetoric, ...swaang, ...taabiir];
-    let nameList = new Set();
-    let mySet = new Set();
-    events.forEach((val) => {
-        if (!val.maxParticipants) {
-            console.log(val.name);
-            console.log(val.eventCategory)
-        }
-        nameList.add(val.name);
-        mySet.add(val.imageName);
-    });
-    console.log(nameList.size);
-    console.log(mySet.size);
-    eventModel.find({}, (err, eventRes) => {
-        if (err) {
-            return console.log(err);
-        }
-        console.log(eventRes.length);
-        let nameList = new Set();
-        let mySet = new Set();
-        eventRes.forEach((val) => {
-            nameList.add(val.name);
-            mySet.add(val.imageName);
-        });
-        console.log(nameList.size);
-        console.log(mySet.size);
     });
 } else if (req === 7) {
     let bitUsers = 0, totalUsers = 0, outsideUsers = 0, teamCount = 0;
@@ -154,33 +98,6 @@ if (req === 1) {
     }).catch((err) => {
         console.log(err);
     });
-} else if (req === 8) {
-    console.log("It will fix error in user Model");
-    const groupEventIds = [0, 1, 2, 3, 4, 7, 8, 21];
-    return console.log("Fixed :)");
-    async function correctGroup() {
-        try {
-            users = await userModel.find({ isVerified: true, "soloEventsRegistered.eventId": { $in: groupEventIds } });
-            console.log(users.length);
-            let cnt = 0;
-            for (let j = 0; j < users.length; j++) {
-                const user = users[j];
-                for (let i = 0; i < user.soloEventsRegistered.length; i++) {
-                    const event = user.soloEventsRegistered[i];
-                    if ((groupEventIds.includes(event.eventId)) && (user.bitotsavId == event.eventLeaderBitotsavId)) {
-                        cnt++;
-                        user.soloEventsRegistered[i].members[0].email = user.email;
-                    }
-                }
-                await user.save();
-                console.log(j);
-            }
-            console.log(cnt);
-        } catch (e) {
-            console.log(e);
-        }
-    }
-    // correctGroup();
 } else if (req === 9) {
     console.log("It will list the disaster caused by my little mistake");
     userModel.find({ isVerified: false, "soloEventsRegistered.0": { "$exists": true } }, (err, users) => {
@@ -189,15 +106,6 @@ if (req === 1) {
         }
         console.log(users);
     })
-} else if (req === 10) {
-    console.log("It will correct the un-verified users participating in events");
-    return console.log("Alread Fixed");
-    userModel.updateMany({ isVerified: false, "soloEventsRegistered.0": { "$exists": true } }, { $set: { soloEventsRegistered: [] } }, async (err) => {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Fixed");
-    });
 } else if (req === 11) {
     console.log("It will find invalid teams");
     const teamEventIds = [];
@@ -256,4 +164,17 @@ if (req === 1) {
         }
         console.log("done");
     });
+} else if (req === 14) {
+    console.log("It will save events of DB");
+    eventModel.find({}, { _id: 0 }, (err, events) => {
+        if (err) {
+            return consolel.log(err);
+        }
+        fs.writeFile('eventsJson/events.json', JSON.stringify(events), (err) => {
+            if (err) {
+                return console.log(err);
+            }
+            console.log("Saved");
+        })
+    })
 }
