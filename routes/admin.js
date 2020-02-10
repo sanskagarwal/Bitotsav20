@@ -751,14 +751,14 @@ router.post('/getAllTeamIds', (req, res, next) => {
 }, async (req, res) => {
     try {
         const teamIds = await teamModel.
-        find({}).
-        sort({
-            teamId: 1
-        }).
-        select({
-            _id: 0,
-            teamId: 1
-        });
+            find({}).
+            sort({
+                teamId: 1
+            }).
+            select({
+                _id: 0,
+                teamId: 1
+            });
 
         // console.log(teamIds);
 
@@ -779,9 +779,8 @@ router.post('/getAllTeamIds', (req, res, next) => {
 
 //contact us routes
 router.post('/getMessages', (req, res, next) => {
-    const validForEventsTeam = adminAuth('events', req.body.password);
-    const validForPublicityTeam = adminAuth('publicity', req.body.password);
-    if (!validForEventsTeam && !validForPublicityTeam) {
+    const valid = adminAuth('contacts', req.body.password);
+    if (!valid) {
         return res.json({
             status: 401,
             message: "Not Authorised!"
@@ -790,7 +789,7 @@ router.post('/getMessages', (req, res, next) => {
     next();
 }, async (req, res) => {
     try {
-        const feedbacks = await contactModel.find({},{_id: 0});
+        const feedbacks = await contactModel.find({}, { _id: 0 });
         // console.log(feedbacks);
         return res.json({
             status: 200,
@@ -813,18 +812,18 @@ router.post('/getMessages', (req, res, next) => {
 router.post("/leaderboard", async (req, res) => {
     try {
         const leaderboard = await teamModel.
-        find({
-            'teamVerified': true
-        }).
-        sort({
-            points: -1
-        }).
-        select({
-            _id: 0,
-            teamName: 1,
-            teamId: 1,
-            points: 1
-        });
+            find({
+                'teamVerified': true
+            }).
+            sort({
+                points: -1
+            }).
+            select({
+                _id: 0,
+                teamName: 1,
+                teamId: 1,
+                points: 1
+            });
         return res.send({
             status: 200,
             leaderboard: leaderboard
