@@ -21,45 +21,6 @@ body {
 
 
 
- /* Sections Header
-  --------------------------------*/
-  
-  .section-header {
-    margin-top: 40px;
-    position: relative;
-    padding-bottom: 20px;
-  }
-  
-  .section-header::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 5px;
-    background: #f82249;
-    bottom: 0;
-    left: calc(50% - 25px);
-  }
-  
-  .section-header h2 {
-    font-size: 36px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 5px;
-  }
-  
-  .section-header p {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 500;
-    color: #9195a2;
-  }
-
-
-
 
 /*--------------------------------------------------------------
 # Header
@@ -712,9 +673,9 @@ body {
   --------------------------------*/
 
 .section-header {
-    margin-bottom: 60px;
+    margin-bottom: 10px;
+    margin-top: 30px;
     position: relative;
-    padding-bottom: 20px;
 }
 
 .section-header::before {
@@ -733,7 +694,8 @@ body {
     text-transform: uppercase;
     text-align: center;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .section-header p {
@@ -744,3 +706,4 @@ body {
     font-weight: 500;
     color: #9195a2;
 }
+
