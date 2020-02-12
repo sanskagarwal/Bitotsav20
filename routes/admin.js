@@ -785,8 +785,8 @@ router.post('/verifyTeam', (req, res, next) => {
         });
     }
     next();
-}, async(req, res) => {
-    try{
+}, async (req, res) => {
+    try {
         if (!req.body.teamId || req.body.teamId === '') {
             return res.json({
                 status: 422,
@@ -802,15 +802,15 @@ router.post('/verifyTeam', (req, res, next) => {
 
         const teamId = Number((req.body.teamId).toString().trim());
         const teamName = req.body.teamName.toString().trim().toLowerCase();
-        
-        const updatedTeam = await teamModel.findOneAndUpdate({teamId: teamId, teamName: teamName}, { $set: {teamVerified: true}});
+
+        const updatedTeam = await teamModel.findOneAndUpdate({ teamId: teamId, teamName: teamName }, { $set: { teamVerified: true } });
         // console.log(updatedTeam);
         return res.json({
             status: 200,
             message: `The team with team id: ${teamId} has been successfully verified!`
         });
 
-    }catch(e){
+    } catch (e) {
         return res.json({
             status: 422,
             message: `Team not found!`

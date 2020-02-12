@@ -180,12 +180,21 @@ if (req === 1) {
 } else if (req === 15) {
     console.log("It will show unverified teams");
 
-    teamModel.find({teamVerified: false}, (err, tms) => {
-        if(err) {
+    teamModel.find({ teamVerified: false }, (err, tms) => {
+        if (err) {
             return console.log(err);
         }
         tms.forEach((team) => {
             console.log(team.teamId, team.teamName);
         });
+    });
+} else if (req === 16) {
+    console.log("It will count verified teams");
+
+    teamModel.countDocuments({ teamVerified: true }, (err, tms) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(tms);
     });
 }
