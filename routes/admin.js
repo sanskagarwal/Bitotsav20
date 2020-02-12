@@ -775,6 +775,50 @@ router.post('/getAllTeamIds', (req, res, next) => {
 });
 
 
+router.post('/verifyTeam', (req, res, next) => {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    const validForPublicityTeam = adminAuth('publicity', req.body.password);
+    if (!validForEventsTeam && !validForPublicityTeam) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, async(req, res) => {
+    try{
+        if (!req.body.teamId || req.body.teamId === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if (!req.body.teamName || req.body.teamName === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+
+        const teamId = Number((req.body.teamId).toString().trim());
+        const teamName = req.body.teamName.toString().trim().toLowerCase();
+        
+        const updatedTeam = await teamModel.findOneAndUpdate({teamId: teamId, teamName: teamName}, { $set: {teamVerified: true}});
+        // console.log(updatedTeam);
+        return res.json({
+            status: 200,
+            message: `The team with team id: ${teamId} has been successfully verified!`
+        });
+
+    }catch(e){
+        return res.json({
+            status: 422,
+            message: `Team not found!`
+        });
+    }
+})
+
+
 
 
 //contact us routes

@@ -25,7 +25,7 @@ function TableRow (props) {
 class Team extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { teamIds: [] ,errMsg: '' ,parameter: 'Team Name' ,nameInput: '' ,idInput: '' ,teamName: '', teamId: '', teamSize: '', teamMembers: [],points: '', leaderName: '', leaderPhoneNo: '', teamVerified: '', teamNameInputDisabled: false , teamIdInputDisabled: true };
+        this.state = { teamIds: [] ,errMsg: '' ,parameter: 'Team Name' ,nameInput: '' ,idInput: '' ,teamName: '', teamId: '', teamSize: '', teamMembers: [],points: '', leaderName: '', leaderPhoneNo: '', teamVerified: '', teamNameInputDisabled: false , teamIdInputDisabled: true, verifyTeamDisabled: true , searchSelectDisabled: false};
     }
 
     componentDidMount = async () => {
@@ -113,9 +113,71 @@ class Team extends React.Component {
             nameInput: '',
             errMsg: '',
             teamVerified: '',
-            parameter: 'Team Name'
+            parameter: 'Team Name',
+            verifyTeamDisabled: true,
+            searchSelectDisabled: false,
+            teamIdInputDisabled: true,
+            teamNameInputDisabled: false
         });
     }
+
+
+    handleVerifyButtonClick = async(e) => {
+        try {
+            const teamId = this.state.teamId;
+            const teamName = this.state.teamName;
+
+            // const msg = 'Are you sure you want to verify team '+teamName+ ' ? ';
+            // const sign = prompt(msg);
+
+            if(teamName === '' || teamId === ''){
+                alert('Missing fields!');
+            }
+
+            const url = URL + '/api/admin/verifyTeam';
+
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    password: sessionStorage.getItem('password'),
+                    teamName: teamName,
+                    teamId: teamId
+                }),
+            });
+
+            const data = await res.json();
+            
+            if(data.status === 200) {
+                alert(data.message);
+                this.setState({
+                    errMsg: '' ,
+                    parameter: 'Team Name' ,
+                    nameInput: '' ,
+                    idInput: '' ,
+                    teamName: '',
+                    teamId: '', 
+                    teamSize: '', 
+                    teamMembers: [],
+                    points: '', 
+                    leaderName: '', 
+                    leaderPhoneNo: '', 
+                    teamVerified: '', 
+                    teamNameInputDisabled: false , 
+                    teamIdInputDisabled: true, 
+                    verifyTeamDisabled: true,
+                    searchSelectDisabled: false
+                });
+            }
+            else{
+                alert(data.message);
+            }
+        }
+        catch(e) {
+            alert(e);
+        }
+    }
+
 
     handleFormSubmit = async (e) => {
         try {
@@ -178,18 +240,44 @@ class Team extends React.Component {
                     return alert(data.message);
                 }
                 const team = data.team;
-                this.setState({ 
-                    teamName: team.teamName,
-                    teamId: team.teamId,
-                    teamSize: team.teamSize,
-                    teamMembers: team.teamMembers,
-                    points: team.points,
-                    leaderName: team.leaderName,
-                    leaderPhoneNo: team.leaderPhoneNo,
-                    paramValue: team.paramValue,
-                    errMsg: '',
-                    teamVerified: team.teamVerified
-                });
+
+                if(team.teamVerified === true){
+                    this.setState({ 
+                        teamName: team.teamName,
+                        teamId: team.teamId,
+                        teamSize: team.teamSize,
+                        teamMembers: team.teamMembers,
+                        points: team.points,
+                        leaderName: team.leaderName,
+                        leaderPhoneNo: team.leaderPhoneNo,
+                        paramValue: team.paramValue,
+                        errMsg: '',
+                        teamVerified: team.teamVerified,
+                        teamIdInputDisabled: true,
+                        teamNameInputDisabled: true,
+                        searchSelectDisabled: true
+
+                    });
+                }
+                else{
+                    this.setState({ 
+                        teamName: team.teamName,
+                        teamId: team.teamId,
+                        teamSize: team.teamSize,
+                        teamMembers: team.teamMembers,
+                        points: team.points,
+                        leaderName: team.leaderName,
+                        leaderPhoneNo: team.leaderPhoneNo,
+                        paramValue: team.paramValue,
+                        errMsg: '',
+                        teamVerified: team.teamVerified,
+                        verifyTeamDisabled: false,
+                        teamIdInputDisabled: true,
+                        teamNameInputDisabled: true,
+                        searchSelectDisabled: true
+                    });
+                }
+                
             }
             
         } catch (e) {
@@ -204,8 +292,9 @@ class Team extends React.Component {
                     <h1 style={{ textAlign: "center" }}>Instructions</h1>
                     <hr />
                     <ul>
-                        <li>This section is used for viewing the details of a team.</li>
+                        <li>This section is used for viewing the details of a team and then verifying the team if all details are correct.</li>
                         <li>Use the dropdown to select if you want to search the team by Team Name or Team Id.</li>
+                        <li>Once the team details have been obtained, see if the team details are same as in the documents provided by team members. Click on "Verify Team" if details are correct.</li>
                     </ul>
                     <hr />
                 </div>
@@ -213,7 +302,7 @@ class Team extends React.Component {
 
                     <div className="form-group">
                             <label htmlFor="teamSearchMethod">Select if you want to search team by Team Name or Team Id: </label>
-                            <select className="form-control" id="teamSearchMethod" name="teamSearchMethod"  required onChange={this.handleSearchMethodChange} value={this.state.parameter} >
+                            <select disabled={this.searchSelectDisabled} className="form-control" id="teamSearchMethod" name="teamSearchMethod"  required onChange={this.handleSearchMethodChange} value={this.state.parameter} >
                                 <option value="Team Id">Team Id</option>
                                 <option value="Team Name">Team Name</option>
                             </select>
@@ -234,6 +323,7 @@ class Team extends React.Component {
                             <p className="errMsg">{this.state.errMsg}</p>
                             <button  onClick={this.handleFormSubmit} className="btn btn-primary">Show Team Details</button>
                             <button  onClick={this.handleResetButtonClick} className="btn btn-warning">Reset</button>
+                            <button  onClick={this.handleVerifyButtonClick} className="btn btn-success" disabled={this.state.verifyTeamDisabled}>Verify Team</button>
                     </div>
                     <hr></hr>
 
