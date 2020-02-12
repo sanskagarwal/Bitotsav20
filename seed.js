@@ -177,4 +177,15 @@ if (req === 1) {
             console.log("Saved");
         })
     })
+} else if (req === 15) {
+    console.log("It will show unverified teams");
+
+    teamModel.find({teamVerified: false}, (err, tms) => {
+        if(err) {
+            return console.log(err);
+        }
+        tms.forEach((team) => {
+            console.log(team.teamId, team.teamName);
+        });
+    });
 }
