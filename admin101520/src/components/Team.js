@@ -25,7 +25,28 @@ function TableRow (props) {
 class Team extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { teamIds: [] ,errMsg: '' ,parameter: 'Team Name' ,nameInput: '' ,idInput: '' ,teamName: '', teamId: '', teamSize: '', teamMembers: [],points: '', leaderName: '', leaderPhoneNo: '', teamVerified: '', teamNameInputDisabled: false , teamIdInputDisabled: true, verifyTeamDisabled: true , searchSelectDisabled: false};
+        this.state = { 
+            teamIds: [],
+            errMsg: '',
+            parameter: 'Team Name',
+            nameInput: '',
+            idInput: '' ,
+            teamName: '',
+            teamId: '',
+            teamSize: '',
+            teamMembers: [],
+            points: '', 
+            leaderName: '', 
+            leaderPhoneNo: '', 
+            teamVerified: '', 
+            teamNameInputDisabled: false , 
+            teamIdInputDisabled: true, 
+            verifyTeamDisabled: true , 
+            searchSelectDisabled: false,
+            pointsToAdd: '',
+            pointsAddInputDisabled: true,
+            pointsAddButtonDisabled: true
+        };
     }
 
     componentDidMount = async () => {
@@ -117,7 +138,10 @@ class Team extends React.Component {
             verifyTeamDisabled: true,
             searchSelectDisabled: false,
             teamIdInputDisabled: true,
-            teamNameInputDisabled: false
+            teamNameInputDisabled: false,
+            pointsToAdd: '',
+            pointsAddInputDisabled: true,
+            pointsAddButtonDisabled: true
         });
     }
 
@@ -177,6 +201,120 @@ class Team extends React.Component {
             alert(e);
         }
     }
+
+    pointsAddInputChange = (e) => {
+        this.setState({
+            pointsToAdd: e.target.value
+        });
+    }
+
+
+    pointsAddButtonClick = async (e) => {
+        try {
+            const teamId = (this.state.teamId).toString().trim();
+            const teamName = (this.state.teamName).toString().trim();
+            const currentPoints = (this.state.points).toString().trim();
+            const pointsToAdd = (this.state.pointsToAdd).toString().trim();
+
+            if(!teamName || teamName === ''){
+                return alert('Missing fields!');
+            }
+            if(!teamId || teamId === ''){
+                return alert('Missing fields!');
+            }
+            if(!currentPoints || currentPoints === ''){
+                return alert('Missing fields!');
+            }
+            if(!pointsToAdd || pointsToAdd === ''){
+                return alert('Missing fields!');
+            }
+
+            if(isNaN(teamId)){
+                return alert('Team id must be a number!');
+            }
+            if(isNaN(currentPoints)){
+                return alert('Current team points must be a number!');
+            }
+            if(isNaN(pointsToAdd)){
+                return alert('Points to be added must be a number!');
+            }
+
+
+            const url = URL + '/api/admin/addPoints';
+
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    password: sessionStorage.getItem('password'),
+                    teamName: teamName,
+                    teamId: teamId,
+                    currentPoints: currentPoints,
+                    pointsToAdd: pointsToAdd
+                }),
+            });
+
+            const data = await res.json();
+            
+            if(data.status === 200) {
+                alert(data.message);
+                this.setState({
+                    errMsg: '' ,
+                    parameter: 'Team Name' ,
+                    nameInput: '' ,
+                    idInput: '' ,
+                    teamName: '',
+                    teamId: '', 
+                    teamSize: '', 
+                    teamMembers: [],
+                    points: '', 
+                    leaderName: '', 
+                    leaderPhoneNo: '', 
+                    teamVerified: '', 
+                    teamNameInputDisabled: false , 
+                    teamIdInputDisabled: true, 
+                    verifyTeamDisabled: true,
+                    searchSelectDisabled: false,
+                    pointsToAdd: '',
+                    pointsAddInputDisabled: true,
+                    pointsAddButtonDisabled: true
+                });
+            }
+            else{
+                alert(data.message);
+                this.setState({
+                    pointsToAdd: '',
+                    pointsAddInputDisabled: false,
+                    pointsAddButtonDisabled: false
+                });
+            }
+        }
+        catch(e) {
+            alert(e);
+            this.setState({
+                errMsg: '' ,
+                parameter: 'Team Name' ,
+                nameInput: '' ,
+                idInput: '' ,
+                teamName: '',
+                teamId: '', 
+                teamSize: '', 
+                teamMembers: [],
+                points: '', 
+                leaderName: '', 
+                leaderPhoneNo: '', 
+                teamVerified: '', 
+                teamNameInputDisabled: false , 
+                teamIdInputDisabled: true, 
+                verifyTeamDisabled: true,
+                searchSelectDisabled: false,
+                pointsToAdd: '',
+                pointsAddInputDisabled: true,
+                pointsAddButtonDisabled: true
+            });
+        }
+    }
+
 
 
     handleFormSubmit = async (e) => {
@@ -255,8 +393,10 @@ class Team extends React.Component {
                         teamVerified: team.teamVerified,
                         teamIdInputDisabled: true,
                         teamNameInputDisabled: true,
-                        searchSelectDisabled: true
-
+                        searchSelectDisabled: true,
+                        pointsToAdd: '',
+                        pointsAddInputDisabled: false,
+                        pointsAddButtonDisabled: false
                     });
                 }
                 else{
@@ -274,7 +414,10 @@ class Team extends React.Component {
                         verifyTeamDisabled: false,
                         teamIdInputDisabled: true,
                         teamNameInputDisabled: true,
-                        searchSelectDisabled: true
+                        searchSelectDisabled: true,
+                        pointsToAdd: '',
+                        pointsAddInputDisabled: true,
+                        pointsAddButtonDisabled: true
                     });
                 }
                 
@@ -295,6 +438,7 @@ class Team extends React.Component {
                         <li>This section is used for viewing the details of a team and then verifying the team if all details are correct.</li>
                         <li>Use the dropdown to select if you want to search the team by Team Name or Team Id.</li>
                         <li>Once the team details have been obtained, see if the team details are same as in the documents provided by team members. Click on "Verify Team" if details are correct.</li>
+                        <li>Once a team is verified, points can be added after the team details appear.</li>                    
                     </ul>
                     <hr />
                 </div>
@@ -364,6 +508,15 @@ class Team extends React.Component {
                         </div>
                         <div>
                             {this.state.points}
+                        </div>
+                        
+                        <br></br><br></br>
+                        <div className="form-group">
+                            <label htmlFor="pointsAddInput">Enter the points to add to team <strong>{this.state.teamName}</strong>: </label>
+                            <input id="pointsAddInput" className="form-control" disabled={this.state.pointsAddInputDisabled} placeholder='Enter the points to add' value={this.state.pointsToAdd} onChange={this.pointsAddInputChange}></input>
+                            <br></br>
+                            <button  onClick={this.pointsAddButtonClick} className="btn btn-success" disabled={this.state.pointsAddButtonDisabled}>Add points</button>
+                            <br></br>
                         </div>
 
                         <div>
