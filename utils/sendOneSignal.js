@@ -5,19 +5,17 @@ const sendOneSignal = (title, message) => {
     let otpUrl = `https://onesignal.com/api/v1/notifications`;
 
     const headers = {
-	  'Content-Type': 'application/json',
-	  'charset': 'utf-8',
-	  'Authorization': config.oneSignalAPIKey
+	  'Content-Type': 'application/json; charset=utf-8',
+	  'Authorization': `BASIC ${config.oneSignalAPIKey}`
 	}
 
 	const data = {
 		"app_id": config.oneSignalAppId,
-		"contents": {"en": title},
-		"headings": {"en": message},
+		"contents": {"en": message},
+		"headings": {"en": title},
 		"url": "https://onesignal.com",
 		"included_segments": ["All"]
 	}
-
 
     axios({
     	method: "POST",
@@ -29,7 +27,7 @@ const sendOneSignal = (title, message) => {
             console.log("Notification sent");
         })
         .catch(function (error) {
-            console.log(error);
+            console.log("error sending notification");
         })
 };
 

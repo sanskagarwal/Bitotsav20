@@ -539,10 +539,8 @@ router.post('/announcement', (req, res, next) => {
 
 }, async (req, res) => {
     try {
-        const title = req.body.title.toString().trim();
-        const message = req.body.message.toString().trim();
-
-        console.log(title, message);
+        let title = req.body.title;
+        let message = req.body.message;
 
         if (!title || !message) {
             return res.json({
@@ -551,14 +549,14 @@ router.post('/announcement', (req, res, next) => {
             });
         }
 
-        const newannouncement = await announcementModel.create({
+        title = title.toString().trim();
+        message = message.toString().trim();
+
+        await announcementModel.create({
             title: title,
             message: message
         });
-
-        const announcementMongoId = newannouncement._id;
-        console.log(announcementMongoId);
-
+        
         sendOneSignal(title, message);
 
         return res.json({
@@ -572,8 +570,6 @@ router.post('/announcement', (req, res, next) => {
             message: "Server Error!"
         });
     }
-
-
 });
 
 router.post("/sendSMS", (req, res) => {
