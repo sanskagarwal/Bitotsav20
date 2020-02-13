@@ -850,10 +850,22 @@ router.post('/getMessages', (req, res, next) => {
 });
 
 
+// App Routes
 
-
-
-
+router.post('/getNotifications', async (req, res) => {
+    try {
+        const notifications = await announcementModel.find({}).sort({_id: -1}).select({_id: 0});
+        return res.json({
+            status: 200,
+            notifications: notifications
+        });
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: 'Server error!'
+        });
+    }
+});
 
 router.post("/leaderboard", async (req, res) => {
     try {
