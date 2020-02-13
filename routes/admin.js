@@ -245,7 +245,8 @@ router.post('/updateEventById', (req, res, next) => {
         }
 
         const cashPrize = req.body.cashPrize;
-
+        const dummy1 = req.body.dummy1;
+        console.log(dummy1);
         const updatedEvent = await eventModel.updateOne({
             _id: eventMongoId
         }, {
@@ -256,7 +257,8 @@ router.post('/updateEventById', (req, res, next) => {
                 rulesAndRegulations,
                 contactInformation,
                 duration,
-                cashPrize
+                cashPrize,
+                dummy1
             }
         });
 

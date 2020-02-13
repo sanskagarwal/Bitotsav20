@@ -26,7 +26,7 @@ class Login extends React.Component {
                     <div className="col-md-4">
                     </div>
                     <div className="col-md-4">
-                        {(this.props.loggedIn && <p>Logged In Successfully</p>) ||
+                        {(this.props.loggedIn && <p><span style={{color: "green"}}>Logged In Successfully!</span>  <br />Actually, you may not be logged in, make sure you have entered the password correctly. <br /><strong>Why?</strong> <br /> I am too lazy to fix it :)</p>) ||
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="password">Password</label>
