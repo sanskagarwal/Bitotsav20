@@ -8,10 +8,12 @@ if (process.env.NODE_ENV === 'development') {
     URL = 'https://bitotsav.in';
 }
 
+let eventWinners = ['', '', '']
+
 class Event extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { events: [], eventId: -1, update: 0, points: '', venue: '', description: '', rulesAndRegulations: '', contactInformation: '', duration: '', cashPrize: '', _id: '', eventDetails: {} };
+        this.state = { events: [], eventId: -1, update: 0, points: '', venue: '', description: '', rulesAndRegulations: '', contactInformation: '', duration: '', cashPrize: '', _id: '', dummy1: '', eventDetails: {} };
     }
 
     componentDidMount = async () => {
@@ -50,8 +52,10 @@ class Event extends React.Component {
             if (data.status !== 200) {
                 return alert(data.message);
             }
-            console.log(data.event);
             const event = data.event;
+            if (event.dummy1) {
+                eventWinners = event.dummy1.split("!@#$%");
+            }
             this.setState({ eventDetails: event, points: event.points, _id: event._id, venue: event.venue, description: event.description, rulesAndRegulations: event.rulesAndRegulations, contactInformation: event.contactInformation, duration: event.duration, cashPrize: event.cashPrize });
         } catch (e) {
             alert(e);
@@ -60,12 +64,14 @@ class Event extends React.Component {
 
     handleClick1 = (e) => {
         console.log(this.state.eventId);
+        eventWinners = ['', '', ''];
         this.setState({ update: 0 });
         this.getEventById();
     }
 
     handleClick2 = (e) => {
         console.log(this.state.eventId);
+        eventWinners = ['', '', ''];
         this.setState({ update: 1 });
         this.getEventById();
     }
@@ -73,10 +79,17 @@ class Event extends React.Component {
     handleFormChange = (e) => {
         let nam = e.target.name;
         let val = e.target.value;
-        this.setState({ [nam]: val });
+        if (nam.includes("eventWinners")) {
+            let num = Number(nam.slice(-1));
+            eventWinners[num] = val;
+            this.setState({ dummy1: eventWinners.join("!@#$%") });
+        } else {
+            this.setState({ [nam]: val });
+        }
     }
 
     handleFormSubmit = async (e) => {
+        console.log(this.state.eventWinners);
         try {
             const url = URL + '/api/admin/updateEventById';
             const res = await fetch(url, {
@@ -91,7 +104,8 @@ class Event extends React.Component {
                     rulesAndRegulations: this.state.rulesAndRegulations,
                     contactInformation: this.state.contactInformation,
                     duration: this.state.duration,
-                    cashPrize: this.state.cashPrize
+                    cashPrize: this.state.cashPrize,
+                    dummy1: eventWinners.join("!@#$%")
                 }),
             });
             const data = await res.json();
@@ -166,9 +180,30 @@ class Event extends React.Component {
                             </div>
                             <div className="font-weight-bold">
                                 Duration
-                    </div>
+                            </div>
                             <div>
                                 {this.state.update === 1 ? (<input type="text" name="duration" value={this.state.duration} onChange={this.handleFormChange} />) : this.state.eventDetails.duration}
+                            </div>
+                            <div className="font-weight-bold">
+                                Event Winners
+                            </div>
+                            <div>
+                                {
+                                    this.state.update === 1 ?
+                                        (<div>
+                                            <div>First Place
+                                                <input type="text" name="eventWinners0" value={eventWinners[0]} onChange={this.handleFormChange} />
+                                            </div>
+                                            <div>Second Place
+                                                <input type="text" name="eventWinners1" value={eventWinners[1]} onChange={this.handleFormChange} />
+                                            </div>
+                                            <div>Third Place
+                                                <input type="text" name="eventWinners2" value={eventWinners[2]} onChange={this.handleFormChange} />
+                                            </div>
+                                        </div>)
+                                        :
+                                        eventWinners.join()
+                                }
                             </div>
                             <div className="font-weight-bold">
                                 Description

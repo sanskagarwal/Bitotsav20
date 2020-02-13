@@ -245,7 +245,8 @@ router.post('/updateEventById', (req, res, next) => {
         }
 
         const cashPrize = req.body.cashPrize;
-
+        const dummy1 = req.body.dummy1;
+        console.log(dummy1);
         const updatedEvent = await eventModel.updateOne({
             _id: eventMongoId
         }, {
@@ -256,7 +257,8 @@ router.post('/updateEventById', (req, res, next) => {
                 rulesAndRegulations,
                 contactInformation,
                 duration,
-                cashPrize
+                cashPrize,
+                dummy1
             }
         });
 
@@ -803,14 +805,7 @@ router.post('/verifyTeam', (req, res, next) => {
         const teamId = Number((req.body.teamId).toString().trim());
         const teamName = req.body.teamName.toString().trim().toLowerCase();
 
-        const updatedTeam = await teamModel.findOneAndUpdate({
-            teamId: teamId,
-            teamName: teamName
-        }, {
-            $set: {
-                teamVerified: true
-            }
-        });
+        const updatedTeam = await teamModel.findOneAndUpdate({ teamId: teamId, teamName: teamName }, { $set: { teamVerified: true } });
         // console.log(updatedTeam);
         return res.json({
             status: 200,
@@ -940,10 +935,22 @@ router.post('/getMessages', (req, res, next) => {
 });
 
 
+// App Routes
 
-
-
-
+router.post('/getNotifications', async (req, res) => {
+    try {
+        const notifications = await announcementModel.find({}).sort({_id: -1}).select({_id: 0});
+        return res.json({
+            status: 200,
+            notifications: notifications
+        });
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: 'Server error!'
+        });
+    }
+});
 
 router.post("/leaderboard", async (req, res) => {
     try {
