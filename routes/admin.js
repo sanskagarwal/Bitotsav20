@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const adminAuth = require('./../utils/adminAuth');
-const sendFcmMessage = require('./../utils/fcm');
+const sendOneSignal = require('./../utils/sendOneSignal');
 const Sap = require('./../models/studentAmbassador');
 const eventModel = require('./../models/events');
 const userModel = require('./../models/user');
@@ -559,20 +559,7 @@ router.post('/announcement', (req, res, next) => {
         const announcementMongoId = newannouncement._id;
         console.log(announcementMongoId);
 
-
-        // sendFcmMessage({
-        //     "message": {
-        //         "topic": "General",
-        //         "notification": {
-        //             "title": title,
-        //             "body": message
-        //         },
-        //         "data": {
-        //             "notification_id": notificationMongoId
-        //         }
-        //     }
-        // });
-
+        sendOneSignal(title, message);
 
         return res.json({
             status: 200,
