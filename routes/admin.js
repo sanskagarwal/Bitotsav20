@@ -740,14 +740,14 @@ router.post('/getAllTeamIds', (req, res, next) => {
 }, async (req, res) => {
     try {
         const teamIds = await teamModel.
-            find({}).
-            sort({
-                teamId: 1
-            }).
-            select({
-                _id: 0,
-                teamId: 1
-            });
+        find({}).
+        sort({
+            teamId: 1
+        }).
+        select({
+            _id: 0,
+            teamId: 1
+        });
 
         // console.log(teamIds);
 
@@ -796,7 +796,7 @@ router.post('/verifyTeam', (req, res, next) => {
         // console.log(updatedTeam);
         return res.json({
             status: 200,
-            message: `The team with team id: ${teamId} has been successfully verified!`
+            message: `The team with team name: ${teamName} and team id: ${teamId} has been successfully verified!`
         });
 
     } catch (e) {
@@ -805,7 +805,90 @@ router.post('/verifyTeam', (req, res, next) => {
             message: `Team not found!`
         });
     }
-})
+});
+
+router.post('/addPoints', (req, res, next) => {
+    const validForEventsTeam = adminAuth('events', req.body.password);
+    if (!validForEventsTeam) {
+        return res.json({
+            status: 401,
+            message: "Not Authorised!"
+        });
+    }
+    next();
+}, async (req, res) => {
+    try {
+        if (!req.body.teamId || req.body.teamId === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if(isNaN(req.body.teamId)) {
+            return res.json({
+                status: 422,
+                message: "Please ensure that points to be added is a numbers!"
+            });
+        }
+        if (!req.body.teamName || req.body.teamName === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if (!req.body.pointsToAdd || req.body.pointsToAdd === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if(isNaN(req.body.pointsToAdd)) {
+            return res.json({
+                status: 422,
+                message: "Please ensure that points to be added is a numbers!"
+            });
+        }
+        if (!req.body.currentPoints || req.body.currentPoints === '') {
+            return res.json({
+                status: 422,
+                message: "Missing fields!"
+            });
+        }
+        if(isNaN(req.body.currentPoints)) {
+            return res.json({
+                status: 422,
+                message: "Please ensure that current points is a numbers!"
+            });
+        }
+        const teamId = Number((req.body.teamId).toString().trim());
+        const teamName = req.body.teamName.toString().trim().toLowerCase();
+        const pointsToAdd = Number((req.body.pointsToAdd).toString().trim());
+        const currentPoints = Number((req.body.currentPoints).toString().trim());
+
+        const newPoints = Number(currentPoints + pointsToAdd);
+
+        const updatedTeam = await teamModel.findOneAndUpdate({teamId: teamId, teamName: teamName}, { $set: {points: newPoints}});
+
+        if(updatedTeam) {
+            return res.json({
+                status: 200,
+                message: `${pointsToAdd} points successfully added to team: ${teamName}!`
+            });
+        }
+
+        return res.json({
+            status: 422,
+            message: `Team not found!`
+        });
+        
+
+    } catch (e) {
+        return res.json({
+            status: 500,
+            message: 'Server error!'
+        });
+    }
+});
 
 
 
@@ -822,7 +905,9 @@ router.post('/getMessages', (req, res, next) => {
     next();
 }, async (req, res) => {
     try {
-        const feedbacks = await contactModel.find({}, { _id: 0 });
+        const feedbacks = await contactModel.find({}, {
+            _id: 0
+        });
         // console.log(feedbacks);
         return res.json({
             status: 200,
@@ -857,18 +942,18 @@ router.post('/getNotifications', async (req, res) => {
 router.post("/leaderboard", async (req, res) => {
     try {
         const leaderboard = await teamModel.
-            find({
-                'teamVerified': true
-            }).
-            sort({
-                points: -1
-            }).
-            select({
-                _id: 0,
-                teamName: 1,
-                teamId: 1,
-                points: 1
-            });
+        find({
+            'teamVerified': true
+        }).
+        sort({
+            points: -1
+        }).
+        select({
+            _id: 0,
+            teamName: 1,
+            teamId: 1,
+            points: 1
+        });
         return res.send({
             status: 200,
             leaderboard: leaderboard
