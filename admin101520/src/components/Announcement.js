@@ -25,7 +25,7 @@ class Announcement extends React.Component {
     }
 
     handleMessageChange = (e) => {
-        const value = e.target.value.toString().trim();
+        const value = e.target.value;
         this.setState({
             message: value
         });
