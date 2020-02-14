@@ -528,7 +528,7 @@ router.post("/getStats", (req, res) => {
 
 //notifications
 router.post('/announcement', (req, res, next) => {
-    const valid = adminAuth('web', req.body.password);
+    const valid = adminAuth('events', req.body.password);
     if (!valid) {
         return res.json({
             status: 401,
