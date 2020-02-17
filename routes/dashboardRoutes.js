@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { isEmail } = require('validator');
+const closeRegistration = require('../utils/closeRegistration');
 const verifyToken = require('../utils/verifyToken');
 const userModel = require('../models/user');
 const teamModel = require('../models/team');
@@ -285,7 +286,7 @@ router.post('/register', verifyToken, async (req, res) => {
 });
 
 
-router.post('/deregister', verifyToken, async (req, res) => {
+router.post('/deregister', closeRegistration, verifyToken, async (req, res) => {
     try {
         const userMongoId = req.userId;
         const rawUser = await userModel.findById(userMongoId);
