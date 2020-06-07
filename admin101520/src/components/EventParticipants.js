@@ -105,6 +105,7 @@ class EventParticipants extends React.Component {
                                     <th scope="col">Leader Phone</th>
                                     <th scope="col">Member Details</th>
                                     <th scope="col">College Name</th>
+                                    <th scope="col">Roll No</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -124,6 +125,7 @@ class EventParticipants extends React.Component {
                                                 <td>{res.leaderPhoneNo}</td>
                                                 <td>{members}</td>
                                                 <td>{res.college}</td>
+                                                <td>{res.rollNo}</td>
                                             </tr>
                                         )
                                     }))
