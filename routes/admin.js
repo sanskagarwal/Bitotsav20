@@ -346,7 +346,8 @@ router.post("/getTeamsByEventId", async (req, res) => {
                                 email: user.email,
                                 bitotsavId: user.bitotsavId
                             }],
-                            college: user.clgName
+                            college: user.clgName,
+                            rollNo: user.clgId
                         });
                     } else {
                         mainUsers.push({
@@ -355,7 +356,8 @@ router.post("/getTeamsByEventId", async (req, res) => {
                             leaderName: user.name,
                             leaderPhoneNo: user.phoneNo,
                             teamMembers: events.members,
-                            college: user.clgName
+                            college: user.clgName,
+                            rollNo: user.clgId
                         });
                     }
                 }
