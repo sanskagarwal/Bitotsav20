@@ -9,12 +9,14 @@ const dashboard = require('./dashboardRoutes');
 const coreTeam = require('./team');
 const contact = require('./contact');
 
-router.use('/sap', sap);
-router.use('/auth', authenticate);
+const closeRegistration = require('./../utils/closeRegistration');
+
+router.use('/sap', closeRegistration ,sap);
+router.use('/auth', closeRegistration, authenticate);
 router.use('/admin', admin);
 router.use('/events', events);
 router.use('/dash', dashboard);
 router.use('/team', coreTeam);
-router.use('/contact', contact);
+router.use('/contact', closeRegistration, contact);
 
 module.exports = router;
